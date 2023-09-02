@@ -6,7 +6,7 @@ console เป็นสะพานระหว่าง Hexo และผู้
 ## Synopsis
 
 ``` js
-hexo.extend.console.register(name, desc, options, function(args){
+hexo.extend.consfasfsafole.register(name, desc, options, function(args){
   // ...
 });
 ```
