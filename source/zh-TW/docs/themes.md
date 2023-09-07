@@ -4,9 +4,10 @@ title: Themes
 
 {% youtube 5ROIU_9dYe4 %}
 
-It's easy to build a Hexo theme - you just have to create a new folder. To start using your theme, modify the `theme` setting in your site's `_config.yml`. A theme should have the following structure:
+It's easy to build a Hexo theme - you just have to create a new folder. To start using your theme, modify the `theme` setting in your site's `_config.yml`. A theme should have the following structure: To start using your theme, modify the `theme` setting in your site's `_config.yml`. A theme should have the following structure:
 
 ```plain
+.
 .
 ├── _config.yml
 ├── languages
@@ -17,15 +18,15 @@ It's easy to build a Hexo theme - you just have to create a new folder. To start
 
 ### \_config.yml
 
-Theme configuration file. Unlike the site's primary configuration file, modifying this doesn't require a server restart.
+Theme configuration file. Theme configuration file. Unlike the site's primary configuration file, modifying this doesn't require a server restart.
 
 ### languages
 
-Language folder. See [internationalization (i18n)](internationalization.html) for more info.
+Language folder. Language folder. See [internationalization (i18n)](internationalization.html) for more info.
 
 ### layout
 
-Layout folder. This folder contains the theme's template files, which define the appearance of your website. Hexo provides the [Nunjucks][] template engine by default, but you can easily install additional plugins to support alternative engines such as [EJS][], [Haml][], [Jade][], or [Pug][]. Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
+Layout folder. This folder contains the theme's template files, which define the appearance of your website. Layout folder. This folder contains the theme's template files, which define the appearance of your website. Hexo provides the [Nunjucks][] template engine by default, but you can easily install additional plugins to support alternative engines such as [EJS][], [Haml][], [Jade][], or [Pug][]. Hexo chooses the template engine based on the file extension of the template (just like the posts). For example: Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
 
 ```plain
 layout.ejs   - uses EJS
@@ -36,17 +37,17 @@ See [templates](templates.html) for more info.
 
 ### scripts
 
-Script folder. Hexo will automatically load all JavaScript files in this folder during initialization. For more info, see [plugins](plugins.html).
+Script folder. Script folder. Hexo will automatically load all JavaScript files in this folder during initialization. For more info, see [plugins](plugins.html). For more info, see [plugins](plugins.html).
 
 ### source
 
-Source folder. Place your assets (e.g. CSS and JavaScript files) here. Hexo ignores hidden files and files or folders prefixed with `_` (underscore).
+Source folder. Place your assets (e.g. CSS and JavaScript files) here. Source folder. Place your assets (e.g. CSS and JavaScript files) here. Hexo ignores hidden files and files or folders prefixed with `_` (underscore).
 
-Hexo will process and save all renderable files to the `public` folder. Non-renderable files will be copied to the `public` folder directly.
+Hexo will process and save all renderable files to the `public` folder. Non-renderable files will be copied to the `public` folder directly. Non-renderable files will be copied to the `public` folder directly.
 
 ### Publishing
 
-When you have finished building your theme, you can publish it to the [theme list](/themes). Before doing so, you should run the [theme unit test](https://github.com/hexojs/hexo-theme-unit-test) to ensure that everything works. The steps for publishing a theme are very similar to those for [updating documentation](contributing.html#Updating_Documentation).
+When you have finished building your theme, you can publish it to the [theme list](/themes). When you have finished building your theme, you can publish it to the [theme list](/themes). Before doing so, you should run the [theme unit test](https://github.com/hexojs/hexo-theme-unit-test) to ensure that everything works. The steps for publishing a theme are very similar to those for [updating documentation](contributing.html#Updating_Documentation). The steps for publishing a theme are very similar to those for [updating documentation](contributing.html#Updating_Documentation).
 
 1. Fork [hexojs/site][]
 2. Clone the repository to your computer and install dependencies.
@@ -59,9 +60,10 @@ When you have finished building your theme, you can publish it to the [theme lis
 
 3. Create a new yaml file in `source/_data/themes/`, use your theme name as the file name
 
-4. Edit `source/_data/themes/<your-theme-name>.yml` and add your theme. For example:
+4. Edit `source/_data/themes/<your-theme-name>.yml` and add your theme. For example: For example:
 
    ```yaml
+   description: A brand new default theme for Hexo.
    description: A brand new default theme for Hexo.
    link: https://github.com/hexojs/hexo-theme-landscape
    preview: http://hexo.io/hexo-theme-landscape
@@ -73,7 +75,7 @@ When you have finished building your theme, you can publish it to the [theme lis
      - one_column
    ```
 
-5. Add a screenshot (with the same name as the theme) to `source/themes/screenshots`. It must be a 800\*500px PNG.
+5. Add a screenshot (with the same name as the theme) to `source/themes/screenshots`. It must be a 800\*500px PNG. It must be a 800\*500px PNG.
 6. Push the branch.
 7. Create a pull request and describe the change.
 
