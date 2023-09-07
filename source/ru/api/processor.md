@@ -1,9 +1,10 @@
 ---
-title: Обработчик
+title: Processor
 ---
-Обработчик используется для обработки исходных файлов в папке `source`.
 
-## Краткий обзор
+A processor is used to process source files in the `source` folder.
+
+## Synopsis
 
 ``` js
 hexo.extend.processor.register(rule, function(file){
@@ -11,4 +12,4 @@ hexo.extend.processor.register(rule, function(file){
 });
 ```
 
-Более подробная информация: [Модуль](box.html).
+For more info, see [box](box.html).
