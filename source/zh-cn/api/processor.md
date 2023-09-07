@@ -10,6 +10,7 @@ title: 处理器（Processor）
 hexo.extend.processor.register(rule, function(file){
 });
 });
+});
 ```
 
 完整说明请参考 [Box](box.html)。
