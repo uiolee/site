@@ -2,7 +2,7 @@
 title: Events
 ---
 
-Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
+Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
@@ -26,7 +26,7 @@ Emitted after generation finishes.
 
 ### new
 
-Emitted after a new post has been created. This event returns the post data:
+Emitted after a new post has been created. Emitted after a new post has been created. This event returns the post data:
 
 ``` js
 hexo.on('new', function(post){
@@ -45,7 +45,7 @@ Emitted before processing begins. This event returns a path representing the roo
 
 ### processAfter
 
-Emitted after processing finishes. This event returns a path representing the root directory of the box.
+Emitted after processing finishes. Emitted after processing finishes. This event returns a path representing the root directory of the box.
 
 ### ready
 
