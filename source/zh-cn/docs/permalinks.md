@@ -1,68 +1,68 @@
 ---
-title: Permalinks
+title: 永久链接
 ---
 
-You can specify the permalinks for your site in `_config.yml` or in the front-matter for each post.
+您可以在 `_config.yml` 或在每个帖子的前缀中为您的网站指定永久链接。
 
-### Variables
+### 变量
 
-Besides the following variables, you can use any attributes in the permalink.
+除以下变量外，您还可以使用永久链接中的任何属性。
 
-| Variable      | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `:year`       | Published year of posts (4-digit)                                                   |
-| `:month`      | Published month of posts (2-digit)                                                  |
-| `:i_month`    | Published month of posts (Without leading zeros)                                    |
-| `:day`        | Published day of posts (2-digit)                                                    |
-| `:i_day`      | Published day of posts (Without leading zeros)                                      |
-| `:hour`       | Published hour of posts (2-digit)                                                   |
-| `:minute`     | Published minute of posts (2-digit)                                                 |
-| `:second`     | Published second of posts (2-digit)                                                 |
-| `:title`      | Filename (relative to "source/_posts/" folder)                                      |
-| `:name`       | Filename                                                                            |
-| `:post_title` | Post title                                                                          |
-| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_)               |
-| `:category`   | Categories. If the post is uncategorized, it will use the `default_category` value. |
-| `:hash`       | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)                  |
+| 变量            | 描述                                                                    |
+| ------------- | --------------------------------------------------------------------- |
+| `:年`          | 发布时间 (4位数)                                                            |
+| `:月`          | 发布月(2位数)                                                              |
+| `:i_月`        | 发布月的帖子 (不带前零)                                                         |
+| `:day`        | 发布日期 (2位数)                                                            |
+| `:i_day`      | 发布日期 (不带前零)                                                           |
+| `:小时`         | 发布时间(2位数)                                                             |
+| `:分钟`         | 发布时间(2位数)                                                             |
+| `:秒`          | 发布第二个帖子(2位数)                                                          |
+| `:title`      | 文件名(相对于"source/_posts/"文件夹)                                           |
+| `:name`       | 文件名                                                                   |
+| `:pos_title`  | 帖子标题                                                                  |
+| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_) |
+| `:categories` | 分类 如果帖子未分类，它将使用 `默认类别` 值。                                             |
+| `:hash`       | SHA1 文件名哈希值(与 `:title`)和日期 (12-十六进制)                                  |
 
-You can define the default value of each variable in the permalink through the `permalink_defaults` setting:
+您可以通过 `permalink_default` 设置来定义永久链接中每个变量的默认值：
 
 ``` yaml
-permalink_defaults:
+permalink_defauls:
   lang: en
 ```
 
-### Examples
+### 示例：
 
 ``` yaml source/_posts/hello-world.md
 title: Hello World
 date: 2013-07-14 17:01:34
-categories:
+类别:
 - foo
 - bar
 ```
 
-| Setting                         | Result                      |
-| ------------------------------- | --------------------------- |
-| `:year/:month/:day/:title/`     | 2013/07/14/hello-world/     |
-| `:year-:month-:day-:title.html` | 2013-07-14-hello-world.html |
-| `:category/:title/`             | foo/bar/hello-world/        |
-| `:title-:hash/`                 | hello-world-a2c8ac003b43/   |
+| 设置                            | 结果                          |
+| ----------------------------- | --------------------------- |
+| `:year/:month/:day/:title/`   | 2013/07/14/hello-world/     |
+| `:year:month-:day:title.html` | 2013-07-14-hello-world.html |
+| `:category/:title/`           | foo/bar/hello-world/        |
+| `:title-:hash/`               | hello-world-a2c8ac003b43/   |
 
 ``` yaml source/_posts/lorem/hello-world.md
 title: Hello World
 date: 2013-07-14 17:01:34
-categories:
+类别:
 - foo
 - bar
 ```
 
-| Setting                     | Result                        |
+| 设置                          | 结果                            |
 | --------------------------- | ----------------------------- |
 | `:year/:month/:day/:title/` | 2013/07/14/lorem/hello-world/ |
 | `:year/:month/:day/:name/`  | 2013/07/14/hello-world/       |
 
-### Multi-language Support
+### 多语言支持
 
 To create a multi-language site, you can modify the `new_post_name` and `permalink` settings like this:
 
@@ -71,14 +71,14 @@ new_post_name: :lang/:title.md
 permalink: :lang/:title/
 ```
 
-When you create a new post, the post will be saved to:
+当您创建一个新帖子时，帖子将被保存到：
 
 ``` bash
 $ hexo new "Hello World" --lang tw
 # => source/_posts/tw/Hello-World.md
 ```
 
-and the URL will be:
+和 URL 将是：
 
 ``` plain
 http://localhost:4000/tw/hello-world/
