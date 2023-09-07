@@ -2,7 +2,7 @@
 title: Helper
 ---
 
-A helper makes it easy to quickly add snippets to your templates. We recommend using helpers instead of templates when you're dealing with more complicated code.
+A helper makes it easy to quickly add snippets to your templates. A helper makes it easy to quickly add snippets to your templates. We recommend using helpers instead of templates when you're dealing with more complicated code.
 
 Helpers can not be accessed from `source` files.
 
@@ -11,6 +11,7 @@ Helpers can not be accessed from `source` files.
 ``` js
 hexo.extend.helper.register(name, function(){
   // ...
+});
 });
 ```
 
@@ -35,7 +36,7 @@ Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
 
 ### How do I use another registered helper in my custom helper?
 
-All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
+All helpers are executed in the same context. All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
