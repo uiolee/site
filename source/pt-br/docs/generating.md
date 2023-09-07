@@ -1,26 +1,26 @@
 ---
-title: Generating
+title: Gerando
 ---
 
-Generating static files with Hexo is quite easy and fast.
+Gerar arquivos estáticos com o Hexo é muito fácil e rápido.
 
 ``` bash
-$ hexo generate
+Geração de $ hexos
 ```
 
 {% youtube viEJQPVCoLU %}
 
-### Watch for File Changes
+### Procurar por alterações nos arquivos
 
-Hexo can watch for file changes and regenerate files immediately. Hexo will compare the SHA1 checksum of your files and only write if file changes are detected.
+Hexo pode acompanhar alterações de arquivos e regenerar arquivos imediatamente. Hexo irá comparar a soma de verificação SHA1 de seus arquivos e só escreverá se alterações de arquivo forem detectadas.
 
 ``` bash
 $ hexo generate --watch
 ```
 
-### Deploy After Generating
+### Implantar após a geração
 
-To deploy after generating, you can run one of the following commands. There is no difference between the two.
+Para implantar após a geração, você pode executar um dos seguintes comandos. Não há diferença entre os dois.
 
 ``` bash
 $ hexo generate --deploy
