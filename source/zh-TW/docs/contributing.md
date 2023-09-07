@@ -6,7 +6,7 @@ We welcome you to join the development of Hexo. 🤗
 
 ## Development
 
-We welcome you to join the development of Hexo. This document will help you through the process.
+We welcome you to join the development of Hexo. 🤗 We welcome you to join the development of Hexo. This document will help you through the process.
 
 ### Before You Start
 
@@ -50,7 +50,7 @@ $ git push origin new_feature
 ### Notice
 
 - Please don't modify version number in `package.json`.
-- Your pull request will only get merged when tests passed. Don't forget to run tests before submission.
+- Your pull request will only get merged when tests passed. Don't forget to run tests before submission. Don't forget to run tests before submission.
 
 ``` bash
 $ npm test
@@ -58,7 +58,7 @@ $ npm test
 
 ## Updating official-plugins
 
-Also, we welcome PR or issue to [official-plugins](https://github.com/hexojs). 🤗
+Also, we welcome PR or issue to [official-plugins](https://github.com/hexojs). 🤗 🤗
 
 ## Updating Documentation
 
@@ -76,7 +76,7 @@ $ cd site
 $ npm install
 ```
 
-3. Start editing the documentation. You can start the server for live previewing.
+3. Start editing the documentation. Start editing the documentation. You can start the server for live previewing.
 
 ``` bash
 $ hexo server
@@ -87,14 +87,14 @@ $ hexo server
 
 ### Translating
 
-1. Add a new language folder in `source` folder. (All lower case)
+1. Add a new language folder in `source` folder. (All lower case) (All lower case)
 2. Copy Markdown and template files in `source` folder to the new language folder.
 3. Add the new language to `source/_data/language.yml`.
 4. Copy `en.yml` in `themes/navy/languages` and rename to the language name (all lower case).
 
 ## Reporting Issues
 
-When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). If you can't find the answer, please report it on GitHub.
+When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). If you can't find the answer, please report it on GitHub. If you can't find the answer, please report it on GitHub.
 
 1. Represent the problem in [debug mode](commands.html#Debug_mode).
 2. Follow the steps from issue template to provide debug message and version when submitting a new issue at GitHub.
