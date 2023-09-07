@@ -1,32 +1,32 @@
 ---
-title: Events
+title: События
 ---
 
-Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
+Hexo унаследован от сборщика событий [EventEmitter][]. Используйте метод `on` для просмотра событий Hexo и метод `emit` для генерации событий. Более подробную информацию смотрите в документации Node.js API.
 
-### deployBefore
+### развертывание до
 
-Emitted before deployment begins.
+Вызывается перед началом развёртывания.
 
-### deployAfter
+### развертывание после
 
-Emitted after deployment finishes.
+Вызывается после окончания развёртывания.
 
-### exit
+### выйти
 
-Emitted before Hexo exits.
+Вызывается перед закрытием Hexo.
 
-### generateBefore
+### сгенерироватьПеред
 
-Emitted before generation begins.
+Вызывается перед началом генерации.
 
-### generateAfter
+### сгенерировать после
 
-Emitted after generation finishes.
+Вызывается после окончания генерации.
 
-### new
+### новый
 
-Emitted after a new post has been created. This event returns the post data:
+Вызывается после того, как пост создан. Событие возвращает данные поста:
 
 ``` js
 hexo.on('new', function(post){
@@ -34,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-| Data           | Description                |
-| -------------- | -------------------------- |
-| `post.path`    | Full path of the post file |
-| `post.content` | Content of the post file   |
+| Данные         | Описание                  |
+| -------------- | ------------------------- |
+| `путь к посту` | Полный путь к файлу поста |
+| `post.content` | Содержание файла поста    |
 
-### processBefore
+### процесс перед
 
-Emitted before processing begins. This event returns a path representing the root directory of the box.
+Генерируется перед началом процесса. Событие возвращает корневой каталог модуля.
 
 ### processAfter
 
-Emitted after processing finishes. This event returns a path representing the root directory of the box.
+Генерируется после окончания процесса. Событие возвращает корневой каталог модуля.
 
-### ready
+### готовый
 
-Emitted after initialization finishes.
+Генерируется после инициализации.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
