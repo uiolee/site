@@ -6,15 +6,15 @@ title: 配置
 
 ### 网站
 
-| Setting       | 描述                                                                                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`       | 网站标题                                                                                                                                                                            |
-| `subtitle`    | 网站副标题                                                                                                                                                                           |
-| `description` | 网站描述                                                                                                                                                                            |
-| `keywords`    | 网站的关键词。 支持多个关键词。                                                                                                                                                                |
-| `author`      | 您的名字                                                                                                                                                                            |
-| `language`    | 网站使用的语言。 Use a [2-letter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) or optionally [its variant](/docs/internationalization). Default is `en`.       |
-| `timezone`    | 网站时区。 Hexo 默认使用您电脑的时区。 请参考 [时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 进行设置，如 `America/New_York`, `Japan`, 和 `UTC` 。 一般的，对于中国大陆地区可以使用 `Asia/Shanghai`。 |
+| Setting       | 描述                                                                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `title`       | 网站标题                                                                                                                                                                                       |
+| `subtitle`    | 网站副标题                                                                                                                                                                                      |
+| `description` | 网站描述                                                                                                                                                                                       |
+| `keywords`    | 网站的关键词。 支持多个关键词。                                                                                                                                                                           |
+| `author`      | 您的名字                                                                                                                                                                                       |
+| `language`    | 网站使用的语言。 Use a [2-letter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) or optionally [its variant](/docs/internationalization). Default is `en`. Default is `en`. |
+| `timezone`    | 网站时区。 Hexo 默认使用您电脑的时区。 请参考 [时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 进行设置，如 `America/New_York`, `Japan`, 和 `UTC` 。 一般的，对于中国大陆地区可以使用 `Asia/Shanghai`。            |
 
 ### 网址
 
@@ -45,8 +45,8 @@ pretty_urls:
 
 | Setting        | 描述                                                                                                                | 默认值              |
 | -------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `source_dir`   | Source folder. Where your content is stored                                                                       | `source`         |
-| `public_dir`   | Public folder. Where the static site will be generated                                                            | `public`         |
+| `source_dir`   | Source folder. Source folder. Where your content is stored                                                        | `source`         |
+| `public_dir`   | Public folder. Public folder. Where the static site will be generated                                             | `public`         |
 | `tag_dir`      | 标签文件夹                                                                                                             | `tags`           |
 | `archive_dir`  | 归档文件夹                                                                                                             | `archives`       |
 | `category_dir` | 分类文件夹                                                                                                             | `categories`     |
@@ -62,6 +62,10 @@ skip_render: "mypage/**/*"
 # 你也可以用这种方法来跳过对指定文章文件的渲染
 skip_render: "_posts/test-post.md"
 # 这将会忽略对 'test-post.md' 的渲染
+
+## This also can be used to exclude posts,
+skip_render: "_posts/test-post.md"
+# will ignore the `source/_posts/test-post.md`.
 
 ## This also can be used to exclude posts,
 skip_render: "_posts/test-post.md"
@@ -94,7 +98,7 @@ skip_render: "_posts/test-post.md"
 | `index_generator`                | Generate an archive of posts, powered by [hexo-generator-index](https://github.com/hexojs/hexo-generator-index) |         |
 | `index_generator.path`           | Root path for your blog's index page                                                                            | `''`    |
 | `index_generator.per_page`       | Posts displayed per page.                                                                                       | `10`    |
-| `index_generator.order_by`       | Posts order. Order by descending date (new to old) by default.                                                  | `-date` |
+| `index_generator.order_by`       | Posts order. Posts order. Order by descending date (new to old) by default.                                     | `-date` |
 | `index_generator.pagination_dir` | URL format, see [Pagination](#Pagination) setting below                                                         | `page`  |
 
 ### 分类 & 标签
@@ -135,10 +139,10 @@ Hexo 使用 [Moment.js](http://momentjs.com/) 来解析和显示时间。
 
 ### 分页
 
-| Setting          | 描述                                                              | 参数     |
-| ---------------- | --------------------------------------------------------------- | ------ |
-| `per_page`       | Number of posts displayed on each page. `0` disables pagination | `10`   |
-| `pagination_dir` | URL format                                                      | `page` |
+| Setting          | 描述                                                                                      | 参数     |
+| ---------------- | --------------------------------------------------------------------------------------- | ------ |
+| `per_page`       | Number of posts displayed on each page. `0` disables pagination `0` disables pagination | `10`   |
+| `pagination_dir` | URL format                                                                              | `page` |
 
 例如：
 
@@ -161,7 +165,7 @@ pagination_dir: 'awesome-page'
 
 ### 包括或不包括目录和文件
 
-Use the following options to explicitly process or ignore certain files/folders. Support [glob expressions](https://github.com/micromatch/micromatch#extended-globbing) for path matching.
+Use the following options to explicitly process or ignore certain files/folders. Use the following options to explicitly process or ignore certain files/folders. Support [glob expressions](https://github.com/micromatch/micromatch#extended-globbing) for path matching.
 
 `include` 和 `exclude` 选项只会应用到 `source/` ，而 `ignore` 选项会应用到所有文件夹.
 
@@ -180,6 +184,10 @@ include:
   # 处理 'source/css/_typing.css'
   - "css/_typing.css"
   # 处理 'source/_css/' 中的任何文件，但不包括子目录及其其中的文件。
+  - "css/_typing.css"
+  # Include any file in 'source/_css/'.
+  - "_css/*"
+  # Include any file and subfolder in 'source/_css/'.
   - "css/_typing.css"
   # Include any file in 'source/_css/'.
   - "_css/*"
@@ -206,8 +214,31 @@ exclude:
   # Exclude any file and subfolder in 'source/js/'.
   - "js/**/*"
   # Exclude any file with filename that starts with 'test' in 'source/js/'.
+  - "js/test.js"
+  # Exclude any file in 'source/js/'.
+  - "js/*"
+  # Exclude any file and subfolder in 'source/js/'.
+  - "js/**/*"
+  # Exclude any file with filename that starts with 'test' in 'source/js/'.
   - "js/test*"
   # Exclude any file with filename that starts with 'test' in 'source/js/' and its subfolders.
+  - "js/**/test*"
+  # Do not use this to exclude posts in the 'source/_posts/'.
+  # Use skip_render for that. Or prepend an underscore to the filename.
+  # - "_posts/hello-world.md" # Does not work.
+
+ignore:
+  # Ignore any folder named 'foo'.
+  ignore:
+  # 忽略任何一个名叫 'foo' 的文件夹
+  - "**/foo"
+  # 只忽略 'themes/' 下的 'foo' 文件夹
+  - "**/themes/*/foo"
+  # 对 'themes/' 目录下的每个文件夹中忽略名叫 'foo' 的子文件夹
+  - "**/themes/**/foo"
+  - "**/themes/*/foo"
+  # Same as above, but applies to every subfolders of 'themes/'.
+  - "**/themes/**/foo"
   - "js/**/test*"
   # Do not use this to exclude posts in the 'source/_posts/'.
   # Use skip_render for that. Or prepend an underscore to the filename.
