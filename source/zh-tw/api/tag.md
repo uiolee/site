@@ -11,9 +11,10 @@ hexo.extend.tag.register(name, function(args, content){
   // ...
 }, options);
 }, options);
+}, options);
 ```
 
-Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
+Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
 
 自 Hexo 3 開始，因為新增了非同步渲染功能，而改用 [Nunjucks][] 作為渲染引擎，其行為可能會與過去使用的 [Swig][] 有些許差異。 The behavior may be somewhat different from that in [Swig][].
 
@@ -47,7 +48,7 @@ Use end tags. This option is `false` by default.
 
 ### async
 
-Enable async mode. This option is `false` by default.
+Enable async mode. This option is `false` by default. Use end tags. This option is `false` by default.
 
 ## 範例
 
@@ -128,6 +129,16 @@ hexo.extend.tag.register('foo', function (args) {
 
   return 'foo';
 });
+
+  // Front-matter
+  const { title } = this; // article's (post/page) title
+
+  // Article's content
+  const { _content } = this; // original content
+  const { content } = this; // HTML-rendered content
+
+  return 'foo';
+});
 ```
 
 2.
@@ -146,6 +157,12 @@ module.exports = hexo => {
 
     const { config: themeCfg } = hexo.theme;
     if (themeCfg.fancybox) // do something...
+
+    const { title, _content, content } = this;
+
+    return 'foo';
+  };
+};
 
     const { title, _content, content } = this;
 
