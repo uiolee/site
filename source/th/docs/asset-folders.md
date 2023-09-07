@@ -4,7 +4,7 @@ title: Asset Folders
 
 ## Global Asset Folder
 
-asset เป็นไฟล์ท่ี non-post และอยู่ใน folder `source` อย่่างเช่นไฟล์ images, CSS หรือ JavaScript ยกตัวอย่างเช่น ถ้าคุณมีรูปภาพบ้างใน Hexo project แล้วรูปภาพเหล่านั้นควรอยู่ใน directory `source/images` และคุณจะเข้าถึงรูปภาพพวกนี้ได้ด้วยการเขียน path แบบ `![](/images/image.jpg)` For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a `source/images` directory. Then, you can access them using something like `![](/images/image.jpg)`.
+asset เป็นไฟล์ท่ี non-post และอยู่ใน folder `source` อย่่างเช่นไฟล์ images, CSS หรือ JavaScript ยกตัวอย่างเช่น ถ้าคุณมีรูปภาพบ้างใน Hexo project แล้วรูปภาพเหล่านั้นควรอยู่ใน directory `source/images` และคุณจะเข้าถึงรูปภาพพวกนี้ได้ด้วยการเขียน path แบบ `![](/images/image.jpg)` asset เป็นไฟล์ท่ี non-post และอยู่ใน folder `source` อย่่างเช่นไฟล์ images, CSS หรือ JavaScript ยกตัวอย่างเช่น ถ้าคุณมีรูปภาพบ้างใน Hexo project แล้วรูปภาพเหล่านั้นควรอยู่ใน directory `source/images` และคุณจะเข้าถึงรูปภาพพวกนี้ได้ด้วยการเขียน path แบบ `![](/images/image.jpg)` For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a `source/images` directory. Then, you can access them using something like `![](/images/image.jpg)`.
 
 ## Post Asset Folder
 
@@ -16,7 +16,7 @@ For users who expect to regularly serve images and/or other assets, and for thos
 post_asset_folder: true
 ```
 
-ถ้าเปิดการเฝ้าดู asset folder แล้ว hexo จะสร้าง folder ให้ทุกครั้งท่ีคุณสร้างโพสต์ใหม่ด้วยคำสั่ง `hexo new [layout] <title>` asset folder นี้จะมีชื่อเดียวกันกับไฟล์ markdown ท่ีเป็นโพสต์นั้น อย่างนี้คุณจะได้วาง asset  ทั้งหมดของโพสต์นั้นอยู่ใน folder และอ้างอิง asset ด้วย relative path This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a relative path, making for an easier and more convenient workflow.
+ถ้าเปิดการเฝ้าดู asset folder แล้ว hexo จะสร้าง folder ให้ทุกครั้งท่ีคุณสร้างโพสต์ใหม่ด้วยคำสั่ง `hexo new [layout] <title>` asset folder นี้จะมีชื่อเดียวกันกับไฟล์ markdown ท่ีเป็นโพสต์นั้น อย่างนี้คุณจะได้วาง asset  ทั้งหมดของโพสต์นั้นอยู่ใน folder และอ้างอิง asset ด้วย relative path This asset folder will have the same name as the markdown file associated with the post. This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a relative path, making for an easier and more convenient workflow.
 
 ## Tag Plugins For Relative Path Referencing
 
