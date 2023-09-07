@@ -1,9 +1,12 @@
 ---
-title: 輔助函數（Helper）
+title: Helper
 ---
-輔助函數幫助您在模板中快速插入內容，建議您把複雜的程式碼放在輔助函數而非模板中。
 
-## 概要
+A helper makes it easy to quickly add snippets to your templates. We recommend using helpers instead of templates when you're dealing with more complicated code.
+
+Helpers can not be accessed from `source` files.
+
+## Synopsis
 
 ``` js
 hexo.extend.helper.register(name, function(){
@@ -11,7 +14,7 @@ hexo.extend.helper.register(name, function(){
 });
 ```
 
-## 範例
+## Example
 
 ``` js
 hexo.extend.helper.register('js', function(path){
@@ -24,13 +27,13 @@ hexo.extend.helper.register('js', function(path){
 // <script src="script.js"></script>
 ```
 
-## 常見問題
+## FAQ
 
-### 定制 helper 應該放在哪裡？
+### Where to place custom helper?
 
-放置在 `scripts/` 或 `themes/<yourtheme>/scripts/` 資料夾內。
+Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
 
-### 如何在我的定制 helper 中使用另外一個已經註冊的 helper？
+### How do I use another registered helper in my custom helper?
 
 All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
 
@@ -40,9 +43,9 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### 如何在其他插件中使用已經註冊的 helper?
+### How do I use a registered helper in another extension (e.g. Filter, Injector, etc)?
 
-`hexo.extend.helper.get` 會返回一個指定名字的 helper，但是你還需要一個 `bind(hexo)`，就像這樣：
+`hexo.extend.helper.get` will return the helper function, but it needs to have hexo as its context, so:
 
 ``` js
 const url_for = hexo.extend.helper.get('url_for').bind(hexo);
