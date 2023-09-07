@@ -11,6 +11,7 @@ hexo.extend.console.register(name, desc, options, function(args){
   // ...
 });
 });
+});
 ```
 
 | Argument  | 描述 |
@@ -19,13 +20,13 @@ hexo.extend.console.register(name, desc, options, function(args){
 | `desc`    | 描述 |
 | `options` | 選項 |
 
-An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
+An argument `args` will be passed into the function. This is the argument that users type into the terminal. An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
 ## 選項
 
 ### 用法
 
-The usage of a console command. For example:
+The usage of a console command. For example: For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -34,7 +35,7 @@ The usage of a console command. For example:
 
 ### arguments
 
-The description of each argument of a console command. For example:
+The description of each argument of a console command. For example: For example:
 
 ``` js
 {
@@ -47,7 +48,7 @@ The description of each argument of a console command. For example:
 
 ### options
 
-The description of each option of a console command. For example:
+The description of each option of a console command. For example: For example:
 
 ``` js
 {
