@@ -10,28 +10,29 @@ Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心
 
 ### 插件（Packages）
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it. 首先，在 `node_modules` 文件夹中创建一个文件夹。 The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
 文件夹内至少要包含 2 个文件：一个是主程序，另一个是 `package.json`，描述插件的用途和所依赖的插件。
 
 ```plain
 .
 .
+.
 ├── index.js
 └── package.json
 ```
 
-`package.json` 中至少要包含 `name`, `version`, `main` 属性，例如： For example:
+`package.json` 中至少要包含 `name`, `version`, `main` 属性，例如： For example: 例如：
 
 ```json package.json
-{
+●
   "name": "hexo-my-plugin",
   "version": "0.0.1",
   "main": "index"
 }
 ```
 
-You'll also need to list your plugin as a dependency in the root `package.json` of your hexo instance in order for Hexo to detect and load it.
+你还需要将你的插件列为根 `软件包中的依赖项。 你的十六进制实例的son` 以便让十六进制探测和加载它。
 
 ### 工具
 
@@ -46,7 +47,7 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 当您完成插件后，可以考虑将它发布到 [插件列表](/plugins)，让更多人能够使用您的插件。 发布插件的步骤和 [更新文件](contributing.html#更新文件) 非常类似。
 
-1. Fork [hexojs/site][]
+1. Fork [十六进制/站点][]
 2. 把库（repository）复制到电脑上，并安装所依赖的插件。
 
    ```shell
@@ -57,10 +58,14 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 3. 编辑 `source/_data/plugins.yml`，在档案中新增您的插件，例如：
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example: 例如：
 
    ```yaml
    description: Server module for Hexo.
+   name: hexo-server
+description: Server module for Hexo.
+link: https://github.com/hexojs/hexo-server
+tags:
    name: hexo-server
 description: Server module for Hexo.
 link: https://github.com/hexojs/hexo-server
@@ -74,4 +79,4 @@ tags:
 [hexo-util]: https://github.com/hexojs/hexo-util
 [hexo-i18n]: https://github.com/hexojs/hexo-i18n
 [hexo-pagination]: https://github.com/hexojs/hexo-pagination
-[hexojs/site]: https://github.com/hexojs/site
+[十六进制/站点]: https://github.com/hexojs/site
