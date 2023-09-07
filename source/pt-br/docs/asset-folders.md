@@ -1,25 +1,26 @@
 ---
-title: Diretórios de Recursos (Asset)
+title: Asset Folders
 ---
-## Diretório Global de Recursos
 
-Os recursos, ou assets, são arquivos (imagens, CSS, JavaScript e etc) usados para compor as páginas do site. No Hexo, os recursos ficam dentro do diretório `source`. Por exemplo, se você só vai ter algumas imagens no projeto Hexo, então a maneira mais fácil é mantê-las em um diretório como `source/images`. Então, você pode acessá-las usando algo como `![](images/image.jpg)`.
+## Global Asset Folder
 
-## Diretório de Recursos por Postagem
+Assets are non-post files in the `source` folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a `source/images` directory. Then, you can access them using something like `![](/images/image.jpg)`.
+
+## Post Asset Folder
 
 {% youtube feIDVQ2tz0o %}
 
-Para os usuários que esperam exibir imagens e/ou outros recursos regularmente, e para aqueles que preferem separar seus recursos por publicação, o Hexo também fornece uma maneira mais organizada de fazer este gerenciamento. Para ativar o gerenciamento de recursos por publicação, defina a configuração `post_asset_folder` no arquivo `_config.yml` como o valor `true`.
+For users who expect to regularly serve images and/or other assets, and for those who prefer to separate their assets on a post-per-post basis, Hexo also provides a more organized way to manage assets. This slightly more involved, but very convenient approach to asset management can be turned on by setting the `post_asset_folder` setting in `_config.yml` to true.
 
 ``` yaml _config.yml
 post_asset_folder: true
 ```
 
-Com o gerenciamento de recursos habilitado, o Hexo criará um diretório sempre que você fizer uma nova postagem com o comando `hexo new [layout] <title>`. Este diretório de recursos terá o mesmo nome que o arquivo markdown associado à postagem. Coloque todos os recursos relacionados à sua postagem no diretório associado, e você poderá fazer referência a eles usando um caminho relativo, tornando mais fácil e conveniente o fluxo de trabalho.
+With asset folder management enabled, Hexo will create a folder every time you make a new post with the `hexo new [layout] <title>` command. This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a relative path, making for an easier and more convenient workflow.
 
-## Tag Plugins para Referência ao Caminho Relativo
+## Tag Plugins For Relative Path Referencing
 
-Referenciar imagens, ou outros recursos, usando a sintaxe normal do markdown e com caminhos relativos pode fazer com que elas sejam exibidas incorretamente em páginas de arquivo (archive) ou índice. Alguns plugins foram criados pela comunidade para abordar esta questão no Hexo 2. No entanto, com o lançamento do Hexo 3, várias novas [tag plugins](/docs/tag-plugins#Include-Assets) foram adicionadas ao seu núcleo. Estas permitem que você faça referência aos seus recursos nas postagens de formas mais facilitada:
+Referencing images or other assets using normal markdown syntax and relative paths may lead to incorrect display on archive or index pages. Plugins have been created by the community to address this issue in Hexo 2. However, with the release of Hexo 3, several new [tag plugins](/docs/tag-plugins#Include-Assets) were added to core. These enable you to reference your assets more easily in posts:
 
 ```
 {% asset_path slug %}
@@ -27,16 +28,16 @@ Referenciar imagens, ou outros recursos, usando a sintaxe normal do markdown e c
 {% asset_link slug [title] %}
 ```
 
-Por exemplo, com os diretórios de recursos de postagem ativados, se você colocar uma imagem `example.jpg` no seu diretório de recursos, ela *não* aparecerá na página de índice se você fizer referência a ela usando um caminho relativo com a expressão `![](example.jpg)` da sintaxe do markdown (no entanto, isto funcionará como esperado na publicação em si).
+For example, with post asset folders enabled, if you place an image `example.jpg` into your asset folder, it will *not* appear on the index page if you reference it using a relative path with regular `![](example.jpg)` markdown syntax (however, it will work as expected in the post itself).
 
-A maneira correta de fazer referência à imagem será usando a sintaxe de tag plugin em vez do markdown:
+The correct way to reference the image will thus be using tag plugin syntax rather than markdown:
 
 ```
 {% asset_img example.jpg This is an example image %}
 {% asset_img "spaced asset.jpg" "spaced title" %}
 ```
 
-Desta forma, a imagem aparecerá dentro da publicação e nas páginas de índice e arquivo.
+This way, the image will appear both inside the post and on index and archive pages.
 
 ## Embedding an image using markdown
 
