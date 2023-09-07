@@ -16,6 +16,7 @@ Once initialized, here's what your project folder will look like:
 
 ``` plain
 .
+.
 ├── _config.yml
 ├── package.json
 ├── scaffolds
@@ -27,11 +28,11 @@ Once initialized, here's what your project folder will look like:
 
 ### _config.yml
 
-Site [configuration](configuration.html) file. You can configure most settings here.
+Site [configuration](configuration.html) file. You can configure most settings here. You can configure most settings here.
 
 ### package.json
 
-Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
+Application data. Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later. If you want, you can uninstall them later.
 
 ``` json package.json
 {
@@ -57,12 +58,12 @@ Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.
 
 ### scaffolds
 
-[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
+[Scaffold](writing.html#Scaffolds) folder. [Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
 
 ### source
 
-Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
+Source folder. This is where you put your site's content. Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
 
 ### themes
 
-[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
+[Theme](themes.html) folder. [Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
