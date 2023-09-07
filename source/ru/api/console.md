@@ -1,10 +1,10 @@
 ---
-title: Console
+title: Консоль
 ---
 
-The console forms the bridge between Hexo and its users. It registers and describes the available console commands.
+Консоль служит для взаимодействия пользователей с Hexo. Регистрирует и описывает доступные консольные команды.
 
-## Synopsis
+## Краткий обзор
 
 ``` js
 hexo.extend.console.register(name, desc, options, function(args){
@@ -12,41 +12,41 @@ hexo.extend.console.register(name, desc, options, function(args){
 });
 ```
 
-| Argument  | Description |
-| --------- | ----------- |
-| `name`    | Name        |
-| `desc`    | Description |
-| `options` | Options     |
+| Аргумент | Описание |
+| -------- | -------- |
+| `имя`    | Имя      |
+| `desc`   | Описание |
+| `опции`  | Опции    |
 
-An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
+Значение из аргумента `args` передаётся в функцию. Свойство описывает вводимые через терминал данные. Анализируется с помощью [Minimist][].
 
-## Options
+## Опции
 
-### usage
+### использование
 
-The usage of a console command. For example:
+Добавление используемых команд в консоль. Например:
 
 ``` js
 {usage: '[layout] <title>'}
 // hexo new [layout] <title>
 ```
 
-### arguments
+### аргументы
 
-The description of each argument of a console command. For example:
+Описание аргументов в консоли. Например:
 
 ``` js
 {
-  arguments: [
+  аргументы: [
     {name: 'layout', desc: 'Post layout'},
     {name: 'title', desc: 'Post title'}
   ]
 }
 ```
 
-### options
+### опции
 
-The description of each option of a console command. For example:
+Описание опций в консоли. Например:
 
 ``` js
 {
@@ -58,9 +58,9 @@ The description of each option of a console command. For example:
 
 ### desc
 
-More detailed information about a console command.
+Подробная информация о консольной команде.
 
-## Example
+## Пример
 
 ``` js
 hexo.extend.console.register('config', 'Display configuration', function(args){
