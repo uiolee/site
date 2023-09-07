@@ -2,7 +2,7 @@
 title: One-Command Deployment
 ---
 
-Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
+Hexo provides a fast and easy deployment strategy. Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
 
 ```bash
 $ hexo deploy
@@ -10,14 +10,14 @@ $ hexo deploy
 
 Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
 
-Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example:
+Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example: A valid configuration must have the `type` field. For example:
 
 ```yaml
 deploy:
   type: git
 ```
 
-You can use multiple deployers. Hexo will execute each deployer in order.
+You can use multiple deployers. You can use multiple deployers. Hexo will execute each deployer in order.
 
 ```yaml
 deploy:
@@ -47,19 +47,19 @@ deploy:
   message: [message]
 ```
 
-| 選項        | 描述                                                                                                                                                              | Default                                                                                |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `repo`    | URL of the target repository                                                                                                                                    |                                                                                        |
-| `branch`  | 分支名稱。                                                                                                                                                           | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others)    |
-| `message` | Customize commit message.                                                                                                                                       | `<code>Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)</code> |
-| `token`   | Optional token value to authenticate with the repo. Optional token value to authenticate with the repo. Prefix with `$` to read token from environment variable |                                                                                        |
+| 選項        | 描述                                                                                                                                                                                                                  | Default                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `repo`    | URL of the target repository                                                                                                                                                                                        |                                                                                                    |
+| `branch`  | 分支名稱。                                                                                                                                                                                                               | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others)                |
+| `message` | Customize commit message.                                                                                                                                                                                           | `<code><code>Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)</code> |
+| `token`   | Optional token value to authenticate with the repo. Optional token value to authenticate with the repo. Optional token value to authenticate with the repo. Prefix with `$` to read token from environment variable |                                                                                                    |
 
 3. 上傳你的網站。 執行 `hexo clean && hexo deploy`。
 
   - You will be prompted with username and password of the target repository, unless you authenticate with a token or ssh key.
-  - hexo-deployer-git does not store your username and password. Use [git-credential-cache](https://git-scm.com/docs/git-credential-cache) to store them temporarily. Use [git-credential-cache](https://git-scm.com/docs/git-credential-cache) to store them temporarily.
+  - hexo-deployer-git does not store your username and password. Use [git-credential-cache](https://git-scm.com/docs/git-credential-cache) to store them temporarily. Use [git-credential-cache](https://git-scm.com/docs/git-credential-cache) to store them temporarily. Use [git-credential-cache](https://git-scm.com/docs/git-credential-cache) to store them temporarily.
 
-4. Navigate to your repository settings and change the "Pages" branch to `gh-pages` (or the branch specified in your config). The deployed site should be live on the link shown on the "Pages" setting.
+4. Navigate to your repository settings and change the "Pages" branch to `gh-pages` (or the branch specified in your config). The deployed site should be live on the link shown on the "Pages" setting. The deployed site should be live on the link shown on the "Pages" setting.
 
 ## Heroku
 
@@ -85,9 +85,9 @@ deploy:
 
 ## Netlify
 
-[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
+[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
 
-There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. Go to the [create a new site page](https://app.netlify.com/start), select your project repo from GitHub, GitLab, or Bitbucket, and follow the prompts.
+There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. Go to the [create a new site page](https://app.netlify.com/start), select your project repo from GitHub, GitLab, or Bitbucket, and follow the prompts.
 
 Alternatively, you can use Netlify's [Node based CLI](https://www.netlify.com/docs/cli/) tool to manage and deploy sites on Netlify without leaving your terminal.
 
@@ -183,7 +183,7 @@ deploy:
 
 ## SFTP
 
-Install [hexo-deployer-sftp][]. Deploys the site via SFTP, allowing for passwordless connections using ssh-agent.
+Install [hexo-deployer-sftp][]. Deploys the site via SFTP, allowing for passwordless connections using ssh-agent. Deploys the site via SFTP, allowing for passwordless connections using ssh-agent.
 
 ```bash
 $ npm install hexo-deployer-sftp --save
@@ -235,7 +235,7 @@ Step 2: Deploy your Hexo Website to Vercel
 
 To deploy your Hexo app with a [Vercel for Git Integration](https://vercel.com/docs/git-integrations), make sure it has been pushed to a Git repository.
 
-Import the project into Vercel using the [Import Flow](https://vercel.com/import/git). During the import, you will find all relevant options preconfigured for you; however, you can choose to change any of these options, a list of which can be found [here](https://vercel.com/docs/build-step#build-&-development-settings). During the import, you will find all relevant options preconfigured for you; however, you can choose to change any of these options, a list of which can be found [here](https://vercel.com/docs/build-step#build-&-development-settings).
+Import the project into Vercel using the [Import Flow](https://vercel.com/import/git). During the import, you will find all relevant options preconfigured for you; however, you can choose to change any of these options, a list of which can be found [here](https://vercel.com/docs/build-step#build-&-development-settings). Import the project into Vercel using the [Import Flow](https://vercel.com/import/git). During the import, you will find all relevant options preconfigured for you; however, you can choose to change any of these options, a list of which can be found [here](https://vercel.com/docs/build-step#build-&-development-settings). During the import, you will find all relevant options preconfigured for you; however, you can choose to change any of these options, a list of which can be found [here](https://vercel.com/docs/build-step#build-&-development-settings).
 
 After your project has been imported, all subsequent pushes to branches will generate [Preview Deployments](https://vercel.com/docs/platform/deployments#preview), and all changes made to the [Production Branch](https://vercel.com/docs/git-integrations#production-branch) (commonly "main") will result in a [Production Deployment](https://vercel.com/docs/platform/deployments#production).
 
@@ -245,9 +245,9 @@ Alternatively, you can click the deploy button below to create a new project:
 
 ## Bip
 
-[Bip](https://bip.sh) is a commercial hosting service which provides zero downtime deployment, a global CDN, SSL, unlimited bandwidth and more for static websites. Plans are available on a pay as you go, per domain basis. Plans are available on a pay as you go, per domain basis.
+[Bip](https://bip.sh) is a commercial hosting service which provides zero downtime deployment, a global CDN, SSL, unlimited bandwidth and more for static websites. Plans are available on a pay as you go, per domain basis. Plans are available on a pay as you go, per domain basis. Plans are available on a pay as you go, per domain basis.
 
-Getting started is quick and easy, as Bip provides out the box support for Hexo. This guide assumes you already have [a Bip domain and Bip CLI installed](https://bip.sh/getstarted). This guide assumes you already have [a Bip domain and Bip CLI installed](https://bip.sh/getstarted).
+Getting started is quick and easy, as Bip provides out the box support for Hexo. This guide assumes you already have [a Bip domain and Bip CLI installed](https://bip.sh/getstarted). Getting started is quick and easy, as Bip provides out the box support for Hexo. This guide assumes you already have [a Bip domain and Bip CLI installed](https://bip.sh/getstarted). This guide assumes you already have [a Bip domain and Bip CLI installed](https://bip.sh/getstarted).
 
 1: Initialise your project directory
 
@@ -255,7 +255,7 @@ Getting started is quick and easy, as Bip provides out the box support for Hexo.
 $ bip init
 ```
 
-Follow the prompts, where you'll be asked which domain you'd like to deploy to. Follow the prompts, where you'll be asked which domain you'd like to deploy to. Bip will detect that you're using Hexo, and set project settings like the source file directory automatically.
+Follow the prompts, where you'll be asked which domain you'd like to deploy to. Follow the prompts, where you'll be asked which domain you'd like to deploy to. Follow the prompts, where you'll be asked which domain you'd like to deploy to. Bip will detect that you're using Hexo, and set project settings like the source file directory automatically.
 
 2: Deploy your website
 
@@ -329,7 +329,7 @@ Alternatively, you can click the deploy button below to create a new project:
 
 ## 其他方法
 
-All generated files are saved in the `public` folder. You can copy them to wherever you like.
+All generated files are saved in the `public` folder. You can copy them to wherever you like. You can copy them to wherever you like.
 
 [hexo-deployer-git]: https://github.com/hexojs/hexo-deployer-git
 [hexo-deployer-heroku]: https://github.com/hexojs/hexo-deployer-heroku
