@@ -2,19 +2,19 @@
 title: GitHub Pages
 ---
 
-In this tutorial, we use [GitHub Actions](https://docs.github.com/en/actions) to deploy GitHub Pages. It works in both public and private repository. Skip to the [One-command deployment](#One-command-deployment) section if you prefer not to upload your source folder to GitHub.
+Neste tutorial, usamos [GitHub Actions](https://docs.github.com/en/actions) para o deploy de Páginas do GitHub. Funciona tanto em repositório público quanto privado. Pule para a seção [Um comando de deploy](#One-command-deployment) se você preferir não enviar sua pasta de origem para o GitHub.
 
-1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the default branch of your repository. The default branch is usually **main**, older repository may use **master** branch.
-  - To push `main` branch to GitHub:
+1. Crie um repositório chamado <b>*username*.github.io</b>, onde o nome de usuário é seu nome de usuário no GitHub. Se você já enviou para outro repositório, renomeie o repositório em vez disso.
+2. Faça push dos arquivos da sua pasta Hexo para o branch padrão do seu repositório. O branch padrão é geralmente o **principal**, o repositório mais antigo pode usar o branch **master**.
+  - Para enviar `principal` branch para o GitHub:
 
     ```
-    $ git push -u origin main
+    $ git push -u origem principal
     ```
-  - The `public/` folder is not (and should not be) uploaded by default, make sure the `.gitignore` file contains `public/` line. The folder structure should be roughly similar to [this repo](https://github.com/hexojs/hexo-starter), without the `.gitmodules` file.
+  - A pasta `pública/` não é (e não deve ser) enviada por padrão, certifique-se do `. itignore` arquivo contém a linha `pública/` A estrutura da pasta deve ser aproximadamente similar a [este repositório](https://github.com/hexojs/hexo-starter), sem o arquivo `.gitmodules`.
 
-3. Check what version of Node.js you are using on your local machine with `node --version`. Make a note of the major version (e.g., `v16.y.z`)
-4. Create `.github/workflows/pages.yml` in your repo with the following contents (substituting `16` to the major version of Node.js that you noted in previous step):
+3. Verifique qual versão do Node.js você está usando na sua máquina local com o nó `--version`. Anote a versão principal (por exemplo, `v16.y.z`)
+4. Criar `.github/workflows/páginas. ml` em seu repositório com o seguinte conteúdo (substituição de `16` para a versão principal do nó. s que você notou na etapa anterior):
 
 ```yml .github/workflows/pages.yml
 name: Pages
@@ -57,29 +57,29 @@ jobs:
           publish_dir: ./public
 ```
 
-5. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
-6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
-7. Check the webpage at *username*.github.io.
+5. Depois que o deploy estiver concluído, as páginas geradas podem ser encontradas na branch `gh-pages` do repositório.
+6. Na configuração do seu repositório do GitHub, navegue para **Configurações** > **Pages** > **Source**. Altere o branch para `gh-pages` e salve.
+7. Verifique a página da Web no nome *nome de usuário*.github.io.
 
-Note - if you specify a custom domain name with a `CNAME`, you need to add the `CNAME` file to the `source/` folder. [More info](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Nota - se você especificar um nome de domínio personalizado com `CNAME`, você precisa adicionar o arquivo `CNAME` à pasta `fonte/`. [Mais informações](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-## Project page
+## Página do projeto
 
-If you prefer to have a project page on GitHub:
+Se você prefere ter uma página do projeto no GitHub:
 
-1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
-2. Edit your **_config.yml**, change the `url:` value to <b>https://*username*.github.io/*repository*</b>.
-3. Commit and push to the default branch.
-4. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
-6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
-7. Check the webpage at *username*.github.io/*repository*.
+1. Navegue até seu repositório no GitHub. Vá para aba **Configurações**. Altere o nome **do repositório** para que o seu blog esteja disponível em <b>username.github. o/*repositório*</b>,  **repositório** pode ser qualquer nome, como o *blog* ou *hexo*.
+2. Editar o seu **_config.yml**, altere o valor do `url:` para <b>https://*username*.github.io/*repository*</b>.
+3. Enviar e fazer push no branch padrão.
+4. Depois que o deploy estiver concluído, as páginas geradas podem ser encontradas na branch `gh-pages` do repositório.
+6. Na configuração do seu repositório do GitHub, navegue para **Configurações** > **Pages** > **Source**. Altere o branch para `gh-pages` e salve.
+7. Verifique a página da Web no nome *username*.github.io/*repositório*.
 
-## One-command deployment
+## Implementação de um comando
 
-The following instruction is adapted from [one-command deployment](/docs/one-command-deployment) page.
+A seguinte instrução é adaptada da página [implantação de um comando](/docs/one-command-deployment).
 
-1. Install [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
-2. Add the following configurations to **_config.yml**, (remove existing lines if any).
+1. Instale o [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
+2. Adicione as seguintes configurações ao **_config.yml**, (remova as linhas existentes se houver).
 
   ``` yml
   deploy:
@@ -90,9 +90,9 @@ The following instruction is adapted from [one-command deployment](/docs/one-com
   ```
 
 3. Run `hexo clean && hexo deploy`.
-4. Check the webpage at *username*.github.io.
+4. Verifique a página da Web no nome *nome de usuário*.github.io.
 
-## Useful links
+## Links úteis
 
 - [GitHub Pages](https://docs.github.com/en/pages)
 - [peaceiris/actions-gh-pages](https://github.com/marketplace/actions/github-pages-action)
