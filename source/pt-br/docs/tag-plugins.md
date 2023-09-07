@@ -2,7 +2,7 @@
 title: Tag Plugins
 ---
 
-As Tag Plugins são diferentes das tags de postagem. Elas são portadas pela Octopress e fornecem uma maneira útil para você adicionar rapidamente conteúdo específico às suas postagens.
+Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
 
@@ -10,21 +10,21 @@ Although you can write your posts in any formats, but the tag plugins will alway
 
 _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
 
-## Bloco de Citação
+## Block Quote
 
-Perfeito para adicionar citações à sua postagem, com informações opcionais de autor, fontes e título.
+Perfect for adding quotes to your post, with optional author, source and title information.
 
-**Alias:** quote (citação)
+**Alias:** quote
 
 ```
 {% blockquote [author[, source]] [link] [source_link_title] %}
-conteúdo
+content
 {% endblockquote %}
 ```
 
-### Exemplos
+### Examples
 
-**Sem argumentos. Bloco de citação simples.**
+**No arguments. Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -36,7 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}
 
-**Citação de um livro**
+**Quote from a book**
 
 ```
 {% blockquote David Levithan, Wide Awake %}
@@ -48,7 +48,7 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 
-**Citação de um twitter**
+**Quote from Twitter**
 
 ```
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
@@ -60,7 +60,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 {% endblockquote %}
 
-**Citação de um artigo da web**
+**Quote from an article on the web**
 
 ```
 {% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
@@ -72,11 +72,11 @@ Every interaction is both precious and an opportunity to delight.
 Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 
-## Bloco de Código
+## Code Block
 
-Funcionalidade útil para adicionar trechos de código à sua postagem.
+Useful feature for adding code snippets to your post.
 
-**Alias:** code (Código-fonte)
+**Alias:** code
 
 ```
 {% codeblock [title] [lang:language] [url] [link text] [additional options] %}
@@ -86,18 +86,18 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Extra Options    | Description                                                                                                                                                            | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                       | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
 
-### Exemplos
+### Examples
 
-**Um bloco de código simples**
+**A plain code block**
 
 ```
 {% codeblock %}
@@ -109,7 +109,7 @@ alert('Hello World!');
 alert('Hello World!');
 {% endcodeblock %}
 
-**Em uma linguagem específica**
+**Specifying the language**
 
 ```
 {% codeblock lang:objc %}
@@ -121,7 +121,7 @@ alert('Hello World!');
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
-**Adicionando uma legenda ao código**
+**Adding a caption to the code block**
 
 ```
 {% codeblock Array.map %}
@@ -133,7 +133,7 @@ array.map(callback[, thisArg])
 array.map(callback[, thisArg])
 {% endcodeblock %}
 
-**Adicionando uma legenda e uma URL**
+**Adding a caption and a URL**
 
 ```
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
@@ -143,23 +143,22 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
-## Bloco de Código com Backtick
+## Backtick Code Block
 
-Isso é idêntico ao usar um bloco de código, mas usa três backticks (acentos grave) para delimitar o bloco.
+This is identical to using a code block, but instead uses three backticks to delimit the block.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
 ## Pull Quote
 
-Para adicionar pull quotes (citações destacadas) em sua postagem:
+To add pull quotes to your posts:
 
 ```
 {% pullquote [class] %}
@@ -169,7 +168,7 @@ content
 
 ## jsFiddle
 
-Para incorporar um snippet (trecho de código) do jsFiddle:
+To embed a jsFiddle snippet:
 
 ```
 {% jsfiddle shorttag [tabs] [skin] [width] [height] %}
@@ -177,7 +176,7 @@ Para incorporar um snippet (trecho de código) do jsFiddle:
 
 ## Gist
 
-Para incorporar um snippet (trecho de código) do Gist:
+To embed a Gist snippet:
 
 ```
 {% gist gist_id [filename] %}
@@ -185,15 +184,15 @@ Para incorporar um snippet (trecho de código) do Gist:
 
 ## iframe
 
-Para incorporar um iframe:
+To embed an iframe:
 
 ```
 {% iframe url [width] [height] %}
 ```
 
-## Imagem
+## Image
 
-Insere uma imagem com tamanho especificado.
+Inserts an image with specified size.
 
 ```
 {% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
@@ -201,23 +200,55 @@ Insere uma imagem com tamanho especificado.
 
 ## Link
 
-Insere um link com o atributo `target="_blank"`.
+Inserts a link with `target="_blank"` attribute.
 
 ```
 {% link text url [external] [title] %}
 ```
 
-## Incluir Código
+## Include Code
 
-Insere trechos de código no diretório `source/downloads/code`.
+Inserts code snippets in `source/downloads/code` folder. The folder location can be specified through the `code_dir` option in the config.
 
 ```
-{% include_code [title] [lang:language] path/to/file %}
+{% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
+```
+
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
 ```
 
 ## YouTube
 
-Insere um vídeo do YouTube.
+Inserts a YouTube video.
 
 ```
 {% youtube video_id [type] [cookie] %}
@@ -248,15 +279,15 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Insere um vídeo do Vimeo.
+Inserts a responsive or specified size Vimeo video.
 
 ```
-{% vimeo video_id %}
+{% vimeo video_id [width] [height] %}
 ```
 
-## Incluir Postagens
+## Include Posts
 
-Incluir links para outras postagens.
+Include links to other posts.
 
 ```
 {% post_path filename %}
@@ -292,7 +323,6 @@ For instance:
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
 **Do not escape title.**
@@ -303,9 +333,9 @@ For instance:
 
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
-## Incluir Assets
+## Include Assets
 
-Incluir assets de postagem.
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -345,7 +375,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 **Title & Alt**
 
-`{% asset_img logo.svg "lorem ipsum'dolor'" %}`
+`{% asset_img foo.jpg "lorem ipsum'dolor'" %}`
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
@@ -353,7 +383,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 ## Raw
 
-Se determinado conteúdo estiver causando problemas de processamento em suas postagens, envolva-o com a tag `raw` para evitar erros de renderização.
+If certain content is causing processing issues in your posts, wrap it with the `raw` tag to avoid rendering errors.
 
 ```
 {% raw %}
@@ -361,11 +391,11 @@ content
 {% endraw %}
 ```
 
-## Trecho de Postagem
+## Post Excerpt
 
-Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação.
+Use text placed before the `<!-- more -->` tag as an excerpt for the post. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
-**Exemplo:**
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
