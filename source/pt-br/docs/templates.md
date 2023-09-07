@@ -2,22 +2,22 @@
 title: Templates
 ---
 
-Os templates definem a apresentação do seu site, descrevendo o que cada página deve ter de semelhante. A tabela abaixo mostra o modelo correspondente para cada página disponível. No mínimo, um tema deve conter um template de `index`.
+Templates define the presentation of your website by describing what each page should look like. The table below shows the corresponding template for every available page. At the very least, a theme should contain an `index` template.
 
 {% youtube mb65bQ4iUc4 %}
 
-Template | Página | Fallback
---- | --- | ---
-`index` | Página Home |
-`post` | Postagens | `index`
-`page` | Páginas | `index`
-`archive` | Arquivos (archives) | `index`
-`category` | Categorias | `archive`
-`tag` | Tags | `archive`
+| Template   | Page              | Fallback  |
+| ---------- | ----------------- | --------- |
+| `index`    | Home page         |           |
+| `post`     | Posts             | `index`   |
+| `page`     | Pages             | `index`   |
+| `archive`  | Archives          | `index`   |
+| `category` | Category archives | `archive` |
+| `tag`      | Tag archives      | `archive` |
 
 ## Layouts
 
-Quando as páginas compartilham uma estrutura semelhante - por exemplo, quando dois templates possuem um cabeçalho e um rodapé - você pode considerar usar um `layout` para declarar essas semelhanças estruturais. Todo arquivo de layout deve conter uma variável `body` para exibir o conteúdo do template em questão. Por exemplo:
+When pages share a similar structure - for instance, when two templates have both a header and a footer - you can consider using a `layout` to declare these structural similarities. Every layout file should contain a `body` variable to display the contents of the template in question. For example:
 
 ``` html index.ejs
 index
@@ -39,11 +39,11 @@ yields:
 </html>
 ```
 
-Por padrão, o template de `layout` é usado por todos os outros templates. Você pode especificar layouts adicionais no [front-matter](front-matter.html) ou configurá-lo como `false` para desativá-lo. É até possível criar uma estrutura aninhada complexa ao incluir mais templates de layout no seu layout principal.
+By default, the `layout` template is used by all other templates. You can specify additional layouts in the front-matter or set it to `false` to disable it. It's even possible to build a complex nested structure by including more layout templates in your top layout.
 
 ## Partials
 
-Os partials são úteis para compartilhar componentes entre seus templates. Um exemplo típico inclui cabeçalhos (header), rodapés (footer) ou barras laterais (sidebar). Você pode querer colocar seus partials em arquivos separados para tornar a manutenção do seu site significativamente mais conveniente. Por exemplo:
+Partials are useful for sharing components between your templates. Typical examples include headers, footers or sidebars. You may want to put your partials in separate files to make maintaining your website significantly more convenient. For example:
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= config.title %></h1>
@@ -61,9 +61,9 @@ yields:
 <div id="content">Home page</div>
 ```
 
-## Variáveis Locais
+## Local Variables
 
-Você pode definir variáveis locais em um template e usá-las em outros templates.
+You can define local variables in templates and use them in other templates.
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= title %></h1>
@@ -81,13 +81,13 @@ yields:
 <div id="content">Home page</div>
 ```
 
-## Otimização
+## Optimization
 
-Se o seu tema for extremamente complexo ou se o número de arquivos a serem gerados for muito grande, o desempenho da geração de arquivos do Hexo pode começar a diminuir consideravelmente. Além de simplificar o seu tema, você também pode tentar usar o `Fragment Caching`, que foi introduzido no Hexo 2.7.
+If your theme is exceedingly complex or if the number of files to generate becomes too large, Hexo's file generation performance may begin to decrease considerably. Aside from simplifying your theme, you may also try Fragment Caching, which was introduced in Hexo 2.7.
 
-Este recurso foi emprestado do [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). Isso faz com que o conteúdo seja salvo de forma fragmentada e cacheado para quando requisições adicionais forem feitas. Isso pode reduzir o número de consultas no banco de dados e também pode acelerar a geração de arquivos.
+This feature was borrowed from [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). It causes content to be saved as fragments and cached for when additional requests are made. This can reduce the number of database queries and can also speed up file generation.
 
-O recurso de `Fragment Caching` é melhor aproveitado em cabeçalhos, rodapés, barras laterais e outros conteúdos estáticos, onde sejam feitas pouquíssimas mudanças de um template para outro. Por exemplo:
+Fragment caching is best used for headers, footers, sidebars or other static content that is unlikely to change from template to template. For example:
 
 ``` js
 <%- fragment_cache('header', function(){
@@ -95,13 +95,12 @@ O recurso de `Fragment Caching` é melhor aproveitado em cabeçalhos, rodapés, 
 });
 ```
 
-Embora seja mais fácil usar partials:
+Though it may be easier to use partials:
 
 ``` js
 <%- partial('header', {}, {cache: true});
 ```
 
 {% note warn %}
-`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled.
-For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
+`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled. For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
 {% endnote %}
