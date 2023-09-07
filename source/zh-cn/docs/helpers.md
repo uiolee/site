@@ -2,36 +2,36 @@
 title: Helpers
 ---
 
-Helpers are used in templates to help you insert snippets quickly.  Helpers cannot be used in source files.
+帮助程序在模板中被用于帮助您快速插入代码片段。  无法在源文件中使用助手。
 
-You could easily [write your own custom helper](https://hexo.io/api/helper.html) or use our ready-made helpers.
+您可以轻松地 [写入您自己的自定义助手](https://hexo.io/api/helper.html) 或使用我们的现成助手。
 
 {% youtube Uc53pW0GJHU %}
 
-## URL
+## 网址
 
 ### url_for
 
-Returns a url with the root path prefixed. Output is encoded automatically.
+返回带有根路径前缀的URL。 输出自动编码。
 
 ``` js
-<%- url_for(path, [option]) %>
+<%- url_for(路径， [option]) %>
 ```
 
-| Option     | Description          | Default                         |
-| ---------- | -------------------- | ------------------------------- |
-| `relative` | Output relative link | Value of `config.relative_link` |
+| 选项    | 描述     | 默认设置                   |
+| ----- | ------ | ---------------------- |
+| `相对的` | 输出相对链接 | `config.relative_link` |
 
-**Examples:**
+**示例：**
 
 ``` yml
 _config.yml
-root: /blog/ # example
+root: /blog/ # 示例
 ```
 
 ``` js
 <%- url_for('/a/path') %>
-// /blog/a/path
+//blog/a/path
 ```
 
 Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
@@ -43,44 +43,44 @@ relative_link: true
 
 ``` js
 <%- url_for('/css/style.css') %>
-// ../../css/style.css
+/../../css/style. ss
 
-/* Override option
- * you could also disable it to output a non-relative link,
- * even when `relative_link` is enabled and vice versa.
+/* 覆盖选项
+ * 您也可以禁用它来输出一个非相对链接，
+ * 即使启用 `relative_link` ，反之亦然。
  */
 <%- url_for('/css/style.css', {relative: false}) %>
 // /css/style.css
 ```
 
-### relative_url
+### 相对url
 
-Returns the relative URL from `from` to `to`.
+将 `的相对URL从` 返回 `返回`。
 
 ``` js
-<%- relative_url(from, to) %>
+<%- 相对url(from, to) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- relative_url('foo/bar/', 'css/style.css') %>
-// ../../css/style.css
+/../css/style.css
 ```
 
-### full_url_for
+### 已满的 url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+以 `config.url` 前缀返回一个URL。 输出自动编码。
 
 ``` js
-<%- full_url_for(path) %>
+<%- full_url_for(路径) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` yml
 _config.yml
-url: https://example.com/blog # example
+url: https://example.com/blog# 示例
 ```
 
 ``` js
@@ -88,49 +88,49 @@ url: https://example.com/blog # example
 // https://example.com/blog/a/path
 ```
 
-### gravatar
+### 格拉塔尔
 
-Returns the gravatar image url from an email.
+从电子邮件返回Gravatar图像URL。
 
-If you didn't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
+如果您没有指定 [options] 参数，默认选项将适用。 否则，你可以将其设置为一个数字，然后将其作为尺寸参数传递给Gravatar。 最后，如果您将其设置为对象，它将被转换为Gravatar的查询字符串参数。
 
 ``` js
 <%- gravatar(email, [options]) %>
 ```
 
-| Option | Description       | Default |
-| ------ | ----------------- | ------- |
-| `s`    | Output image size | 80      |
-| `d`    | Default image     |         |
-| `f`    | Force default     |         |
-| `r`    | Rating            |         |
+| 选项  | 描述     | 默认设置 |
+| --- | ------ | ---- |
+| `秒` | 输出图像大小 | 80   |
+| `d` | 默认图像   |      |
+| `f` | 强制默认   |      |
+| `r` | 评分     |      |
 
 More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- gravatar('a@abc.com') %>
-// https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787
+/https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787
 
-<%- gravatar('a@abc.com', 40) %>
+<%- gravatar('a@abc)。 om, 40) %>
 // https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40
 
-<%- gravatar('a@abc.com' {s: 40, d: 'https://via.placeholder.com/150'}) %>
-// https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40&d=https%3A%2F%2Fvia.placeholder.com%2F150
+<%- gravatar('a@abc)。 om' {s：40, d：'https://via.placeholder.com/150 '}] %>
+// https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73c73cb6bdb06787?s=40&d=https%3A%2F%2Fvia.placeholder.com%2F150
 ```
 
-## HTML Tags
+## HTML 标签
 
 ### css
 
-Loads CSS files. `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. [`/<root>/`](/docs/configuration#URL) value is prepended while `.css` extension is appended to the `path` automatically. Use object type for custom attributes.
+加载 CSS 文件。 `路径` 可以是一个数组或一个字符串。 `路径` 可以是一个字符串、数组、对象或数组对象。 [`/<root>/`](/docs/configuration#URL) 值已预定，而 `.css` 扩展被自动附加到 `路径` 自定义属性使用对象类型。
 
 ``` js
 <%- css(path, ...) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- css('style.css') %>
@@ -150,13 +150,13 @@ Loads CSS files. `path` can be an array or a string. `path` can be a string, an 
 
 ### js
 
-Loads JavaScript files. `path` can be a string, an array, an object or an array of objects. [`/<root>/`](/docs/configuration#URL) value is prepended while `.js` extension is appended to the `path` automatically. Use object type for custom attributes.
+加载 JavaScript 文件。 `路径` 可以是一个字符串、数组、对象或数组对象。 [`/<root>/`](/docs/configuration#URL) value is prepended while `.js` extension is appended to the `path` automatically. 自定义属性使用对象类型。
 
 ``` js
 <%- js(path, ...) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- js('script.js') %>
@@ -174,21 +174,21 @@ Loads JavaScript files. `path` can be a string, an array, an object or an array 
 // <script src="/gallery.js" integrity="bar"></script>
 ```
 
-### link_to
+### 链接到
 
-Inserts a link.
+插入一个链接。
 
 ``` js
-<%- link_to(path, [text], [options]) %>
+<%- link_to(路径, [text], [options]) %>
 ```
 
-| Option     | Description                 | Default |
-| ---------- | --------------------------- | ------- |
-| `external` | Opens the link in a new tab | false   |
-| `class`    | Class name                  |         |
-| `id`       | ID                          |         |
+| 选项   | 描述        | 默认设置  |
+| ---- | --------- | ----- |
+| `外部` | 在新标签中打开链接 | false |
+| `类`  | 类名        |       |
+| `id` | ID        |       |
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- link_to('http://www.google.com') %>
@@ -201,71 +201,71 @@ Inserts a link.
 // <a href="http://www.google.com" title="Google" target="_blank" rel="noopener">Google</a>
 ```
 
-### mail_to
+### 发送至
 
-Inserts a mail link.
+插入邮件链接。
 
 ``` js
-<%- mail_to(path, [text], [options]) %>
+<%- mail_to(路径, [text], [options]) %>
 ```
 
-| Option    | Description  |
-| --------- | ------------ |
-| `class`   | Class name   |
-| `id`      | ID           |
-| `subject` | Mail subject |
-| `cc`      | CC           |
-| `bcc`     | BCC          |
-| `body`    | Mail content |
+| 选项     | 描述   |
+| ------ | ---- |
+| `类`    | 类名   |
+| `id`   | ID   |
+| `主题`   | 邮件主题 |
+| `cc`   | CC   |
+| `bcc`  | 密送抄送 |
+| `正文内容` | 邮件内容 |
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- mail_to('a@abc.com') %>
 // <a href="mailto:a@abc.com" title="a@abc.com">a@abc.com</a>
 
-<%- mail_to('a@abc.com', 'Email') %>
+<%- mail_to('a@abc.com', '电邮') %>
 // <a href="mailto:a@abc.com" title="Email">Email</a>
 ```
 
-### image_tag
+### 图片标签
 
-Inserts an image.
-
-``` js
-<%- image_tag(path, [options]) %>
-```
-
-| Option   | Description                   |
-| -------- | ----------------------------- |
-| `alt`    | Alternative text of the image |
-| `class`  | Class name                    |
-| `id`     | ID                            |
-| `width`  | Image width                   |
-| `height` | Image height                  |
-
-### favicon_tag
-
-Inserts a favicon.
+插入图像。
 
 ``` js
-<%- favicon_tag(path) %>
+<%- image_tag(路径， [options]) %>
 ```
 
-### feed_tag
+| 选项      | 描述      |
+| ------- | ------- |
+| `alt`   | 图像的替代文本 |
+| `类`     | 类名      |
+| `id`    | ID      |
+| `width` | 图像宽度    |
+| `高度`    | 图像高度    |
 
-Inserts a feed link.
+### 收藏夹标签
+
+插入收藏夹。
 
 ``` js
-<%- feed_tag(path, [options]) %>
+<%- favigicon_tag(路径) %>
 ```
 
-| Option  | Description | Default        |
-| ------- | ----------- | -------------- |
-| `title` | Feed title  | `config.title` |
-| `type`  | Feed type   |                |
+### Feed_标签
 
-**Examples:**
+插入一个供稿链接。
+
+``` js
+<%- feed_tag(路径， [options]) %>
+```
+
+| 选项   | 描述    | 默认设置           |
+| ---- | ----- | -------------- |
+| `标题` | 新闻源标题 | `config.title` |
+| `类型` | 新闻源类型 |                |
+
+**示例：**
 
 ``` js
 <%- feed_tag('atom.xml') %>
@@ -279,19 +279,19 @@ Inserts a feed link.
 // <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 ```
 
-## Conditional Tags
+## 条件标签
 
-### is_current
+### 是当前的
 
-Check whether `path` matches the URL of the current page. Use `strict` options to enable strict matching.
+检查 `路径` 是否匹配当前页面的 URL。 使用 `严格的` 选项来启用严格匹配。
 
 ``` js
-<%- is_current(path, [strict]) %>
+<%- is_current(路径， [strict]) %>
 ```
 
-### is_home
+### 是首页
 
-Check whether the current page is home page.
+检查当前页面是否为首页。
 
 ``` js
 <%- is_home() %>
@@ -299,134 +299,134 @@ Check whether the current page is home page.
 
 ### is_home_first_page (+6.3.0)
 
-Check whether the current page is the first of home page.
+检查当前页面是否为首页。
 
 ``` js
 <%- is_home_first_page() %>
 ```
 
-### is_post
+### 是帖子
 
-Check whether the current page is a post.
+检查当前页面是否是帖子。
 
 ``` js
 <%- is_post() %>
 ```
 
-### is_page
+### 是页面
 
-Check whether the current page is a page.
+检查当前页面是否是一个页面。
 
 ``` js
 <%- is_page() %>
 ```
 
-### is_archive
+### 是存档
 
-Check whether the current page is an archive page.
+检查当前页面是否为归档页面。
 
 ``` js
 <%- is_archive() %>
 ```
 
-### is_year
+### 是 年
 
-Check whether the current page is a yearly archive page.
+检查当前页面是否为年度归档页面。
 
 ``` js
 <%- is_year() %>
 ```
 
-### is_month
+### 是月
 
-Check whether the current page is a monthly archive page.
+检查当前页面是否为每月归档页面。
 
 ``` js
 <%- is_month() %>
 ```
 
-### is_category
+### 是类别
 
-Check whether the current page is a category page. If a string is given as parameter, check whether the current page match the given category.
+检查当前页面是否为类别页面。 如果给定了一个字符串作为参数，请检查当前页面是否与给定的类别相匹配。
 
 ``` js
 <%- is_category() %>
 <%- is_category('hobby') %>
 ```
 
-### is_tag
+### 是标签
 
-Check whether the current page is a tag page. If a string is given as parameter, check whether the current page match the given tag.
+检查当前页面是否为标签页。 如果给定字符串作为参数，请检查当前页面是否匹配给定的标签。
 
 ``` js
 <%- is_tag() %>
 <%- is_tag('hobby') %>
 ```
 
-## String Manipulation
+## 字符串操作
 
-### trim
+### 修饰
 
-Removes prefixing and trailing spaces of a string.
+删除字符串的前缀和尾随空格。
 
 ``` js
-<%- trim(string) %>
+<%- 修剪(字符串) %>
 ```
 
 ### strip_html
 
-Sanitizes all HTML tags in a string.
+将字符串中的所有HTML标签都卫生化。
 
 ``` js
-<%- strip_html(string) %>
+<%- strip_html(字符串) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- strip_html('It\'s not <b>important</b> anymore!') %>
-// It's not important anymore!
+<%- strip_html('It\'s not <b>important</b> 再重要！') %>
+// 它不再重要！
 ```
 
 ### titlecase
 
-Transforms a string into proper title caps.
+将字符串转换为正确的标题上限.
 
 ``` js
 <%- titlecase(string) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- titlecase('this is an apple') %>
-# This is an Apple
+<%- titlecase('这是一个小程序') %>
+# 这是一个苹果
 ```
 
 ### markdown
 
-Renders a string with Markdown.
+渲染一个带Markdown的字符串。
 
 ``` js
 <%- markdown(str) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- markdown('make me **strong**') %>
+<%- Markdown('make me **strong**') %>
 // make me <strong>strong</strong>
 ```
 
-### render
+### 渲染
 
-Renders a string.
+渲染一个字符串。
 
 ``` js
-<%- render(str, engine, [options]) %>
+<%- 渲染(str, 引擎, [options]) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- render('p(class="example") Test', 'pug'); %>
@@ -435,186 +435,186 @@ Renders a string.
 
 See [Rendering](https://hexo.io/api/rendering) for more details.
 
-### word_wrap
+### 自动换行
 
-Wraps text into lines no longer than `length`. `length` is 80 by default.
-
-``` js
-<%- word_wrap(str, [length]) %>
-```
-
-**Examples:**
+将文本包装成不超过 `长度` `长度` 默认是 80。
 
 ``` js
-<%- word_wrap('Once upon a time', 8) %>
-// Once upon\n a time
+<%- word_wrapp(str, [length]) %>
 ```
 
-### truncate
-
-Truncates text after certain `length`. Default is 30 characters.
+**示例：**
 
 ``` js
-<%- truncate(text, [options]) %>
+<%- word_wrapp('一次, 8) %>
+// 一次在\n 一次时间
 ```
 
-**Examples:**
+### 截图
+
+在指定 `长度` 之后截断文本。 默认为30个字符。
 
 ``` js
-<%- truncate('Once upon a time in a world far far away', {length: 17}) %>
-// Once upon a ti...
-
-<%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
-// Once upon a...
-
-<%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
-// And they f... (continued)
+<%- 截断(文本， [options]) %>
 ```
 
-### escape_html
+**示例：**
 
-Escapes HTML entities in a string.
+``` js
+<%- 截断('一次在远离世界的世界上很远', {length: 17}) %>
+// 偶数...
+
+<%- 截断('一次在远离世界的世界上很远', {length: 17, separator: ' '}) %>
+// 一次...
+
+<%- 截断(他们发现很多人睡得更好。', {length: 25, 忽略: '... （续）'}) %>
+// 他们...
+```
+
+### 转义_html
+
+在字符串中转义HTML实体。
 
 ``` js
 <%- escape_html(str) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- escape_html('<p>Hello "world".</p>') %>
 // &lt;p&gt;Hello &quot;world&quot;.&lt;&#x2F;p&gt;
 ```
 
-## Templates
+## 模板
 
-### partial
+### 部分的
 
-Loads other template files. You can define local variables in `locals`.
+加载其他模板文件。 您可以在 `局部变量` 中定义本地变量。
 
 ``` js
-<%- partial(layout, [locals], [options]) %>
+<%- partial(布局, [locals], [options]) %>
 ```
 
-| Option  | Description                                                              | Default |
-| ------- | ------------------------------------------------------------------------ | ------- |
-| `cache` | Cache contents (Use fragment cache)                                      | `false` |
-| `only`  | Strict local variables. Only use variables set in `locals` in templates. | `false` |
+| 选项   | 描述                           | 默认设置    |
+| ---- | ---------------------------- | ------- |
+| `缓存` | 缓存内容 (使用片段缓存)                | `false` |
+| `仅限` | 严格的本地变量。 仅使用模板中的 `本地设置的` 变量。 | `false` |
 
-### fragment_cache
+### 片段缓存
 
-Caches the contents in a fragment. It saves the contents within a fragment and serves the cache when the next request comes in.
+将内容放入片段中。 它将内容保存在片段内，并在下一个请求出现时为缓存服务。
 
 ``` js
 <%- fragment_cache(id, fn);
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- fragment_cache('header', function(){
+<%- fragment_cache('header', function()voir
   return '<header></header>';
 }) %>
 ```
 
-## Date & Time
+## 日期 & 时间
 
-### date
+### 日期
 
-Inserts formatted date. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `date_format` setting by default.
+插入格式化日期。 `日期` 可以是统一的时间，ISO字符串，日期对象，或者 [Moment.js][] 对象。 `格式` 是 `日期格式` 默认设置。
 
 ``` js
-<%- date(date, [format]) %>
+<%- 日期(日期, [format]) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- date(Date.now()) %>
+<%- 日期(Date.now ()) %>
 // 2013-01-01
 
-<%- date(Date.now(), 'YYYY/M/D') %>
-// Jan 1 2013
+<%- 日期(Date.now (), 'YYYY/M/D') %>
+// 1 2013
 ```
 
 ### date_xml
 
-Inserts date in XML format. `date` can be unix time, ISO string, date object, or [Moment.js][] object.
+以 XML 格式插入日期。 `日期` 可以是统一的时间，ISO字符串，日期对象，或者 [Moment.js][] 对象。
 
 ``` js
 <%- date_xml(date) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- date_xml(Date.now()) %>
-// 2013-01-01T00:00:00.000Z
+<%- date_xml(Date.now ()) %>
+// 2013-01-01T00:00:00.00.000Z
 ```
 
-### time
+### 时间
 
-Inserts formatted time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `time_format` setting by default.
+插入格式化时间。 `日期` 可以是统一的时间，ISO字符串，日期对象，或者 [Moment.js][] 对象。 `格式` 是 `时间格式` 默认设置。
 
 ``` js
-<%- time(date, [format]) %>
+<%- 时间(日期, [format]) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- time(Date.now()) %>
+<%- time(Date.now ()) %>
 // 13:05:12
 
-<%- time(Date.now(), 'h:mm:ss a') %>
+<%- time(Date.now (), 'h:mm:ss a') %>
 // 1:05:12 pm
 ```
 
-### full_date
+### 完整日期
 
-Inserts formatted date and time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `date_format + time_format` setting by default.
+插入格式化的日期和时间。 `日期` 可以是统一的时间，ISO字符串，日期对象，或者 [Moment.js][] 对象。 `格式` 是 `date_format + time_format` 默认设置。
 
 ``` js
-<%- full_date(date, [format]) %>
+<%- 完整日期(日期, [format]) %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- full_date(new Date()) %>
 // Jan 1, 2013 0:00:00
 
-<%- full_date(new Date(), 'dddd, MMMM Do YYYY, h:mm:ss a') %>
-// Tuesday, January 1st 2013, 12:00:00 am
+<%- full_date(新日期), 'dddd, MMM Do YYYY, h:mm:ss a') %>
+// 2013年1月1日星期二，12:00:00
 ```
 
-### moment
+### 时间
 
-[Moment.js][] library.
+[Moment.js][] 库。
 
-## List
+## 列表
 
-### list_categories
+### 列表类别
 
-Inserts a list of all categories.
+插入所有类别的列表。
 
 ``` js
 <%- list_categories([options]) %>
 ```
 
-| Option       | Description                                                                                                                                                                   | Default  |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `orderby`    | Order of categories                                                                                                                                                           | name     |
-| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                                                                          | 1        |
-| `show_count` | Display the number of posts for each category                                                                                                                                 | true     |
-| `style`      | Style to display the category list. `list` displays categories in an unordered list. Use `false` or any other value to disable it.                                            | list     |
-| `separator`  | Separator between categories. (Only works if `style` is not `list`)                                                                                                           | ,        |
-| `depth`      | Levels of categories to be displayed. `0` displays all categories and child categories; `-1` is similar to `0` but displayed in flat; `1` displays only top level categories. | 0        |
-| `class`      | Class name of category list.                                                                                                                                                  | category |
-| `transform`  | The function that changes the display of category name.                                                                                                                       |          |
-| `suffix`     | Add a suffix to link.                                                                                                                                                         | None     |
+| 选项       | 描述                                                         | 默认设置 |
+| -------- | ---------------------------------------------------------- | ---- |
+| `排序方式`   | 分类顺序                                                       | 名称   |
+| `订单`     | 排序。 `1`, `` 按升序排列； `-1`, `按降序排序` 按降序排序                     | 1    |
+| `显示计数`   | 显示每个类别的帖子数                                                 | true |
+| `样式`     | 显示分类列表的样式。 `列表` 在无序列表中显示类别。 使用 `false` 或任何其他值禁用它。          | 邮件列表 |
+| `分隔符`    | 类别之间的分隔符。 (仅当 `样式` 不是 `列表`)                                | ,    |
+| `深度：`    | 要显示的分类级别. `0` 显示所有类别和子类别； `-1` 类似于 `0` 但以平面显示； `1` 只显示顶级分类 | 0    |
+| `类`      | 类别列表的类名。                                                   | 类别   |
+| `转换`     | 更改类别名称显示的函数。                                               |      |
+| `suffix` | 添加一个后缀到链接。                                                 | 无    |
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- list_categories(post.categories, {
@@ -632,107 +632,107 @@ Inserts a list of all categories.
 }) %>
 ```
 
-### list_tags
+### 列表标签
 
-Inserts a list of all tags.
+插入所有标签的列表。
 
 ``` js
 <%- list_tags([options]) %>
 ```
 
-| Option       | Description                                                                                                             | Default |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------- | ------- |
-| `orderby`    | Order of categories                                                                                                     | name    |
-| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                    | 1       |
-| `show_count` | Display the number of posts for each tag                                                                                | true    |
-| `style`      | Style to display the tag list. `list` displays tags in an unordered list. Use `false` or any other value to disable it. | list    |
-| `separator`  | Separator between categories. (Only works if `style` is not `list`)                                                     | ,       |
-| `class`      | Class name of tag list (string) or customize each tag's class (object, see below).                                      | tag     |
-| `transform`  | The function that changes the display of tag name. See examples in [list_categories](#list-categories).                 |         |
-| `amount`     | The number of tags to display (0 = unlimited)                                                                           | 0       |
-| `suffix`     | Add a suffix to link.                                                                                                   | None    |
+| 选项       | 描述                                                         | 默认设置 |
+| -------- | ---------------------------------------------------------- | ---- |
+| `排序方式`   | 分类顺序                                                       | 名称   |
+| `订单`     | 排序。 `1`, `` 按升序排列； `-1`, `按降序排序` 按降序排序                     | 1    |
+| `显示计数`   | 显示每个标签的文章数量                                                | true |
+| `样式`     | 显示标签列表的样式。 `列表` 在无序列表中显示标签。 使用 `false` 或任何其他值禁用它。          | 邮件列表 |
+| `分隔符`    | 类别之间的分隔符。 (仅当 `样式` 不是 `列表`)                                | ,    |
+| `类`      | 标签列表类名称 (字符串) 或自定义每个标签类(对象，见下文)。                           | 标签   |
+| `转换`     | 更改标签名称显示的函数。 请参阅 [list_categories](#list-categories) 中的示例。 |      |
+| `金额`     | 要显示的标签数量 (0= 无限制)                                          | 0    |
+| `suffix` | 添加一个后缀到链接。                                                 | 无    |
 
-Class advanced customization:
+类高级自定义：
 
-| Option        | Description                                                                                                                                     | Default                                                  |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `class.ul`    | `<ul>` class name (only for style `list`)                                                                                                 | `tag-list` (list style)                                  |
-| `class.li`    | `<li>` class name (only for style `list`)                                                                                                 | `tag-list-item` (list style)                             |
-| `class.a`     | `<a>` class name                                                                                                                          | `tag-list-link` (list style) `tag-link` (normal style)   |
-| `class.label` | `<span>` class name where the tag label is stored (only for normal style, when `class.label` is set the label is put in a `<span>`) | `tag-label` (normal style)                               |
-| `class.count` | `<span>` class name where the tag counter is stored (only when `show_count` is `true`)                                                    | `tag-list-count` (list style) `tag-count` (normal style) |
+| 选项         | 描述                                                                 | 默认设置                                                     |
+| ---------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
+| `class.ul` | `<ul>` 类名 (仅适用于 `列表`)                                        | `标签列表` (列表样式)                                            |
+| `class.li` | `<li>` 类名 (仅适用于 `列表`)                                        | `标签列表项` (列表样式)                                           |
+| `class.a`  | `<a>` 类名称                                                    | `标签列表链接` (列表样式) `标签链接` (普通样式)                            |
+| `标签`       | `<span>` 标签存储的类名 (仅用于正常风格，当 `类时。 abel` 设置标签为 `<span>`) | `标签` (正常风格)                                              |
+| `计数`       | `<span>` 标签计数器存储的类名 (仅当 `显示计数` 是 `true`)                     | `tag-list-count` (list style) `tag-count` (normal style) |
 
-Examples:
+示例：
 
 ```ejs
 <%- list_tags(site.tags, {class: 'classtest', style: false, separator: ' | '}) %>
-<%- list_tags(site.tags, {class: 'classtest', style: 'list'}) %>
-<%- list_tags(site.tags, {class: {ul: 'ululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: false, separator: ' | '}) %>
-<%- list_tags(site.tags, {class: {ul: 'ululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: 'list'}) %>
+<%- list_tags(site. ags, {class: 'classtest', style: 'list'}>
+<%- list_tags(站点)。 ags, {class: {ul: 'ulululul', li: 'lilili', aaa', count : 'ccc'}, style: false, separator: '| '}) %>
+<%- list_tags(site ags, {class: {ul: 'ulululul', li: 'lilili', : 'aaa', count: 'ccc'}, 样式: 'list'}) %>
 ```
 
-### list_archives
+### 列表归档文件
 
-Inserts a list of archives.
+插入档案列表。
 
 ``` js
 <%- list_archives([options]) %>
 ```
 
-| Option       | Description                                                                                                                     | Default   |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `type`       | Type. This value can be `yearly` or `monthly`.                                                                                  | monthly   |
-| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                            | 1         |
-| `show_count` | Display the number of posts for each archive                                                                                    | true      |
-| `format`     | Date format                                                                                                                     | MMMM YYYY |
-| `style`      | Style to display the archive list. `list` displays archives in an unordered list. Use `false` or any other value to disable it. | list      |
-| `separator`  | Separator between archives. (Only works if `style` is not `list`)                                                               | ,         |
-| `class`      | Class name of archive list.                                                                                                     | archive   |
-| `transform`  | The function that changes the display of archive name. See examples in [list_categories](#list-categories).                     |           |
+| 选项     | 描述                                                         | 默认设置      |
+| ------ | ---------------------------------------------------------- | --------- |
+| `类型`   | Type. 此值可以是 `每年的` 或 `每月的`。                                 | 每月的       |
+| `订单`   | 排序。 `1`, `` 按升序排列； `-1`, `按降序排序` 按降序排序                     | 1         |
+| `显示计数` | 显示每个归档的帖子数                                                 | true      |
+| `格式`   | 日期格式                                                       | MMMM YYYY |
+| `样式`   | 显示归档列表的样式。 `列表` 在无序列表中显示归档。 使用 `false` 或任何其他值禁用它。          | 邮件列表      |
+| `分隔符`  | 归档之间的分隔符。 (仅当 `样式` 不是 `列表`)                                | ,         |
+| `类`    | 归档列表的类名称。                                                  | 存档        |
+| `转换`   | 更改归档名称显示的函数。 请参阅 [list_categories](#list-categories) 中的示例。 |           |
 
-### list_posts
+### 列表帖子
 
-Inserts a list of posts.
+插入帖子列表。
 
 ``` js
-<%- list_posts([options]) %>
+<%- list_poss([options]) %>
 ```
 
-| Option      | Description                                                                                                               | Default |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `orderby`   | Order of posts                                                                                                            | date    |
-| `order`     | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                      | 1       |
-| `style`     | Style to display the post list. `list` displays posts in an unordered list. Use `false` or any other value to disable it. | list    |
-| `separator` | Separator between posts. (Only works if `style` is not `list`)                                                            | ,       |
-| `class`     | Class name of post list.                                                                                                  | post    |
-| `amount`    | The number of posts to display (0 = unlimited)                                                                            | 6       |
-| `transform` | The function that changes the display of post name. See examples in [list_categories](#list-categories).                  |         |
+| 选项     | 描述                                                         | 默认设置 |
+| ------ | ---------------------------------------------------------- | ---- |
+| `排序方式` | 帖子顺序                                                       | 日期   |
+| `订单`   | 排序。 `1`, `` 按升序排列； `-1`, `按降序排序` 按降序排序                     | 1    |
+| `样式`   | 显示帖子列表的样式。 `列表` 显示无序列表中的帖子。 使用 `false` 或任何其他值禁用它。          | 邮件列表 |
+| `分隔符`  | 帖子之间的分隔符。 (仅当 `样式` 不是 `列表`)                                | ,    |
+| `类`    | 帖子列表的类名称。                                                  | 发帖   |
+| `金额`   | 要显示的帖子数量 (0=无限制)                                           | 6    |
+| `转换`   | 更改帖子名称显示的函数。 请参阅 [list_categories](#list-categories) 中的示例。 |      |
 
 ### tagcloud
 
-Inserts a tag cloud.
+插入标签云。
 
 ``` js
 <%- tagcloud([tags], [options]) %>
 ```
 
-| Option                 | Description                                                                                                                                                                   | Default   |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `min_font`             | Minimum font size                                                                                                                                                             | 10        |
-| `max_font`             | Maximum font size                                                                                                                                                             | 20        |
-| `unit`                 | Unit of font size                                                                                                                                                             | px        |
-| `amount`               | Total amount of tags                                                                                                                                                          | unlimited |
-| `orderby`              | Order of tags                                                                                                                                                                 | name      |
-| `order`                | Sort order. `1`, `asc` as ascending; `-1`, `desc` as descending                                                                                                               | 1         |
-| `color`                | Colorizes the tag cloud                                                                                                                                                       | false     |
-| `start_color`          | Start color. You can use hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) or [color keywords][]. This option only works when `color` is true. |           |
-| `end_color`            | End color. You can use hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) or [color keywords][]. This option only works when `color` is true.   |           |
-| `class`                | Class name prefix of tags                                                                                                                                                     |           |
-| `level`                | The number of different class names. This option only works when `class` is set.                                                                                              | 10        |
-| `show_count` (+6.3.0)  | Display the number of posts for each tag                                                                                                                                      | false     |
-| `count_class` (+6.3.0) | Class name of tag count                                                                                                                                                       | count     |
+| 选项                     | 描述                                                                                                                       | 默认设置  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----- |
+| `最小字体`                 | 最小字体大小                                                                                                                   | 10    |
+| `max_font`             | 最大字体大小                                                                                                                   | 20    |
+| `单位`                   | 字体大小单位                                                                                                                   | px    |
+| `金额`                   | 标签总数                                                                                                                     | 无限制   |
+| `排序方式`                 | 标签顺序                                                                                                                     | 名称    |
+| `订单`                   | 排序。 `1`, `` 等于升序； `-1`, `desc` 降序排列                                                                                      | 1     |
+| `颜色`                   | 色彩化标签云                                                                                                                   | false |
+| `开始颜色`                 | 开始颜色。 您可以使用十六进制(`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hslam (283, 100%，50%，1)`或 [颜色关键字][]。 此选项仅在 `颜色` 为真时有效。 |       |
+| `结束颜色`                 | 结束颜色。 您可以使用十六进制(`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hslam (283, 100%，50%，1)`或 [颜色关键字][]。 此选项仅在 `颜色` 为真时有效。 |       |
+| `类`                    | 标签类名称前缀                                                                                                                  |       |
+| `关卡`                   | 不同类名称的数量。 此选项仅在设置了 `类` 时有效。                                                                                              | 10    |
+| `show_count` (+6.3.0)  | 显示每个标签的文章数量                                                                                                              | false |
+| `count_class` (+6.3.0) | 标签数量的类名称                                                                                                                 | 计数    |
 
-**Examples:**
+**示例：**
 
 ``` js
 // Default options
@@ -742,66 +742,66 @@ Inserts a tag cloud.
 <%- tagcloud({amount: 30}) %>
 ```
 
-## Miscellaneous
+## 其他事项
 
-### paginator
+### 分页器
 
-Inserts a paginator.
+插入分页器。
 
 ``` js
-<%- paginator(options) %>
+<%- 分页符(选项) %>
 ```
 
-| Option                     | Description                                                                        | Default       |
-| -------------------------- | ---------------------------------------------------------------------------------- | ------------- |
-| `base`                     | Base URL                                                                           | /             |
-| `format`                   | URL format                                                                         | page/%d/      |
-| `total`                    | The number of pages                                                                | 1             |
-| `current`                  | Current page number                                                                | 0             |
-| `prev_text`                | The link text of previous page. Works only if `prev_next` is set to true.          | Prev          |
-| `next_text`                | The link text of next page. Works only if `prev_next` is set to true.              | Next          |
-| `space`                    | The space text                                                                     | &hellp;       |
-| `prev_next`                | Display previous and next links                                                    | true          |
-| `end_size`                 | The number of pages displayed on the start and the end side                        | 1             |
-| `mid_size`                 | The number of pages displayed between current page, but not including current page | 2             |
-| `show_all`                 | Display all pages. If this is set to true, `end_size` and `mid_size` will not work | false         |
-| `escape`                   | Escape HTML tags                                                                   | true          |
-| `page_class` (+6.3.0)      | Page class name                                                                    | `page-number` |
-| `current_class` (+6.3.0)   | Current page class name                                                            | `current`     |
-| `space_class` (+6.3.0)     | Space class name                                                                   | `space`       |
-| `prev_class` (+6.3.0)      | Previous page class name                                                           | `extend prev` |
-| `next_class` (+6.3.0)      | Next page class name                                                               | `extend next` |
-| `force_prev_next` (+6.3.0) | Force display previous and next links                                              | false         |
+| 选项                            | 描述                                                | 默认设置     |
+| ----------------------------- | ------------------------------------------------- | -------- |
+| `基数`                          | 基本网址                                              | /        |
+| `格式`                          | URL 格式                                            | page/%d/ |
+| `总计`                          | 页面数                                               | 1        |
+| `当前的`                         | 当前页面编号                                            | 0        |
+| `前置文本`                        | 上一页的链接文本。 只有在 `推送` 设置为 true时才能正常工作。               | 上一个      |
+| `下一文本`                        | 下一页的链接文本。 只有在 `推送` 设置为 true时才能正常工作。               | 下一个      |
+| `空格`                          | 空间文本                                              | &hellp;  |
+| `下一个`                         | 显示上一个和下一个链接                                       | true     |
+| `结束大小`                        | 开始和结束时显示的页面数                                      | 1        |
+| `中大小`                         | 当前页面之间显示的页面数量，但不包括当前页面                            | 2        |
+| `显示所有`                        | 显示所有页面。 如果设置为 true， `end_size` 和 `mid_size` 将无法工作 | false    |
+| `跳转`                          | 转义HTML标签                                          | true     |
+| `page_class` (+6.3.0)         | 页面类名称                                             | `页码`     |
+| `current_class` (+6.3.0)      | 当前页面类名称                                           | `当前的`    |
+| `space_class` (+6.3.0)        | 空间类名称                                             | `空格`     |
+| `prev_class` (+6.3.0)         | 上一个页面类名称                                          | `扩展上一个`  |
+| `下一类` (+6.3.0)                | 下一页类名称                                            | `扩展下一个`  |
+| `force_prevent_next` (+6.3.0) | 强制显示上一个和下一个链接                                     | false    |
 
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- paginator({
-  prev_text: '<',
-  next_text: '>'
+<%- paginator(ford
+  prevent_text: '<',
+  next tt_text: '>'
 }) %>
 ```
 
 ``` html
-<!-- Rendered as -->
+<！ - 渲染为 -->
 <a href="/1/">&lt;</a>
-<a href="/1/">1</a>
+<a href="/1/"></a>
 2
 <a href="/3/">3</a>
-<a href="/3/">&gt;</a>
+<a href="/3/">&gt；</a>
 ```
 
 ``` js
-<%- paginator({
-  prev_text: '<i class="fa fa-angle-left"></i>',
-  next_text: '<i class="fa fa-angle-right"></i>',
+<%- paginator(ford
+  prevent_text: '<i class="fa fa-angle-left"></i>',
+  next tt_text: '<i class="fa fa-angle-right"></i>',
   escape: false
 }) %>
 ```
 
 ``` html
-<!-- Rendered as -->
+<！ - 渲染为 -->
 <a href="/1/"><i class="fa fa-angle-left"></i></a>
 <a href="/1/">1</a>
 2
@@ -809,136 +809,136 @@ Inserts a paginator.
 <a href="/3/"><i class="fa fa-angle-right"></i></a>
 ```
 
-### search_form
+### 搜索表单
 
-Inserts a Google search form.
+插入一个 Google 搜索表。
 
 ``` js
-<%- search_form(options) %>
+<%- search_form(选项) %>
 ```
 
-| Option   | Description                                                                                                               | Default     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `class`  | The class name of form                                                                                                    | search-form |
-| `text`   | Search hint word                                                                                                          | Search      |
-| `button` | Display search button. The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
+| 选项   | 描述                                      | 默认设置  |
+| ---- | --------------------------------------- | ----- |
+| `类`  | 表单的类名称                                  | 搜索表单  |
+| `文本` | 搜索提示词                                   | 搜索    |
+| `按钮` | 显示搜索按钮。 该值可以是布尔值或字符串。 如果值是字符串，它将是按钮的文本。 | false |
 
-### number_format
+### 数字格式
 
-Formats a number.
+格式化数字。
 
 ``` js
-<%- number_format(number, [options]) %>
+<%- 数字格式(数、 [options]) %>
 ```
 
-| Option      | Description                                                                 | Default |
-| ----------- | --------------------------------------------------------------------------- | ------- |
-| `precision` | The precision of number. The value can be `false` or a nonnegative integer. | false   |
-| `delimiter` | The thousands delimiter                                                     | ,       |
-| `separator` | The separator between the fractional and integer digits.                    | .       |
+| 选项    | 描述                            | 默认设置  |
+| ----- | ----------------------------- | ----- |
+| `精度`  | 数字的精确度。 值可以是 `false` 或一个非负整数。 | false |
+| `分隔符` | 千个分隔符                         | ,     |
+| `分隔符` | 分数和整数之间的分隔符。                  | .     |
 
-**Examples:**
+**示例：**
 
 ``` js
-<%- number_format(12345.67, {precision: 1}) %>
+<%- 数字格式(12345.67, {precision: 1}) %>
 // 12,345.68
 
-<%- number_format(12345.67, {precision: 4}) %>
+<%- 数字格式(12345) 7, {precision: 4}%>
 // 12,345.6700
 
-<%- number_format(12345.67, {precision: 0}) %>
+<%- 数字格式(12345) 7, {precision: 0}(%) %>
 // 12,345
 
-<%- number_format(12345.67, {delimiter: ''}) %>
-// 12345.67
+<%- number_格式(12345.67, {delimiter: ''}) %>
+// 12345。 7
 
-<%- number_format(12345.67, {separator: '/'}) %>
-// 12,345/67
+<%- 数字格式(12345.67, {separator: '/'}) %>
+/ 12,345/67
 ```
 
 ### meta_generator
 
-Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta).
+插入 [生成器标签](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 
 ``` js
 <%- meta_generator() %>
 ```
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- meta_generator() %>
 // <meta name="generator" content="Hexo 4.0.0">
 ```
 
-### open_graph
+### 打开图
 
-Inserts [Open Graph][] data.
+插入 [打开图][] 数据。
 
 ``` js
 <%- open_graph([options]) %>
 ```
 
-| Option         | Description                                          | Default                                             |
-| -------------- | ---------------------------------------------------- | --------------------------------------------------- |
-| `title`        | Page title (`og:title`)                              | `page.title`                                        |
-| `type`         | Page type (`og:type`)                                | blog                                                |
-| `url`          | Page URL (`og:url`)                                  | `url`                                               |
-| `image`        | Page images (`og:image`)                             | All images in the content                           |
-| `author`       | Article author (`og:article:author`)                 | `config.author`                                     |
-| `date`         | Article published time (`og:article:published_time`) | Page published time                                 |
-| `updated`      | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
-| `language`     | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
-| `site_name`    | Site name (`og:site_name`)                           | `config.title`                                      |
-| `description`  | Page description (`og:description`)                  | Page excerpt or first 200 characters of the content |
-| `twitter_card` | Twitter card type (`twitter:card`)                   | summary                                             |
-| `twitter_id`   | Twitter ID (`twitter:creator`)                       |                                                     |
-| `twitter_site` | Twitter Site (`twitter:site`)                        |                                                     |
-| `google_plus`  | Google+ profile link                                 |                                                     |
-| `fb_admins`    | Facebook admin ID                                    |                                                     |
-| `fb_app_id`    | Facebook App ID                                      |                                                     |
+| 选项             | 描述                                   | 默认设置                                  |
+| -------------- | ------------------------------------ | ------------------------------------- |
+| `标题`           | 页面标题 (`og:title`)                    | `page.title`                          |
+| `类型`           | 页面类型 (`og:type`)                     | 博客                                    |
+| `网址`           | 页面 URL (`og:url`)                    | `网址`                                  |
+| `图片`           | 页面图像 (`og:image`)                    | 内容中的所有图像                              |
+| `作者`           | 文章作者 (`og:article:author`)           | `作者`                                  |
+| `日期`           | 文章发布时间 (`og:article:published_time`) | 页面发布时间                                |
+| `已更新`          | 文章修改时间(`og:article:modified_time`)   | 页面修改时间                                |
+| `语言`           | 文章语言 (`og:locale`)                   | `页面.lang || 页面.语言 || config.language` |
+| `站点名称`         | 站点名称 (`og:site_name`)                | `config.title`                        |
+| `描述`           | 页面描述 (`og:description`)              | 页面节录或内容的前200个字符                       |
+| `twitter_card` | Twitter 卡类型 (`twitter:card`          | summary                               |
+| `twitter_id`   | Twitter ID (`twitter:creator`)       |                                       |
+| `Twitter_site` | Twitter 站点 (`twitter:site`)          |                                       |
+| `谷歌加成`         | Google+ 个人资料链接                       |                                       |
+| `fb_admins`    | Facebook管理员 ID                       |                                       |
+| `fb_app_id`    | Facebook 应用程序 ID                     |                                       |
 
-### toc
+### 托克
 
-Parses all heading tags (h1~h6) in the content and inserts a table of contents.
+解析内容中的所有标题标签 (h1~h6) 并插入一个内容表。
 
 ``` js
 <%- toc(str, [options]) %>
 ```
 
-| Option                  | Description                            | Default           |
-| ----------------------- | -------------------------------------- | ----------------- |
-| `class`                 | Class name                             | `toc`             |
-| `class_item` (+6.3.0)   | Class name of item                     | `${class}-item`   |
-| `class_link` (+6.3.0)   | Class name of link                     | `${class}-link`   |
-| `class_text` (+6.3.0)   | Class name of text                     | `${class}-text`   |
-| `class_child` (+6.3.0)  | Class name of child                    | `${class}-child`  |
-| `class_number` (+6.3.0) | Class name of number                   | `${class}-number` |
-| `class_level` (+6.3.0)  | Class name prefix of level             | `${class}-level`  |
-| `list_number`           | Displays list number                   | true              |
-| `max_depth`             | Maximum heading depth of generated toc | 6                 |
-| `min_depth`             | Minimum heading depth of generated toc | 1                 |
+| 选项                      | 描述            | 默认设置              |
+| ----------------------- | ------------- | ----------------- |
+| `类`                     | 类名            | `托克`              |
+| `class_item` (+6.3.0)   | 项目的类名         | `${class}-item`   |
+| `class_link` (+6.3.0)   | 链接类名称         | `${class}-link`   |
+| `class_text` (+6.3.0)   | 文本类名称         | `${class}-text`   |
+| `class_child` (+6.3.0)  | 子类别名称         | `${class}-child`  |
+| `class_number` (+6.3.0) | 类编号名称         | `${class}-number` |
+| `class_level` (+6.3.0)  | 级别的类名称前缀      | `${class}-level`  |
+| `邮件列表编号`                | 显示列表编号        | true              |
+| `最大深度`                  | 生成toc 的最大标题深度 | 6                 |
+| `最小深度`                  | 生成toc 的最小标题深度 | 1                 |
 
-**Examples:**
+**示例：**
 
 ``` js
 <%- toc(page.content) %>
 ```
 
-#### data-toc-unnumbered (+6.1.0)
+#### 无编号数据 (+6.1.0)
 
-Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be display).
+属性为 `的标头-unnumbered="true"` 将被标记为未编号(列表号将不会显示)。
 
-{% note warn "Warning!" %}
-For using `data-toc-unnumbered="true"`, the renderer must have the option to add CSS classes.
+{% note warn "警告!" %}
+若要使用 `data-toc-unnumbered="true"`，渲染器必须有添加CSS 类的选项。
 
-Please see below PRs.
+请参阅以下PRs。
 
 - https://github.com/hexojs/hexo/pull/4871
 - https://github.com/hexojs/hexo-util/pull/269
-- https://github.com/hexojs/hexo-renderer-markdown-it/pull/174
+- https://github.com/hexojs/hexo-render-markdown-it/pull/174
 {% endnote %}
 
-[color keywords]: http://www.w3.org/TR/css3-color/#svg-color
+[颜色关键字]: http://www.w3.org/TR/css3-color/#svg-color
 [Moment.js]: http://momentjs.com/
-[Open Graph]: http://ogp.me/
+[打开图]: http://ogp.me/
