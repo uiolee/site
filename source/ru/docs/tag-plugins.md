@@ -1,11 +1,14 @@
 ---
 title: Плагины тегов
 ---
+
 Плагины тегов отличаются от тегов в посте. Они портированы с Octopress и обеспечивают удобный способ, чтобы быстро добавить контент для ваших постов.
 
-Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+Хотя вы можете писать свои сообщения в любых форматах, но плагины тегов всегда будут доступны и синтаксис остается прежним.
 
-_Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
+Вставка видео с Vimeo.
+
+_Плагины тегов не должны быть завернуты в синтаксис Markdown, например, `[]({% post_path lorem-ipsum %})` не поддерживается._
 
 ## Блок цитаты
 
@@ -15,7 +18,7 @@ _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path
 
 ```
 {% blockquote [author[, source]] [link] [source_link_title] %}
-content
+содержание
 {% endblockquote %}
 ```
 
@@ -37,24 +40,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 
 ```
 {% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+Не просто ищи счастья для себя. Ищите счастье для всех. Через доброту. Через милосердие.
 {% endblockquote %}
 ```
 
-{% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+{% blockquote Дэвид Левитан, Широкий Awake %}
+Не просто ищите счастья для себя. Ищите счастье для всех. Через доброту. Через милосердие.
 {% endblockquote %}
 
 **Цитата из Twitter**
 
 ```
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
-NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
+NEW: DevDocs теперь поставляется с подсветкой синтаксиса. http://devdocs.io
 {% endblockquote %}
 ```
 
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
-NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
+НОВОЕ: DevDocs теперь поставляется с подсветкой синтаксиса. http://devdocs.io
 {% endblockquote %}
 
 **Цитата из статьи в интернете**
@@ -65,8 +68,8 @@ Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 ```
 
-{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
-Every interaction is both precious and an opportunity to delight.
+{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Добро пожаловать на остров Маркетинг %}
+Каждое взаимодействие – это как ценность, так и возможность порадовать.
 {% endblockquote %}
 
 ## Блок с кодом
@@ -76,21 +79,21 @@ Every interaction is both precious and an opportunity to delight.
 **Блок данных:** code (код)
 
 ```
-{% codeblock [title] [lang:language] [url] [link text] [additional options] %}
+{% codeblock [title] [lang:language] [url] [текст ссылки] [additional options] %}
 code snippet
 {% endcodeblock %}
 ```
 
-Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
+Укажите дополнительные параметры в формате `option:value` , например `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Дополнительные параметры | Описание                                                                                                                                                                                           | По умолчанию |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `номер строки`           | Показать номер строки                                                                                                                                                                              | `истина`     |
+| `порог строки`           | Показывать только номера строк, если количество строк блока кода превышает такой порог.                                                                                                            | `0`          |
+| `подсветить`             | Включить подсветку кода                                                                                                                                                                            | `истина`     |
+| `первая _строка`         | Укажите номер первой строки                                                                                                                                                                        | `1`          |
+| `метка`                  | Подсвечивать строку(и) подсвечивания строки(ов), каждое значение разделяется запятыми. Укажите диапазон чисел с помощью тире<br>Пример: `mark:1,4-7,10` будет отмечать строку 1, 4 - 7 и 10. |              |
+| `обернуть`               | Оберните кодовый блок в [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                                                         | `истина`     |
 
 ### Примеры
 
@@ -98,27 +101,27 @@ Extra Options | Description | Default
 
 ```
 {% codeblock %}
-alert('Hello World!');
+оповещение('Привет мир!');
 {% endcodeblock %}
 ```
 
 {% codeblock %}
-alert('Hello World!');
+оповещение('Привет мир!');
 {% endcodeblock %}
 
 **С указанием языка**
 
 ```
 {% codeblock lang:objc %}
-[rectangle setX: 10 y: 10 width: 20 height: 20];
+[набор прямоугольника: 10 y: 10 ширина: 20 высота: 20];
 {% endcodeblock %}
 ```
 
 {% codeblock lang:objc %}
-[rectangle setX: 10 y: 10 width: 20 height: 20];
+[прямоугольник setX: 10 y: 10 ширина: 20 высота: 20];
 {% endcodeblock %}
 
-**С добавление заголовка**
+**Добавление подписи к блоку кода**
 
 ```
 {% codeblock Array.map %}
@@ -140,8 +143,7 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Блок кода в кавычках
@@ -149,12 +151,12 @@ _.compact([0, 1, false, 2, '', 3]);
 Тот же блок кода, но использует три обратные кавычки для отделения блока.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
-code snippet
-&#96;``
+&#96`[language] [title] [url] [текст ссылки]
+код фрагмента
+&#96;`
 {% endraw %}
 
-## Цитата
+## Тянуть цитату
 
 Добавляет цитату в пост:
 
@@ -169,15 +171,15 @@ content
 Размещает фрагмент с jsFiddle:
 
 ```
-{% jsfiddle shorttag [tabs] [skin] [width] [height] %}
+{% jsfiddle shorttag [tabs] [skin] [width] [height]%}
 ```
 
-## Gist
+## Жизнь
 
 Размещает фрагмент с Gist:
 
 ```
-{% gist gist_id [filename] %}
+{% gist_id [filename]%}
 ```
 
 ## iframe
@@ -193,7 +195,7 @@ content
 Вставляет картинку с заданными размерами.
 
 ```
-{% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
+{% img [имена классов] /path/to/image [width] [height] '"текст заголовка" "alt text"' %}
 ```
 
 ## Ссылка
@@ -201,15 +203,47 @@ content
 Вставляет ссылку с атрибутом `target="_blank"`.
 
 ```
-{% link text url [external] [title] %}
+{% текст ссылки [external] [title]%}
 ```
 
-## Include Code
+## Включить код
 
-Вставляет фрагменты кода из папки `source/downloads/code`.
+Вставляет фрагменты кода из папки `source/downloads/code`. Расположение папки может быть указано с помощью опции `code_dir` в конфигурации.
 
 ```
 {% include_code [title] [lang:language] path/to/file %}
+```
+
+### Примеры
+
+**Встроить весь контент test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Вставить только строку 3**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Встроенная строка 5-8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Вставить строку 5 в конец файла**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Встроенная строка с 1 по 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
 ```
 
 ## YouTube
@@ -217,26 +251,26 @@ content
 Вставка видео с YouTube.
 
 ```
-{% youtube video_id [type] [cookie] %}
+{% youtube video_id [type] [cookie]%}
 ```
 
-### Examples
+### Примеры
 
-**Embed a video**
+**Вставить видео**
 
 ```
 {% youtube lJIrF4YjHfQ %}
 ```
 
-**Embed a playlist**
+**Вставить плейлист**
 
 ```
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' %}
 ```
 
-**Enable privacy-enhanced mode**
+**Включить режим секретности**
 
-YouTube's cookie is not used in this mode.
+В этом режиме cookie YouTube не используется.
 
 ```
 {% youtube lJIrF4YjHfQ false %}
@@ -245,54 +279,53 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Вставка видео с Vimeo.
+Вставляет видео отзывчивого или заданного размера.
 
 ```
 {% vimeo video_id %}
 ```
 
-## Включения из постов
+## Включить сообщения
 
 Содержит ссылку на другой пост.
 
 ```
 {% post_path filename %}
-{% post_link filename [title] [escape] %}
+{% имя файла post_link [title] [escape]%}
 ```
 
-You can ignore permalink and folder information, like languages and dates, when using this tag.
+При использовании этого тэга вы можете игнорировать информацию о папках и языках, например языки и даты.
 
-For instance: `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`.
+Например, `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`.
 
-This will work as long as the filename of the post is `how-to-bake-a-cake.md`, even if the post is located at `source/posts/2015-02-my-family-holiday` and has permalink `2018/en/how-to-bake-a-cake`.
+Это будет работать до тех пор, пока файл поста будет `как-bake-a-cake. d`, даже если этот пост находится на `source/posts/2015-02-my-family-holiday` и имеет постоянную `2018/ru/how-to-bake-a-cake`.
 
-You can customize the text to display, instead of displaying the post's title.
+Вы можете настроить текст для отображения, а не отображать заголовок сообщения.
 
-Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
+Заголовок и пользовательский текст экранируются по умолчанию. Вы можете использовать опцию `escape` для отключения экрана.
 
-For instance:
+Например:
 
-**Display title of the post.**
+**Отображать название должности.**
 
 `{% raw %}{% post_link hexo-3-8-released %}{% endraw %}`
 
 {% post_link hexo-3-8-released %}
 
-**Display custom text.**
+**Показать пользовательский текст.**
 
 `{% raw %}{% post_link hexo-3-8-released 'Link to a post' %}{% endraw %}`
 
 {% post_link hexo-3-8-released 'Link to a post' %}
 
-**Escape title.**
+**Избегайте заголовка.**
 
 ```
-{% post_link hexo-4-released 'How to use <b> tag in title' %}
+{% post_link hexo-4 выпустил 'Как использовать <b> тег в названии' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
-**Do not escape title.**
+**Не экранировать титул.**
 
 ```
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
@@ -300,23 +333,23 @@ For instance:
 
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
-## Вставка материала
+## Включить активы
 
-Содержит содержимое материала.
+Включить активы, которые будут использоваться совместно с [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
-{% asset_img [class names] slug [width] [height] [title text [alt text]] %}
-{% asset_link filename [title] [escape] %}
+{% asset_img [имена классов] слаг [width] [height] [текст заголовка [alt text]] %}
+{% asset_link имя файла [title] [escape]%}
 ```
 
-### Embed image
+### Вставить изображение
 
-_hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an image automatically, refer to [this section](/docs/asset-folders#Embedding-an-image-using-markdown) on how to enable it._
+_hexo-renderer-marked 3.1.0+ can (необязательно) resolves the post path of the image automatically, refer to the [this section](/docs/asset-folders#Embedding-an-image-using-markdown) on how to enable it._
 
-"foo.jpg" is located at `http://example.com/2020/01/02/hello/foo.jpg`.
+"foo.jpg" находится на `http://example.com/2020/01/02/hello/foo.jpg`.
 
-**Default (no option)**
+**По умолчанию (без опции)**
 
 `{% asset_img foo.jpg %}`
 
@@ -324,7 +357,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg">
 ```
 
-**Custom class**
+**Пользовательский класс**
 
 `{% asset_img post-image foo.jpg %}`
 
@@ -332,7 +365,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" class="post-image">
 ```
 
-**Display size**
+**Размер экрана**
 
 `{% asset_img foo.jpg 500 400 %}`
 
@@ -340,7 +373,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" width="500" height="400">
 ```
 
-**Title & Alt**
+**Название & Alt**
 
 `{% asset_img logo.svg "lorem ipsum'dolor'" %}`
 
@@ -348,19 +381,19 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
-## Сырцы
+## Сырье
 
 Если определённый контент вызывает ошибки обработки в ваших постах, оберните его тегом `raw`, чтобы избежать ошибок обработки.
 
 ```
 {% raw %}
-content
+содержание
 {% endraw %}
 ```
 
-## Отрывок поста
+## Отрывок из записи
 
-Используйте текст до тега `<!-- more -->` в качестве отрывка поста.
+Используйте текст до тега `<!-- more -->` в качестве отрывка поста. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **Примеры:**
 

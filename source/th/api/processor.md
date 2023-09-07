@@ -1,7 +1,8 @@
 ---
 title: Processor
 ---
-processor ใช้มาจัดการไฟล์ source ท่ีอยู่ใน folder `source`
+
+A processor is used to process source files in the `source` folder.
 
 ## Synopsis
 
@@ -11,4 +12,4 @@ hexo.extend.processor.register(rule, function(file){
 });
 ```
 
-สำหรับข้อมูลเพิ่มเติม ไปดูได้ที่ [box](box.html).
+For more info, see [box](box.html).

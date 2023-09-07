@@ -1,32 +1,33 @@
 ---
 title: Internacionalização (i18n)
 ---
-Você pode usar a internacionalização para apresentar seu site em diferentes idiomas. O idioma padrão é definido modificando a configuração `language` em `_config.yml`. Você também pode definir vários idiomas e modificar a ordem dos idiomas padrão.
+
+Você pode usar a internacionalização para apresentar seu site em diferentes idiomas. O idioma padrão é definido modificando a configuração `idioma` em `_config.yml`. Você também pode definir vários idiomas e modificar a ordem dos idiomas padrão.
 
 ``` yaml
-language: zh-tw
+idioma: zh-tw
 
-language:
+idioma:
 - zh-tw
-- en
+- pt
 ```
 
-### Arquivo de Idiomas
+### Arquivos de Idioma
 
-Os arquivos de idioma podem ser arquivos YAML ou JSON. Você deve inseri-los no diretório `languages` de `theme`. Há suporte para o [printf format](https://github.com/alexei/sprintf.js) nos arquivos de idioma.
+Arquivos de linguagem podem ser arquivos YAML ou JSON. Você deve colocá-los na pasta `idiomas` no tema. Existe suporte para o formato [printf](https://github.com/alexei/sprintf.js) em arquivos de idioma.
 
-### Templates
+### Modelos
 
-Use os helpers `__` ou `_p` nos templates para traduzir as strings. O primeiro é para uso normal e o segundo é para strings no plural. Por exemplo:
+Use `__` ou `_p` auxiliares em templates para obter as frases traduzidas. O primeiro diz respeito à utilização normal e o segundo à pluralidade das frases. Por exemplo:
 
 ``` yaml en.yml
-index:
-  title: Home
-  add: Add
-  video:
-    zero: No videos
-    one: One video
-    other: %d videos
+índice:
+  title: Casa
+  adicionar: Adicionar
+  vídeo:
+    zero: Sem vídeos
+    um: Um vídeo
+    outro: vídeos %d
 ```
 
 ``` js
@@ -34,18 +35,18 @@ index:
 // Home
 
 <%= _p('index.video', 3) %>
-// 3 videos
+// 3 vídeos
 ```
 
-### Caminhos
+### Caminho
 
-Você pode definir o idioma das páginas no front-matter ou modificar a configuração `i18n_dir` no arquivo `_config.yml` para habilitar a detecção automática pelo Hexo.
+Você pode definir o idioma das páginas no front-matter, ou modificar a configuração `i18n_dir` em `_config. ml` para habilitar a detecção automática por Hexo.
 
 ``` yaml
 i18n_dir: :lang
 ```
 
-O valor padrão da configuração `i18n_dir` é `:lang`, o que significa que o Hexo detectará o idioma dentro do primeiro segmento de URL. Por exemplo:
+O valor padrão da configuração `i18n_dir` é `:lang`, o que significa que o Hexo irá detectar o idioma dentro do primeiro segmento de URL. Por exemplo:
 
 ``` plain
 /index.html => en
@@ -53,4 +54,4 @@ O valor padrão da configuração `i18n_dir` é `:lang`, o que significa que o H
 /zh-tw/index.html => zh-tw
 ```
 
-A string só será servida como um idioma quando o arquivo de idioma existir. Então, `archives` em `/archives/index.html` (exemplo 2) não será servida como um idioma.
+O texto só será servido como um idioma quando o arquivo de idioma existir. Então os arquivos `` em `/archives/index.html` (exemplo 2) não serão servidos como uma linguagem.

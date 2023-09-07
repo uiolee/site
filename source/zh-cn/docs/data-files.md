@@ -1,25 +1,28 @@
 ---
 title: 数据文件
 ---
-有时您可能需要在主题中使用某些资料，而这些资料并不在文章内，并且是需要重复使用的，那么您可以考虑使用 Hexo 3.0 新增的「数据文件」功能。此功能会载入 `source/_data` 内的 YAML 或 JSON 文件，如此一来您便能在网站中复用这些文件了。
 
-举例来说，在 `source/_data` 文件夹中新建 `menu.yml` 文件：
+有时您可能需要在模板中使用一些在您的帖子中无法直接获取的数据。 或者你想要在别处重新使用数据。 对于这种情况，Hexo 3 引入了新的 **数据文件**。 此功能在 `source/_data` 文件夹中加载了YAML 或 JSON 文件，以便您可以在您的网站中使用它们。
+
+{% youtube CN31plHbI-w %}
+
+例如，在 `source/_data` 文件夹中添加 `menu.yml`
 
 ``` yaml
-Home: /
-Gallery: /gallery/
-Archives: /archives/
+主页: /
+图库: /gallery/
+档案: /archives/
 ```
 
-您就能在模板中使用这些资料：
+你可以在模板中使用它们：
 
 ```
-<% for (var link in site.data.menu) { %>
+<% 用于 (站点数据中的 var 链接)。 enu: %>
   <a href="<%= site.data.menu[link] %>"> <%= link %> </a>
-<% } %>
+<% }>
 ```
 
-渲染结果如下 :
+渲染就像这样：
 
 ```
 <a href="/"> Home </a>

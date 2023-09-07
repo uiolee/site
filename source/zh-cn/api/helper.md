@@ -1,19 +1,23 @@
 ---
-title: 辅助函数（Helper）
+title: 帮助者
 ---
-辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。
 
-## 概要
+帮手可以轻松地将代码片段添加到您的模板。 当你处理更复杂的代码时，我们建议使用助手而不是模板。
+
+无法从 `源` 文件访问助手.
+
+## 简述
 
 ``` js
-hexo.extend.helper.register(name, function(){
+hexo.extend.helper.register(name, function()@un.org.
+  // ...
 });
 ```
 
-## 范例
+## 示例
 
 ``` js
-hexo.extend.helper.register('js', function(path){
+hexo.extend.helper.register('js', function(path)申請
   return '<script src="' + path + '"></script>';
 });
 ```
@@ -25,13 +29,13 @@ hexo.extend.helper.register('js', function(path){
 
 ## 常见问题
 
-### 定制 helper 应该放在哪里？
+### 放置自定义助手在哪里？
 
-放置在 `scripts/` 或 `themes/<yourtheme>/scripts/` 目录中。
+Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
 
-### 如何在我的定制 helper 中使用另外一个已经注册的 helper？
+### 如何在我的自定义助手中使用另一个注册的助手？
 
-所有的辅助函数都在同一个上下文中执行。例如，在一个自定义的辅助函数中使用 [`url_for()`](/zh-cn/docs/helpers#url-for)：
+所有助手都是在相同的环境下执行的。 例如，要在自定义助手中使用 [`url_for()`](/docs/helpers#url-for)
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
@@ -39,10 +43,10 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### 如何在其他插件中使用已经注册的 helper?
+### 我如何在另一个扩展中使用注册的助手(例如过滤器、喷射器等)？
 
-`hexo.extend.helper.get` 会返回一个指定名字的 helper，但是你还需要一个 `bind(hexo)`，就像这样：
+`hexo.extend.helper.get` 将返回助手函数，但是它的上下文需要十六进制，这样：
 
 ``` js
-const url_for = hexo.extend.helper.get('url_for').bind(hexo);
+const url_for = hexo.extend.helper.get('url_for').bindhexo;
 ```

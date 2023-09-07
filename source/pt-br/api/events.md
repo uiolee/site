@@ -1,32 +1,32 @@
 ---
-title: Events
+title: Eventos
 ---
 
-O Hexo herda de [EventEmitter]. Use o método `on` para ouvir os eventos emitidos pelo Hexo, e use o método `emit` para emitir eventos. Para obter mais informações, consulte a documentação da API do Node.js.
+Hexo herda de [EventEmitter][]. Use o método `no` para ouvir eventos emitidos pelo Hexo e use o método `emite` para emitir eventos. Para obter mais informações, consulte a documentação da API do Node.js.
 
-### deployBefore
+### implantaçãoAntes
 
-Emitido antes do deployment começar.
+Emitido antes que a implantação comece.
 
-### deployAfter
+### implantaçãoApós
 
-Emitido depois do deployment finalizado.
+Emitido após conclusão da implantação.
 
-### exit
+### saindo
 
-Emitido antes de Hexo sair.
+Emitido antes da saída Hexo.
 
-### generateBefore
+### gerarAntes
 
-Emitido antes da geração começar.
+Emitido antes do início da geração.
 
-### generateAfter
+### gerarDepois
 
-Emitido depois da geração finalizada.
+Emitido após término da geração.
 
-### new
+### Novo
 
-Emitido depois de uma nova postagem ter sido criada. Este evento retorna os dados da postagem:
+Emitido após uma nova postagem ter sido criada. Este evento retorna os dados da postagem:
 
 ``` js
 hexo.on('new', function(post){
@@ -34,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-Dados | Descrição
---- | ---
-`post.path` | Caminho completo do arquivo da postagem
-`post.content` | Conteúdo do arquivo da postagem
+| Dado                  | Descrição:                       |
+| --------------------- | -------------------------------- |
+| `caminho.post`        | Caminho completo do arquivo post |
+| `publicação.conteúdo` | Conteúdo do arquivo post         |
 
-### processBefore
+### processarAntes
 
-Emitido antes do início do processamento. Este evento retorna um caminho que representa o diretório raiz do box.
+Emitido antes que o processamento comece. Este evento retorna um caminho que representa o diretório raiz da caixa.
 
 ### processAfter
 
-Emitido depois do processamento finalizado. Este evento retorna um caminho que representa o diretório raiz do `box`.
+Emitido após término do processamento. Este evento retorna um caminho que representa o diretório raiz da caixa.
 
-### ready
+### Pronto
 
-Emitido depois da inicialização terminar.
+Emitido após a conclusão da inicialização.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html

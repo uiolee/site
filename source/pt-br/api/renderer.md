@@ -1,51 +1,52 @@
 ---
-title: Renderer
+title: Renderizador
 ---
 
-Um `renderer` é utilizado para renderizar conteúdos.
+Um renderizador é usado para processar o conteúdo.
 
-## Resumo
+## Sinopse
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
   // ...
-}, sync);
+}, sincronizar);
 ```
 
-Argumento | Descrição
---- | ---
-`name` | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial)
-`output` | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)
-`sync` | Modo de sincronização
+| Argumento     | Descrição:                                                     |
+| ------------- | -------------------------------------------------------------- |
+| `Nome`        | A extensão do arquivo de entrada (minúsculas, sem liderar `.`) |
+| `saída`       | A extensão do arquivo de saída (minúsculas, sem liderar `.`)   |
+| `sincronizar` | Modo de sincronização                                          |
 
-Dois argumentos devem ser passados para a função renderer:
+Três argumentos serão passados para a função render:
 
-Argumento | Descrição
---- | ---
-`data` | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista.
-`option` | Opções
+| Argumento  | Descrição:                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| `Dados`    | Inclua dois atributos: caminho `caminho` e conteúdo do arquivo `texto`. `caminho` não vai necessariamente existir. |
+| `opção`    | Opções                                                                                                             |
+| `callback` | Função de retorno de chamada de dois parâmetros `err`, `valor`.                                                    |
 
 ## Exemplo
 
-### Modo Assíncrono
+### Modo assíncrono
 
 ``` js
 var stylus = require('stylus');
 
 // Callback
-hexo.extend.renderer.register('styl', 'css', function(data, options, callback){
-  stylus(data.text).set('filename', data.path).render(callback);
+hexo.extend.renderer.register('styl', 'css', function(dados, opções, callback){
+  stylus(data.text).set('filename', data.path). ender(callback);
 });
 
-// Promise
-hexo.extend.renderer.register('styl', 'css', function(data, options){
+// Promessa
+hexo.extend.renderer. egister('styl', 'css', function(data, options){
   return new Promise(function(resolve, reject){
     resolve('test');
   });
 });
 ```
 
-### Modo Síncrono
+### Modo de Sincronização
 
 ``` js
 var ejs = require('ejs');
@@ -56,13 +57,13 @@ hexo.extend.renderer.register('ejs', 'html', function(data, options){
 }, true);
 ```
 
-### Disable Nunjucks tags
+### Desativar Nunjucks tags
 
-Nunjucks tags `{{ }}` or `{% %}` (utilized by [tag plugin](/docs/tag-plugins)) are processed by default, to disable:
+Nunjucks tags `{{ }}` ou `{% %}` (utilizado por [tag plugin](/docs/tag-plugins)) são processados por padrão, para desativar:
 
 ``` js
 function lessFn(data, options) {
-  // do something
+  // faz algo
 }
 
 lessFn.disableNunjucks = true

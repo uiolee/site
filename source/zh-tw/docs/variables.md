@@ -1,90 +1,101 @@
 ---
-title: 變數
+title: Variables
 ---
-### 全局變數
 
-變數 | 描述
---- | ---
-`site` | [網站變數](#網站變數)
-`page` | 針對該頁面的資訊以及 front-matter 所設定的變數。
-`config` | 網站配置
-`theme` | 主題配置。繼承自網站配置。
-`path` | 目前頁面的路徑（不含根路徑）
-`url` | 目前頁面的完整網址
-`env` | 環境變數
+{% youtube T9oAax-IRw0 %}
+
+### Global Variables
+
+| Variable | Description                                                         | Type                                 |
+| -------- | ------------------------------------------------------------------- | ------------------------------------ |
+| `site`   | Sitewide information.                                               | `object`; see [Site Variables][]     |
+| `page`   | Page specific information and custom variables set in front-matter. | `object`; see [Page Variables][]     |
+| `config` | Site configuration.                                                 | `object` (your site's _config file)  |
+| `theme`  | Theme configuration. Inherits from site configuration.              | `object` (your theme's _config file) |
+| `path`   | Path of current page                                                | `string`                             |
+| `url`    | Full URL of current page                                            | `string`                             |
+| `env`    | Environment variables                                               | ???                                  |
 
 {% note warn %}
 Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 {% endnote %}
 
-### 網站變數
+### Site Variables
 
-變數 | 描述
---- | ---
-`site.posts` | 所有文章
-`site.pages` | 所有分頁
-`site.categories` | 所有分類
-`site.tags` | 所有標籤
+| Variable          | Description    | Type                      |
+| ----------------- | -------------- | ------------------------- |
+| `site.posts`      | All posts      | `array` of `post` objects |
+| `site.pages`      | All pages      | `array` of `page` objects |
+| `site.categories` | All categories | `array` of ???            |
+| `site.tags`       | All tags       | `array` of ???            |
 
-### 頁面變數
+### Page Variables
 
-**文章（post, page, ...）**
+**Article (`page`)**
 
-變數 | 描述
---- | ---
-`page.title` | 文章標題
-`page.date` | 文章建立日期（[Moment.js] 物件）
-`page.updated` | 文章更新日期（[Moment.js] 物件）
-`page.categories` | 文章分類
-`page.tags` | 文章標籤
-`page.comments` | 留言是否開啟
-`page.layout` | 佈局名稱
-`page.content` | 文章的完整內容
-`page.excerpt` | 文章摘要
-`page.more` | 除了文章摘要的其餘內容
-`page.source` | 文章原始路徑
-`page.full_source` | 文章的完整原始路徑
-`page.path` | 文章網址（不含根路徑）。我們通常在主題中使用 `url_for(page.path)`。
-`page.permalink` | 文章的完整網址
-`page.prev` | 上一篇文章。如果此為第一篇文章則為 `null`。
-`page.next` | 下一篇文章。如果此為最後一篇文章則為 `null`。
-`page.raw` | 文章的原始內容
-`page.photos` | 文章的照片（用於相簿）
-`page.link` | 文章的外連連結（用於連結文章）
+| Variable           | Description                                                                            | Type                 |
+| ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
+| `page.title`       | Article title                                                                          | `string`             |
+| `page.date`        | Article created date                                                                   | [Moment.js][] object |
+| `page.updated`     | Article last updated date                                                              | [Moment.js][] object |
+| `page.comments`    | Comment enabled or not                                                                 | `boolean`            |
+| `page.layout`      | Layout name                                                                            | `string`             |
+| `page.content`     | The full processed content of the article                                              | `string`             |
+| `page.excerpt`     | Article excerpt                                                                        | `string`             |
+| `page.more`        | Contents except article excerpt                                                        | `string`             |
+| `page.source`      | The path of the source file                                                            | `string`             |
+| `page.full_source` | Full path of the source file                                                           | `string`             |
+| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
+| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
+| `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
+| `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
+| `page.raw`         | The raw data of the article                                                            | ???                  |
+| `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
+| `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
 
-**首頁（index）**
+**Post (`post`):** Same as `page` layout but add the following variables.
 
-變數 | 描述
---- | ---
-`page.per_page` | 每頁顯示的文章數量
-`page.total` | 總頁數
-`page.current` | 目前頁數
-`page.current_url` | 目前分頁的網址
-`page.posts` | 本頁文章
-`page.prev` | 上一頁的頁數。如果此頁是第一頁的話則為 `0`。
-`page.prev_link` | 上一頁的連結。如果此頁是第一頁的話則為 `''`。
-`page.next` | 下一頁的頁數。如果此頁是最後一頁的話則為 `0`。
-`page.next_link` | 下一頁的網址。如果此頁是最後一頁的話則為 `''`。
-`page.path` | 目前頁面的路徑（不含根目錄）。我們通常在主題中使用 `url_for(page.path)`。
+| Variable          | Description                     | Type           |
+| ----------------- | ------------------------------- | -------------- |
+| `page.published`  | True if the post is not a draft | `boolean`      |
+| `page.categories` | All categories of the post      | `array` of ??? |
+| `page.tags`       | All tags of the post            | `array` of ??? |
 
-**彙整 (archive)**：與 `index` 佈局相同，但新增以下變數。
+**Home (`index`)**
 
-變數 | 描述
---- | ---
-`archive` | 等於 `true`
-`year` | 彙整年份（4 位數）
-`month` | 彙整月份（不含開頭的零）
+| Variable           | Description                                                                             | Type     |
+| ------------------ | --------------------------------------------------------------------------------------- | -------- |
+| `page.per_page`    | Posts displayed per page                                                                | `number` |
+| `page.total`       | Total number of pages                                                                   | `number` |
+| `page.current`     | Current page number                                                                     | `number` |
+| `page.current_url` | The URL of current page                                                                 | `string` |
+| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                  | `object` |
+| `page.prev`        | Previous page number. `0` if the current page is the first.                             | `number` |
+| `page.prev_link`   | The URL of previous page. `''` if the current page is the first.                        | `string` |
+| `page.next`        | Next page number. `0` if the current page is the last.                                  | `number` |
+| `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
+| `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
 
-**分類 (category)**：與 `index` 佈局相同，但新增以下變數。
+**Archive (`archive`):** Same as `index` layout but add the following variables.
 
-變數 | 描述
---- | ---
-`category` | 分類名稱
+| Variable       | Description                                   | Type      |
+| -------------- | --------------------------------------------- | --------- |
+| `page.archive` | Equals `true`                                 | `boolean` |
+| `page.year`    | Archive year (4-digit)                        | `number`  |
+| `page.month`   | Archive month (2-digit without leading zeros) | `number`  |
 
-**標籤 (tag)**：與 `index` 佈局相同，但新增以下變數。
+**Category (`category`):** Same as `index` layout but add the following variables.
 
-變數 | 描述
---- | ---
-`tag` | 標籤名稱
+| Variable        | Description   | Type     |
+| --------------- | ------------- | -------- |
+| `page.category` | Category name | `string` |
+
+**Tag (`tag`):** Same as `index` layout but add the following variables.
+
+| Variable   | Description | Type     |
+| ---------- | ----------- | -------- |
+| `page.tag` | Tag name    | `string` |
 
 [Moment.js]: http://momentjs.com/
+[Site Variables]: #Site-Variables
+[Page Variables]: #Page-Variables

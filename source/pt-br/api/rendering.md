@@ -2,11 +2,11 @@
 title: Renderização
 ---
 
-Existem dois métodos para renderizar arquivos ou strings no Hexo: o método assíncrono `hexo.render.render` e o método síncrono `hexo.render.renderSync`. Os dois métodos são bastante semelhantes, desta forma, apenas o método `hexo.render.render` assíncrono será um pouco mais discutido nos parágrafos abaixo.
+Existem dois métodos para renderizar arquivos ou strings em Hexo: o método assíncrono `hexo.render.render` e o método síncrono `hexo.render.renderSync`. Não surpreendentemente, os dois métodos são muito semelhantes, então apenas o assíncrono `hexo.render.render` será mais discutido nos parágrafos abaixo.
 
 ## Renderizar uma String
 
-Ao renderizar uma string, você deve especificar uma `engine` para permitir que o Hexo conheça o mecanismo de renderização que deverá ser  usado.
+Ao renderizar uma string, você deve especificar um mecanismo `` para deixar o Hexo saber qual o mecanismo de renderização ele deve usar.
 
 ``` js
 hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
@@ -16,7 +16,7 @@ hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
 
 ## Renderizar um Arquivo
 
-Ao renderizar um arquivo, não é necessário especificar uma `engine` porque o Hexo detectará automaticamente o mecanismo de renderização mais apropriado com base na extensão do arquivo. Mas se for a caso, você também pode definir explicitamente a `engine`.
+Ao renderizar um arquivo, Não é necessário especificar um mecanismo `` porque o Hexo detectará o mecanismo de renderização relevante automaticamente com base na extensão do arquivo. Of course, you are also allowed to explicitly define the `engine`.
 
 ``` js
 hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
@@ -26,7 +26,7 @@ hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
 
 ## Opções de Renderização
 
-Você pode passar um conjunto de opções em formato de objeto no segundo argumento.
+Você pode passar em um objeto de opções como o segundo argumento.
 
 ``` js
 hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
@@ -34,9 +34,9 @@ hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
 });
 ```
 
-## Filtros after_render
+## após_renderizar Filtros
 
-Quando a renderização estiver completa, o Hexo executará os filtros `after_render` correspondentes. Por exemplo, podemos usar este recurso para implementar um minificador para arquivos JavaScript.
+Quando a renderização estiver concluída, o Hexo executará os filtros correspondentes `after_render`. Por exemplo, podemos usar essa funcionalidade para implementar um minifier JavaScript.
 
 ``` js
 var UglifyJS = require('uglify-js');
@@ -47,32 +47,32 @@ hexo.extend.filter.register('after_render:js', function(str, data){
 });
 ```
 
-## Verificar se um Arquivo é Renderizável
+## Verifique se um arquivo é renderizável
 
-Você pode usar o método `isRenderable` ou `isRenderableSync` para verificar se um caminho de arquivo é renderizável. O retorno do método será `true` apenas se um renderizador correspondente for registrado.
+Use o método `isRenderable` ou `isRenderableSync` para verificar se um caminho do arquivo é renderizável. Somente quando um renderizador correspondente tiver sido registrado esse método retornará true.
 
 ``` js
 hexo.render.isRenderable('layout.swig') // true
 hexo.render.isRenderable('image.png') // false
 ```
 
-## Obter a Extensão de Saída
+## Obter a extensão de saída
 
-Use o método `getOutput` para obter a extensão da saída renderizada. Se um arquivo não foi renderizado, o método retornará uma string vazia.
+Use o método `getOutput` para obter a extensão da saída renderizada. Se um arquivo não for renderizável, o método retornará uma string vazia.
 
 ``` js
 hexo.render.getOutput('layout.swig') // html
 hexo.render.getOutput('image.png') // '''
 ```
 
-## Disable Nunjucks tags
+## Desativar Nunjucks tags
 
-If you are not using a [tag plugin](/docs/tag-plugins) and want to use `{{ }}` or `{% %}` in your post without using content [escaping](/docs/troubleshooting#Escape-Contents), you can disable processing of Nunjucks tag in existing renderer by:
+Se você não estiver usando um plugin [tag](/docs/tag-plugins) e quer usar `{{ }}` ou `{% %}` na sua publicação sem usar o conteúdo [escapando](/docs/troubleshooting#Escape-Contents), você pode desabilitar o processamento da tag Nunjucks no renderizador existente por:
 
 ``` js
-// following example only applies to '.md' file extension
-// you may need to cover other extensions, e.g. '.markdown', '.mkd', etc
-const renderer = hexo.render.renderer.get('md')
+// O exemplo a seguir aplica-se apenas à extensão de arquivo '.md'
+// você pode precisar cobrir outras extensões, e. . '.markdown', '.mkd', etc
+const renderer = hexo. ender.renderer.get('md')
 if (renderer) {
   renderer.disableNunjucks = true
   hexo.extend.renderer.register('md', 'html', renderer)

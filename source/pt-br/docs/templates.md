@@ -1,36 +1,36 @@
 ---
-title: Templates
+title: Modelos
 ---
 
-Os templates definem a apresentação do seu site, descrevendo o que cada página deve ter de semelhante. A tabela abaixo mostra o modelo correspondente para cada página disponível. No mínimo, um tema deve conter um template de `index`.
+Modelos definem a apresentação do seu site descrevendo como cada página deve parecer. A tabela abaixo mostra o modelo correspondente para cada página disponível. No mínimo, um tema deve conter um template `índice`.
 
 {% youtube mb65bQ4iUc4 %}
 
-Template | Página | Fallback
---- | --- | ---
-`index` | Página Home |
-`post` | Postagens | `index`
-`page` | Páginas | `index`
-`archive` | Arquivos (archives) | `index`
-`category` | Categorias | `archive`
-`tag` | Tags | `archive`
+| Modelo       | Página                | Fallback  |
+| ------------ | --------------------- | --------- |
+| `Índice`     | Página principal      |           |
+| `publicação` | Postagens             | `Índice`  |
+| `Página`     | páginas               | `Índice`  |
+| `arquivo`    | Arquivos              | `Índice`  |
+| `Categoria`  | Arquivos de categoria | `arquivo` |
+| `Etiqueta`   | Arquivos da tag       | `arquivo` |
 
 ## Layouts
 
-Quando as páginas compartilham uma estrutura semelhante - por exemplo, quando dois templates possuem um cabeçalho e um rodapé - você pode considerar usar um `layout` para declarar essas semelhanças estruturais. Todo arquivo de layout deve conter uma variável `body` para exibir o conteúdo do template em questão. Por exemplo:
+Quando as páginas compartilham uma estrutura similar - por exemplo, quando dois templates tiverem um cabeçalho e um rodapé - você pode considerar usar um `layout` para declarar essas semelhanças estruturais. Todos os arquivos de layout devem conter uma variável `corpo` para exibir o conteúdo do template em questão. Por exemplo:
 
 ``` html index.ejs
-index
+Índice
 ```
 
 ``` html layout.ejs
 <!DOCTYPE html>
 <html>
-  <body><%- body %></body>
+  <body><%- corpo %></body>
 </html>
 ```
 
-yields:
+rendimentos:
 
 ``` html
 <!DOCTYPE html>
@@ -39,11 +39,11 @@ yields:
 </html>
 ```
 
-Por padrão, o template de `layout` é usado por todos os outros templates. Você pode especificar layouts adicionais no [front-matter](front-matter.html) ou configurá-lo como `false` para desativá-lo. É até possível criar uma estrutura aninhada complexa ao incluir mais templates de layout no seu layout principal.
+Por padrão, o modelo `layout` é usado por todos os outros templates. Você pode especificar layouts adicionais na front-matter ou configurá-lo como `false` para desativá-lo. É até possível construir uma estrutura aninhada complexa, incluindo mais modelos de layout no seu layout superior.
 
-## Partials
+## Parciais
 
-Os partials são úteis para compartilhar componentes entre seus templates. Um exemplo típico inclui cabeçalhos (header), rodapés (footer) ou barras laterais (sidebar). Você pode querer colocar seus partials em arquivos separados para tornar a manutenção do seu site significativamente mais conveniente. Por exemplo:
+Parciais são úteis para o compartilhamento de componentes entre seus templates. Exemplos típicos incluem cabeçalhos, rodapés ou barras laterais. Você pode querer colocar seus Parceiros em arquivos separados para tornar a manutenção do seu site significativamente mais conveniente. Por exemplo:
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= config.title %></h1>
@@ -51,57 +51,56 @@ Os partials são úteis para compartilhar componentes entre seus templates. Um e
 
 ``` html index.ejs
 <%- partial('partial/header') %>
-<div id="content">Home page</div>
+<div id="content">Página inicial</div>
 ```
 
-yields:
+rendimentos:
 
 ``` html
-<h1 id="logo">My Site</h1>
-<div id="content">Home page</div>
+<h1 id="logo">Meu Site</h1>
+<div id="content">Página Inicial</div>
 ```
 
 ## Variáveis Locais
 
-Você pode definir variáveis locais em um template e usá-las em outros templates.
+É possível definir variáveis locais em modelos e usá-las em outros templates.
 
 ``` html partial/header.ejs
-<h1 id="logo"><%= title %></h1>
+<h1 id="logo"><%= título %></h1>
 ```
 
 ``` html index.ejs
 <%- partial('partial/header', {title: 'Hello World'}) %>
-<div id="content">Home page</div>
+<div id="content">Página Inicial</div>
 ```
 
-yields:
+rendimentos:
 
 ``` html
-<h1 id="logo">Hello World</h1>
-<div id="content">Home page</div>
+<h1 id="logo">Olá Mundo</h1>
+<div id="content">Página Inicial</div>
 ```
 
 ## Otimização
 
-Se o seu tema for extremamente complexo ou se o número de arquivos a serem gerados for muito grande, o desempenho da geração de arquivos do Hexo pode começar a diminuir consideravelmente. Além de simplificar o seu tema, você também pode tentar usar o `Fragment Caching`, que foi introduzido no Hexo 2.7.
+Se o seu tema é extremamente complexo ou se o número de arquivos a gerar se tornar muito grande, O desempenho da geração de arquivo de Hexo pode começar a diminuir consideravelmente. Além de simplificar seu tema, você também pode experimentar Cache de Fragmento, que foi introduzido no Hexo 2.7.
 
-Este recurso foi emprestado do [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). Isso faz com que o conteúdo seja salvo de forma fragmentada e cacheado para quando requisições adicionais forem feitas. Isso pode reduzir o número de consultas no banco de dados e também pode acelerar a geração de arquivos.
+Este recurso foi emprestado de [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). Faz com que o conteúdo seja salvo como fragmentos e armazenado em cache quando solicitações adicionais são feitas. Isso pode reduzir o número de consultas de banco de dados e também pode acelerar a geração de arquivos.
 
-O recurso de `Fragment Caching` é melhor aproveitado em cabeçalhos, rodapés, barras laterais e outros conteúdos estáticos, onde sejam feitas pouquíssimas mudanças de um template para outro. Por exemplo:
+O cache de fragmento é melhor usado para cabeçalhos, rodapés, barras laterais ou outros conteúdos estáticos que é improvável que mudem de modelo para modelo. Por exemplo:
 
 ``` js
-<%- fragment_cache('header', function(){
+<%- fragment_cache('cabeçalho', function(){
   return '<header></header>';
 });
 ```
 
-Embora seja mais fácil usar partials:
+Embora possa ser mais fácil usar parciais:
 
 ``` js
-<%- partial('header', {}, {cache: true});
+<%- partial('cabeçalho', {}, {cache: true});
 ```
 
 {% note warn %}
-`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled.
-For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
+`fragment_cache()` irá armazenar em cache o resultado renderizado e a saída em cache para outras páginas. Isso só deve ser usado em partes que são esperadas **não** para mudar em diferentes páginas. Otherwise, it should **not** be enabled. Por exemplo, ele deve ser desativado quando o `relative_link` é ativado na configuração. Isso porque links relativos podem aparecer de forma diferente nas páginas.
 {% endnote %}

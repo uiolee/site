@@ -1,75 +1,77 @@
 ---
-title: Plugins
+title: Complementos
 ---
-O Hexo possui um poderoso sistema de plugins, o que facilita a extensão das funcionalidades sem modificar o código-fonte do módulo central. Existem dois tipos de plugins no Hexo:
 
-### Script
+Hexo tem um poderoso sistema de plugins, que torna fácil estender funções sem modificar o código-fonte do módulo do núcleo. Existem dois tipos de plugins no Hexo:
 
-Se o seu plugin for relativamente simples, recomenda-se usar um script. Tudo o que você precisa fazer é colocar seus arquivos JavaScript no diretório `scripts` e o Hexo irá carregá-los durante a inicialização.
+### Roteiro
+
+Se o seu plugin é relativamente simples, é recomendado usar um script. Tudo o que você precisa fazer é colocar seus arquivos JavaScript na pasta `scripts` e Hexo irá carregá-los durante a inicialização.
 
 ### Plugin
 
-Se seu código é complicado ou se você deseja publicá-lo no registro do NPM, recomendamos usar um plugin. Primeiro, crie um diretório dentro do diretório `node_modules`. O nome desse diretório deve começar com `hexo-` ou o Hexo irá ignorá-lo.
+Se o seu código é complicado ou se quiser publicá-lo no registro NPM, recomendamos o uso de um plugin. Primeiro, crie uma pasta na pasta `node_modules`. O nome desta pasta deve começar com `hexo-` ou Hexo irá ignorá-la.
 
-Seu novo diretório deve conter pelo menos dois arquivos: um contendo o código JavaScript e um arquivo `package.json` que descreve a finalidade do plugin e define suas dependências.
+Sua nova pasta deve conter pelo menos dois arquivos: um contendo o código JavaScript real e um pacote `. arquivo son` que descreve o propósito do plugin e define suas dependências.
 
-``` plain
+```plain
 .
-├── index.js
-└── package.json
+── index.js
+── package.json
 ```
 
-No mínimo, você deve definir as entradas `name`, `version` e `main` no `package.json`. Por exemplo:
+No mínimo, você deve definir o nome ``, `versão` e `main` entries no arquivo `package.json`. Por exemplo:
 
-``` json package.json
+```json package.json
 {
-  "name": "hexo-my-plugin",
+  "name": "hexo-meu-plugin",
   "version": "0.0.1",
   "main": "index"
 }
 ```
 
-Você também precisará listar seu plugin como uma dependência no arquivo `package.json` da raiz de sua instância do Hexo para que o Hexo a detecte e carregue.
+Você também precisará listar o seu plugin como uma dependência no pacote `raiz. son` da sua instância de hexo em ordem para que Hexo detecte e carregue-o.
 
 ### Ferramentas
 
-Você pode usar as ferramentas oficiais fornecidas pelo Hexo para acelerar o desenvolvimento:
+Você pode fazer uso das ferramentas oficiais fornecidas pelo Hexo para acelerar o desenvolvimento:
 
-- [hexo-fs]: Entrada/Saída (I/O) de arquivo
-- [hexo-util]: Utilitários
-- [hexo-i18n]: Internacionalização (i18n)
-- [hexo-pagination]: Gerar dados de paginação
+- [hexo-fs][]：Arquivo IO
+- [util][]：Utilidades
+- [hexo-i18n][]：Localização (i18n)
+- [hexo-paginação][]：Gerar dados de paginação
 
 ### Publicando
 
-Quando o seu plug-in estiver pronto, você pode considerar publicá-lo na [lista de plugins](/plugins) para que outras pessoas possam conhecê-lo e usá-lo. Publicar seus próprios plugins é bastante parecido com [atualizar a documentação](contributing.html#Updating_Documentation).
+Quando seu plugin estiver pronto, você pode considerar publicá-lo na lista [do plugin](/plugins) para convidar outras pessoas para começar a usá-lo. Publishing your own plugins is very similar to [updating documentation](contributing.html#Updating_Documentation).
 
-1. Fork [hexojs/site]
-2. Clone o repositório no seu computador e instale as dependências.
+1. Fork [hexojs/site][]
+2. Clone o repositório para o seu computador e instale dependências.
 
-    {% code %}
-    $ git clone https://github.com/<username>/site.git
-    $ cd site
-    $ npm install
-    {% endcode %}
+   ```shell
+   $ git clone https://github.com/<username>/site.git
+   $ cd site
+   $ npm install
+   ```
 
-3. Edite `source/_data/plugins.yml` e adicione seu plugin. Por exemplo:
+3. Crie um novo arquivo yaml em `source/_data/plugins/`, use o nome do seu plugin como o nome do arquivo
 
-    {% code %}
-    - name: hexo-server
-      description: Server module for Hexo.
-      link: https://github.com/hexojs/hexo-server
-      tags:
-        - official
-        - server
-        - console
-    {% endcode %}
+4. Edite `source/_data/plugins/<your-plugin-name>.yml` e adicione o seu plugin. Por exemplo:
 
-4. Push para a branch.
-5. Crie um pull request e descreva as modificações.
+   ```yaml
+   descrição: Módulo do servidor para o Hexo.
+   link: https://github.com/hexojs/hexo-server
+   tags:
+     - oficial
+     - servidor
+     - console
+   ```
+
+5. Empurre o branch.
+6. Crie um pull request e descreva a mudança.
 
 [hexo-fs]: https://github.com/hexojs/hexo-fs
-[hexo-util]: https://github.com/hexojs/hexo-util
+[util]: https://github.com/hexojs/hexo-util
 [hexo-i18n]: https://github.com/hexojs/hexo-i18n
-[hexo-pagination]: https://github.com/hexojs/hexo-pagination
+[hexo-paginação]: https://github.com/hexojs/hexo-pagination
 [hexojs/site]: https://github.com/hexojs/site

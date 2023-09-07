@@ -2,7 +2,7 @@
 title: Filter
 ---
 
-filter ใช้มาเป็นการแก้ไขข้อมูลเฉพาะ hexo ส่งข้อมูลเข้า filter ตามลำดับและ filter จะแก้ไขข้อมูลตามลำดับ ความคิดนี้มาจาก [WordPress](http://codex.wordpress.org/Plugin_API#Filters)
+A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
 
 ## Synopsis
 
@@ -19,7 +19,7 @@ hexo.extend.filter.register(type, function() {
 }, priority);
 ```
 
-ผู้ใช้สามารถตั้งค่า `priority` ได้  ค่าของ `priority` ยิ่งต่ำหมายถึงว่าจะ execute ยิ่งก่อนตัวอื่น ส่วนค่า default ของ `priority` คือ 10.
+You can define the `priority`. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
 
 ## Execute Filters
 
@@ -28,13 +28,12 @@ hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-Option | Description
---- | ---
-`context` | Context
-`args` | Arguments. This must be an array.
+| Option    | Description                       |
+| --------- | --------------------------------- |
+| `context` | Context                           |
+| `args`    | Arguments. This must be an array. |
 
-argument ตัวแรกคือ `data`   การแก้ไขค่าของ`data` จะเป็นการส่ง `data` เข้า filter และส่งค่าใหม่กลับมา ถ้าไม่มีข้อมูลส่งกลับมา ค่าของ `data` จะคงอยู่เหมือนเดิม ผู้ใช้สามารถใช้ `args` มาชี้ถึง argument อื่นๆใน filter ยกตัวอย่างเช่น:
-
+The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
@@ -54,7 +53,7 @@ hexo.extend.filter.exec('test', 'some data', {
 });
 ```
 
-ผู้ใช้สามารถใช้วิธีต่อไปเพื่อ execute filter:
+You can also use the following methods to execute filters:
 
 ``` js
 hexo.execFilter(type, data, options);
@@ -91,13 +90,13 @@ hexo.extend.filter.unregister('example', require('path/to/filter'));
 
 ## Filter List
 
-ต่อไปเป็นตารางของ filter ท่ีใช้ใน hexo
+Here is a list of filters used by Hexo.
 
 ### before_post_render
 
-execute ก่อนการ render ของโพสต์  สำหรับขั้นตอนของ execution ไปดูท่ี [post rendering](posts.html#Render) ได้
+Executed before a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-ยกตัวอย่างเช่น การเปลี่ยนตัวอักษรเป็นตัวเล็ก:
+For example, to transform the title to lower case:
 
 ``` js
 hexo.extend.filter.register('before_post_render', function(data){
@@ -108,9 +107,9 @@ hexo.extend.filter.register('before_post_render', function(data){
 
 ### after_post_render
 
-execute หลังการ render ของโพสต์ สำหรับขั้นตอนของ execution ไปดูท่ี [post rendering](posts.html#Render) ได้
+Executed after a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-ยกตัวอย่างเช่น แทน `@username` ด้วยลิงค์ท่ีชึ้ไปถึงโปรไฟล์ของ Twitter
+For example, to replace `@username` with a link to a Twitter profile:
 
 ``` js
 hexo.extend.filter.register('after_post_render', function(data){
@@ -121,7 +120,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 ### before_exit
 
-execute ก่อนการท่ีจะจบการใช้โปรแกรม hexo -- รันหลังการเรียก `hexo.exit`
+Executed before Hexo is about to exit -- this will run right after `hexo.exit` is called.
 
 ``` js
 hexo.extend.filter.register('before_exit', function(){
@@ -131,7 +130,7 @@ hexo.extend.filter.register('before_exit', function(){
 
 ### before_generate
 
-execute ก่อนการเริ่มต้นของ generation
+Executed before generation begins.
 
 ``` js
 hexo.extend.filter.register('before_generate', function(){
@@ -141,7 +140,7 @@ hexo.extend.filter.register('before_generate', function(){
 
 ### after_generate
 
-execute หลังการเสร็จสิ้นของ generation
+Executed after generation finishes.
 
 ``` js
 hexo.extend.filter.register('after_generate', function(){
@@ -151,10 +150,9 @@ hexo.extend.filter.register('after_generate', function(){
 
 ### template_locals
 
+Modify [local variables](../docs/variables.html) in templates.
 
-แก้ไข [local variables](../docs/variables.html) ใน template
-
-ยกตัวอย่างเช่น เพิ่มเวลาปัจจุบันไปถึง local variable ของ template
+For example, to add the current time to the local variables of templates:
 
 ``` js
 hexo.extend.filter.register('template_locals', function(locals){
@@ -165,7 +163,7 @@ hexo.extend.filter.register('template_locals', function(locals){
 
 ### after_init
 
-execute หลัง initialization ของ hexo -- รันหลังการเสร็จสิ้นของ `hexo.init`
+Executed after Hexo is initialized -- this will run right after `hexo.init` completes.
 
 ``` js
 hexo.extend.filter.register('after_init', function(){
@@ -175,7 +173,7 @@ hexo.extend.filter.register('after_init', function(){
 
 ### new_post_path
 
-execute เพิ่อให้ path แก่โพสต์ใหม่เมื่อการสร้่างโพสต์ใหม่มา
+Executed when creating a post to determine the path of new posts.
 
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
@@ -185,7 +183,7 @@ hexo.extend.filter.register('new_post_path', function(data, replace){
 
 ### post_permalink
 
-ใช้มาเพื่อสร้างลิงค์ถาวรของโพสต์
+Used to determine the permalink of posts.
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -195,11 +193,11 @@ hexo.extend.filter.register('post_permalink', function(data){
 
 ### after_render
 
- execute หลังการเสร็จสิ้นของ rendering สำหรับข้อมูลเพิ่มเติม ไปดูได้ที่ [rendering](rendering.html#after_render_Filters) 
+Executed after rendering finishes. You can see [rendering](rendering.html#after_render_Filters) for more info.
 
 ### after_clean
 
-execute หลัง generation ของไฟล์ และ cache จะลบออกด้วยคำสั่ง `hexo clean`
+Executed after generated files and cache are removed with `hexo clean` command.
 
 ``` js
 hexo.extend.filter.register('after_clean', function(){
@@ -209,9 +207,9 @@ hexo.extend.filter.register('after_clean', function(){
 
 ### server_middleware
 
-เพิ่ม middleware ไปถึง server  `app` เป็น instance ของ [Connect]
+Add middleware to the server. `app` is a [Connect][] instance.
 
-ยกตัวอย่างเช่น เพิ่ม `X-Powered-By: Hexo` ไปให้ response header:
+For example, to add `X-Powered-By: Hexo` to the response header:
 
 ``` js
 hexo.extend.filter.register('server_middleware', function(app){

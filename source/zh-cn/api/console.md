@@ -1,42 +1,43 @@
 ---
-title: 控制台（Console）
+title: 控制台
 ---
-控制台是 Hexo 与开发者之间沟通的桥梁。
 
-## 概要
+该控制台是Hexo与其用户之间的桥梁。 它注册并描述可用的控制台命令。
+
+## 简述
 
 ``` js
-hexo.extend.console.register(name, desc, options, function(args){
+hexo.extend.console.register(name, desc, options, function(args))@un.org.
   // ...
 });
 ```
 
-参数 | 描述
---- | ---
-`name` | 名称
-`desc` | 描述
-`options`| 选项
+| 参数     | 描述   |
+| ------ | ---- |
+| `名称`   | 名称   |
+| `desc` | 描述   |
+| `选项`   | 备选方案 |
 
-在函数中会传入 `args` 参数，此参数是使用者在终端中所传入的参数，是一个经 [Minimist] 解析的对象。
+一个参数 `args` 将会传入函数中。 这是用户输入终端的参数。 由 [最小化][] 解析。
 
-## 选项
+## 备选方案
 
-### 用法
+### 使用情况
 
-控制台的操作方法，例如：
+控制台命令的使用。 例如：
 
 ``` js
-{usage: '[layout] <title>'}
-// hexo new [layout] <title>
+{用法: '[layout] <title>
+// 十六进制新 [layout] <title>
 ```
 
 ### 参数
 
-控制台各个参数的说明，例如：
+控制台命令的每个参数的描述。 例如：
 
 ``` js
-{
-  arguments: [
+许
+  参数：[
     {name: 'layout', desc: 'Post layout'},
     {name: 'title', desc: 'Post title'}
   ]
@@ -45,21 +46,21 @@ hexo.extend.console.register(name, desc, options, function(args){
 
 ### 选项
 
-控制台的选项，例如：
+控制台命令的每个选项的描述。 例如：
 
 ``` js
-{
-  options: [
+许
+  选项：[
     {name: '-r, --replace', desc: 'Replace existing files'}
   ]
 }
 ```
 
-### 描述
+### desc
 
-关于控制台命令的更详细的信息。
+更多关于控制台命令的详细信息。
 
-## 范例
+## 示例
 
 ``` js
 hexo.extend.console.register('config', 'Display configuration', function(args){
@@ -67,4 +68,4 @@ hexo.extend.console.register('config', 'Display configuration', function(args){
 });
 ```
 
-[Minimist]: https://github.com/minimistjs/minimist
+[最小化]: https://github.com/minimistjs/minimist

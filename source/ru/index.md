@@ -1,8 +1,8 @@
 ---
-layout: index
-description: Hexo — это быстрый, простой и мощный фреймворк для блога на основе Node.js.
-subtitle: Быстрый, мощный и простой фреймворк для блога
-comments: false
+layout: индекс
+description: Hexo - это быстрый, простой & мощный фреймворк блога основанный на Node.js.
+subtitle: Быстрый, простой & мощный блог фреймворк
+comments: ложь
 ---
 
 <ul id="intro-feature-list">
@@ -11,8 +11,8 @@ comments: false
       <div class="intro-feature-icon">
         <i class="fa fa-bolt"></i>
       </div>
-      <h3 class="intro-feature-title">Молниеносный</h3>
-      <p class="intro-feature-desc">Node.js даёт молниеносную скорость. Генерация сотни файлов занимает всего несколько секунд.</p>
+      <h3 class="intro-feature-title">Blazing Fast</h3>
+      <p class="intro-feature-desc">Невероятная скорость генерации на основе Node.js. Для создания сотням файлов потребуется всего несколько секунд.</p>
     </div>
   </li>
   <li class="intro-feature-wrap">
@@ -21,21 +21,21 @@ comments: false
         <i class="fa fa-pencil"></i>
       </div>
       <h3 class="intro-feature-title">Поддержка Markdown</h3>
-      <p class="intro-feature-desc">Поддерживаются все возможности GitHub Flavored Markdown, включая возможность использовать большинство плагинов Octopress в Hexo.</p>
+      <p class="intro-feature-desc">Поддерживаются все функции GitHub Flavored Markdown, включая большинство плагинов Octopress.</p>
     </div></li><li class="intro-feature-wrap">
     <div class="intro-feature">
       <div class="intro-feature-icon">
         <i class="fa fa-cloud-upload"></i>
       </div>
-      <h3 class="intro-feature-title">Размещение одной командой</h3>
-        <p class="intro-feature-desc">Нужна лишь одна команда для размещения сайта на GitHub Pages, Heroku и других хостингах.</p>
+      <h3 class="intro-feature-title">Распределение по одному командному делу</h3>
+        <p class="intro-feature-desc">Вам нужна только одна команда для установки вашего сайта на GitHub страницы, Heroku или другие платформы.</p>
       </div></li><li class="intro-feature-wrap">
     <div class="intro-feature">
       <div class="intro-feature-icon">
         <i class="fa fa-cog"></i>
       </div>
-      <h3 class="intro-feature-title">Различные плагины</h3>
-      <p class="intro-feature-desc">Предоставляет мощные API для безграничной расширяемости. Доступны различные плагины для поддержки большинства шаблонизаторов (EJS, Pug, Nunjucks и многих других). Легко интегрируется с существующими NPM-пакетами (Babel, PostCSS, Less/Sass и т.д.).</p>
+      <h3 class="intro-feature-title">Плагины</h3>
+      <p class="intro-feature-desc">Возможности мощных API для бесконечной расширенности. Различные плагины доступны для поддержки большинства шаблонов (EJS, Pug, Nunjucks, и многие другие). Легкая интеграция с существующими пакетами NPM (Babel, PostCSS, Less/Sass, etc).</p>
     </div>
   </li>
 </ul>

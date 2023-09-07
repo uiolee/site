@@ -1,16 +1,17 @@
 ---
-title: 局部变量
+title: 本地变量
 ---
-局部变量用于模版渲染，也就是模版中的 `site` 变量。
+
+本地变量用于模板渲染，这是模板中的 `站点` 变量。
 
 ## 默认变量
 
-变量 | 描述
---- | ---
-`posts` | 所有文章
-`pages` | 所有分页
-`categories` | 所有分类
-`tags` | 所有标签
+| 变量   | 描述   |
+| ---- | ---- |
+| `帖子` | 所有帖子 |
+| `页面` | 所有页面 |
+| `类别` | 所有类别 |
+| `标签` | 所有标签 |
 
 ## 获取变量
 
@@ -21,12 +22,12 @@ hexo.locals.get('posts')
 ## 设置变量
 
 ``` js
-hexo.locals.set('posts', function(){
-  return ...
+hexo.locals.set('posts', function()@un.org
+  返回 ...
 });
 ```
 
-## 移除变量
+## 删除变量
 
 ``` js
 hexo.locals.remove('posts');
@@ -38,7 +39,7 @@ hexo.locals.remove('posts');
 hexo.locals.toObject();
 ```
 
-## 清除缓存
+## 禁用缓存
 
 ``` js
 hexo.locals.invalidate();

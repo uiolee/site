@@ -1,23 +1,24 @@
 ---
-title: 国际化（i18n）
+title: 国际化(i18n)
 ---
-若要让您的网站以不同语言呈现，您可使用国际化（internationalization）功能。请先在 `_config.yml` 中调整 `language` 设定，这代表的是预设语言，您也可设定多个语言来调整预设语言的顺位。
+
+您可以使用国际化来以不同的语言展示您的网站。 设置默认语言的方式是修改 `_config.yml` 中的 `语言` 设置。 您也可以设置多种语言并修改默认语言的顺序。
 
 ``` yaml
-language: zh-tw
+语言： zh-tw
 
-language: 
+语言：
 - zh-tw
 - en
 ```
 
 ### 语言文件
 
-语言文件可以使用 YAML 或 JSON 编写，并放在主题文件夹中的 `languages` 文件夹。您可以在语言文件中使用 [printf 格式](https://github.com/alexei/sprintf.js)。
+语言文件可以是 YAML 或 JSON 文件。 您应该将它们放入主题中的 `语言` 文件夹。 语言文件中支持 [打印f 格式](https://github.com/alexei/sprintf.js)。
 
 ### 模板
 
-在模板中，通过 `__` 或 `_p` 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。例如：
+Use `__` or `_p` helpers in templates to get the translated strings. 前者用于正常用途，后者用于复数字符串。 例如：
 
 ``` yaml en.yml
 index:
@@ -34,18 +35,18 @@ index:
 // Home
 
 <%= _p('index.video', 3) %>
-// 3 videos
+// 3 视频
 ```
 
 ### 路径
 
-您可在 front-matter 中指定该页面的语言，也可在 `_config.yml` 中修改 `i18n_dir` 设定，让 Hexo 自动侦测。
+您可以在前面设置页面的语言，或者在 `_config中修改 <code>i18n_dir` 设置。 ml</code> 启用十六进制自动检测。
 
 ``` yaml
 i18n_dir: :lang
 ```
 
-`i18n_dir` 的预设值是 `:lang`，也就是说 Hexo 会捕获网址中的第一段以检测语言，举例来说：
+`i18n_dir` 默认值为 `:lang`, 这意味着十六进制将检测到网址第一部分中的语言。 例如：
 
 ``` plain
 /index.html => en
@@ -53,4 +54,4 @@ i18n_dir: :lang
 /zh-tw/index.html => zh-tw
 ```
 
-捕获到的字符串唯有在语言文件存在的情况下，才会被当作是语言，因此例二 `/archives/index.html` 中的 `archives` 就不被当成是语言。
+只有当语言文件存在时，字符串才会被用作语言。 所以 `归档` 在 `/archives/index.html` (例2) 不会被用作语言。

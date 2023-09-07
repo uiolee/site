@@ -1,46 +1,41 @@
 ---
 title: 服务器
 ---
-## [hexo-server]
 
-Hexo 3.0 把服务器独立成了个别模块，您必须先安装 [hexo-server] 才能使用。
+## [十六进制服务器][]
+
+在 Hexo 3 发布后，服务器已经从主模块中分离。 要开始使用服务器，您必须先安装 [十六进制服务器][]。
 
 ``` bash
-$ npm install hexo-server --save
+$ npm 安装十六进制服务器 --save
 ```
 
-安装完成后，输入以下命令以启动服务器，您的网站会在 `http://localhost:4000` 下启动。在服务器启动期间，Hexo 会监视文件变动并自动更新，您无须重启服务器。
+一旦服务器安装完毕，运行以下命令启动服务器。 Your website will run at `http://localhost:4000` by default. 当服务器正在运行时，Hexo将监视文件更改并自动更新，因此无需手动重启服务器。
 
 ``` bash
-$ hexo server
+$ 十六进制服务器
 ```
 
-如果您想要更改端口，或是在执行时遇到了 `EADDRINUSE` 错误，可以在执行时使用 `-p` 选项指定其他端口，如下：
+If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
 
 ``` bash
-$ hexo server -p 5000
+$ 十六进制服务器-p 5000
 ```
 
 ### 静态模式
 
-在静态模式下，服务器只处理 `public` 文件夹内的文件，而不会处理文件变动，在执行时，您应该先自行执行 `hexo generate`，此模式通常用于生产环境（production mode）下。
+在静态模式下，只有 `公共` 文件夹中的文件将被服务，文件监视被禁用。 You have to run `hexo generate` before starting the server. 通常用于生产。
 
 ``` bash
-$ hexo server -s
+$ 十六进制服务器 -s
 ```
 
 ### 自定义 IP
 
-服务器默认运行在 `0.0.0.0`，您可以覆盖默认的 IP 设置，如下：
+Hexo 默认在 `0.0.0.0` 运行服务器。 您可以覆盖默认IP设置。
 
 ``` bash
-$ hexo server -i 192.168.1.1
+$十六进制服务器 -i 192.168.1.1
 ```
 
-指定这个参数后，您就只能通过该IP才能访问站点。例如，对于一台使用无线网络的笔记本电脑，除了指向本机的`127.0.0.1`外，通常还有一个`192.168.*.*`的局域网IP，如果像上面那样使用`-i`参数，就不能用`127.0.0.1`来访问站点了。对于有公网IP的主机，如果您指定一个局域网IP作为`-i`参数的值，那么就无法通过公网来访问站点。
-
-[hexo-server]: https://github.com/hexojs/hexo-server
-[Connect]: https://github.com/senchalabs/connect
-[morgan]: https://github.com/expressjs/morgan
-[Forever]: https://github.com/nodejitsu/forever
-[PM2]: https://github.com/Unitech/pm2
+[十六进制服务器]: https://github.com/hexojs/hexo-server

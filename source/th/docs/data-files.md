@@ -1,14 +1,12 @@
 ---
 title: Data Files
 ---
-บางทีคุณอยากใช้ data ใน template ท่ีเข้าถึงโดยตรงไม่ได้ หรือคุณอยากเอา data
-ไปใช้อีกในท่ีอื่นๆ ในกรณีเหล่านี้ hexo 3 จะแนะนำ  **Data files** ใหม่
-ด้วยลักษณะนี้ hexo จะโหลดไฟล์ YAML หรือ JSON ใน folder  `source/_data`
-และคุณจะใช้ data ในไฟล์ได้ในเว็บไซต์ของตน
+
+Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new **Data files**. This feature loads YAML or JSON files in `source/_data` folder so you can use them in your site.
 
 {% youtube CN31plHbI-w %}
 
-ยกตัวอย่างเช่น เพิ่ม `menu.yml` ใน folder `source/_data`
+For example, add `menu.yml` in `source/_data` folder.
 
 ``` yaml
 Home: /
@@ -16,7 +14,7 @@ Gallery: /gallery/
 Archives: /archives/
 ```
 
-และคุณสามารถใช้ data ได้ใน templates:
+And you can use them in templates:
 
 ```
 <% for (var link in site.data.menu) { %>
@@ -24,7 +22,7 @@ Archives: /archives/
 <% } %>
 ```
 
-การ render จะเป็นอย่างนี้:
+render like this :
 
 ```
 <a href="/"> Home </a>

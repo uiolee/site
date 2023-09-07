@@ -4,71 +4,71 @@ title: Escrevendo
 
 {% youtube AIqBubK6ZLc %}
 
-Para criar uma nova postagem ou uma nova página, você pode rodar o seguinte comando:
+Para criar uma nova postagem ou uma nova página, você pode executar o seguinte comando:
 
 ``` bash
-$ hexo new [layout] <title>
+$ hexo novo [layout] <title>
 ```
 
-O `layout` padrão é o `post`, mas você pode fornecer o seu próprio. Você pode alterar o layout padrão editando a configuração `default_layout` em `_config.yml`.
+`post` é o padrão `layout`, mas você pode fornecer o seu próprio. Você pode alterar o layout padrão editando a configuração `default_layout` em `_config.yml`.
 
-### Layout
+## Disposição
 
-Existem três layouts padrões no Hexo: `post`, `page` e `draft`. Os arquivos criados por cada um deles são salvos em um caminho diferente. As postagens criadas recentemente são salvas no diretório `source/_posts`.
+Existem três layouts padrão no Hexo: `postar`, `página` e `rascunho`. Arquivos criados por cada um deles são salvos em um caminho diferente. Posts recém-criados são salvos na pasta `fonte/_posts`.
 
-Layout | Caminho
---- | ---
-`post` | `source/_posts`
-`page` | `source`
-`draft` | `source/_drafts`
+| Disposição   | Caminho             |
+| ------------ | ------------------- |
+| `publicação` | `origem/_postagens` |
+| `Página`     | `Fonte`             |
+| `rascunho`   | `rascunhos/origem`  |
 
 {% note tip Disabling layout %}
-If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/docs/front-matter#Layout) for more details.
+Se você não quer que um artigo (post/página) seja processado com um tema, defina `layout: false` em seu front-matter. Consulte [esta seção](/docs/front-matter#Layout) para obter mais detalhes.
 {% endnote %}
 
-### Nome de Arquivo
+## Nome
 
-Por padrão, o Hexo usa o título da postagem como seu nome de arquivo. Você pode editar a configuração `new_post_name` em `_config.yml` para alterar o nome do arquivo padrão. Por exemplo, `:year-:month-:day-:title.md` prefixará nomes de arquivos com a data de criação de postagem. Você pode usar os seguintes placeholders:
+Por padrão, o Hexo usa o título do post como seu nome de arquivo. Você pode editar a configuração `new_post_name` em `_config.yml` para alterar o nome de arquivo padrão. Por exemplo, `:year-:month-:day-:title.md` irá prefixar nomes de arquivos com a data de criação do post. Você pode usar os seguintes placeholders:
 
-Placeholder | Descrição
---- | ---
-`:title` | Título do post (minúsculas, com espaços substituídos por hifens)
-`:year` | Ano de criação, ex: `2015`
-`:month` | Mês de criação (com zero à esquerda), ex: `04`
-`:i_month` | Mês de criação (sem zero à esquerda), ex: `4`
-`:day` | Dia de criação (com zero à esquerda), ex: `07`
-`:i_day` | Dia de criação (sem zero à esquerda), ex: `7`
+| Espaço reservado | Descrição:                                                             |
+| ---------------- | ---------------------------------------------------------------------- |
+| `:title`         | Título da publicação (minúsculas, com espaços substituídos por hífens) |
+| `:year`          | Ano criado, por exemplo, `2015`                                        |
+| `:month`         | Created month (leading zeros), e.g. `04`                               |
+| `:i_mês`         | Mês criado (sem zeros principais), por exemplo, `4`                    |
+| `:day`           | Dia criado (zeros à curva), por exemplo, `07`                          |
+| `:i_dia`         | Dia criado (sem zeros à liderança), por exemplo, `7`                   |
 
-### Rascunhos
+## Rascunhos
 
-Anteriormente, mencionamos um layout especial no Hexo: `draft`. As postagens inicializadas com este layout são salvas no diretório `source/_drafts`. Você pode usar o comando `publish` para mover os rascunhos para o diretório `source/_posts`. O comando `publish` funciona de forma semelhante ao comando `new`.
+Anteriormente, mencionamos um layout especial no Hexo: `rascunho`. Posts inicializados com este layout são salvos na pasta `fonte/_drafts`. Você pode usar o comando `publish` para mover rascunhos para a pasta `source/_posts`. `publicar` funciona de uma maneira semelhante ao comando `new`.
 
 ``` bash
 $ hexo publish [layout] <title>
 ```
 
-Os rascunhos não são exibidos por padrão. Você pode adicionar a opção `--draft` ao executar o Hexo ou habilitar a configuração `render_drafts` em `_config.yml` para renderizar rascunhos.
+Rascunhos não são exibidos por padrão. Você pode adicionar a opção `--draft` ao executar o Hexo ou habilitar a configuração `render_drafts` em `_config.yml` para renderizar rascunhos.
 
-### Scaffolds
+## Andaimes
 
-Ao criar postagens, o Hexo irá construir arquivos com base no arquivo correspondente no diretório `scaffolds`. Por exemplo:
+Ao criar posts, o Hexo criará arquivos baseados no arquivo correspondente na pasta `scaffolds`. Por exemplo:
 
 ``` bash
-$ hexo new photo "My Gallery"
+$ nova foto hexo "Minha Galeria"
 ```
 
-Quando você executa este comando, o Hexo tentará encontrar `photo.md` no diretório `scaffolds` e criar a postagem com base nele. Os seguintes placeholders estão disponíveis em scaffolds:
+Quando você executar esse comando, Hexo tentará encontrar `foto. d` no diretório `scaffolds` e crie o post com base nele. Os seguintes espaços reservados estão disponíveis nos andaimes:
 
-Placeholder | Descrição
---- | ---
-`layout` | Layout
-`title` | Título
-`date` | Data de criação do arquivo
+| Espaço reservado | Descrição:      |
+| ---------------- | --------------- |
+| `layout`         | Disposição      |
+| `Título`         | Título          |
+| `Data`           | Data de criação |
 
-### Supported Formats
+## Formatos suportados
 
-Hexo support posts written in any format, as long as the corresponding renderer plugin is installed.
+Hexo suporta postagens escritas em qualquer formato, desde que o plugin de renderização correspondente esteja instalado.
 
-For example, Hexo has `hexo-renderer-marked` and `hexo-renderer-ejs` installed by default, so you can write your posts in `markdown` or in `ejs`. If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language.
+Por exemplo, Hexo possui `hexo-renderer-marked` e `hexo-renderer-ejs` instalado por padrão, para que você possa escrever suas postagens em `markdown` ou em `ejs`. Se você tiver o `hexo-renderer-pug` instalado, então você pode até mesmo escrever seu post no idioma pug.
 
-You can rename your posts and change to file extension from `.md` to `.ejs`, then Hexo will use `hexo-renderer-ejs` to render that file, so do the other formats.
+Você pode renomear as suas postagens e mudar para a extensão de arquivo de `.md` para `. js`, então Hexo usará `hexo-renderer-ejs` para renderizar esse arquivo, assim como os outros formatos.

@@ -1,20 +1,21 @@
 ---
-title: Scaffolds
+title: Andaimes
 ---
-## Obter um Scaffold
+
+## Obtenha um Andaime
 
 ``` js
-hexo.scaffold.get(name);
+hexo.scaffold.get(nome);
 ```
 
 ## Definir um Scaffold
 
 ``` js
-hexo.scaffold.set(name, content);
+hexo.scaffold.set(nome, conteúdo);
 ```
 
 ## Remover um Scaffold
 
 ``` js
-hexo.scaffold.remove(name);
+hexo.scaffold.remove(nome);
 ```

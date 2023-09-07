@@ -4,71 +4,71 @@ title: Front-matter
 
 {% youtube pfD6FCZdW4Q %}
 
-Front-matter é um bloco de YAML ou JSON no início do arquivo que é usado para definir configurações para o conteúdo que será escrito (como páginas ou postagens). O Front-matter é terminado por três traços quando escrito em YAML ou três ponto e vírgula quando escrito em JSON.
+Front-matter é um bloco de YAML ou JSON no início do arquivo que é usado para configurar as configurações de seus escritos. Front-matter é rescindido por três traços quando escritos em YAML ou três ponto-e-vírgulas quando escritos em JSON.
 
 **YAML**
 
 ``` yaml
 ---
-title: Hello World
-date: 2013/7/13 20:46:25
+título: Olá Mundo
+data: 2013/7/13 20:46:25
 ---
 ```
 
 **JSON**
 
 ``` json
-"title": "Hello World",
+"title": "Olá, mundo",
 "date": "2013/7/13 20:46:25"
-;;;
+;;
 ```
 
-### Configurações e Seus Valores Padrão
+### Configurações & Seus Valores Padrão
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`layout` | Layout | [`config.default_layout`](/pt-br/docs/configuration#Escrita)
-`title` | Título | Filename (posts only)
-`date` | Data de publicação | Data de criação do arquivo
-`updated` | Data de atualização | Data de atualização do arquivo
-`comments` | Habilita o recurso de comentário para a postagem | true
-`tags` | Tags (Não disponível para páginas) |
-`categories` | Categorias (Não disponível para páginas) |
-`permalink` | Substitui o permalink padrão da postagem |
-`excerpt` | Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text |
-`disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled
-`lang` | Set the language to override [auto-detection](/docs/internationalization#Path) | Inherited from `_config.yml`
+| Configuração          | Descrição:                                                                                                     | Padrão                                                 |
+| --------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `layout`              | Disposição                                                                                                     | [`config.default_layout`](/docs/configuration#Writing) |
+| `Título`              | Título                                                                                                         | Nome do arquivo (apenas postagens)                     |
+| `Data`                | Data de publicação                                                                                             | Data de criação                                        |
+| `Atualizado`          | Data de atualização                                                                                            | Data de atualização                                    |
+| `Comentários`         | Habilita o comentário na postagem                                                                              | verdadeiro                                             |
+| `Etiquetas`           | Tags (não disponíveis para páginas)                                                                            |                                                        |
+| `Categorias`          | Categorias (não disponível para páginas)                                                                       |                                                        |
+| `permalink`           | Sobrescreve o link padrão do post. Permalink deve terminar com `/` ou `.html`                                  | `nulo`                                                 |
+| `resumo`              | Resumo de página em texto simples. Usar [este plugin](/docs/tag-plugins#Post-Excerpt) para formatar o texto    |                                                        |
+| `desabilitarNunjucks` | Desabilitar renderização da tag Nunjucks `{{ }}`/`{% %}` e [plugins de tags](/docs/tag-plugins) quando ativado | Falso                                                  |
+| `lang`                | Definir o idioma para substituir [auto detecção](/docs/internationalization#Path)                              | Herdado de `_config.yml`                               |
 
-#### Layout
+#### Disposição
 
-The default layout is `post`, in accordance to the value of [`default_layout`]((/docs/configuration#Writing)) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML.
+O layout padrão é `post`, de acordo com o valor de [`default_layout`](/docs/configuration#Writing) definição em `_config.yml`. Quando o layout é desativado (`layout: false`) em um artigo, ele não será processado com um tema. No entanto ele ainda será renderizado por qualquer renderizador disponível: se um artigo for escrito em Markdown e um renderizador Markdown (como o padrão [hexo-renderer](https://github.com/hexojs/hexo-renderer-marked)) estiver instalado, será renderizado para HTML.
 
-[Tag plugins](/docs/tag-plugins) are always processed regardless of layout, unless disabled by the `disableNunjucks` setting or [renderer](/api/renderer#Disable-Nunjucks-tags).
+[Plugins de tags](/docs/tag-plugins) são sempre processados independentemente do layout, a menos que esteja desabilitado pelo `disableNunjucks` setting ou [renderer](/api/renderer#Disable-Nunjucks-tags).
 
-#### Categorias & Tags
+#### Categorias & Etiquetas
 
-Somente postagens aceitam o uso de categorias e tags. As categorias aplicam-se à postagens em ordem, resultando em uma hierarquia de classificações e subclassificações. As tags são todas definidas no mesmo nível hierárquico, de modo que a ordem em que aparecem não é importante.
+Somente os posts suportam o uso de categorias e tags. Categorias se aplicam às postagens em ordem, resultando numa hierarquia de classificações e subclassificações. Etiquetas são todas definidas no mesmo nível hierárquico e por isso a ordem em que aparecem não é importante.
 
 **Exemplo**
 
 ``` yaml
-categories:
-- Sports
+categorias:
+- Esportes
 - Baseball
 tags:
-- Injury
-- Fight
-- Shocking
+- Lesões
+- Lute contra
+- Eletrificado
 ```
 
-Se você quiser aplicar várias hierarquias de categorias, use uma lista de nomes em vez de um único nome. Se o Hexo encontar qualquer categoria definida dessa forma em uma postagem, ele tratará cada categoria para essa postagem com sua própria hierarquia independente.
+Se você quiser aplicar múltiplas hierarquias de categorias, use uma lista de nomes ao invés de um único nome. Se o Hexo vir qualquer categoria definida desta forma em uma publicação, tratará cada categoria da publicação como sua própria hierarquia independente.
 
 **Exemplo**
 
 ``` yaml
-categories:
-- [Sports, Baseball]
-- [MLB, American League, Boston Red Sox]
-- [MLB, American League, New York Yankees]
+categorias:
+- [Esportes, Baseball]
+- [MLB, Liga Americana, Boston Red Sox]
+- [MLB, Liga Americana, Nova Iorque]
 - Rivalries
 ```

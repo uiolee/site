@@ -1,31 +1,33 @@
 ---
-title: 标签插件（Tag）
+title: 标签
 ---
-标签插件帮助开发者在文章中快速插入内容。
 
-## 概要
+标签允许用户快速和轻松地将代码片段插入他们的帖子。
+
+## 简述
 
 ``` js
-hexo.extend.tag.register(name, function(args, content){
-}, options);
+hexo.extend.tag.register(name, function(args, content))@un.org.
+/...
+}，选项；
 ```
 
-标签函数会传入两个参数：`args` 和 `content`，前者代表开发者在使用标签插件时传入的参数，而后者则是标签插件所覆盖的内容。
+两个参数将传入标签函数： `args` 和 `内容`。 `args` 包含传入标签插件的参数， `内容` 是从标签插件包裹的内容。
 
-从 Hexo 3 开始，因为新增了非同步渲染功能，而改用 [Nunjucks] 作为渲染引擎，其行为可能会与过去使用的 [Swig] 有些许差异。
+自从在 Hexo 3 中开始异步渲染以来，我们正在使用 [Nunjuck][] 进行渲染。 该行为可能与 [Swig][] 的行为有些不同。
 
-## 移除标签插件
+## 取消注册标签
 
-使用 `unregister()` 来用自定义函数替换现有的 [标签插件](/zh-cn/docs/tag-plugins)。
+使用 `unregister()` 来替换现有的 [标签插件](/docs/tag-plugins) 使用自定义函数。
 
 ``` js
-hexo.extend.tag.unregister(name);
+hexo.extend.tag.unregister(名称)；
 ```
 
 **示例**
 
 ``` js
-const tagFn = (args, content) => {
+const tagFn = (args, content) => *
   content = 'something';
   return content;
 };
@@ -36,59 +38,59 @@ hexo.extend.tag.unregister('youtube');
 hexo.extend.tag.register('youtube', tagFn);
 ```
 
-## 选项
+## 备选方案
 
-### ends
+### 结束
 
-使用结束标签，此选项默认为 `false`。
+使用终端标签。 默认情况下，此选项为 `false`
 
-### async
+### 异步模式
 
-开启非同步模式，此选项默认为 `false`。
+启用异步模式。 默认情况下，此选项为 `false`
 
-## 范例
+## 示例：
 
 ### 没有结束标签
 
-插入 Youtube 影片。
+插入 Youtube 视频。
 
 ``` js
-hexo.extend.tag.register('youtube', function(args){
+hexo.extend.tag.register('youtube', function(args))@un.org.
   var id = args[0];
   return '<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>';
 });
 ```
 
-### 有结束标签
+### 带末尾标签
 
-插入 pull quote。
+插入拉引号。
 
 ``` js
-hexo.extend.tag.register('pullquote', function(args, content){
-  var className =  args.join(' ');
-  return '<blockquote class="pullquote' + className + '">' + content + '</blockquote>';
+hexo.extend.tag.register('pullquote', funcultural(args, content))申請
+  var classname = args.joint(' ');
+  return '<blockquote class="pullquote' + className + '">' + content +</blockquote>';
 }, {ends: true});
 ```
 
-### 非同步渲染
+### 异步渲染
 
-插入文件。
+Insert a file.
 
 ``` js
 var fs = require('hexo-fs');
 var pathFn = require('path');
 
-hexo.extend.tag.register('include_code', function(args){
+hexo.extend.tag egister('include_code', function(args)申請
   var filename = args[0];
-  var path = pathFn.join(hexo.source_dir, filename);
-  
-  return fs.readFile(path).then(function(content){
-    return '<pre><code>' + content + '</code></pre>';
+  var path = pathFn.join(hexo). ource_dir, filename);
+
+  返回 fs.readFile(路径)。 hen(function(content)@un.org.
+    return '<pre><code>' + content +</code></pre>';
   });
-}, {async: true});
+}, {async: true};
 ```
 
-## Front-matter 和用户配置
+## 前台和用户配置
 
 以下任何选项都是有效的：
 
@@ -120,7 +122,7 @@ hexo.extend.tag.register('foo', function (args) {
 2.
 
 ``` js index.js
-hexo.extend.tag.register('foo', require('./lib/foo')(hexo));
+hexo.extend.tag.register('foo', require('./lib/foo')(hexo);
 ```
 
 ``` js lib/foo.js
@@ -134,12 +136,12 @@ module.exports = hexo => {
     const { config: themeCfg } = hexo.theme;
     if (themeCfg.fancybox) // do something...
 
-    const { title, _content, content } = this;
+    const { title, _content, content } = 这;
 
     return 'foo';
   };
 };
 ```
 
-[Nunjucks]: https://mozilla.github.io/nunjucks/
+[Nunjuck]: https://mozilla.github.io/nunjucks/
 [Swig]: https://node-swig.github.io/swig-templates/

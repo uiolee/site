@@ -1,20 +1,20 @@
 ---
-title: 在 GitHub Pages 上部署 Hexo
+title: GitHub Pages
 ---
 
-本文將使用 [GitHub Actions](https://docs.github.com/en/actions) 部屬至 GitHub Pages，此方法適用於公開或私人儲存庫。若你不希望將整個資料夾推上 GitHub，請參閱 [一鍵部屬](#一鍵部屬)。
+In this tutorial, we use [GitHub Actions](https://docs.github.com/en/actions) to deploy GitHub Pages. It works in both public and private repository. Skip to the [One-command deployment](#One-command-deployment) section if you prefer not to upload your source folder to GitHub.
 
-1. 建立名為 <b>*username*.github.io</b> 的儲存庫，username 是你在 GitHub 上的使用者名稱，若之前已將 Hexo 上傳至其他儲存庫，將該儲存庫重命名即可。
-2. 將 Hexo 檔案 push 到儲存庫的預設分支，預設分支通常名為 **main**，舊一點的儲存庫可能名為 **master**。
-  - 將 `main` 分支 push 到 GitHub：
+1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
+2. Push the files of your Hexo folder to the default branch of your repository. The default branch is usually **main**, older repository may use **master** branch.
+  - To push `main` branch to GitHub:
 
     ```
     $ git push -u origin main
     ```
-  - 預設情況下 `public/` 不會被上傳(也不該被上傳)，確認 `.gitignore` 檔案中包含一行 `public/`。整體資料夾結構應會與[範例儲存庫](https://github.com/hexojs/hexo-starter)極為相似。
+  - The `public/` folder is not (and should not be) uploaded by default, make sure the `.gitignore` file contains `public/` line. The folder structure should be roughly similar to [this repo](https://github.com/hexojs/hexo-starter), without the `.gitmodules` file.
 
-3. 使用 `node --version` 指令檢查你電腦上的 Node.js 版本，並記下該版本 (例如：`v16.y.z`)
-4. 在儲存庫中建立 `.github/workflows/pages.yml`，並填入以下內容 (將 `16` 替換為上個步驟中記下的版本)：
+3. Check what version of Node.js you are using on your local machine with `node --version`. Make a note of the major version (e.g., `v16.y.z`)
+4. Create `.github/workflows/pages.yml` in your repo with the following contents (substituting `16` to the major version of Node.js that you noted in previous step):
 
 ```yml .github/workflows/pages.yml
 name: Pages
@@ -57,31 +57,29 @@ jobs:
           publish_dir: ./public
 ```
 
-5. 當部屬作業完成後，產生的頁面會放在儲存庫中的 `gh-pages` 分支。
-6. 在儲存庫中前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages`。
-7. 前往 *username*.github.io 查看網站。
+5. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
+6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
+7. Check the webpage at *username*.github.io.
 
-{% note info CNAME %}
-若你使用 `CNAME` 自訂域名，你需要在 `source/` 資料夾中新增 `CNAME` 檔案。[更多資訊](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
-{% endnote %}
+Note - if you specify a custom domain name with a `CNAME`, you need to add the `CNAME` file to the `source/` folder. [More info](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-## 專案頁面
+## Project page
 
-如果你希望網站部署在 `<你的 GitHub 用戶名>.github.io` 的子目錄中：
+If you prefer to have a project page on GitHub:
 
-1. 開啟你在 GitHub 的儲存庫，並前往 **Settings** 頁面。更改你的 **Repository name** 使你的部落格網址變成 <b>username.github.io/*repository*</b>，*repository* 可以是任何名稱，例如 *blog* 或 *hexo*。
-2. 編輯你的 **_config.yml**，將 `url:` 更改為 <b>https://*username*.github.io/*repository*</b>。
-3. Commit 並 push 到預設分支上。
-4. 當部屬完成後，在 `gh-pages` 分支可以找到產生的網頁。
-5. 在 GitHub 儲存庫中，前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages` 後儲存。
-6. 前往 *username*.github.io/*repository* 查看。
+1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
+2. Edit your **_config.yml**, change the `url:` value to <b>https://*username*.github.io/*repository*</b>.
+3. Commit and push to the default branch.
+4. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
+6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
+7. Check the webpage at *username*.github.io/*repository*.
 
-## 一鍵部屬
+## One-command deployment
 
-以下教學改編自 [一鍵部署](/docs/one-command-deployment) .
+The following instruction is adapted from [one-command deployment](/docs/one-command-deployment) page.
 
-1. 安裝 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
-2. 清空 `_config.yml` 的現有資料，並新增以下組態:
+1. Install [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
+2. Add the following configurations to **_config.yml**, (remove existing lines if any).
 
   ``` yml
   deploy:
@@ -91,15 +89,10 @@ jobs:
     branch: gh-pages
   ```
 
-3. 執行 `hexo clean && hexo deploy` 。
-4. 瀏覽 `<GitHub 用戶名>.github.io` 檢查你的網站能否運作。
+3. Run `hexo clean && hexo deploy`.
+4. Check the webpage at *username*.github.io.
 
-{% note info Windows 用戶 %}
-[Awesome Hexo](https://github.com/hexojs/awesome-hexo) 中收錄了更多有關在 GitHub Pages 上部署 Hexo ，你也可透過搜尋引擎了解更多。
-歡迎更多有誌之士前來改善 Hexo 文檔，不勝感激。
-{% endnote %}
+## Useful links
 
-## 參考連結
-
-- [GitHub Pages 使用文檔](https://help.github.com/categories/github-pages-basics/)
+- [GitHub Pages](https://docs.github.com/en/pages)
 - [peaceiris/actions-gh-pages](https://github.com/marketplace/actions/github-pages-action)

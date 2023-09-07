@@ -1,7 +1,8 @@
 ---
 title: Рендеринг
 ---
-Существует два метода обработки файлов или строк для рендеринга: асинхронный `hexo.render.render` и синхронный `hexo.render.renderSync`. Нет ничего удивительного в похожести этих методов. Ниже описываются только асинхронные методы.
+
+Существует два метода обработки файлов или строк для рендеринга: асинхронный `hexo.render.render` и синхронный `hexo.render.renderSync`. Неудивительно, что эти два метода очень похожи, поэтому только асинхронный `hexo.render.render` будет далее обсуждаться в нижеследующих пунктах.
 
 ## Обработка строки
 
@@ -64,9 +65,9 @@ hexo.render.getOutput('layout.swig') // html
 hexo.render.getOutput('image.png') // '''
 ```
 
-## Disable Nunjucks tags
+## Отключить теги Nunjucks
 
-If you are not using a [tag plugin](/docs/tag-plugins) and want to use `{{ }}` or `{% %}` in your post without using content [escaping](/docs/troubleshooting#Escape-Contents), you can disable processing of Nunjucks tag in existing renderer by:
+Если вы не используете [плагин](/docs/tag-plugins) и хотите использовать `{{ }}` или `{% %}` в вашем сообщении без использования содержания [экранируя](/docs/troubleshooting#Escape-Contents), вы можете отключить обработку тега Nunjucks в существующем рендерере:
 
 ``` js
 // following example only applies to '.md' file extension

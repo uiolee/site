@@ -1,71 +1,71 @@
 ---
-title: 寫作
+title: Writing
 ---
 
-{% youtube HLJ9jJy7CMg %}
+{% youtube AIqBubK6ZLc %}
 
-接下來，我們要在網誌中建立第一篇新文章，您可以直接從現有的範例文章「Hello World」改寫，但我們更建議您學習 `new` 指令。
+To create a new post or a new page, you can run the following command:
 
 ``` bash
 $ hexo new [layout] <title>
 ```
 
-您可以在指令中指定文章的佈局（layout），預設為 `post`，您可以透過修改 `_config.yml` 中的 `default_layout` 設定來指定預設佈局。
+`post` is the default `layout`, but you can supply your own. You can change the default layout by editing the `default_layout` setting in `_config.yml`.
 
-### 佈局（Layout）
+## Layout
 
-Hexo 有三種預設佈局：`post`、`page` 和 `draft`，它們分別對應不同的路徑，而您所自定的其他佈局和 `post` 相同，都儲存至 `source/_posts` 資料夾。
+There are three default layouts in Hexo: `post`, `page` and `draft`. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
 
-佈局 | 路徑
---- | ---
-`post` | `source/_posts`
-`page` | `source`
-`draft` | `source/_drafts`
+| Layout  | Path             |
+| ------- | ---------------- |
+| `post`  | `source/_posts`  |
+| `page`  | `source`         |
+| `draft` | `source/_drafts` |
 
 {% note tip Disabling layout %}
-If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/zh-tw/docs/front-matter#佈局) for more details.
+If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/docs/front-matter#Layout) for more details.
 {% endnote %}
 
-### 檔案名稱
+## Filename
 
-Hexo 預設以標題做為檔案名稱，但您可編輯 `new_post_name` 設定來變更預設的檔案名稱，舉例來說，設為 `:year-:month-:day-:title.md` 可讓您更方便的透過日期來管理文章。
+By default, Hexo uses the post title as its filename. You can edit the `new_post_name` setting in `_config.yml` to change the default filename. For example, `:year-:month-:day-:title.md` will prefix filenames with the post creation date. You can use the following placeholders:
 
-變數 | 描述
---- | ---
-`:title` | 標題
-`:year` | 建立年份（4 位數）
-`:month` | 建立月份（2 位數）
-`:i_month` | 建立月份（去掉開頭的零）
-`:day` | 建立日期（2 位數）
-`:i_day` | 建立日期（去掉開頭的零）
+| Placeholder | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| `:title`    | Post title (lower case, with spaces replaced by hyphens) |
+| `:year`     | Created year, e.g. `2015`                                |
+| `:month`    | Created month (leading zeros), e.g. `04`                 |
+| `:i_month`  | Created month (no leading zeros), e.g. `4`               |
+| `:day`      | Created day (leading zeros), e.g. `07`                   |
+| `:i_day`    | Created day (no leading zeros), e.g. `7`                 |
 
-### 草稿
+## Drafts
 
-剛剛提到了 Hexo 的一種特殊佈局：`draft`，這種佈局在建立時會被儲存於 `source/_drafts` 資料夾，您可透過 `publish` 指令將草稿移動到 `source/_posts` 資料夾，這項指令的使用方式與 `new` 十分類似，您也可在指令中指定 `layout` 來指定佈局。
+Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command.
 
 ``` bash
 $ hexo publish [layout] <title>
 ```
 
-草稿預設不會顯示於頁面中，您可在執行時加上 `--draft` 選項，或是把 `render_drafts` 設定改為 `true` 來預覽草稿。
+Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
 
-### 鷹架（Scaffold）
+## Scaffolds
 
-在建立文章時，Hexo 會根據 `scaffolds` 資料夾內相對應的檔案來建立檔案，例如：
+When creating posts, Hexo will build files based on the corresponding file in `scaffolds` folder. For example:
 
 ``` bash
 $ hexo new photo "My Gallery"
 ```
 
-在執行這行指令時，Hexo 會嘗試在 `scaffolds` 資料夾中找尋 `photo.md`，並根據其內容建立文章，以下是您可在鷹架中使用的變數：
+When you run this command, Hexo will try to find `photo.md` in the `scaffolds` folder and build the post based on it. The following placeholders are available in scaffolds:
 
-變數 | 描述
---- | ---
-`layout` | 佈局
-`title` | 標題
-`date` | 檔案建立日期
+| Placeholder | Description       |
+| ----------- | ----------------- |
+| `layout`    | Layout            |
+| `title`     | Title             |
+| `date`      | File created date |
 
-### Supported Formats
+## Supported Formats
 
 Hexo support posts written in any format, as long as the corresponding renderer plugin is installed.
 

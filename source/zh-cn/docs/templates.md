@@ -1,23 +1,26 @@
 ---
-title: 模版
+title: 模板
 ---
-模板决定了网站内容的呈现方式，每个主题至少都应包含一个 `index` 模板，以下是各页面相对应的模板名称：
 
-模板 | 用途 | 回退
---- | --- | ---
-`index` | 首页 |
-`post` | 文章 | `index`
-`page` | 分页 | `index`
-`archive` | 归档 | `index`
-`category` | 分类归档 | `archive`
-`tag` | 标签归档 | `archive`
+模板通过描述每个页面的样式来定义您网站的演示。 下表显示每个可用页面的相应模板。 At the very least, a theme should contain an `index` template.
 
-## 布局（Layout）
+{% youtube mb65bQ4iUc4 %}
 
-如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 `body` 变量的内容，如此一来模板的内容才会被显示，举例来说：
+| 模板   | 页    | Fallback |
+| ---- | ---- | -------- |
+| `索引` | 主页   |          |
+| `发帖` | 员额   | `索引`     |
+| `页面` | 页 次  | `索引`     |
+| `存档` | 档案   | `索引`     |
+| `类别` | 分类档案 | `存档`     |
+| `标签` | 标签档案 | `存档`     |
+
+## 布局
+
+When pages share a similar structure - for instance, when two templates have both a header and a footer - you can consider using a `layout` to declare these structural similarities. 每个布局文件都应该包含一个 `正文` 变量来显示有关模板的内容。 例如：
 
 ``` html index.ejs
-index
+索引
 ```
 
 ``` html layout.ejs
@@ -27,20 +30,20 @@ index
 </html>
 ```
 
-生成：
+产量：
 
 ``` html
 <!DOCTYPE html>
 <html>
-  <body>index</body>
+  <body>索引</body>
 </html>
 ```
 
-每个模板都默认使用 `layout` 布局，您可在 front-matter 指定其他布局，或是设为 `false` 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。
+默认情况下，所有其他模板都使用了 `布局` 模板。 You can specify additional layouts in the front-matter or set it to `false` to disable it. 甚至可以通过在您的顶部布局中添加更多的布局来构建复杂的嵌套结构。
 
-## 局部模版（Partial）
+## 部分
 
-局部模板让您在不同模板之间共享相同的组件，例如页首（Header）、页脚（Footer）或侧边栏（Sidebar）等，可利用局部模板功能分割为个别文件，让维护更加便利。举例来说：
+零件对于共享模板之间的组件非常有用。 典型的例子包括标题、页脚或侧边栏。 您可能想要将您的部分放在单独的文件中，以使维护您的网站更加方便。 例如：
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= config.title %></h1>
@@ -48,19 +51,19 @@ index
 
 ``` html index.ejs
 <%- partial('partial/header') %>
-<div id="content">Home page</div>
+<div id="content">主页</div>
 ```
 
-生成：
+产量：
 
 ``` html
-<h1 id="logo">My Site</h1>
-<div id="content">Home page</div>
+<h1 id="logo">我的网站</h1>
+<div id="content">首页</div>
 ```
 
-### 局部变量
+## 本地变量
 
-您可以在局部模板中指定局部变量并使用。
+您可以在模板中定义本地变量并在其他模板中使用它们。
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= title %></h1>
@@ -68,37 +71,36 @@ index
 
 ``` html index.ejs
 <%- partial('partial/header', {title: 'Hello World'}) %>
-<div id="content">Home page</div>
+<div id="content">首页</div>
 ```
 
-生成：
+产量：
 
 ``` html
 <h1 id="logo">Hello World</h1>
-<div id="content">Home page</div>
+<div id="content">主页</div>
 ```
 
 ## 优化
 
-如果您的主题太过于复杂，或是需要生成的文件量太过于庞大，可能会大幅降低性能，除了简化主题外，您可以考虑 Hexo 2.7 新增的局部缓存（Fragment Caching） 功能。
+如果您的主题过于复杂，或者如果要生成的文件数量过大， 十六进制文件生成性能可能开始大幅下降。 除了简化您的主题外，您还可以尝试片段缓存，这是在 Hexo 2.7中引入的。
 
-本功能借鉴于 [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching)，它储存局部内容，下次便能直接使用缓存内容，可以减少文件夹查询并使生成速度更快。
+This feature was borrowed from [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). 它导致内容被保存为片段并在提出额外请求时缓存。 这可以减少数据库查询次数，也可以加快文件生成。
 
-它可用于页首、页脚、侧边栏等文件不常变动的位置，举例来说：
+片段缓存最好用于头、页脚、侧边栏或其他静态内容，这些内容不可能从模板变为模板。 例如：
 
 ``` js
-<%- fragment_cache('header', function(){
+<%- fragment_cache('header', function()Pop
   return '<header></header>';
 });
 ```
 
-如果您使用局部模板的话，可以更简单：
+尽管使用部分可能比较容易：
 
 ``` js
 <%- partial('header', {}, {cache: true});
 ```
 
 {% note warn %}
-`fragment_cache()` 将会缓存第一次的渲染结果，并在之后直接输出缓存的结果。因此只有在不同页面的渲染结果都相同时才应使用局部缓存。
-比如，在配置中启用了 `relative_link` 后不应该使用局部缓存，因为相对链接在每个页面可能不同。
+`fragment_cache()` 将缓存结果并将缓存结果输出到其他页面。 这只能用于预期为 **而不是** 更改不同页面的partials。 否则，它应该启用 **而不是**。 例如，在配置启用 `relative_link` 时，它应该被禁用。 这是因为各页之间的相对链接可能出现差异。
 {% endnote %}

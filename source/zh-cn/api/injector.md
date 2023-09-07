@@ -1,46 +1,48 @@
 ---
-title: 注入器（Injector）
+title: 喷射器
 ---
 
-注入器被用于将静态代码片段注入生成的 HTML 的 `<head>` 和/或 `<body>` 中。Hexo 将在 `after_render:html` 过滤器 **之前** 完成注入。
+注入器用于将静态代码片段添加到 `<head>` 或和 `<body>` 生成的 HTML 文件。 Hexo 运行注射器 **之前的** `之后执行了render:html` 过滤器。
 
-## 概要
+## 简述
 
 ```js
-hexo.extend.injector.register(entry, value, to)
+hexo.extend.injector.register(条目，值至)
 ```
 
-### entry `<string>`
+### 条目 `<string>`
 
-代码片段注入的位置，接受以下值：
+代码注入在 HTML中的位置。
 
-- `head_begin`: 注入在 `<head>` 之后（默认）
-- `head_end`: 注入在 `</head>` 之前
-- `body_begin`: 注入在 `<body>` 之后
-- `body_end`: 注入在 `</body>` 之前
+支持这些值：
 
-### value `<string> | <Function>`
+- `head_begt`: 紧接着 `<head>` (默认)。
+- `head_end`: 在 `</head>` 之前注入代码片段
+- `body_start`: `<body>` 之后注入代码片段
+- `body_end`: 在 `</body>` 之前注入代码片段
 
-> 除了字符串，也支持返回值为字符串的函数
+### 值 `<string> | <Function>`
 
-需要注入的代码片段。
+> 支持返回字符串的函数。
 
-### to `<string>`
+要注入的代码片段
 
-需要注入代码片段的页面类型，接受以下值：
+### 到 `<string>`
 
-- `default`: 注入到每个页面（默认值）
-- `home`: 只注入到主页（`is_home()` 为 `true` 的页面）
-- `post`: 只注入到文章页面（`is_post()` 为 `true` 的页面）
-- `page`: 只注入到独立页面（`is_page()` 为 `true` 的页面）
-- `archive`: 只注入到归档页面（`is_archive()` 为 `true` 的页面）
-- `category`: 只注入到分类页面（`is_category()` 为 `true` 的页面）
-- `tag`: 只注入到标签页面（`is_tag()` 为 `true` 的页面）
-- 或是其他自定义 layout 名称，自定义 layout 参见 [写作 - 布局（Layout）](/zh-cn/docs/writing#布局（Layout）)
+哪个页面会代码片段被注入.
+
+- `默认`: 注入每个页面 (默认)
+- `首页`：仅注入首页 (包含 `is_home()` 助手为 `true`)
+- `post`: Only inject to post pages (which has `is_post()` helper being `true`)
+- `第`页：仅注入页面 (有 `is_page)` helper 是 `true`)
+- `archive`: 只注入归档页面 (其中有 `is_archive)` haper 是 `true`)
+- `category`: Only inject to category pages (which has `is_category()` helper being `true`)
+- `标签`: 只注入标签页 (包含 `is_tag()` 助手为 `true`)
+- Custom layout name could be used as well, see [Writing - Layout](/docs/writing#Layout).
 
 ----
 
-注入器还有一些内部函数，如果你要使用它们，请参考 [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049)。
+There are other internal functions, see [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) for more details.
 
 ## 示例
 
@@ -59,11 +61,11 @@ hexo.extend.injector.register('body_end', () => {
 });
 ```
 
-上述代码将会把 `APlayer.min.css`（`<link>` 标签）和 `APlayer.min.js` （`<script>` 标签）注入到所有 layout 为 `music` 的页面的 `</head>` 和 `</body>` 之前，以及将 `jquery.js`（`<script>` 标签）注入到每一个生成的页面的 `</body>` 之前。
+在设置上方会弹出 `APlayer.min。 ss` (`<link>` 标签) 到 `</head>` 任何页面布局为 `音乐`和 `应用层。 in.js` (`<script>` tag) to the `</body>` 另外， `jquery.js` (`<script>` 标签)将被注入到 `</body>` 每个生成的页面中。
 
 ## 访问用户配置
 
-使用以下任何一个选项：
+使用以下任一选项：
 
 1.
 
@@ -79,9 +81,9 @@ hexo.extend.injector.register('head_end', () => {
 2.
 
 ``` js index.js
-/* global hexo */
+/* 全局十六进制*/
 
-hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
+hexo.extend.injector.register('head_end', require('./lib/inject').bindhexo.extend (hexo))
 ```
 
 ``` js lib/inject.js
@@ -105,7 +107,7 @@ module.exports = injectFn;
 3.
 
 ``` js index.js
-/* global hexo */
+/* 全局十六进制*/
 
 hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 ```

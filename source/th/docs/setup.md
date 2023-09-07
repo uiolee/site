@@ -4,7 +4,7 @@ title: Setup
 
 {% youtube 0m2HnATkHOk %}
 
-เมื่อติดตั้ง hexo แล้ว รันคำสั่งต่อไปเพื่อ initialize hexo ใน `<folder>`
+Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
 
 ``` bash
 $ hexo init <folder>
@@ -12,7 +12,7 @@ $ cd <folder>
 $ npm install
 ```
 
-เมื่อเสร็จการ initialization โครงสร้าง folder ของ project คุณจะเป็นอย่างนี้:
+Once initialized, here's what your project folder will look like:
 
 ``` plain
 .
@@ -27,13 +27,11 @@ $ npm install
 
 ### _config.yml
 
-ไฟล์ของไซต์ [configuration](configuration.html)  คุณสามารถตั้งค่ามากขึ้น ณ 
-ท่ีนี้
+Site [configuration](configuration.html) file. You can configure most settings here.
 
 ### package.json
 
-ข้อมูลของแอป. renderer ของ [EJS](https://ejs.co/)  [Stylus](http://learnboost.github.io/stylus/) และ  [Markdown](http://daringfireball.net/projects/markdown/) 
-จะติดตั้ง by default คุณสามารถลยออก renderer พวกนี้ได้ในเวลาภายหลัง
+Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
 
 ``` json package.json
 {
@@ -59,16 +57,12 @@ $ npm install
 
 ### scaffolds
 
-folder [Scaffold](writing.html#Scaffolds) เมื่อคุณสร้างโพสต์ใหม่ขึ้นมา hexo 
-จะเรียงข้อมูลไฟล์ตาม folder นี้
+[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
 
 ### source
 
-source folder. ท่ีนี้เป็นท่ีวางเนื้อหาเว็บไซต์ของคุณ hexo 
-ละเลยไฟล์ท่ีถูกซ่อนหรือ folder ท่ีมี `_` เป็นคำนำหน้าในชื่อไฟล์ (นอกจาก 
-folder `_posts`)  ไฟล์ท่ี renderable (เช่น Markdown และ HTML) 
-จะถูกจถูกจัดการและใส่เข้า folder `public` ในเมื่อไฟล์อื่นๆจะถูก copy เท่านั้น
+Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
 
 ### themes
 
-folder [Theme](themes.html)  hexo generate เว็บไซต์คงที่ด้วยผสมเนื่อหาของไซต์กับธีม
+[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.

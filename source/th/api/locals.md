@@ -2,16 +2,16 @@
 title: Local Variables
 ---
 
-local variable จะใช้มาเป็น template rendering ซึ่งจะเป็น variable `site` ที่อยู่ใน template
+Local variables are used for template rendering, which is the `site` variable in templates.
 
 ## Default Variables
 
-Variable | Description
---- | ---
-`posts` | All posts
-`pages` | All pages
-`categories` | All categories
-`tags` | All tags
+| Variable     | Description    |
+| ------------ | -------------- |
+| `posts`      | All posts      |
+| `pages`      | All pages      |
+| `categories` | All categories |
+| `tags`       | All tags       |
 
 ## Get a Variable
 

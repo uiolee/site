@@ -1,61 +1,63 @@
 ---
-title: 文章
+title: 员额
 ---
-## 新建文章
+
+## 创建帖子
 
 ``` js
-hexo.post.create(data, replace);
+hexo.post.create(data, replace)；
 ```
 
-参数 | 描述
---- | ---
-`data` | 数据
-`replace` | 替换现有文件
+| 参数   | 描述     |
+| ---- | ------ |
+| `数据` | 数据     |
+| `替换` | 替换现有文件 |
 
-您可以在 `data` 中指定文章的属性，除了以下属性之外，其他属性也会被加到 front-matter 中。
+帖子的属性可以在 `数据` 中定义。 下表并非详尽无遗。 其他属性可附在前面的事项上。
 
-属性 | 描述
---- | ---
-`title` | 标题
-`slug` | 网址
-`layout` | 布局。默认为 `default_layout` 参数。
-`path` | 路径。默认会根据 `new_post_path` 参数创建文章路径。
-`date` | 日期。默认为当前时间。
+| 数据   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `标题` | 标题                                            |
+| `缩写` | 网址                                            |
+| `布局` | 布局。 Defaults to the `default_layout` setting. |
+| `路径` | 路径. Hexo 默认基于 `new_post_path` 设置构建帖子路径。       |
+| `日期` | 4. 日期。 默认当前日期。                                |
 
 ## 发布草稿
 
 ``` js
-hexo.post.publish(data, replace);
+hexo.post.publish(data, replace)；
 ```
 
-参数 | 描述
---- | ---
-`data` | 数据
-`replace` | 替换现有文件
+| 参数   | 描述     |
+| ---- | ------ |
+| `数据` | 数据     |
+| `替换` | 替换现有文件 |
 
-您可以在 `data` 中指定文章的属性，除了以下的属性之外，其他属性也会被加到 front-matter 中。
+帖子的属性可以在 `数据` 中定义。 下表并非详尽无遗。 其他属性可附在前面的事项上。
 
-属性 | 描述
---- | ---
-`slug` | 文件名称（必须）
-`layout` | 布局。默认为 `default_layout` 参数。
+| 数据   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `缩写` | 文件名(必填)                                       |
+| `布局` | 布局。 Defaults to the `default_layout` setting. |
 
 ## 渲染
 
 ``` js
-hexo.post.render(source, data);
+hexo.post.render(源，数据)；
 ```
 
-参数 | 描述
---- | ---
-`source` | 文件的完整路径（可忽略）
-`data` | 数据
+| 参数   | 描述          |
+| ---- | ----------- |
+| `来源` | 文件的完整路径(可选) |
+| `数据` | 数据          |
 
-资料中必须包含 `content` 属性，如果没有的话，会尝试读取原始文件。此函数的执行顺序为：
+数据必须包含 `内容` 属性。 如果不是，十六进制将尝试读取原始文件。 此函数的执行步骤如下：
 
-- 执行 `before_post_render` 过滤器
-- 使用 Markdown 或其他渲染器渲染（根据扩展名而定）
-- 使用 [Nunjucks] 渲染
-- 执行 `after_post_render` 过滤器
+- 执行 `之前_post_render` 过滤器
+- 使用Markdown 或其他渲染器渲染(取决于扩展名称)
+- 使用 [Nunjuck][]
+- 执行 `后 _post_render` 过滤器
 
-[Nunjucks]: https://mozilla.github.io/nunjucks/
+[Nunjuck]: https://mozilla.github.io/nunjucks/
+

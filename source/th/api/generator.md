@@ -1,7 +1,8 @@
 ---
 title: Generator
 ---
-generator สร้าง route บนพื้นฐานของไฟล์ท่ีได้จัดการ
+
+A generator builds routes based on processed files.
 
 ## Synopsis
 
@@ -11,7 +12,7 @@ hexo.extend.generator.register(name, function(locals){
 });
 ```
 
-argument `locals` จะส่งเข้า function โดยมี [site variables](../docs/variables.html#Site-Variables) เข้าด้วยกัน ผู้ใช้สามารถใช้ argument นี้เพื่อได้ data ของเว็บไซต์ ด้งนั้นจะไม่ต้องเข้าถึง database โดยตรง
+A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
 
 ## Update Routes
 
@@ -31,21 +32,21 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-Attribute | Description
---- | ---
-`path` | Path not including the prefixing `/`.
-`data` | Data
-`layout` | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly.
+| Attribute | Description                                                                                                                                   |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `path`    | Path not including the prefixing `/`.                                                                                                         |
+| `data`    | Data                                                                                                                                          |
+| `layout`  | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
 
-เมื่ออัปเดท source file แฃ้ว hexo จะ execute generator ทั้งหมดและสร้างขึ้น route ใหม่ **กรุณาอย่าเข้าถึง router โดยตรง**
+When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.**
 
 ## Example
 
 ### Archive Page
 
-สร้างเพจ archive ได้ท่ี `archives/index.html`  โพสต์จะเป็นแบบ  data ท่ีส่งเข้า template. data นี้คล้ายกับ variable `page` ของ template
+Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-ต่อไปจะตั้งค่า attribute ของ `layout` เพื่อ render theme template เฉพาะ ในตัวอย่างต่อไปจะตั้งค่า layout อย่างนี้: ถ้า layout  `archive` ไม่มี จะใช้ layout `index` แทน
+Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
@@ -59,7 +60,7 @@ hexo.extend.generator.register('archive', function(locals){
 
 ### Archive Page with Pagination
 
-ผู้ใช้สามารถใช้เครื่องมือทางการ [hexo-pagination] อย่างสะดวกไปสร้างเพจ archive ท่ีมีหมายเลขหน้า
+You can use the convenient official tool [hexo-pagination][] to easily build archive pages with pagination.
 
 ``` js
 var pagination = require('hexo-pagination');
@@ -76,7 +77,7 @@ hexo.extend.generator.register('archive', function(locals){
 
 ### Generate All Posts
 
-โพสต์ทั้งหมดจะมีอยู่ใน `locals.posts` ด้วยแล้วจะสร้าง route ให้โพสต์ทั้งหมด
+Iterate over all posts in `locals.posts` and create routes for all the posts.
 
 ``` js
 hexo.extend.generator.register('post', function(locals){
@@ -92,7 +93,7 @@ hexo.extend.generator.register('post', function(locals){
 
 ### Copy Files
 
-คราวนี้  `data` จะเป็น function และ route `fs.ReadStream` ของ `data` จะสร้างขึ้นมาในเวลาที่ต้องการ
+This time we don't return the data explicitly but instead set `data` to a function so the route will build `fs.ReadStream` only when needed.
 
 ``` js
 var fs = require('hexo-fs');

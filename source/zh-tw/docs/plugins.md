@@ -1,27 +1,28 @@
 ---
-title: 外掛
+title: Plugins
 ---
-Hexo 有強大的外掛系統，使您能輕鬆擴展功能而不用修改核心模組的原始碼。在 Hexo 中有兩種形式的外掛：
 
-### 腳本（Scripts）
+Hexo has a powerful plugin system, which makes it easy to extend functions without modifying the source code of the core module. There are two kinds of plugins in Hexo:
 
-如果您的程式碼很簡單，建議您撰寫腳本，您只需要把 JavaScript 檔案放到 `scripts` 資料夾，在啟動時就會自動載入一次。
+### Script
 
-### 套件（Packages）
+If your plugin is relatively simple, it's recommended to use a script. All you need to do is put your JavaScript files in the `scripts` folder and Hexo will load them during initialization.
 
-如果您的程式碼較複雜，或是您想要發佈到 NPM 上，建議您撰寫套件。首先，在 `node_modules` 資料夾中建立資料夾，資料夾名稱開頭必須為 `hexo-`，如此一來 Hexo 才會在啟動時載入。
+### Plugin
 
-資料夾內至少要包含 2 個檔案：一個是主程式，另一個是 `package.json`，描述套件的用途和相依套件。
+If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
-``` plain
+Your new folder must contain at least two files: one containing the actual JavaScript code and one `package.json` file that describes the purpose of the plugin and sets its dependencies.
+
+```plain
 .
 ├── index.js
 └── package.json
 ```
 
-`package.json` 中至少要包含 `name`, `version`, `main` 屬性，例如：
+At the very least, you should set the `name`, `version` and `main` entries in `package.json`. For example:
 
-``` json package.json
+```json package.json
 {
   "name": "hexo-my-plugin",
   "version": "0.0.1",
@@ -29,42 +30,45 @@ Hexo 有強大的外掛系統，使您能輕鬆擴展功能而不用修改核心
 }
 ```
 
-### 工具
+You'll also need to list your plugin as a dependency in the root `package.json` of your hexo instance in order for Hexo to detect and load it.
 
-您可善用 Hexo 提供的官方工具套件來加速開發：
+### Tools
 
-- [hexo-fs]：檔案 IO
-- [hexo-util]：工具程式
-- [hexo-i18n]：本地化（i18n）
-- [hexo-pagination]：產生分頁資料
+You can make use of the official tools provided by Hexo to accelerate development:
 
-### 發佈
+- [hexo-fs][]：File IO
+- [hexo-util][]：Utilities
+- [hexo-i18n][]：Localization (i18n)
+- [hexo-pagination][]：Generate pagination data
 
-當您完成外掛後，可以考慮將它發佈到 [外掛列表](/plugins)，讓更多人能夠使用您的外掛。發佈外掛的步驟和 [更新文件](contributing.html#更新文件) 非常類似。
+### Publishing
 
-1. Fork [hexojs/site]
-2. 把檔案庫（repository）複製到電腦上，並安裝相依套件。
+When your plugin is ready, you may consider publishing it to the [plugin list](/plugins) to invite other people to start using it. Publishing your own plugins is very similar to [updating documentation](contributing.html#Updating_Documentation).
 
-    {% code %}
-    $ git clone https://github.com/<username>/site.git
-    $ cd site
-    $ npm install
-    {% endcode %}
+1. Fork [hexojs/site][]
+2. Clone the repository to your computer and install dependencies.
 
-3. 編輯 `source/_data/plugins.yml`，在檔案中新增您的外掛，例如：
+   ```shell
+   $ git clone https://github.com/<username>/site.git
+   $ cd site
+   $ npm install
+   ```
 
-    {% code %}
-    - name: hexo-server
-      description: Server module for Hexo.
-      link: https://github.com/hexojs/hexo-server
-      tags:
-        - official
-        - server
-        - console
-    {% endcode %}
+3. Create a new yaml file in `source/_data/plugins/`, use your plugin name as the file name
 
-4. 推送（push）分支。
-5. 建立一個新的合併申請（pull request）。
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+
+   ```yaml
+   description: Server module for Hexo.
+   link: https://github.com/hexojs/hexo-server
+   tags:
+     - official
+     - server
+     - console
+   ```
+
+5. Push the branch.
+6. Create a pull request and describe the change.
 
 [hexo-fs]: https://github.com/hexojs/hexo-fs
 [hexo-util]: https://github.com/hexojs/hexo-util

@@ -2,25 +2,25 @@
 title: Gerando
 ---
 
-Gerar arquivos estáticos com o Hexo é bastante fácil e rápido.
+Gerar arquivos estáticos com o Hexo é muito fácil e rápido.
 
 ``` bash
-$ hexo generate
+Geração de $ hexos
 ```
 
 {% youtube viEJQPVCoLU %}
 
-### Observando Alterações em Arquivo
+### Procurar por alterações nos arquivos
 
-O Hexo pode ficar observando as alterações nos arquivos e regerar arquivos imediatamente. O hexo compara a hash (SHA1) dos seus arquivos e somente regenera aqueles que sofreram modificações.
+Hexo pode acompanhar alterações de arquivos e regenerar arquivos imediatamente. Hexo irá comparar a soma de verificação SHA1 de seus arquivos e só escreverá se alterações de arquivo forem detectadas.
 
 ``` bash
 $ hexo generate --watch
 ```
 
-### Deploy Depois da Geração
+### Implantar após a geração
 
-Para fazer o deploy depois de gerar os arquivos, você pode executar um dos seguintes comandos. Não há diferença entre os dois.
+Para implantar após a geração, você pode executar um dos seguintes comandos. Não há diferença entre os dois.
 
 ``` bash
 $ hexo generate --deploy

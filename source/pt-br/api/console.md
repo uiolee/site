@@ -2,51 +2,51 @@
 title: Console
 ---
 
-O `console` forma a ponte entre o Hexo e os usuários. Ele registra e descreve os comandos disponíveis para o terminal.
+O console forma a ponte entre o Hexo e seus usuários. Registra e descreve os comandos disponíveis do console.
 
-## Resumo
+## Sinopse
 
 ``` js
-hexo.extend.console.register(name, desc, options, function(args){
+hexo.extend.console.register(name, desc, opções, function(args){
   // ...
 });
 ```
 
-Argumento | Descrição
---- | ---
-`name` | Nome
-`desc` | Descrição
-`options`| Opções
+| Argumento | Descrição: |
+| --------- | ---------- |
+| `Nome`    | Nome:      |
+| `desc`    | Descrição: |
+| `Opções`  | Opções     |
 
-Um argumento `args` será passado para a função. Este é o argumento que os usuários digitam no terminal. Ele é analisado pelo [Minimist].
+Um argumento `args` será passado para a função. Esse é o argumento que os usuários digitam no terminal. É analisado por [Minimist][].
 
 ## Opções
 
-### usage
+### Uso
 
-O uso de um comando de terminal. Por exemplo:
+O uso de um comando de console. Por exemplo:
 
 ``` js
 {usage: '[layout] <title>'}
 // hexo new [layout] <title>
 ```
 
-### arguments
+### argumentos
 
-A descrição de cada argumento de um comando de terminal. Por exemplo:
+A descrição de cada argumento de um comando de console. Por exemplo:
 
 ``` js
 {
-  arguments: [
+  argumentos: [
     {name: 'layout', desc: 'Post layout'},
     {name: 'title', desc: 'Post title'}
   ]
 }
 ```
 
-### options
+### Opções
 
-A descrição de cada opção de um comando de terminal. Por exemplo:
+A descrição de cada opção de um comando do console. Por exemplo:
 
 ``` js
 {
@@ -58,14 +58,14 @@ A descrição de cada opção de um comando de terminal. Por exemplo:
 
 ### desc
 
-Informações mais detalhadas sobre um comando de terminal.
+Informações mais detalhadas sobre um comando de console.
 
 ## Exemplo
 
 ``` js
-hexo.extend.console.register('config', 'Display configuration', function(args){
+hexo.extend.console.register('config', 'Exibir configuração', function(args){
   console.log(hexo.config);
 });
 ```
 
-[Minimist]: https://github.com/substack/minimist
+[Minimist]: https://github.com/minimistjs/minimist
