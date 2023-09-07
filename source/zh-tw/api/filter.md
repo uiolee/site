@@ -1,9 +1,10 @@
 ---
-title: 過濾器（Filter）
+title: Filter
 ---
-過濾器用於修改特定資料，Hexo 將資料依序傳給過濾器，而過濾器可以針對資料進行修改，這個概念是從 [WordPress](http://codex.wordpress.org/Plugin_API#Filters) 借來的。
 
-## 概要
+A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+
+## Synopsis
 
 ``` js
 hexo.extend.filter.register(type, function() {
@@ -18,21 +19,21 @@ hexo.extend.filter.register(type, function() {
 }, priority);
 ```
 
-您可指定過濾器的優先度 `priority`，`priority` 值越低的過濾器會越先執行，預設的 `priority` 是 10。
+You can define the `priority`. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
 
-## 執行過濾器
+## Execute Filters
 
 ``` js
 hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-選項 | 描述
---- | ---
-`context` | Context
-`args` | 參數。必須為陣列。
+| Option    | Description                       |
+| --------- | --------------------------------- |
+| `context` | Context                           |
+| `args`    | Arguments. This must be an array. |
 
-`data` 會作為第一個參數傳入每個過濾器，而您可在過濾器中透過回傳值改變下一個過濾器中的 `data`，如果什麼都沒回傳的話則會保持原本的 `data`。您還可使用 `args` 指定過濾器的其他參數。舉例來說：
+The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
@@ -52,14 +53,14 @@ hexo.extend.filter.exec('test', 'some data', {
 });
 ```
 
-您也可使用以下方法來執行過濾器：
+You can also use the following methods to execute filters:
 
 ``` js
 hexo.execFilter(type, data, options);
 hexo.execFilterSync(type, data, options);
 ```
 
-## 移除過濾器
+## Unregister Filters
 
 ``` js
 hexo.extend.filter.unregister(type, filter);
@@ -87,15 +88,15 @@ hexo.extend.filter.register('example', require('path/to/filter'));
 hexo.extend.filter.unregister('example', require('path/to/filter'));
 ```
 
-## 過濾器列表
+## Filter List
 
-以下是 Hexo 所使用的過濾器。
+Here is a list of filters used by Hexo.
 
 ### before_post_render
 
-在文章開始渲染前執行。您可參考 [文章渲染](posts.html#渲染) 以瞭解執行順序。
+Executed before a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-舉例來說，把標題轉為小寫：
+For example, to transform the title to lower case:
 
 ``` js
 hexo.extend.filter.register('before_post_render', function(data){
@@ -106,9 +107,9 @@ hexo.extend.filter.register('before_post_render', function(data){
 
 ### after_post_render
 
-在文章渲染完成後執行。您可參考 [文章渲染](posts.html#渲染) 以瞭解執行順序。
+Executed after a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-舉例來說，把 `@username` 取代為 Twitter 的使用者連結。
+For example, to replace `@username` with a link to a Twitter profile:
 
 ``` js
 hexo.extend.filter.register('after_post_render', function(data){
@@ -119,7 +120,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 ### before_exit
 
-在 Hexo 即將結束時執行，也就是在 `hexo.exit` 被呼叫後執行。
+Executed before Hexo is about to exit -- this will run right after `hexo.exit` is called.
 
 ``` js
 hexo.extend.filter.register('before_exit', function(){
@@ -129,7 +130,7 @@ hexo.extend.filter.register('before_exit', function(){
 
 ### before_generate
 
-在產生器執行開始前執行。
+Executed before generation begins.
 
 ``` js
 hexo.extend.filter.register('before_generate', function(){
@@ -139,7 +140,7 @@ hexo.extend.filter.register('before_generate', function(){
 
 ### after_generate
 
-在產生器執行結束後執行。
+Executed after generation finishes.
 
 ``` js
 hexo.extend.filter.register('after_generate', function(){
@@ -149,9 +150,9 @@ hexo.extend.filter.register('after_generate', function(){
 
 ### template_locals
 
-修改模板的 [區域變數](../docs/variables.html)。
+Modify [local variables](../docs/variables.html) in templates.
 
-舉例來說，在模板的區域變數中新增目前的時間：
+For example, to add the current time to the local variables of templates:
 
 ``` js
 hexo.extend.filter.register('template_locals', function(locals){
@@ -162,7 +163,7 @@ hexo.extend.filter.register('template_locals', function(locals){
 
 ### after_init
 
-在 Hexo 初始化完成後執行，也就是在 `hexo.init` 執行完成後執行。
+Executed after Hexo is initialized -- this will run right after `hexo.init` completes.
 
 ``` js
 hexo.extend.filter.register('after_init', function(){
@@ -172,7 +173,7 @@ hexo.extend.filter.register('after_init', function(){
 
 ### new_post_path
 
-用來決定新建文章的路徑，在建立文章時執行。
+Executed when creating a post to determine the path of new posts.
 
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
@@ -182,7 +183,7 @@ hexo.extend.filter.register('new_post_path', function(data, replace){
 
 ### post_permalink
 
-用來決定文章的永久連結。
+Used to determine the permalink of posts.
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -192,13 +193,23 @@ hexo.extend.filter.register('post_permalink', function(data){
 
 ### after_render
 
-在渲染後執行，您可參考 [渲染](rendering.html#after_render_過濾器) 以瞭解更多資訊。
+Executed after rendering finishes. You can see [rendering](rendering.html#after_render_Filters) for more info.
+
+### after_clean
+
+Executed after generated files and cache are removed with `hexo clean` command.
+
+``` js
+hexo.extend.filter.register('after_clean', function(){
+  // remove some other temporary files
+});
+```
 
 ### server_middleware
 
-新增伺服器的 Middleware。`app` 是一個 [Connect] 實例。
+Add middleware to the server. `app` is a [Connect][] instance.
 
-舉例來說，在回應標頭中新增 `X-Powered-By: Hexo`。
+For example, to add `X-Powered-By: Hexo` to the response header:
 
 ``` js
 hexo.extend.filter.register('server_middleware', function(app){
