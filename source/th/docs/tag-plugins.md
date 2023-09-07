@@ -1,8 +1,8 @@
 ---
 title: Tag Plugins
 ---
-ปลั๊กอินแท็กจะแตกต่างกับแท็กโพสต์ ปลั๊กอินแท็กนั้นยืมมาจาก Octopress
-และสนับสนุนวิธีท่ีเพิ่มเนื้อหาเฉพาะไปถึงโพสต์ของตนได้อย่างรวดเร็ว
+
+Tag plugins are different from post tags. ปลั๊กอินแท็กจะแตกต่างกับแท็กโพสต์ ปลั๊กอินแท็กนั้นยืมมาจาก Octopress และสนับสนุนวิธีท่ีเพิ่มเนื้อหาเฉพาะไปถึงโพสต์ของตนได้อย่างรวดเร็ว
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
 
@@ -13,8 +13,6 @@ _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path
 ## Block Quote
 
 Perfect for adding quotes to your post, with optional author, source and title information.
-เหมาะสำหรับการเพิ่มการอ้างอิงไปถึงโพสต์ต่างๆ เช่นชื่อผู้เขียน
-ที่มาและข้อมูลหัวข้อ
 
 **นามแฝง:** การอ้างอิง
 
@@ -26,7 +24,7 @@ content
 
 ### Examples
 
-**การอ้างอิงท่ีไม่มี argument**
+**การอ้างอิงท่ีไม่มี argument Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -88,30 +86,30 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Extra Options    | Description                                                                                                                                                            | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                       | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
 
 ### Examples
 
-**code block ท่ีไม่มี argument ใดๆ**
-
-```
-{% codeblock %}
-alert('Hello World!');
-{% endcodeblock %}
-```
-
-{% codeblock %}
-alert('Hello World!');
-{% endcodeblock %}
-
 **ซี้ภาษาท่ีได้ใช้ของ code block นั้น**
+
+```
+{% codeblock %}
+alert('Hello World!');
+{% endcodeblock %}
+```
+
+{% codeblock %}
+alert('Hello World!');
+{% endcodeblock %}
+
+**Specifying the language**
 
 ```
 {% codeblock lang:objc %}
@@ -145,17 +143,17 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact <http://underscorejs.org/#compact> Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Backtick Code Block
 
 มันเหมือนกันกับการใช้ code block แต่จำกัดจำนวน block โดยใช้ backtick สามอัน
+
 {% raw %}
-&#96``[language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
 ## Pull Quote
@@ -210,10 +208,42 @@ content
 
 ## Include Code
 
-เสียบ code snippet เข้าไปใน folder `source/downloads/code`:
+เสียบ code snippet เข้าไปใน folder `source/downloads/code`: The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] path/to/file %}
+```
+
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
 ```
 
 ## YouTube
@@ -268,13 +298,9 @@ YouTube's cookie is not used in this mode.
 
 ยกตัวอย่างเช่น: `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`
 
-โพสต์ท่ีมีชื่อว่า `how-to-bake-a-cake.md` จะ render
-ได้แม้ว่าโพสต์นั้นจะอยู่ใน folder `source/posts/2015-02-my-family-holiday`
-และมี permalink เป็น `2018/en/how-to-bake-a-cake`
+โพสต์ท่ีมีชื่อว่า `how-to-bake-a-cake.md` จะ render ได้แม้ว่าโพสต์นั้นจะอยู่ใน folder `source/posts/2015-02-my-family-holiday` และมี permalink เป็น `2018/en/how-to-bake-a-cake`
 
-แทนท่ีจะแสดงให้เห็นหัวข้อโพสต์  คุณสามารถตั้งค่าว่าอะไรของ text
-จะโชว์ให้เห็นได้ดัวยการตั้งค่า `post_path` ส่วน syntax ท่ีเป็น `[]()`
-จะไม่สนับสนุนโดย hexo ในท่ีนี่
+You can customize the text to display, instead of displaying the post's title.
 
 Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
 
@@ -297,7 +323,6 @@ Post's title and custom text are escaped by default. You can use the `escape` op
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
 **Do not escape title.**
@@ -310,7 +335,7 @@ Post's title and custom text are escaped by default. You can use the `escape` op
 
 ## Include Assets
 
-รวม post asset อยู่ใน block
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -358,8 +383,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 ## Raw
 
-ถ้าเนื้อหาใน block ก้อนให้เกิด issue สำหรับการ render โพสต์ของคุณ
-กรุณาห่อด้วยแท็ก `raw`
+ถ้าเนื้อหาใน block ก้อนให้เกิด issue สำหรับการ render โพสต์ของคุณ กรุณาห่อด้วยแท็ก `raw`
 
 ```
 {% raw %}
@@ -369,7 +393,7 @@ content
 
 ## Post Excerpt
 
-text ท่ีวางก่อนแท็ก `<!-- more -->` จะถือเป็นส่วนที่ตัดตอนมาจากโพสต์
+text ท่ีวางก่อนแท็ก `<!-- more -->` จะถือเป็นส่วนที่ตัดตอนมาจากโพสต์ `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **ยกตัวอย่างเช่น:**
 
