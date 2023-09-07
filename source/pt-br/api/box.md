@@ -2,11 +2,11 @@
 title: Box
 ---
 
-Box é um container usado para processar arquivos em um diretório específico. O Hexo usa dois Boxes diferentes: `hexo.source` e `hexo.theme`. O primeiro é usado para processar o diretório `source` e o segundo para processar o diretório `theme`.
+Box is a container used for processing files in a specified folder. Hexo uses two different boxes: `hexo.source` and `hexo.theme`. The former is used to process the `source` folder and the latter to process the `theme` folder.
 
-## Carregar Arquivos
+## Load Files
 
-O Box fornece dois métodos para carregar arquivos: `process` e `watch`. `process` carrega todos os arquivos no diretório. `watch` faz o mesmo, mas também começa a assistir as mudanças nos arquivos.
+Box provides two methods for loading files: `process` and `watch`. `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
 
 ``` js
 box.process().then(function(){
@@ -18,20 +18,20 @@ box.watch().then(function(){
 });
 ```
 
-## Correspondência Caminho (Path Matching)
+## Path Matching
 
-O Box fornece muitas maneiras para a correspondência de caminho. Você pode usar uma expressão regular, uma função ou uma string no padrão Express-style. Por exemplo:
+Box provides many ways for path matching. You can use a regular expression, a function or an Express-style pattern string. For example:
 
 ``` plain
 posts/:id => posts/89
 posts/*path => posts/2015/title
 ```
 
-Veja [util.Pattern] para mais informações.
+See [util.Pattern][] for more info.
 
 ## Processors
 
-Um `processor` é um elemento essencial do Box e é usado para processar arquivos. Você pode usar o path matching conforme descrito acima para restringir o que exatamente o `processor` deve processar. Registre um novo `processor` com o método `addProcessor`.
+A processor is an essential element of Box and is used to process files. You can use path matching as described above to restrict what exactly the processor should process. Register a new processor with the `addProcessor` method.
 
 ``` js
 box.addProcessor('posts/:id', function(file){
@@ -39,24 +39,24 @@ box.addProcessor('posts/:id', function(file){
 });
 ```
 
-O Box passa o conteúdo dos arquivos correspondentes aos processadores. Esta informação pode então ser lida diretamente do argumento `file` no retorno do callback:
+Box passes the content of matched files to processors. This information can then be read straight from the `file` argument in the callback:
 
-Atributo | Descrição
---- | ---
-`source` | Caminho completo do arquivo.
-`path` | Caminho relativo para o Box do arquivo.
-`type` | Tipo de arquivo. O valor pode ser `create`, `update`, `skip` ou `delete`.
-`params` | A informação do caminho correspondente.
+| Attribute | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| `source`  | Full path of the file                                             |
+| `path`    | Relative path to the box of the file                              |
+| `type`    | File type. The value can be `create`, `update`, `skip`, `delete`. |
+| `params`  | The information from path matching.                               |
 
-O Box também fornece alguns métodos para que você não precise fazer o IO (entrada e saída) de arquivo por conta própria.
+Box also provides some methods so you don't have to do file IO by yourself.
 
-Método | Descrição
---- | ---
-`read` | Ler um arquivo.
-`readSync` | Ler um arquivo de forma síncrona.
-`stat` | Ler o status de um arquivo.
-`statSync` | Ler o status de um arquivo de forma síncrona.
-`render` | Renderizar um arquivo.
-`renderSync` | Renderizar um arquivo de forma síncrona.
+| Method       | Description                             |
+| ------------ | --------------------------------------- |
+| `read`       | Read a file                             |
+| `readSync`   | Read a file synchronously               |
+| `stat`       | Read the status of a file               |
+| `statSync`   | Read the status of a file synchronously |
+| `render`     | Render a file                           |
+| `renderSync` | Render a file synchronously             |
 
 [util.Pattern]: https://github.com/hexojs/hexo-util#patternrule
