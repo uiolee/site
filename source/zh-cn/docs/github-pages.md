@@ -1,20 +1,20 @@
 ---
-title: GitHub Pages
+title: 在 GitHub Pages 上部署 Hexo
 ---
 
-In this tutorial, we use [GitHub Actions](https://docs.github.com/en/actions) to deploy GitHub Pages. 它在公共和私人仓库中工作。 如果您不愿意上传源文件夹到 GitHub ，请跳至 [单命令部署](#One-command-deployment) 部分。
+本文将使用 [GitHub Actions](https://docs.github.com/zh/actions) 部署至 GitHub Pages，此方法适用于公开或私人储存库。 It works in both public and private repository. 若你不希望将源文件夹上传到 GitHub，请参阅 [一键部署](#一键部署)。
 
-1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. 如果你已经上传到其他仓库，请重命名仓库.
-2. 将您的 Hexo 文件夹的文件推送到仓库的默认分支。 默认分支通常是 **主**，旧版本库可能使用 **主** 分支。
-  - 将 `主` 分支推送到 GitHub：
+1. 前往 `https://<你的 GitHub 用户名>.github.io/<repository 的名字>` 查看网站。 If you have already uploaded to other repo, rename the repo instead.
+2. 将 Hexo 文件夹中的文件 push 到储存库的默认分支，默认分支通常名为 `main`，旧一点的储存库可能名为 `master`。 The default branch is usually **main**, older repository may use **master** branch.
+  - 将 `main` 分支 push 到 GitHub：
 
     ```
-    $git 推送-u 来源
+    $ git push -u origin main
     ```
-  - `公开/` 文件夹不(而且不应该)默认上载，请确认 `。 简体` 文件包含 `public/` 行。 文件夹结构应该大致类似于 [这个repo](https://github.com/hexojs/hexo-starter), 没有 `.gitmodules` 文件。
+  - 默认情况下 `public/` 不会被上传(也不该被上传)，确保 `.gitignore` 文件中包含一行 `public/`。 整体文件夹结构应该与 [范例储存库](https://github.com/hexojs/hexo-starter) 大致相似。
 
-3. 用 `节点 --version` 检查您在本地机器上使用的Node.js版本。 给主要版本注解(例如， `v16.y.z`
-4. 创建 `.github/workflows/页面。 ml` 在您的仓库中包含以下内容(替换为主版本节点的 `16` s 你在前一步骤中注意到：
+3. 使用 `node --version` 指令检查你电脑上的 Node.js 版本，并记下该版本 (例如：`v16.y.z`) Make a note of the major version (e.g., `v16.y.z`)
+4. 在储存库中建立 `.github/workflows/pages.yml`，并填入以下内容 (将 `16` 替换为上个步骤中记下的版本)：
 
 ```yml .github/workflows/pages.yml
 name: Pages
@@ -22,7 +22,7 @@ name: Pages
 on:
   push:
     branches:
-      - main  # default branch
+      - main # default branch
 
 jobs:
   pages:
@@ -30,15 +30,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # If your repository depends on submodule, please see: https://github.com/actions/checkout
-          submodules: recursive
+      - uses: actions/checkout@v2
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
@@ -57,42 +53,42 @@ jobs:
           publish_dir: ./public
 ```
 
-5. 部署完成后，生成的页面可以在您的资源库的 `gh-pages` 分支中找到。
-6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. 将分支更改为 `gh-pages` 并保存。
+5. 当部署作业完成后，产生的页面会放在储存库中的 `gh-pages` 分支。
+6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
 7. Check the webpage at *username*.github.io.
 
-注意：如果您指定了一个带有 `CNAME`的自定义域名。 您需要将 `CNAME` 文件添加到 `源/` 文件夹。 [更多信息](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+若你使用了一个带有 `CNAME` 的自定义域名，你需要在 `source/` 文件夹中新增 `CNAME` 文件。 [更多信息](https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 
 ## 项目页面
 
-如果您喜欢在 GitHub 上有一个项目页面：
+If you prefer to have a project page on GitHub:
 
-1. 在 GitHub 上导航到你的仓库. 转到 **设置** 标签页。 更改 **仓库名称** ，所以你的博客可以在 <b>username.github上使用。 o/*仓库*</b>、  **仓库** 可以是任何名称，例如 *博客* 或 *hexo*
-2. 编辑您的 **_config.yml**, 更改 `网址:` 值为 <b>https://*username*.github.io/*repository*</b>
-3. 提交并推送到默认分支。
-4. 部署完成后，生成的页面可以在您的资源库的 `gh-pages` 分支中找到。
-6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. 将分支更改为 `gh-pages` 并保存。
-7. 请在 *用户名为*.github.io/*资源库* 中查看网页。
+1. 前往 `https://<你的 GitHub 用户名>.github.io` 查看网站。 Go to the **Settings** tab. 建立名为 `<repository 的名字>` 的储存库，这样你的博客网址为 `<你的 GitHub 用户名>.github.io/<repository 的名字>`，repository 的名字可以任意，例如 blog 或 hexo。
+2. 编辑你的 `_config.yml`，将 `url:` 更改为 `<你的 GitHub 用户名>.github.io/<repository 的名字>`。
+3. Commit 并 push 到默认分支上。
+4. 当部署完成后，在 `gh-pages` 分支可以找到生成的网页。
+6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. 在储存库中前往 `Settings > Pages > Source`，并将 branch 改为 `gh-pages`。
+7. Check the webpage at *username*.github.io/*repository*.
 
-## 一次指挥部署
+## One-command deployment
 
-以下指令是从 [单命令部署](/docs/one-command-deployment) 页面修改的。
+以下教学改编自 [一键部署](/zh-cn/docs/one-command-deployment)。
 
-1. 安装 [十六进制部署器](https://github.com/hexojs/hexo-deployer-git)
-2. 将以下配置添加到 **_config.yml**(如果有的话，请删除现有的行)。
+1. 安装 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)。
+2. 在 `_config.yml` 中添加以下配置（如果配置已经存在，请将其替换为如下）:
 
   ``` yml
   deploy:
-    type: git
-    repo: https://github.com/<username>/<project>
-    # example, https://github.com/hexojs/hexojs.github.io
-    branch: gh-pages
+  type: git
+  repo: https://github.com/<username>/<project>
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages
   ```
 
-3. Run `hexo clean && hexo deploy`.
+3. 执行 `hexo clean && hexo deploy` 。
 4. Check the webpage at *username*.github.io.
 
-## 有用的链接
+## 参考链接
 
-- [GitHub Pages](https://docs.github.com/en/pages)
-- [Peaceiris/actions-gh-pages](https://github.com/marketplace/actions/github-pages-action)
+- [GitHub Pages 使用文档](https://docs.github.com/en/pages)
+- [peaceiris/actions-gh-pages](https://github.com/marketplace/actions/github-pages-action)
