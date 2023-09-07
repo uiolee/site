@@ -1,11 +1,12 @@
 ---
-title: Модуль
+title: Box
 ---
-Модуль представляет собой контейнер, используемый для обработки файлов в указанной папке. Hexo использует два модуля: `hexo.source` и `hexo.theme`. Первый используется для обработки папки с исходниками `source` с последующим применением указанной темы из папки `themes`.
 
-## Обработка файлов (Load Files)
+Box is a container used for processing files in a specified folder. Hexo uses two different boxes: `hexo.source` and `hexo.theme`. The former is used to process the `source` folder and the latter to process the `theme` folder.
 
-Модули используют два способа загрузки файлов: `process` и `watch`. `process` обрабатывает все файлы в папке по команде. `watch` обрабатывает файлы при их изменении.
+## Load Files
+
+Box provides two methods for loading files: `process` and `watch`. `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
 
 ``` js
 box.process().then(function(){
@@ -13,24 +14,24 @@ box.process().then(function(){
 });
 
 box.watch().then(function(){
-  // Можно вызвать команду box.unwatch() после, чтобы остановить отслеживание файлов.
+  // You can call box.unwatch() later to stop watching.
 });
 ```
 
-## Сопоставление папок (Path Matching)
+## Path Matching
 
-Модули поддерживают много способов для нахождения обрабатываемых папок. Можно использовать регулярные выражения, функции или строки шаблонов Express-style. Например:
+Box provides many ways for path matching. You can use a regular expression, a function or an Express-style pattern string. For example:
 
 ``` plain
 posts/:id => posts/89
 posts/*path => posts/2015/title
 ```
 
-Подробная информация (eng): [util.Pattern].
+See [util.Pattern][] for more info.
 
-## Обработчики
+## Processors
 
-Обработчик является важнейшим элементом модуля и служит для преобразования файлов. Можно использовать сопоставление папок, как описано выше, для ограничения обрабатываемых файлов. Новый обработчик добавляется методом `addProcessor`
+A processor is an essential element of Box and is used to process files. You can use path matching as described above to restrict what exactly the processor should process. Register a new processor with the `addProcessor` method.
 
 ``` js
 box.addProcessor('posts/:id', function(file){
@@ -38,24 +39,24 @@ box.addProcessor('posts/:id', function(file){
 });
 ```
 
-Модуль передаёт содержимое соответствующих файлов обработчикам. Информацию можно читать прямо из аргумента `file` в обратный вызов (callback):
+Box passes the content of matched files to processors. This information can then be read straight from the `file` argument in the callback:
 
-Свойство | Описание
---- | ---
-`source` | Полный путь к файлу
-`path` | Относительный путь к файлу модуля
-`type` | Тип файла. Возможные значения `create`, `update`, `skip`, `delete`.
-`params` | Информация о сопоставлении путей.
+| Attribute | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| `source`  | Full path of the file                                             |
+| `path`    | Relative path to the box of the file                              |
+| `type`    | File type. The value can be `create`, `update`, `skip`, `delete`. |
+| `params`  | The information from path matching.                               |
 
-Модуль содержит и другие методы, не нужно делать прямые вызовы к файлу самостоятельно.
+Box also provides some methods so you don't have to do file IO by yourself.
 
-Метод | Описание
---- | ---
-`read` | Чтение файла
-`readSync` | Синхронное чтение файла
-`stat` | Получение статуса файла
-`statSync` | Синхронное получение статуса файла
-`render` | Обработка файла
-`renderSync` | Синхронная обработка файла
+| Method       | Description                             |
+| ------------ | --------------------------------------- |
+| `read`       | Read a file                             |
+| `readSync`   | Read a file synchronously               |
+| `stat`       | Read the status of a file               |
+| `statSync`   | Read the status of a file synchronously |
+| `render`     | Render a file                           |
+| `renderSync` | Render a file synchronously             |
 
 [util.Pattern]: https://github.com/hexojs/hexo-util#patternrule
