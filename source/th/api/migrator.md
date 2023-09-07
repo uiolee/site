@@ -1,7 +1,8 @@
 ---
 title: Migrator
 ---
-migrator ช่วยให้ผู้ใช้ย้าย data จากระบบอื่นมาเข้า hexo
+
+A migrator helps users migrate from other systems to Hexo.
 
 ## Synopsis
 
@@ -11,4 +12,4 @@ hexo.extend.migrator.register(name, function(args){
 });
 ```
 
-argument `args` จะเข้า function และ argument นี้จะส่ง input ของผู้ใช้เข้า terminal
+An argument `args` will be passed into the function. This argument will contain the user's input into the terminal.
