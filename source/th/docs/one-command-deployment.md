@@ -85,7 +85,7 @@ deploy:
 
 ## Netlify
 
-[Netlify](https://www.netlify.com/) สนับสนุน deployment ต่อเนื่องกัน (ซึ้งสร้างด้วย git) สนับสนุน CDN แบบทั่วโลก DNS ทุกอย่าง（รวม domain ท่ีตั้งค่าด้วยตนด้วย）HTTPS ท่ีควบคุมโดยขบวนการอัตโนมัติ การเพิ่มความเร็วของวัตถุดิบ และสิ่งอื่นๆอีกมากมาย Netlify เป็นแพลตฟอร์มซึ่งรวมทุกอย่างเป็นหนึ่งเดียว ทำให้การสร้างไซต์หรือแอปของแว็บท่ีมีแระสิทธิภาพและรักษาได้ง่ายนั้นเป็นขบวนการอัตโนมัติ It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
+[Netlify](https://www.netlify.com/) สนับสนุน deployment ต่อเนื่องกัน (ซึ้งสร้างด้วย git) สนับสนุน CDN แบบทั่วโลก DNS ทุกอย่าง（รวม domain ท่ีตั้งค่าด้วยตนด้วย）HTTPS ท่ีควบคุมโดยขบวนการอัตโนมัติ การเพิ่มความเร็วของวัตถุดิบ และสิ่งอื่นๆอีกมากมาย Netlify เป็นแพลตฟอร์มซึ่งรวมทุกอย่างเป็นหนึ่งเดียว ทำให้การสร้างไซต์หรือแอปของแว็บท่ีมีแระสิทธิภาพและรักษาได้ง่ายนั้นเป็นขบวนการอัตโนมัติ It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
 
 There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. มีทั้งหมดสองวิธีในเรื่อง deploy เว็บไซต์ของตน  วิธีทั่วไปท่ีสุดคือการใช้ web UI คุณสามารถไปท่ี [create a new site page](https://app.netlify.com/start) และเลือก repo ของ project คุณจาก Github Gitlab หรือ Bitbucket และทำตามวิธีการใช้
 
