@@ -8,22 +8,22 @@ You can specify the permalinks for your site in `_config.yml` or in the front-ma
 
 Besides the following variables, you can use any attributes in the permalink.
 
-| Variable      | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `:year`       | Published year of posts (4-digit)                                                   |
-| `:month`      | Published month of posts (2-digit)                                                  |
-| `:i_month`    | Published month of posts (Without leading zeros)                                    |
-| `:day`        | Published day of posts (2-digit)                                                    |
-| `:i_day`      | Published day of posts (Without leading zeros)                                      |
-| `:hour`       | Published hour of posts (2-digit)                                                   |
-| `:minute`     | Published minute of posts (2-digit)                                                 |
-| `:second`     | Published second of posts (2-digit)                                                 |
-| `:title`      | Filename (relative to "source/_posts/" folder)                                      |
-| `:name`       | Filename                                                                            |
-| `:post_title` | Post title                                                                          |
-| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_)               |
-| `:category`   | Categories. If the post is uncategorized, it will use the `default_category` value. |
-| `:hash`       | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)                  |
+| Variable      | Description                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| `:year`       | Published year of posts (4-digit)                                                               |
+| `:month`      | Published month of posts (2-digit)                                                              |
+| `:i_month`    | Published month of posts (Without leading zeros)                                                |
+| `:day`        | Published day of posts (2-digit)                                                                |
+| `:i_day`      | Published day of posts (Without leading zeros)                                                  |
+| `:hour`       | Published hour of posts (2-digit)                                                               |
+| `:minute`     | Published minute of posts (2-digit)                                                             |
+| `:second`     | Published second of posts (2-digit)                                                             |
+| `:title`      | Filename (relative to "source/_posts/" folder)                                                  |
+| `:name`       | Filename                                                                                        |
+| `:post_title` | Post title                                                                                      |
+| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_)                           |
+| `:category`   | Categories. Categories. If the post is uncategorized, it will use the `default_category` value. |
+| `:hash`       | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)                              |
 
 You can define the default value of each variable in the permalink through the `permalink_defaults` setting:
 
