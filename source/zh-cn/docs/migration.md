@@ -1,73 +1,73 @@
 ---
-title: Migration
+title: 移 民
 ---
 
 ## RSS
 
-First, install the `hexo-migrator-rss` plugin.
+首先，安装 `十六进制迁移器-rss` 插件。
 
 ``` bash
 $ npm install hexo-migrator-rss --save
 ```
 
-Once the plugin is installed, run the following command to migrate all posts from RSS. `source` can be a file path or URL.
+一旦插件安装完毕，运行下面的命令从RSS迁移所有帖子。 `源` 可以是一个文件路径或 URL。
 
 ``` bash
-$ hexo migrate rss <source>
+美元十六进制迁移rss <source>
 ```
 
-## Jekyll
+## 杰基尔
 
-Move all files in the Jekyll `_posts` folder to the `source/_posts` folder.
+将Jekyll `_posts` 文件夹中的所有文件移动到 `source/_posts` 文件夹。
 
-Modify the `new_post_name` setting in `_config.yml`:
+修改 `_config.yml` 中的 `新的 post_name` 设置：
 
 ``` yaml
-new_post_name: :year-:month-:day-:title.md
+new_post_name: :ye:month-:day:title.md
 ```
 
-## Octopress
+## 偶像
 
 Move all files in the Octopress `source/_posts` folder to `source/_posts`
 
-Modify the `new_post_name` setting in `_config.yml`:
+修改 `_config.yml` 中的 `新的 post_name` 设置：
 
 ``` yaml
-new_post_name: :year-:month-:day-:title.md
+new_post_name: :ye:month-:day:title.md
 ```
 
 ## WordPress
 
-First, install the `hexo-migrator-wordpress` plugin.
+首先，安装 `十六进制迁移器-wordpress` 插件。
 
 ``` bash
 $ npm install hexo-migrator-wordpress --save
 ```
 
-Export your WordPress site by going to "Tools" → "Export" → "WordPress" in the WordPress dashboard (see the [WordPress support page](http://en.support.wordpress.com/export/) for more details).
+导出您的 WordPress 网站到WordPress 控制面板中的“工具” -> “导出” -> “WordPress” (详情请参阅 [WordPress 支持页面](http://en.support.wordpress.com/export/))。
 
-Now run:
+正在运行：
 
 ``` bash
-$ hexo migrate wordpress <source>
+美元十六进制迁移wordpress <source>
 ```
 
-Where `source` is the file path or URL to the WordPress export file.
+`源` 是到 WordPress 导出文件的文件路径或 URL。
 
 ## Joomla
 
-First, install the `hexo-migrator-joomla` plugin.
+首先，安装 `十六进制迁移-joomla` 插件。
 
 ```bash
 $ npm install hexo-migrator-joomla --save
 ```
 
-Export your Joomla articles using the [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D) component.
+使用 [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D) 组件导出您的 Joomla 文章。
 
-Now run:
+正在运行：
 
 ```bash
 $ hexo migrate joomla <source>
 ```
 
-Where `source` is the file path or URL to the Joomla export file.
+`源` 是文件路径或 URL 到 Joomla 导出文件。
