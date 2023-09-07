@@ -1,55 +1,55 @@
 ---
-title: Themes
+title: Temas
 ---
 
 {% youtube 5ROIU_9dYe4 %}
 
-It's easy to build a Hexo theme - you just have to create a new folder. To start using your theme, modify the `theme` setting in your site's `_config.yml`. A theme should have the following structure:
+É fácil construir um tema Hexo - você só tem que criar uma nova pasta. Para começar a usar o seu tema, modifique a configuração `tema` no `_config.yml` do seu site. Um tema deve ter a seguinte estrutura:
 
 ```plain
 .
-├── _config.yml
-├── languages
-├── layout
-├── scripts
-└── source
+── _config.yml
+── linguagens
+── layout
+── scripts
+── fonte
 ```
 
 ### \_config.yml
 
-Theme configuration file. Unlike the site's primary configuration file, modifying this doesn't require a server restart.
+Arquivo de configuração do tema. Ao contrário do arquivo de configuração principal do site, modificar isto não requer uma reinicialização do servidor.
 
-### languages
+### Idiomas
 
-Language folder. See [internationalization (i18n)](internationalization.html) for more info.
+Pasta do idioma. Consulte [internacionalização (i18n)](internationalization.html) para mais informações.
 
 ### layout
 
-Layout folder. This folder contains the theme's template files, which define the appearance of your website. Hexo provides the [Nunjucks][] template engine by default, but you can easily install additional plugins to support alternative engines such as [EJS][], [Haml][], [Jade][], or [Pug][]. Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
+Pasta de layout. Esta pasta contém arquivos de template do tema, que definem a aparência do site. Hexo fornece o mecanismo de template [Nunjucks][] por padrão mas você pode facilmente instalar plugins adicionais para suportar motores alternativos como [EJS][], [Haml][], [Jade][], ou [Pug][]. Hexo escolhe o motor de modelos com base na extensão do arquivo do template (como os posts). Por exemplo:
 
 ```plain
-layout.ejs   - uses EJS
-layout.njk   - uses Nunjucks
+layout.ejs - usa o layout EJS
+layout.njk - usa Nunjucks
 ```
 
-See [templates](templates.html) for more info.
+Veja [templates](templates.html) para mais informações.
 
 ### scripts
 
-Script folder. Hexo will automatically load all JavaScript files in this folder during initialization. For more info, see [plugins](plugins.html).
+Pasta de script. Hexo carregará automaticamente todos os arquivos JavaScript nesta pasta durante a inicialização. Para obter mais informações, consulte [plugins](plugins.html).
 
-### source
+### Fonte
 
-Source folder. Place your assets (e.g. CSS and JavaScript files) here. Hexo ignores hidden files and files or folders prefixed with `_` (underscore).
+Pasta de origem. Coloque seus ativos (por exemplo, arquivos CSS e JavaScript) aqui. Hexo ignora arquivos e pastas ocultos precedidos por `_` (sublinhado).
 
-Hexo will process and save all renderable files to the `public` folder. Non-renderable files will be copied to the `public` folder directly.
+Hexo processará e salvará todos os arquivos de renderização na pasta `pública`. Arquivos não renderizáveis serão copiados para a pasta `pública` diretamente.
 
-### Publishing
+### Publicando
 
-When you have finished building your theme, you can publish it to the [theme list](/themes). Before doing so, you should run the [theme unit test](https://github.com/hexojs/hexo-theme-unit-test) to ensure that everything works. The steps for publishing a theme are very similar to those for [updating documentation](contributing.html#Updating_Documentation).
+Quando terminar de construir o seu tema, você pode publicá-lo na lista [do tema](/themes). Antes de fazer isso, você deve executar o [teste de unidade de tema](https://github.com/hexojs/hexo-theme-unit-test) para garantir que tudo funcione. The steps for publishing a theme are very similar to those for [updating documentation](contributing.html#Updating_Documentation).
 
 1. Fork [hexojs/site][]
-2. Clone the repository to your computer and install dependencies.
+2. Clone o repositório para o seu computador e instale dependências.
 
    ```shell
    $ git clone https://github.com/<username>/site.git
@@ -57,25 +57,25 @@ When you have finished building your theme, you can publish it to the [theme lis
    $ npm install
    ```
 
-3. Create a new yaml file in `source/_data/themes/`, use your theme name as the file name
+3. Crie um novo arquivo yaml em `source/_data/themes/`, use o nome do seu tema como o nome do arquivo
 
-4. Edit `source/_data/themes/<your-theme-name>.yml` and add your theme. For example:
+4. Edite `source/_data/themes/<your-theme-name>.yml` e adicione o seu tema. Por exemplo:
 
    ```yaml
-   description: A brand new default theme for Hexo.
+   descrição: Um novo tema padrão para o Hexo.
    link: https://github.com/hexojs/hexo-theme-landscape
    preview: http://hexo.io/hexo-theme-landscape
    tags:
-     - official
+     - oficial
      - responsive
      - widget
      - two_column
      - one_column
    ```
 
-5. Add a screenshot (with the same name as the theme) to `source/themes/screenshots`. It must be a 800\*500px PNG.
-6. Push the branch.
-7. Create a pull request and describe the change.
+5. Adicione uma captura de tela (com o mesmo nome do tema) a `fonte/temas/capturas de tela`. Deve ser um PNG de 800\*500px.
+6. Empurre o branch.
+7. Crie um pull request e descreva a mudança.
 
 [EJS]: https://github.com/hexojs/hexo-renderer-ejs
 [Haml]: https://github.com/hexojs/hexo-renderer-haml
