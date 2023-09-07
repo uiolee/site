@@ -1,10 +1,10 @@
 ---
-title: Filter
+title: 筛选器
 ---
 
-A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+过滤器用于修改某些指定的数据。 十六进制将数据按顺序传递给过滤器，然后过滤器逐个修改数据。 这个概念是从 [WordPress](http://codex.wordpress.org/Plugin_API#Filters) 借用的。
 
-## Synopsis
+## 简述
 
 ``` js
 hexo.extend.filter.register(type, function() {
@@ -12,28 +12,28 @@ hexo.extend.filter.register(type, function() {
   const { config } = this;
   if (config.external_link.enable) // do something...
 
-  // Theme configuration
-  const { config: themeCfg } = this.theme;
-  if (themeCfg.fancybox) // do something...
+  // 主题配置
+  const { config: themeCfg } = 这个主题；
+  if (athemeCfg.fancybox) // 做一些事情...
 
-}, priority);
+}，优先事项；
 ```
 
-You can define the `priority`. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
+您可以定义 `优先级`。 降低 `优先级` 意味着它将先执行。 默认 `优先级` 是 10。 我们建议使用用户可以在配置中指定的用户配置优先级值，例如： `hexo.config.your_plugin.priority`。
 
-## Execute Filters
+## 执行过滤器
 
 ``` js
 hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-| Option    | Description                       |
-| --------- | --------------------------------- |
-| `context` | Context                           |
-| `args`    | Arguments. This must be an array. |
+| 选项     | 描述            |
+| ------ | ------------- |
+| `上下文：` | 二. 背景         |
+| `args` | 参数. 这必须是一个数组。 |
 
-The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
+第一个参数传递到每个过滤器中的 `数据`。 传递到下一个过滤器的 `数据` 可以通过返回一个新的值来修改。 如果没有返回，数据将保持不变。 您甚至可以使用 `args` 在过滤器中指定其他参数。 例如：
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
@@ -53,29 +53,29 @@ hexo.extend.filter.exec('test', 'some data', {
 });
 ```
 
-You can also use the following methods to execute filters:
+您也可以使用以下方法来执行过滤器：
 
 ``` js
-hexo.execFilter(type, data, options);
-hexo.execFilterSync(type, data, options);
+hexo.execFilter(类型、数据、选项)；
+hexo.execFilterSync(类型、数据、选项)；
 ```
 
-## Unregister Filters
+## 取消注册过滤器
 
 ``` js
-hexo.extend.filter.unregister(type, filter);
+hexo.extend.filter.unregister(类型，过滤)；
 ```
 
-**Example**
+**示例**
 
 ``` js
-// Unregister a filter which is registered with named function
+// 取消注册一个已命名函数
 
-const filterFn = (data) => {
+const filterFn = (data) => Power
   data = 'something';
-  return data;
+  返回数据;
 };
-hexo.extend.filter.register('example', filterFn);
+十六进制. xtend.filter.register('example', filterFn);
 
 hexo.extend.filter.unregister('example', filterFn);
 ```
@@ -88,15 +88,15 @@ hexo.extend.filter.register('example', require('path/to/filter'));
 hexo.extend.filter.unregister('example', require('path/to/filter'));
 ```
 
-## Filter List
+## 筛选列表
 
-Here is a list of filters used by Hexo.
+这是十六进制使用的过滤器列表。
 
-### before_post_render
+### previ_post_render
 
-Executed before a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+在帖子渲染之前执行. Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-For example, to transform the title to lower case:
+例如，要将标题转换为较低的案件：
 
 ``` js
 hexo.extend.filter.register('before_post_render', function(data){
@@ -105,11 +105,11 @@ hexo.extend.filter.register('before_post_render', function(data){
 });
 ```
 
-### after_post_render
+### 后 post_render
 
-Executed after a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+在一个帖子呈现后执行。 Refer to [post rendering](posts.html#Render) to learn the execution steps.
 
-For example, to replace `@username` with a link to a Twitter profile:
+例如，要将 `@username` 替换为 Twitter 配置文件的链接：
 
 ``` js
 hexo.extend.filter.register('after_post_render', function(data){
@@ -118,29 +118,29 @@ hexo.extend.filter.register('after_post_render', function(data){
 });
 ```
 
-### before_exit
+### 退出前
 
-Executed before Hexo is about to exit -- this will run right after `hexo.exit` is called.
+十六进制将要退出前执行 — — 这将在 `十六进制后正常运行。 退出`
 
 ``` js
-hexo.extend.filter.register('before_exit', function(){
+hexo.extend.filter.register('before_exit', function()}.
   // ...
 });
 ```
 
-### before_generate
+### 之前生成
 
-Executed before generation begins.
+在生成开始之前执行。
 
 ``` js
-hexo.extend.filter.register('before_generate', function(){
+hexo.extend.filter.register('befor_generate', function()}.
   // ...
 });
 ```
 
-### after_generate
+### 生成后
 
-Executed after generation finishes.
+生成完成后执行。
 
 ``` js
 hexo.extend.filter.register('after_generate', function(){
@@ -150,40 +150,40 @@ hexo.extend.filter.register('after_generate', function(){
 
 ### template_locals
 
-Modify [local variables](../docs/variables.html) in templates.
+在模板中修改 [本地变量](../docs/variables.html)。
 
-For example, to add the current time to the local variables of templates:
+例如，要将当前时间添加到模板的本地变量：
 
 ``` js
-hexo.extend.filter.register('template_locals', function(locals){
-  locals.now = Date.now();
+hexo.extend.filter.register('template_locals', functions(locals)}.
+  locals.now = Date.no();
   return locals;
 });
 ```
 
-### after_init
+### 输入后
 
 Executed after Hexo is initialized -- this will run right after `hexo.init` completes.
 
 ``` js
-hexo.extend.filter.register('after_init', function(){
-  // ...
+hexo.extend.filter.register('after_init', function()@un.org.
+/...
 });
 ```
 
-### new_post_path
+### 新 post_post路径
 
-Executed when creating a post to determine the path of new posts.
+创建一个帖子时执行，以确定新帖子的路径。
 
 ``` js
-hexo.extend.filter.register('new_post_path', function(data, replace){
+hexo.extend.filter.register('new_post_path', function(data, replace)).P.
   // ...
 });
 ```
 
-### post_permalink
+### 帖子永久链接
 
-Used to determine the permalink of posts.
+用于确定帖子的永久链接。
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -191,33 +191,33 @@ hexo.extend.filter.register('post_permalink', function(data){
 });
 ```
 
-### after_render
+### 渲染后
 
-Executed after rendering finishes. You can see [rendering](rendering.html#after_render_Filters) for more info.
+渲染完成后执行。 您可以看到 [渲染](rendering.html#after_render_Filters) 获取更多信息。
 
-### after_clean
+### 清理后
 
 Executed after generated files and cache are removed with `hexo clean` command.
 
 ``` js
-hexo.extend.filter.register('after_clean', function(){
-  // remove some other temporary files
+hexo.extend.filter.register('after_clean', function()Pop
+  // 移除一些其他临时文件
 });
 ```
 
-### server_middleware
+### server_midleware
 
-Add middleware to the server. `app` is a [Connect][] instance.
+添加中间件到服务器。 `App` 是一个 [连接][] 实例。
 
-For example, to add `X-Powered-By: Hexo` to the response header:
+例如，要将 `X-Poed-by: Hexo` 添加到响应头部：
 
 ``` js
-hexo.extend.filter.register('server_middleware', function(app){
-  app.use(function(req, res, next){
-    res.setHeader('X-Powered-By', 'Hexo');
-    next();
+hexo.extend.filter.register('server_middlewares', function(app)_
+  app.use(function(req, res, next)_
+    res.setHeader('X-Powere-By', 'Hexo');
+    next ();
   });
 });
 ```
 
-[Connect]: https://github.com/senchalabs/connect
+[连接]: https://github.com/senchalabs/connect
