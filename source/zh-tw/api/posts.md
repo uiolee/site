@@ -13,7 +13,7 @@ hexo.post.create(data, replace);
 | `data`    | 資料     |
 | `replace` | 取代現有檔案 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
 | 資料       | 描述                                  |
 | -------- | ----------------------------------- |
@@ -34,7 +34,7 @@ hexo.post.publish(data, replace);
 | `data`    | 資料     |
 | `replace` | 取代現有檔案 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
 | 資料       | 描述                           |
 | -------- | ---------------------------- |
