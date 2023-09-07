@@ -58,7 +58,7 @@ $ npm test
 
 ## Updating official-plugins
 
-我们也欢迎给 [Hexo 官方插件](https://github.com/hexojs) 提交 PR 和 Issue 🤗 🤗
+我们也欢迎给 [Hexo 官方插件](https://github.com/hexojs) 提交 PR 和 Issue 🤗 🤗 🤗
 
 ## 更新文档
 
@@ -76,7 +76,7 @@ $ cd site
 $ npm install
 ```
 
-3. Start editing the documentation. 开始编辑文件，您可以通过服务器预览变动。
+3. Start editing the documentation. 开始编辑文件，您可以通过服务器预览变动。 开始编辑文件，您可以通过服务器预览变动。
 
 ``` bash
 $ hexo server
