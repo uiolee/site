@@ -1,24 +1,24 @@
 ---
-title: Internationalization (i18n)
+title: 国际化(i18n)
 ---
 
-You can use internationalization to present your site in different languages. The default language is set by modifying the `language` setting in `_config.yml`. You can also set multiple languages and modify the order of default languages.
+您可以使用国际化来以不同的语言展示您的网站。 设置默认语言的方式是修改 `_config.yml` 中的 `语言` 设置。 您也可以设置多种语言并修改默认语言的顺序。
 
 ``` yaml
-language: zh-tw
+语言： zh-tw
 
-language:
+语言：
 - zh-tw
 - en
 ```
 
-### Language Files
+### 语言文件
 
-Language files can be YAML or JSON files. You should put them into the `languages` folder in the theme. There is support for the [printf format](https://github.com/alexei/sprintf.js) in language files.
+语言文件可以是 YAML 或 JSON 文件。 您应该将它们放入主题中的 `语言` 文件夹。 语言文件中支持 [打印f 格式](https://github.com/alexei/sprintf.js)。
 
-### Templates
+### 模板
 
-Use `__` or `_p` helpers in templates to get the translated strings. The former is for normal usage and the latter is for plural strings. For example:
+Use `__` or `_p` helpers in templates to get the translated strings. 前者用于正常用途，后者用于复数字符串。 例如：
 
 ``` yaml en.yml
 index:
@@ -35,18 +35,18 @@ index:
 // Home
 
 <%= _p('index.video', 3) %>
-// 3 videos
+// 3 视频
 ```
 
-### Path
+### 路径
 
-You can set the language of pages in front-matter, or modify the `i18n_dir` setting in `_config.yml` to enable automatic detection by Hexo.
+您可以在前面设置页面的语言，或者在 `_config中修改 <code>i18n_dir` 设置。 ml</code> 启用十六进制自动检测。
 
 ``` yaml
 i18n_dir: :lang
 ```
 
-The default value of `i18n_dir` setting is `:lang`, which means that Hexo will detect the language within the first segment of URL. For example:
+`i18n_dir` 默认值为 `:lang`, 这意味着十六进制将检测到网址第一部分中的语言。 例如：
 
 ``` plain
 /index.html => en
@@ -54,4 +54,4 @@ The default value of `i18n_dir` setting is `:lang`, which means that Hexo will d
 /zh-tw/index.html => zh-tw
 ```
 
-The string will only be served as a language when the language file exists. So `archives` in `/archives/index.html` (example 2) will not get served as a language.
+只有当语言文件存在时，字符串才会被用作语言。 所以 `归档` 在 `/archives/index.html` (例2) 不会被用作语言。
