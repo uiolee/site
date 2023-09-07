@@ -1,12 +1,12 @@
 ---
-title: Helper
+title: Ajudante
 ---
 
-A helper makes it easy to quickly add snippets to your templates. We recommend using helpers instead of templates when you're dealing with more complicated code.
+Um ajudante facilita a adição rápida de trechos nos seus modelos. Recomendamos usar ajudantes em vez de templates quando você está lidando com código mais complicado.
 
 Helpers can not be accessed from `source` files.
 
-## Synopsis
+## Sinopse
 
 ``` js
 hexo.extend.helper.register(name, function(){
@@ -14,7 +14,7 @@ hexo.extend.helper.register(name, function(){
 });
 ```
 
-## Example
+## Exemplo
 
 ``` js
 hexo.extend.helper.register('js', function(path){
@@ -27,15 +27,15 @@ hexo.extend.helper.register('js', function(path){
 // <script src="script.js"></script>
 ```
 
-## FAQ
+## Perguntas Frequentes
 
-### Where to place custom helper?
+### Onde colocar o helper personalizado?
 
-Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
+Coloque-o na pasta `scripts/` ou `temas/<yourtheme>/scripts/`.
 
-### How do I use another registered helper in my custom helper?
+### Como faço para usar outro auxiliar registrado no meu ajudante personalizado?
 
-All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
+Todos os auxiliares são executados no mesmo contexto. Por exemplo, para usar [`url_for()`](/docs/helpers#url-for) dentro de um auxiliar personalizado:
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
@@ -43,9 +43,9 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### How do I use a registered helper in another extension (e.g. Filter, Injector, etc)?
+### Como usar um auxiliar registrado em outra extensão (por exemplo, Filtro, Injetor, etc)?
 
-`hexo.extend.helper.get` will return the helper function, but it needs to have hexo as its context, so:
+`hexo.extend.helper.get` retornará a função auxiliar, mas ela precisa ter o hexo como seu contexto, a:
 
 ``` js
 const url_for = hexo.extend.helper.get('url_for').bind(hexo);
