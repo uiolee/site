@@ -1,41 +1,41 @@
 ---
-title: Server
+title: 服务器
 ---
 
-## [hexo-server][]
+## [十六进制服务器][]
 
-With the release of Hexo 3, the server has been separated from the main module. To start using the server, you will first have to install [hexo-server][].
+在 Hexo 3 发布后，服务器已经从主模块中分离。 要开始使用服务器，您必须先安装 [十六进制服务器][]。
 
 ``` bash
-$ npm install hexo-server --save
+$ npm 安装十六进制服务器 --save
 ```
 
-Once the server has been installed, run the following command to start the server. Your website will run at `http://localhost:4000` by default. When the server is running, Hexo will watch for file changes and update automatically so it's not necessary to manually restart the server.
+一旦服务器安装完毕，运行以下命令启动服务器。 Your website will run at `http://localhost:4000` by default. 当服务器正在运行时，Hexo将监视文件更改并自动更新，因此无需手动重启服务器。
 
 ``` bash
-$ hexo server
+$ 十六进制服务器
 ```
 
 If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
 
 ``` bash
-$ hexo server -p 5000
+$ 十六进制服务器-p 5000
 ```
 
-### Static Mode
+### 静态模式
 
-In static mode, only files in the `public` folder will be served and file watching is disabled. You have to run `hexo generate` before starting the server. Usually used in production.
+在静态模式下，只有 `公共` 文件夹中的文件将被服务，文件监视被禁用。 You have to run `hexo generate` before starting the server. 通常用于生产。
 
 ``` bash
-$ hexo server -s
+$ 十六进制服务器 -s
 ```
 
-### Custom IP
+### 自定义 IP
 
-Hexo runs the server at `0.0.0.0` by default. You can override the default IP setting.
+Hexo 默认在 `0.0.0.0` 运行服务器。 您可以覆盖默认IP设置。
 
 ``` bash
-$ hexo server -i 192.168.1.1
+$十六进制服务器 -i 192.168.1.1
 ```
 
-[hexo-server]: https://github.com/hexojs/hexo-server
+[十六进制服务器]: https://github.com/hexojs/hexo-server
