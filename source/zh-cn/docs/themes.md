@@ -4,9 +4,10 @@ title: 主题
 
 {% youtube 5ROIU_9dYe4 %}
 
-创建 Hexo 主题非常容易，您只要在 `themes` 文件夹内，新增一个任意名称的文件夹，并修改 `_config.yml` 内的 `theme` 设定，即可切换主题。 To start using your theme, modify the `theme` setting in your site's `_config.yml`. 一个主题可能会有以下的结构：
+创建 Hexo 主题非常容易，您只要在 `themes` 文件夹内，新增一个任意名称的文件夹，并修改 `_config.yml` 内的 `theme` 设定，即可切换主题。 To start using your theme, modify the `theme` setting in your site's `_config.yml`. 一个主题可能会有以下的结构： 一个主题可能会有以下的结构：
 
 ```plain
+.
 .
 .
 ├── _config.yml
@@ -26,7 +27,7 @@ title: 主题
 
 ### layout
 
-布局文件夹。 This folder contains the theme's template files, which define the appearance of your website. 用于存放主题的模板文件，决定了网站内容的呈现方式，Hexo 内建 [Nunjucks][] 模板引擎，您可以另外安装插件来获得 [EJS][]、[Haml][]、[Jade][] 或 [Pug][] 支持，Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如： Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
+布局文件夹。 This folder contains the theme's template files, which define the appearance of your website. This folder contains the theme's template files, which define the appearance of your website. 用于存放主题的模板文件，决定了网站内容的呈现方式，Hexo 内建 [Nunjucks][] 模板引擎，您可以另外安装插件来获得 [EJS][]、[Haml][]、[Jade][] 或 [Pug][] 支持，Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如： Hexo chooses the template engine based on the file extension of the template (just like the posts). For example: Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
 
 ```plain
 layout.ejs   - 使用 EJS
@@ -41,9 +42,9 @@ layout.swig  - 使用 Swig
 
 ### source
 
-Source folder. Place your assets (e.g. CSS and JavaScript files) here. 文件或文件夹开头名称为 `_`（下划线）或隐藏的文件会被忽略。
+Source folder. Source folder. Place your assets (e.g. CSS and JavaScript files) here. 文件或文件夹开头名称为 `_`（下划线）或隐藏的文件会被忽略。 文件或文件夹开头名称为 `_`（下划线）或隐藏的文件会被忽略。
 
-Hexo will process and save all renderable files to the `public` folder. Non-renderable files will be copied to the `public` folder directly.
+Hexo will process and save all renderable files to the `public` folder. Non-renderable files will be copied to the `public` folder directly. Non-renderable files will be copied to the `public` folder directly.
 
 ### 发布
 
@@ -60,9 +61,10 @@ Hexo will process and save all renderable files to the `public` folder. Non-rend
 
 3. 编辑 `source/_data/themes.yml`，在文件中新增您的主题，例如：
 
-4. Edit `source/_data/themes/<your-theme-name>.yml` and add your theme. For example:
+4. Edit `source/_data/themes/<your-theme-name>.yml` and add your theme. For example: For example:
 
    ```yaml
+   description: A brand new default theme for Hexo.
    description: A brand new default theme for Hexo.
    - name: landscape
       description: A brand new default theme for Hexo.
