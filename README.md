@@ -2,6 +2,7 @@
 <!-- Markdown snippet -->
 [![Build Status](https://github.com/hexojs/site/workflows/Tester/badge.svg?branch=master)](https://github.com/hexojs/site/actions?query=workflow%3ATester)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/beeb7e86-4485-4381-8529-6b2a92df5dd7/deploy-status)](https://app.netlify.com/sites/hexo-site/deploys)
+[![Crowdin](https://badges.crowdin.net/hexo-site/localized.svg)](https://crowdin.com/project/hexo-site)
 
 The website for Hexo.
 
