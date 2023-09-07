@@ -1,25 +1,25 @@
 ---
-title: Variáveis Locais
+title: Local Variables
 ---
 
-As variáveis locais são usadas para renderização de template, que é a variável `site` em templates.
+Local variables are used for template rendering, which is the `site` variable in templates.
 
-## Variáveis Padrão
+## Default Variables
 
-Variável | Descrição
---- | ---
-`posts` | Todas as postagens
-`pages` | Todas as páginas
-`categories` | Todas as categorias
-`tags` | Todas as tags
+| Variable     | Description    |
+| ------------ | -------------- |
+| `posts`      | All posts      |
+| `pages`      | All pages      |
+| `categories` | All categories |
+| `tags`       | All tags       |
 
-## Obter uma Variável
+## Get a Variable
 
 ``` js
 hexo.locals.get('posts')
 ```
 
-## Atribuir uma Variável
+## Set a Variable
 
 ``` js
 hexo.locals.set('posts', function(){
@@ -27,19 +27,19 @@ hexo.locals.set('posts', function(){
 });
 ```
 
-## Remover uma Variável
+## Remove a Variable
 
 ``` js
 hexo.locals.remove('posts');
 ```
 
-## Obter Todos as Variáveis
+## Get All Variable
 
 ``` js
 hexo.locals.toObject();
 ```
 
-## Invalidar o Cache
+## Invalidate the cache
 
 ``` js
 hexo.locals.invalidate();
