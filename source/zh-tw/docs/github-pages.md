@@ -5,7 +5,7 @@ title: 在 GitHub Pages 上部署 Hexo
 本文將使用 [GitHub Actions](https://docs.github.com/en/actions) 部屬至 GitHub Pages，此方法適用於公開或私人儲存庫。 It works in both public and private repository. 若你不希望將整個資料夾推上 GitHub，請參閱 [一鍵部屬](#一鍵部屬)。
 
 1. 建立名為 <b>*username*.github.io</b> 的儲存庫，username 是你在 GitHub 上的使用者名稱，若之前已將 Hexo 上傳至其他儲存庫，將該儲存庫重命名即可。 If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the default branch of your repository. 在儲存庫中前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages`。
+2. Push the files of your Hexo folder to the default branch of your repository. 在儲存庫中前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages`。 在儲存庫中前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages`。
   - 將 `main` 分支 push 到 GitHub：
 
     ```
@@ -13,7 +13,7 @@ title: 在 GitHub Pages 上部署 Hexo
     ```
   - 預設情況下 `public/` 不會被上傳(也不該被上傳)，確認 `.gitignore` 檔案中包含一行 `public/`。 整體資料夾結構應會與[範例儲存庫](https://github.com/hexojs/hexo-starter)極為相似。
 
-3. 使用 `node --version` 指令檢查你電腦上的 Node.js 版本，並記下該版本 (例如：`v16.y.z`) Make a note of the major version (e.g., `v16.y.z`)
+3. 使用 `node --version` 指令檢查你電腦上的 Node.js 版本，並記下該版本 (例如：`v16.y.z`) Make a note of the major version (e.g., `v16.y.z`) Make a note of the major version (e.g., `v16.y.z`)
 4. 在儲存庫中建立 `.github/workflows/pages.yml`，並填入以下內容 (將 `16` 替換為上個步驟中記下的版本)：
 
 ```yml .github/workflows/pages.yml
@@ -58,7 +58,7 @@ jobs:
 ```
 
 5. 當部屬作業完成後，產生的頁面會放在儲存庫中的 `gh-pages` 分支。
-6. 開啟你在 GitHub 的儲存庫，並前往 **Settings** 頁面。 更改你的 **Repository name** 使你的部落格網址變成 <b>username.github.io/*repository*</b>，*repository* 可以是任何名稱，例如 *blog* 或 *hexo*。
+6. 在 GitHub 儲存庫中，前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages` 後儲存。 更改你的 **Repository name** 使你的部落格網址變成 <b>username.github.io/*repository*</b>，*repository* 可以是任何名稱，例如 *blog* 或 *hexo*。
 7. 前往 *username*.github.io 查看網站。
 
 若你使用 `CNAME` 自訂域名，你需要在 `source/` 資料夾中新增 `CNAME` 檔案。 [更多資訊](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
@@ -67,11 +67,11 @@ jobs:
 
 如果你希望網站部署在 `<你的 GitHub 用戶名>.github.io` 的子目錄中：
 
-1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
+1. Navigate to your repo on GitHub. Go to the **Settings** tab. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
 2. 編輯你的 **_config.yml**，將 `url:` 更改為 <b>https://*username*.github.io/*repository*</b>。
 3. Commit and push to the default branch.
 4. 當部屬完成後，在 `gh-pages` 分支可以找到產生的網頁。
-6. 在 GitHub 儲存庫中，前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages` 後儲存。 Change the branch to `gh-pages` and save.
+6. 開啟你在 GitHub 的儲存庫，並前往 **Settings** 頁面。 更改你的 **Repository name** 使你的部落格網址變成 <b>username.github.io/*repository*</b>，*repository* 可以是任何名稱，例如 *blog* 或 *hexo*。
 7. 前往 *username*.github.io/*repository* 查看。
 
 ## One-command deployment
