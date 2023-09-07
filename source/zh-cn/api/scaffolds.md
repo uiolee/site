@@ -1,19 +1,20 @@
 ---
-title: 脚手架（Scaffold）
+title: Scaffolds
 ---
-## 获得脚手架
+
+## Get a Scaffold
 
 ``` js
 hexo.scaffold.get(name);
 ```
 
-## 设置脚手架
+## Set a Scaffold
 
 ``` js
 hexo.scaffold.set(name, content);
 ```
 
-## 移除脚手架
+## Remove a Scaffold
 
 ``` js
 hexo.scaffold.remove(name);
