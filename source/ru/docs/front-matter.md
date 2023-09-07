@@ -1,10 +1,10 @@
 ---
-title: Front-matter
+title: Внедрение
 ---
 
 {% youtube pfD6FCZdW4Q %}
 
-Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
+Шапка файла это блок в формате YAML или JSON, расположенный в начале файла, который используется для изменения настроек написанного материала. Окончание шапки определяется строкой `---` или `;;;` при написании в формате JSON.
 
 **YAML**
 
@@ -23,52 +23,52 @@ date: 2013/7/13 20:46:25
 ;;;
 ```
 
-### Settings & Their Default Values
+### Параметры и значения по умолчанию
 
-| Setting           | Description                                                                                         | Default                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `layout`          | Layout                                                                                              | [`config.default_layout`](/docs/configuration#Writing) |
-| `title`           | Title                                                                                               | Filename (posts only)                                  |
-| `date`            | Published date                                                                                      | File created date                                      |
-| `updated`         | Updated date                                                                                        | File updated date                                      |
-| `comments`        | Enables comment feature for the post                                                                | true                                                   |
-| `tags`            | Tags (Not available for pages)                                                                      |                                                        |
-| `categories`      | Categories (Not available for pages)                                                                |                                                        |
-| `permalink`       | Overrides the default permalink of the post. Permalink should end with `/` or `.html`               | `null`                                                 |
-| `excerpt`         | Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text    |                                                        |
-| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled | false                                                  |
-| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                      | Inherited from `_config.yml`                           |
+| Параметр             | Описание                                                                                                                     | Значение по умолчанию                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `макет`              | Макет                                                                                                                        | [`config.default_layout`](/docs/configuration#Writing) |
+| `название`           | Заголовок                                                                                                                    | Имя файла (только сообщения)                           |
+| `дата`               | Дата публикации                                                                                                              | Дата создания файла                                    |
+| `обновлено`          | Дата обновления                                                                                                              | Дата обновления файла                                  |
+| `комментарии`        | Включение поддержки комментариев в посте                                                                                     | истина                                                 |
+| `тэги`               | Теги (Недоступно для страниц)                                                                                                |                                                        |
+| `категории`          | Категории (Не доступно для страниц)                                                                                          |                                                        |
+| `постоянная ссылка`  | Переопределяет ссылку по умолчанию. Должна заканчиваться `/` или `.html`                                                     | `пустой`                                               |
+| `выдержка`           | Отрывок страницы в виде простого текста. Используйте [этот плагин](/ru/docs/tag-plugins#Отрывок-поста) для оформления текста |                                                        |
+| `отключить Nunjucks` | Отключить отображение тегов Nunjucks `{{ }}`/`{% %}` и [плагины тегов](/ru/docs/tag-plugins) при включении                   | ложь                                                   |
+| `lang`               | Установите язык для переопределения [автоопределения](/ru/docs/internationalization#Путь)                                    | Берётся из `_config.yml`                               |
 
-#### Layout
+#### Макет
 
-The default layout is `post`, in accordance to the value of [`default_layout`](/docs/configuration#Writing) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML.
+Умолчания для макета `поста`, берутся в соответствии со значениеми [`параметров`]((https://hexo.io/ru/docs/configuration#Написание)) в файле `_config.yml`. Когда в статье макет отключён (`layout: false`), он не будет обрабатываться с темой. Тем не менее, он все равно будет отображаться любым доступным средством визуализации: если статья написана в Markdown и средстве визуализации Markdown (например, установлен по умолчанию [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) , он будет отображён в HTML.
 
-[Tag plugins](/docs/tag-plugins) are always processed regardless of layout, unless disabled by the `disableNunjucks` setting or [renderer](/api/renderer#Disable-Nunjucks-tags).
+[Плагины тегов](/ru/docs/tag-plugins) всегда обрабатываются независимо от макета, если только они не отключены настройкой `disableNunjucks` или \[средство визуализации\] (/api/renderer#Disable-Nunjucks-tags).
 
-#### Categories & Tags
+#### Категории и теги
 
-Only posts support the use of categories and tags. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important.
+Только посты поддерживают использование категорий и тегов. Категории считываются в порядке их написания, в результате чего сохраняется иерархия классификации и подклассификации. Теги определены на одном иерархическом уровне, не важен порядок написания.
 
-**Example**
+**Например**
 
 ``` yaml
-categories:
+категории:
 - Sports
-- Baseball
-tags:
+- бейсбол
+теги:
 - Injury
 - Fight
-- Shocking
+- Шокирование
 ```
 
-If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.
+Если вы хотите применить несколько иерархий категорий, используйте список имен вместо одного имени. Если Hexo видит какую бы то ни было категорию на должности, то он будет рассматривать каждую категорию для этой должности как свою собственную независимую иерархию.
 
-**Example**
+**Макет**
 
 ``` yaml
-categories:
-- [Sports, Baseball]
+категории:
+- [Спорт, бейсбол]
 - [MLB, American League, Boston Red Sox]
 - [MLB, American League, New York Yankees]
-- Rivalries
+- rivalries
 ```
