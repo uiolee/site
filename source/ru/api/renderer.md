@@ -1,44 +1,44 @@
 ---
-title: Renderer
+title: Рендер
 ---
 
-A renderer is used to render content.
+Рендер используется для создания содержимого.
 
-## Synopsis
+## Краткий обзор
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
   // ...
-}, sync);
+}, синхронизация);
 ```
 
-| Argument | Description                                                 |
-| -------- | ----------------------------------------------------------- |
-| `name`   | Input filename extension (lower case, without leading `.`)  |
-| `output` | Output filename extension (lower case, without leading `.`) |
-| `sync`   | Sync mode                                                   |
+| Аргумент        | Описание                                                              |
+| --------------- | --------------------------------------------------------------------- |
+| `имя`           | Вводится расширение входного файла (нижний регистр, без ведущей `.`)  |
+| `вывод`         | Выводится расширение входного файла (нижний регистр, без ведущей `.`) |
+| `синхронизация` | Режим синхронизации                                                   |
 
-Three arguments will be passed into the render function:
+В функцию рендера передаются два аргумента:
 
-| Argument   | Description                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------- |
-| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
-| `option`   | Options                                                                                           |
-| `callback` | Callback function of two parameters `err`, `value`.                                               |
+| Аргумент   | Описание                                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| `данные`   | Включает два атрибута: путь к файлу `path` и содержимое файла  `text`. Переменная `path` не является обязательной. |
+| `опция`    | Опции                                                                                                              |
+| `callback` | Функция обратного вызова двух параметров `err`, `value`.                                                           |
 
-## Example
+## Пример
 
-### Async Mode
+### Асинхронный режим
 
 ``` js
 var stylus = require('stylus');
 
-// Callback
+// Обратный вызов
 hexo.extend.renderer.register('styl', 'css', function(data, options, callback){
   stylus(data.text).set('filename', data.path).render(callback);
 });
 
-// Promise
+// Запрос
 hexo.extend.renderer.register('styl', 'css', function(data, options){
   return new Promise(function(resolve, reject){
     resolve('test');
@@ -46,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### Sync Mode
+### Синхронный режим
 
 ``` js
 var ejs = require('ejs');
@@ -57,9 +57,9 @@ hexo.extend.renderer.register('ejs', 'html', function(data, options){
 }, true);
 ```
 
-### Disable Nunjucks tags
+### Отключить теги Nunjucks
 
-Nunjucks tags `{{ }}` or `{% %}` (utilized by [tag plugin](/docs/tag-plugins)) are processed by default, to disable:
+Nunjucks теги `{{ }}` или `{% %}` (используемые [плагином тегов](/docs/tag-plugins)) обрабатываются по умолчанию, для отключения:
 
 ``` js
 function lessFn(data, options) {
