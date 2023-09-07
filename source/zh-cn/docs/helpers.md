@@ -52,6 +52,9 @@ relative_link: true
  */
 <%- url_for('/css/style.css', {relative: false}) %>
 // /css/style.css
+ */
+<%- url_for('/css/style.css', {relative: false}) %>
+// /css/style.css
 ```
 
 ### relative_url
@@ -71,7 +74,7 @@ relative_link: true
 
 ### full_url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Returns a url with the `config.url` prefixed. Output is encoded automatically. Output is encoded automatically.
 
 ``` js
 <%- full_url_for(path) %>
@@ -125,7 +128,7 @@ url: https://example.com/blog # example
 
 ### css
 
-载入 CSS 文件。 `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. `path` 可以是数组或字符串，如果 `path` 开头不是 `/` 或任何协议，则会自动加上根路径；如果后面没有加上 `.css` 扩展名的话，也会自动加上。 对于自定义属性请使用对象类型。
+载入 CSS 文件。 `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. `path` 可以是数组或字符串，如果 `path` 开头不是 `/` 或任何协议，则会自动加上根路径；如果后面没有加上 `.css` 扩展名的话，也会自动加上。 `path` can be a string, an array, an object or an array of objects. `path` 可以是数组或字符串，如果 `path` 开头不是 `/` 或任何协议，则会自动加上根路径；如果后面没有加上 `.css` 扩展名的话，也会自动加上。 对于自定义属性请使用对象类型。
 
 ``` js
 <%- css(path, ...) %>
@@ -151,7 +154,7 @@ url: https://example.com/blog # example
 
 ### js
 
-载入 JavaScript 文件。 `path` can be a string, an array, an object or an array of objects. `path` 可以是数组或字符串，如果 `path` 开头不是 `/` 或任何协议，则会自动加上根路径；如果后面没有加上 `.js` 扩展名的话，也会自动加上。 对于自定义属性请使用对象类型。
+载入 JavaScript 文件。 `path` can be a string, an array, an object or an array of objects. `path` can be a string, an array, an object or an array of objects. `path` 可以是数组或字符串，如果 `path` 开头不是 `/` 或任何协议，则会自动加上根路径；如果后面没有加上 `.js` 扩展名的话，也会自动加上。 对于自定义属性请使用对象类型。
 
 ``` js
 <%- js(path, ...) %>
@@ -387,6 +390,7 @@ Check whether the current page is a yearly archive page.
 ``` js
 <%- strip_html('It\'s not <b>important</b> anymore!') %>
 // It's not important anymore! %>
+// It's not important anymore! %>
 // It's not important anymore!
 ```
 
@@ -475,6 +479,18 @@ Check whether the current page is a yearly archive page.
 <%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
 // Once upon a...
 
+<%- truncate('Once upon a time in a world far far away', {length: 17}) %>
+// Once upon a ti...
+
+<%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
+// Once upon a...
+
+<%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
+// And they f... (continued)
+
+<%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
+// Once upon a...
+
 <%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
 // And they f... (continued)
 ```
@@ -498,7 +514,7 @@ Check whether the current page is a yearly archive page.
 
 ### partial
 
-Loads other template files. You can define local variables in `locals`.
+Loads other template files. Loads other template files. You can define local variables in `locals`.
 
 ``` js
 <%- partial(layout, [locals], [options]) %>
@@ -824,11 +840,11 @@ Inserts a paginator.
 <%- search_form(options) %>
 ```
 
-| Option   | 描述                                                                                                         | 默认值         |
-| -------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| `class`  | 表单的 class name                                                                                             | search-form |
-| `text`   | 搜索提示文字                                                                                                     | Search      |
-| `button` | 显示搜索按钮。 The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
+| Option   | 描述                                                                                                                                                 | 默认值         |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `class`  | 表单的 class name                                                                                                                                     | search-form |
+| `text`   | 搜索提示文字                                                                                                                                             | Search      |
+| `button` | 显示搜索按钮。 The value can be a boolean or a string. The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
 
 ### number_format
 
@@ -936,7 +952,7 @@ Inserts [Open Graph][] data.
 
 带有 `data-toc-unnumbered="true"` 属性的标题将被标记为未编号（不显示列表编号）。
 
-{% note warn "警告！" %} %}
+{% note warn "警告！" %} %} %}
 对于使用 `data-toc-unnumbered="true"`，渲染引擎必须要有添加 CSS 类的选项。
 
 请看下面的 PR。
