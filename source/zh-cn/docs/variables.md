@@ -1,101 +1,101 @@
 ---
-title: Variables
+title: 变量
 ---
 
 {% youtube T9oAax-IRw0 %}
 
-### Global Variables
+### 全局变量
 
-| Variable | Description                                                         | Type                                 |
-| -------- | ------------------------------------------------------------------- | ------------------------------------ |
-| `site`   | Sitewide information.                                               | `object`; see [Site Variables][]     |
-| `page`   | Page specific information and custom variables set in front-matter. | `object`; see [Page Variables][]     |
-| `config` | Site configuration.                                                 | `object` (your site's _config file)  |
-| `theme`  | Theme configuration. Inherits from site configuration.              | `object` (your theme's _config file) |
-| `path`   | Path of current page                                                | `string`                             |
-| `url`    | Full URL of current page                                            | `string`                             |
-| `env`    | Environment variables                                               | ???                                  |
+| 变量    | 描述                   | 类型                      |
+| ----- | -------------------- | ----------------------- |
+| `站点`  | 全站信息                 | `对象`; 见 [站点变量][]        |
+| `页面`  | 前事项中设置的页面特定信息和自定义变量。 | `对象`; 见 [页面变量][]        |
+| `配置`  | 站点配置。                | `对象` (您的站点的 _config 文件) |
+| `主题`  | 主题配置。 从站点配置继承。       | `对象` (您的主题的 _config 文件) |
+| `路径`  | 当前页面路径               | `字符串`                   |
+| `网址`  | 当前页面的完整URL           | `字符串`                   |
+| `env` | 环境变量                 | ???                     |
 
 {% note warn %}
-Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
+Lodash 从 Hexo 5.0.0 以来已从全局变量中移除。 [您不需要的Lodash-Underscript](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) 可能有助于您的迁移。
 {% endnote %}
 
-### Site Variables
+### 站点变量
 
-| Variable          | Description    | Type                      |
-| ----------------- | -------------- | ------------------------- |
-| `site.posts`      | All posts      | `array` of `post` objects |
-| `site.pages`      | All pages      | `array` of `page` objects |
-| `site.categories` | All categories | `array` of ???            |
-| `site.tags`       | All tags       | `array` of ???            |
+| 变量   | 描述   | 类型                 |
+| ---- | ---- | ------------------ |
+| `帖子` | 所有帖子 | `数组` of `posta` 对象 |
+| `页面` | 所有页面 | `数组` of `页面` 对象    |
+| `分类` | 所有类别 | `array` of ???     |
+| `标签` | 所有标签 | `array` of ???     |
 
-### Page Variables
+### 页面变量
 
-**Article (`page`)**
+**文章 (`第` 页)**
 
-| Variable           | Description                                                                            | Type                 |
-| ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
-| `page.title`       | Article title                                                                          | `string`             |
-| `page.date`        | Article created date                                                                   | [Moment.js][] object |
-| `page.updated`     | Article last updated date                                                              | [Moment.js][] object |
-| `page.comments`    | Comment enabled or not                                                                 | `boolean`            |
-| `page.layout`      | Layout name                                                                            | `string`             |
-| `page.content`     | The full processed content of the article                                              | `string`             |
-| `page.excerpt`     | Article excerpt                                                                        | `string`             |
-| `page.more`        | Contents except article excerpt                                                        | `string`             |
-| `page.source`      | The path of the source file                                                            | `string`             |
-| `page.full_source` | Full path of the source file                                                           | `string`             |
-| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
-| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
-| `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
-| `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
-| `page.raw`         | The raw data of the article                                                            | ???                  |
-| `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
-| `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
+| 变量           | 描述                                                      | 类型           |
+| ------------ | ------------------------------------------------------- | ------------ |
+| `page.title` | 文章标题                                                    | `字符串`        |
+| `日期`         | 文章创建日期                                                  | [动画.js][] 对象 |
+| `更新页面`       | 文章最后更新日期                                                | [动画.js][] 对象 |
+| `评论`         | 评论已启用或未启用                                               | `boolean`    |
+| `页面布局`       | 布局名称                                                    | `字符串`        |
+| `内容`         | 文章已处理的完整内容                                              | `字符串`        |
+| `摘要页面`       | 文章摘要                                                    | `字符串`        |
+| `更多`         | 除文章摘录外的内容                                               | `字符串`        |
+| `源文件`        | 源文件的路径                                                  | `字符串`        |
+| `完整页面`       | 源文件的完整路径                                                | `字符串`        |
+| `路径`         | 没有root URL的文章的 URL。 我们通常在主题中使用 `url_for(page.path)`。    | `字符串`        |
+| `永久链接`       | 文章的完整(加密) URL                                           | `字符串`        |
+| `上一页`        | The previous post, `null` if the post is the first post | ???          |
+| `下一页`        | The next post, `null` if the post is the last post      | ???          |
+| `原始页面`       | 本条的原始数据                                                 | ???          |
+| `照片`         | 文章的照片(在图库中显示)                                           | ?????        |
+| `链接`         | 文章的外部链接 (Used in link posts)                            | `字符串`        |
 
-**Post (`post`):** Same as `page` layout but add the following variables.
+**帖子 (``):** 与 `页` 布局相同，但添加以下变量。
 
-| Variable          | Description                     | Type           |
-| ----------------- | ------------------------------- | -------------- |
-| `page.published`  | True if the post is not a draft | `boolean`      |
-| `page.categories` | All categories of the post      | `array` of ??? |
-| `page.tags`       | All tags of the post            | `array` of ??? |
+| 变量     | 描述               | 类型             |
+| ------ | ---------------- | -------------- |
+| `已发布`  | 如果帖子不是草稿，则为 true | `boolean`      |
+| `页面分类` | 帖子的所有类别          | `array` of ??? |
+| `标签`   | 帖子的所有标签          | `array` of ??? |
 
-**Home (`index`)**
+**首页 (`索引`)**
 
-| Variable           | Description                                                                             | Type     |
-| ------------------ | --------------------------------------------------------------------------------------- | -------- |
-| `page.per_page`    | Posts displayed per page                                                                | `number` |
-| `page.total`       | Total number of pages                                                                   | `number` |
-| `page.current`     | Current page number                                                                     | `number` |
-| `page.current_url` | The URL of current page                                                                 | `string` |
-| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                  | `object` |
-| `page.prev`        | Previous page number. `0` if the current page is the first.                             | `number` |
-| `page.prev_link`   | The URL of previous page. `''` if the current page is the first.                        | `string` |
-| `page.next`        | Next page number. `0` if the current page is the last.                                  | `number` |
-| `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
-| `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
+| 变量      | 描述                                                    | 类型    |
+| ------- | ----------------------------------------------------- | ----- |
+| `页面`    | 每页显示的帖子                                               | `数字`  |
+| `总页面`   | 总页数                                                   | `数字`  |
+| `当前页面`  | 当前页面编号                                                | `数字`  |
+| `当前网址`  | 当前页面的 URL                                             | `字符串` |
+| `帖子`    | 此页面中的帖子([数据模型](https://hexojs.github.io/warehouse/))  | `对象`  |
+| `上一页`   | 上一个页面号码。 `0` 如果当前页面是第一页。                              | `数字`  |
+| `前面的链接` | 上一页面的 URL。 `'` 如果当前页面是第一页。                            | `字符串` |
+| `下一页`   | 下一页号码。 `0` 如果当前页面是最后一页。                               | `数字`  |
+| `下一页链接` | 下一页的 URL。 `'` 如果当前页面是最后一页。                            | `字符串` |
+| `路径`    | 无root URL的当前页面的 URL。 我们通常在主题中使用 `url_for(page.path)`。 | `字符串` |
 
-**Archive (`archive`):** Same as `index` layout but add the following variables.
+**归档(`归档`)：** 与 `索引` 布局相同，但添加以下变量。
 
-| Variable       | Description                                   | Type      |
-| -------------- | --------------------------------------------- | --------- |
-| `page.archive` | Equals `true`                                 | `boolean` |
-| `page.year`    | Archive year (4-digit)                        | `number`  |
-| `page.month`   | Archive month (2-digit without leading zeros) | `number`  |
+| 变量   | 描述            | 类型        |
+| ---- | ------------- | --------- |
+| `存档` | 等于 `true`     | `boolean` |
+| `年`  | 归档年份 (4位)     | `数字`      |
+| `月`  | 存档月份(2位数不带前零) | `数字`      |
 
-**Category (`category`):** Same as `index` layout but add the following variables.
+**类别 (``)：** 与 `索引` 布局相同，但添加以下变量。
 
-| Variable        | Description   | Type     |
-| --------------- | ------------- | -------- |
-| `page.category` | Category name | `string` |
+| 变量    | 描述   | 类型    |
+| ----- | ---- | ----- |
+| `类别：` | 类别名称 | `字符串` |
 
-**Tag (`tag`):** Same as `index` layout but add the following variables.
+**标签 (`标签`):** 与 `索引` 布局相同，但添加以下变量。
 
-| Variable   | Description | Type     |
-| ---------- | ----------- | -------- |
-| `page.tag` | Tag name    | `string` |
+| 变量   | 描述   | 类型    |
+| ---- | ---- | ----- |
+| `标签` | 标签名称 | `字符串` |
 
-[Moment.js]: http://momentjs.com/
-[Site Variables]: #Site-Variables
-[Page Variables]: #Page-Variables
+[动画.js]: http://momentjs.com/
+[站点变量]: #Site-Variables
+[页面变量]: #Page-Variables
