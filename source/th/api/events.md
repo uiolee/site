@@ -2,32 +2,31 @@
 title: Events
 ---
 
-hexo  สืบทอดจาก [EventEmitter]  มันใช้วิธี `on` มาคอยฟัง event ที่ hexo
-ส่งออกไป
+Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
-ส่งออกไปก่อนการเกิดขึ้นของ deployment
+Emitted before deployment begins.
 
 ### deployAfter
 
-ส่งออกไปหลังการจบลงของ deployment
+Emitted after deployment finishes.
 
 ### exit
 
-ส่งออกไปก่อนการจบการใช้ hexo
+Emitted before Hexo exits.
 
 ### generateBefore
 
-ส่งออกไปก่อนการเกิดขึ้นของ generation
+Emitted before generation begins.
 
 ### generateAfter
 
-ส่งออกไปหลังการจบลงของ generation
+Emitted after generation finishes.
 
 ### new
 
-ส่งออกไปหลังการสร้างโพสต์ใหม่ event นี้ส่ง data โพสต์กลับ
+Emitted after a new post has been created. This event returns the post data:
 
 ``` js
 hexo.on('new', function(post){
@@ -35,22 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-Data | Description
---- | ---
-`post.path` | Full path of the post file
-`post.content` | Content of the post file
+| Data           | Description                |
+| -------------- | -------------------------- |
+| `post.path`    | Full path of the post file |
+| `post.content` | Content of the post file   |
 
 ### processBefore
 
-ส่งออกไปก่อนการเกิดขึ้นของ processing event นี้ส่งกลับ path ท่ีบ่งบอก  root
-directory ของ box
+Emitted before processing begins. This event returns a path representing the root directory of the box.
 
 ### processAfter
 
-ส่งออกไปหลังการจบลงของ processing   event นี้ส่งกลับ path ท่ีบ่งบอก  root directory ของ box
+Emitted after processing finishes. This event returns a path representing the root directory of the box.
 
 ### ready
 
-ส่งออกไปหลังการจบลงของ initialization
+Emitted after initialization finishes.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
