@@ -1,29 +1,29 @@
 ---
-title: Contributing
+title: 贡献中
 ---
 
-We welcome you to join the development of Hexo. 🤗
+我们欢迎你参加六日的发展。 🤗
 
-## Development
+## 贸易和发展会议
 
-We welcome you to join the development of Hexo. This document will help you through the process.
+我们欢迎你参加六日的发展。 此文档将帮助您完成该进程。
 
-### Before You Start
+### 开始前
 
-Please read [Contributor Covenant Code of Conduct](https://github.com/hexojs/hexo/blob/master/CODE_OF_CONDUCT.md) first.
+请先读取 [贡献者的行为守则](https://github.com/hexojs/hexo/blob/master/CODE_OF_CONDUCT.md)
 
-Please follow the coding style:
+请遵循编码风格：
 
-- Follow [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html).
-- Use soft-tabs with a two space indent.
-- Don't put commas first.
+- 关注 [Google JavaScript 样式指南](https://google.github.io/styleguide/jsguide.html)
+- 使用两个空格缩进的软标签。
+- 不要先放置逗号。
 
-Also, Hexo has its own [ESLint config](https://github.com/hexojs/eslint-config-hexo), so please make sure your contribution will make ESLint happy.
+而且，Hexo 有自己的 [ESLint 配置](https://github.com/hexojs/eslint-config-hexo)，所以请确保您的贡献将使ESLint 很高兴。
 
-### Workflow
+### 工作流
 
 1. Fork [hexojs/hexo][].
-2. Clone the repository to your computer and install dependencies.
+2. 复制存储库到您的电脑并安装依赖项。
 
 ``` bash
 $ git clone https://github.com/<username>/hexo.git
@@ -32,42 +32,42 @@ $ npm install
 $ git submodule update --init
 ```
 
-3. Create a feature branch.
+3. 创建一个功能分支。
 
 ``` bash
-$ git checkout -b new_feature
+$ git 结帐-b new_feature
 ```
 
-4. Start hacking.
-5. Push the branch:
+4. 开始黑客。
+5. 推送分支：
 
 ```
-$ git push origin new_feature
+$git 推送源新功能
 ```
 
-6. Create a pull request and describe the change.
+6. 创建拉请求并描述更改。
 
-### Notice
+### 通知
 
-- Please don't modify version number in `package.json`.
-- Your pull request will only get merged when tests passed. Don't forget to run tests before submission.
+- 请不要修改 `package.json` 中的版本号。
+- 您的拉取请求只有在测试通过时才会被合并。 不要忘记在提交前运行测试。
 
 ``` bash
-$ npm test
+$npm 测试
 ```
 
-## Updating official-plugins
+## 正在更新官方插件
 
-Also, we welcome PR or issue to [official-plugins](https://github.com/hexojs). 🤗
+另外，我们也欢迎PR 或 [官方插件](https://github.com/hexojs)。 🤗
 
-## Updating Documentation
+## 正在更新文档
 
-The Hexo documentation is open source and you can find the source code on [hexojs/site][].
+Hexo 文档是开源的，您可以在 [十六进制/站点][] 中找到源代码。
 
-### Workflow
+### 工作流
 
-1. Fork [hexojs/site][]
-2. Clone the repository to your computer and install dependencies.
+1. Fork [十六进制/站点][]
+2. 复制存储库到您的电脑并安装依赖项。
 
 ``` bash
 $ npm install hexo-cli -g # If you don't have hexo-cli installed
@@ -76,28 +76,28 @@ $ cd site
 $ npm install
 ```
 
-3. Start editing the documentation. You can start the server for live previewing.
+3. 开始编辑文档。 您可以启动服务器进行实时预览。
 
 ``` bash
-$ hexo server
+$ 十六进制服务器
 ```
 
-4. Push the branch.
-5. Create a pull request and describe the change.
+4. 推送分支。
+5. 创建拉请求并描述更改。
 
-### Translating
+### 正在翻译
 
-1. Add a new language folder in `source` folder. (All lower case)
+1. Add a new language folder in `source` folder. (所有小写)
 2. Copy Markdown and template files in `source` folder to the new language folder.
-3. Add the new language to `source/_data/language.yml`.
-4. Copy `en.yml` in `themes/navy/languages` and rename to the language name (all lower case).
+3. 将新语言添加到 `source/_data/language.yml`
+4. 用 `themes/navy/languages` 复制 `en.yml` 并重命名为语言名称(所有小写)。
 
-## Reporting Issues
+## 报告问题
 
-When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). If you can't find the answer, please report it on GitHub.
+When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). 如果您找不到答案, 请在 GitHub 上报告。
 
 1. Represent the problem in [debug mode](commands.html#Debug_mode).
-2. Follow the steps from issue template to provide debug message and version when submitting a new issue at GitHub.
+2. 按照问题模板的步骤，在GitHub 上提交新问题时提供调试信息和版本。
 
 [hexojs/hexo]: https://github.com/hexojs/hexo
-[hexojs/site]: https://github.com/hexojs/site
+[十六进制/站点]: https://github.com/hexojs/site
