@@ -12,7 +12,7 @@ Você pode usar os helpers padrões do Hexo ou [criar seus próprios helpers per
 
 ### url_for
 
-Retorna uma url com o caminho raiz prefixado. Você deve usar esse helper em vez de `config.root + path` desde a versão 2.7 do Hexo.
+Returns a url with the `config.url` prefixed. Você deve usar esse helper em vez de `config.root + path` desde a versão 2.7 do Hexo.
 
 ``` js
 <%- url_for(path) %>
@@ -70,7 +70,7 @@ Retorna a URL relativa de `from` para `to`.
 
 ### full_url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Retorna uma url com o caminho raiz prefixado. Você deve usar esse helper em vez de `config.root + path` desde a versão 2.7 do Hexo. Output is encoded automatically.
 
 ``` js
 <%- full_url_for(path) %>
@@ -384,7 +384,7 @@ Remove as tags HTML de uma string.
 **Examples:**
 
 ``` js
-<%- strip_html('It\'s not <b>important</b> anymore!') %>
+<%- strip_html('It\'s not <b>important</b> anymore!') %> // It's not important anymore! %>
 // It's not important anymore!
 ```
 
