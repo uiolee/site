@@ -2,7 +2,7 @@
 title: One-Command Deployment
 ---
 
-Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
+Hexo는 빠르고 쉬운 deployment전략을 제공합니다. 웹 사이트를 서버에 deploy하기 위해 하나의 명령어만 수행하면 됩니다.
 
 ```bash
 $ hexo deploy
@@ -17,7 +17,7 @@ deploy:
   type: git
 ```
 
-You can use multiple deployers. Hexo will execute each deployer in order.
+여러 곳에 동시에 deploy할 수도 있습니다. Hexo는 순차적으로 deploy를 수행합니다.
 
 ```yaml
 deploy:
@@ -42,7 +42,7 @@ $ npm install hexo-deployer-git --save
 ```yaml
 deploy:
   type: git
-  repo: <repository url> # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: [branch]
   message: [message]
 ```
@@ -63,13 +63,13 @@ deploy:
 
 ## Heroku
 
-Install [hexo-deployer-heroku][].
+[hexo-deployer-heroku][]을 설치합니다.
 
 ```bash
 $ npm install hexo-deployer-heroku --save
 ```
 
-Edit settings.
+설정을 수정합니다.
 
 ```yaml
 deploy:
@@ -78,10 +78,10 @@ deploy:
   message: [message]
 ```
 
-| Option               | Description                                                                                                 |
-| -------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `repo`, `repository` | Heroku repository URL                                                                                       |
-| `message`            | Customize commit message (Default to `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
+| Option               | Description                                                                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| `repo`, `repository` | Heroku 저장소 URL                                                                                       |
+| `message`            | Commit message를 수정합니다. (기본값 - `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
 
 ## Netlify
 
@@ -95,13 +95,13 @@ You can also add a [Deploy to Netlify Button](https://www.netlify.com/docs/deplo
 
 ## Rsync
 
-Install [hexo-deployer-rsync][].
+[hexo-deployer-rsync][]를 설치합니다.
 
 ```bash
 $ npm install hexo-deployer-rsync --save
 ```
 
-Edit settings.
+설정을 수정합니다.
 
 ```yaml
 deploy:
@@ -115,25 +115,25 @@ deploy:
   ignore_errors: [true|false]
 ```
 
-| Option          | Description                     | Default |
-| --------------- | ------------------------------- | ------- |
-| `host`          | Address of remote host          |         |
-| `user`          | Username                        |         |
-| `root`          | Root directory of remote host   |         |
-| `port`          | Port                            | 22      |
-| `delete`        | Delete old files on remote host | true    |
-| `verbose`       | Display verbose messages        | true    |
-| `ignore_errors` | Ignore errors                   | false   |
+| Option          | Description            | Default |
+| --------------- | ---------------------- | ------- |
+| `host`          | 원격 호스트의 주소             |         |
+| `user`          | 사용자명                   |         |
+| `root`          | 원격 호스트의 루트 디렉토리        |         |
+| `port`          | 포트                     | 22      |
+| `delete`        | 원격 호스트의 오래된 파일을 삭제합니다. | true    |
+| `verbose`       | Verbose 메시지를 표시합니다.    | true    |
+| `ignore_errors` | 에러를 무시합니다.             | false   |
 
 ## OpenShift
 
-Install [hexo-deployer-openshift][].
+[hexo-deployer-openshift][]를 설치합니다.
 
 ```bash
 $ npm install hexo-deployer-openshift --save
 ```
 
-Edit settings.
+설정을 수정합니다.
 
 ```yaml
 deploy:
@@ -142,20 +142,20 @@ deploy:
   message: [message]
 ```
 
-| Option    | Description                                                                                                 |
-| --------- | ----------------------------------------------------------------------------------------------------------- |
-| `repo`    | OpenShift repository URL                                                                                    |
-| `message` | Customize commit message (Default to `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
+| Option    | Description                                                                                          |
+| --------- | ---------------------------------------------------------------------------------------------------- |
+| `repo`    | OpenShift 저장소 URL                                                                                    |
+| `message` | Commit message를 수정합니다. (기본값 - `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
 
 ## FTPSync
 
-Install [hexo-deployer-ftpsync][].
+[hexo-deployer-ftpsync][]를 설치합니다.
 
 ```bash
 $ npm install hexo-deployer-ftpsync --save
 ```
 
-Edit settings.
+설정을 수정합니다.
 
 ```yaml
 deploy:
@@ -170,16 +170,16 @@ deploy:
   verbose: [true|false]
 ```
 
-| Option        | Description                               | Default |
-| ------------- | ----------------------------------------- | ------- |
-| `host`        | Address of remote host                    |         |
-| `user`        | Username                                  |         |
-| `pass`        | Password                                  |         |
-| `remote`      | Root directory of remote host             | `/`     |
-| `port`        | Port                                      | 21      |
-| `ignore`      | Ignore the files on either host or remote |         |
-| `connections` | Connections number                        | 1       |
-| `verbose`     | Display verbose messages                  | false   |
+| Option        | Description             | Default |
+| ------------- | ----------------------- | ------- |
+| `host`        | 원격 호스트의 주소              |         |
+| `user`        | 사용자명                    |         |
+| `pass`        | 비밀번호                    |         |
+| `remote`      | 원격 호스트의 루트 디렉토리         | `/`     |
+| `port`        | 포트                      | 21      |
+| `ignore`      | 호스트 파일들과 원격 파일들을 무시합니다. |         |
+| `connections` | 연결 번호                   | 1       |
+| `verbose`     | Verbose 메시지를 표시합니다.     | false   |
 
 ## SFTP
 
@@ -189,7 +189,7 @@ Install [hexo-deployer-sftp][]. Deploys the site via SFTP, allowing for password
 $ npm install hexo-deployer-sftp --save
 ```
 
-Edit settings.
+옵션
 
 ```yaml
 deploy:
@@ -267,14 +267,14 @@ After a few moments, your website will be deployed.
 
 ## RSS3
 
-[RSS3](https://rss3.io) is an open protocol designed for content and social networks in the Web 3.0 era.
+[RSS3](https://rss3.io)는 Web 3.0 시대의 콘텐츠 및 소셜 네트워크를 위해 설계된 개방형 프로토콜입니다.
 
-1. Install [hexo-deployer-rss3][].
+1. [hexo-deployer-rss3][] 설치
 
-2. Modify the configuration.
+2. 구성을 수정합니다.
 
   ``` yaml
-  deploy: # The root configuration block for all deployers
+  deploy:
   - type: rss3
     endpoint: https://hub.rss3.io
     privateKey: 47e18d6c386898b424025cd9db446f779ef24ad33a26c499c87bb3d9372540ba
@@ -286,20 +286,20 @@ After a few moments, your website will be deployed.
         secret: ee8b74626f12b61c1a4bde3b8c331ad390567c86ba779c9b18561ee92c1cbff0
   ```
 
-| Parameters        | Description                                 |
-| ----------------- | ------------------------------------------- |
-| `endpoint`        | a link to the RSS3 Hub                      |
-| `privateKey`      | your private key, 64 bytes                  |
-| `ipfs/deploy`     | whether to deploy to IPFS                   |
-| `ipfs/gateway`    | IPFS API gateway                            |
-| `ipfs/api/key`    | IPFS gateway-related authentication content |
-| `ipfs/api/secret` | IPFS gateway-related authentication content |
+| 매개변수              | Description         |
+| ----------------- | ------------------- |
+| `endpoint`        | RSS3 Hub에 대한 링크     |
+| `privateKey`      | 개인 키, 64바이트         |
+| `ipfs/deploy`     | IPFS에 배포할지 여부       |
+| `ipfs/gateway`    | IPFS API 게이트웨이      |
+| `ipfs/api/key`    | IPFS 게이트웨이 관련 검증 내용 |
+| `ipfs/api/secret` | IPFS 게이트웨이 관련 검증 내용 |
 
-3. generate static files
+3. 정적 파일 생성
 
-4. deploy
+4. 배포
 
-For deployment-related considerations, you can refer to [Our documentation](https://github.com/NaturalSelectionLabs/hexo-deployer-rss3/blob/develop/README.md).
+특정 배포와 관련된 주의 사항은 [당사 문서](https://github.com/NaturalSelectionLabs/hexo-deployer-rss3/blob/develop/README.md)를 참조하세요.
 
 ## Edgio (formerly Layer0)
 
@@ -317,19 +317,19 @@ npm i -g @edgio/cli
 edgio init --connector=@edgio/hexo
 ```
 
-3. Deploy
+3. Deployment
 
 ```bash
-edgio deploy
+설명
 ```
 
 Alternatively, you can click the deploy button below to create a new project:
 
 [![Deploy To Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgio-docs%2Fedgio-hexo-example)
 
-## Other Methods
+## 다른 메소드들
 
-All generated files are saved in the `public` folder. You can copy them to wherever you like.
+생성되는 모든 파일들은 `public` 폴더에 저장됩니다. 이 파일들을 당신이 원하는 곳 아무데나 복사하여 사용할 수 있습니다.
 
 [hexo-deployer-git]: https://github.com/hexojs/hexo-deployer-git
 [hexo-deployer-heroku]: https://github.com/hexojs/hexo-deployer-heroku
