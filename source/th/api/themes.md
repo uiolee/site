@@ -24,7 +24,7 @@ hexo.theme.removeView(path);
 
 ## View
 
-view มีสองวิธี: `render` และ `renderSync` ทั้งสองวิธีนี้เหมือนกัน แต่ตัวแรกเป็น asynchronous และตัวหลังเป็น synchronous ที่นี่จะพูดถึงแต่ `render` เท่านั้นเพื่อเป็นความเรียบง่าย These two methods are identical, but the former is asynchronous and the latter is synchronous. So for the sake of simplicity, we will only discuss `render` here.
+view มีสองวิธี: `render` และ `renderSync` ทั้งสองวิธีนี้เหมือนกัน แต่ตัวแรกเป็น asynchronous และตัวหลังเป็น synchronous ที่นี่จะพูดถึงแต่ `render` เท่านั้นเพื่อเป็นความเรียบง่าย view มีสองวิธี: `render` และ `renderSync` ทั้งสองวิธีนี้เหมือนกัน แต่ตัวแรกเป็น asynchronous และตัวหลังเป็น synchronous ที่นี่จะพูดถึงแต่ `render` เท่านั้นเพื่อเป็นความเรียบง่าย These two methods are identical, but the former is asynchronous and the latter is synchronous. So for the sake of simplicity, we will only discuss `render` here.
 
 ``` js
 var view = hexo.theme.getView('layout.swig');
