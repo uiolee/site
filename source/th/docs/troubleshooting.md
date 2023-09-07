@@ -99,7 +99,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 
 ### Error: ENOENT: no such file or directory
 
-ถ้าคุณพบข้อผิดพลาดท่ีว่า `Error: ENOENT: no such file or directory` เหตุผลส่วนใหญ่จะเป็นการเขียนผิดอักษรตัวใหญ่กับตัวเล็กในแท็ก ประเภทหรือชื่อไฟล์ของคุณ git ไม่สามารถ merge การเปลี่ยนแปลงนี้ได้โดยอัตโนมัติ จึงทำให้การบวนการ automatic branching ถูกหยุดไป Git cannot automatically merge this change so it breaks the automatic branching.
+ถ้าคุณพบข้อผิดพลาดท่ีว่า `Error: ENOENT: no such file or directory` เหตุผลส่วนใหญ่จะเป็นการเขียนผิดอักษรตัวใหญ่กับตัวเล็กในแท็ก ประเภทหรือชื่อไฟล์ของคุณ git ไม่สามารถ merge การเปลี่ยนแปลงนี้ได้โดยอัตโนมัติ จึงทำให้การบวนการ automatic branching ถูกหยุดไป ถ้าคุณพบข้อผิดพลาดท่ีว่า `Error: ENOENT: no such file or directory` เหตุผลส่วนใหญ่จะเป็นการเขียนผิดอักษรตัวใหญ่กับตัวเล็กในแท็ก ประเภทหรือชื่อไฟล์ของคุณ git ไม่สามารถ merge การเปลี่ยนแปลงนี้ได้โดยอัตโนมัติ จึงทำให้การบวนการ automatic branching ถูกหยุดไป Git cannot automatically merge this change so it breaks the automatic branching.
 
 เพื่อแก้ไขข้อผิดพลาดนี้ ลองทำตามขั้นตอนต่อไปได้:
 
@@ -118,7 +118,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 Error: listen EADDRINUSE
 ```
 
-คุณอาจจะเปิด hexo server มากกว่าหนึ่งตัวในขณะเดียวกัน หรือแอปอื่นกำลังใช้ port เดียวกัน สำหรับการแก้ไขเรื่องนี้ลองแก้ไขการตั้งค่าของ `port`หรือเปิดเซร์ฟเวอร์ hexo ใน port ท่ีตั้งค่าโดยแท็ก`-p` Try to modify the `port` setting or start the Hexo server with the `-p` flag.
+คุณอาจจะเปิด hexo server มากกว่าหนึ่งตัวในขณะเดียวกัน หรือแอปอื่นกำลังใช้ port เดียวกัน สำหรับการแก้ไขเรื่องนี้ลองแก้ไขการตั้งค่าของ `port`หรือเปิดเซร์ฟเวอร์ hexo ใน port ท่ีตั้งค่าโดยแท็ก`-p` Try to modify the `port` setting or start the Hexo server with the `-p` flag. Try to modify the `port` setting or start the Hexo server with the `-p` flag.
 
 ``` bash
 $ hexo server -p 5000
@@ -130,7 +130,7 @@ $ hexo server -p 5000
 npm ERR! node-waf configure build
 ```
 
-ข้อผิดำพลาดนี้เกิดขึ้นเมื่อคุณลองใช้ปลั๊กอินท่ีเขียนด้วยภาษา C, C++ หรือ ภาษาอื่นๆ ท่ีไม้ใช่ javascript คุณต้องทำให้แน่ใจว่าได้ติดตั้ง compiler ท่ีถูกต้องแล้วในคอม Make sure you have installed the right compiler on your computer.
+ข้อผิดำพลาดนี้เกิดขึ้นเมื่อคุณลองใช้ปลั๊กอินท่ีเขียนด้วยภาษา C, C++ หรือ ภาษาอื่นๆ ท่ีไม้ใช่ javascript คุณต้องทำให้แน่ใจว่าได้ติดตั้ง compiler ท่ีถูกต้องแล้วในคอม Make sure you have installed the right compiler on your computer. Make sure you have installed the right compiler on your computer.
 
 ## Error with DTrace (Mac OS X)
 
@@ -150,7 +150,7 @@ $ npm install hexo --no-optional
 
 ## Iterate Data Model on Jade or Swig
 
-hexo ใช้ [Warehouse][] เป็นแบบจำลองข้อมูล เนื้องจากว่ามันไม่ใช่ array ก็เลยคุณต้องเปลี่ยนจาก object ไปเป็น iterable It's not an array so you may have to transform objects into iterables.
+hexo ใช้ [Warehouse][] เป็นแบบจำลองข้อมูล เนื้องจากว่ามันไม่ใช่ array ก็เลยคุณต้องเปลี่ยนจาก object ไปเป็น iterable It's not an array so you may have to transform objects into iterables. It's not an array so you may have to transform objects into iterables.
 
 ```
 {% for post in site.posts.toArray() %}
