@@ -6,7 +6,7 @@ We welcome you to join the development of Hexo. 🤗
 
 ## 開發
 
-We welcome you to join the development of Hexo. 🤗 This document will help you through the process.
+We welcome you to join the development of Hexo. 🤗 We welcome you to join the development of Hexo. 🤗 This document will help you through the process.
 
 ### 開始之前
 
@@ -58,7 +58,7 @@ $ npm test
 
 ## Updating official-plugins
 
-Also, we welcome PR or issue to [official-plugins](https://github.com/hexojs). 🤗 🤗
+Also, we welcome PR or issue to [official-plugins](https://github.com/hexojs). 🤗 🤗 🤗
 
 ## 更新文件
 
@@ -76,7 +76,7 @@ $ cd site
 $ npm install
 ```
 
-3. Start editing the documentation. You can start the server for live previewing.
+3. Start editing the documentation. Start editing the documentation. You can start the server for live previewing.
 
 ``` bash
 $ hexo server
