@@ -1,37 +1,38 @@
 ---
-title: Сервер
+title: Server
 ---
-## [hexo-server]
 
-С релизом Hexo 3 сервер был отделен от основного модуля. Чтобы начать использовать сервер, нужно установить [hexo-server].
+## [hexo-server][]
+
+With the release of Hexo 3, the server has been separated from the main module. To start using the server, you will first have to install [hexo-server][].
 
 ``` bash
 $ npm install hexo-server --save
 ```
 
-После установки сервера, выполните эту команду для запуска сервера. Ваш сайт будет доступен по адресу `http://localhost:4000` по умолчанию. Когда сервер запущен, Hexo будет отслеживать изменения файлов и автоматически обновлять содержание сайта, поэтому нет нужды вручную перезапускать сервер.
+Once the server has been installed, run the following command to start the server. Your website will run at `http://localhost:4000` by default. When the server is running, Hexo will watch for file changes and update automatically so it's not necessary to manually restart the server.
 
 ``` bash
 $ hexo server
 ```
 
-Если вы хотите изменить порт или появляется ошибка `EADDRINUSE`, используйте опцию `-p` для задания другого порта.
+If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
 
 ``` bash
 $ hexo server -p 5000
 ```
 
-### Статичный режим
+### Static Mode
 
-В статичном режиме, будут обработаны файлы только в общей папке `public`, отслеживание файлов будет отключено. Нужно запустить `hexo generate` перед запуском сервера. Обычно используется перед публикацией.
+In static mode, only files in the `public` folder will be served and file watching is disabled. You have to run `hexo generate` before starting the server. Usually used in production.
 
 ``` bash
 $ hexo server -s
 ```
 
-### Другой IP
+### Custom IP
 
-Hexo запускает сервер с IP `127.0.0.1` по умолчанию. Это можно изменить в настройках IP по умолчанию.
+Hexo runs the server at `0.0.0.0` by default. You can override the default IP setting.
 
 ``` bash
 $ hexo server -i 192.168.1.1
