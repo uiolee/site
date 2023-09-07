@@ -1,8 +1,8 @@
 ---
-layout: index
-description: Hexo is a fast, simple & powerful blog framework powered by Node.js.
-subtitle: A fast, simple & powerful blog framework
-comments: false
+layout: индекс
+description: Hexo - это быстрый, простой & мощный фреймворк блога основанный на Node.js.
+subtitle: Быстрый, простой & мощный блог фреймворк
+comments: ложь
 ---
 
 <ul id="intro-feature-list">
@@ -12,7 +12,7 @@ comments: false
         <i class="fa fa-bolt"></i>
       </div>
       <h3 class="intro-feature-title">Blazing Fast</h3>
-      <p class="intro-feature-desc">Incredible generating speed powered by Node.js. Hundreds of files take only seconds to build.</p>
+      <p class="intro-feature-desc">Невероятная скорость генерации на основе Node.js. Для создания сотням файлов потребуется всего несколько секунд.</p>
     </div>
   </li>
   <li class="intro-feature-wrap">
@@ -20,22 +20,22 @@ comments: false
       <div class="intro-feature-icon">
         <i class="fa fa-pencil"></i>
       </div>
-      <h3 class="intro-feature-title">Markdown Support</h3>
-      <p class="intro-feature-desc">All features of GitHub Flavored Markdown are supported, including most Octopress plugins.</p>
+      <h3 class="intro-feature-title">Поддержка Markdown</h3>
+      <p class="intro-feature-desc">Поддерживаются все функции GitHub Flavored Markdown, включая большинство плагинов Octopress.</p>
     </div></li><li class="intro-feature-wrap">
     <div class="intro-feature">
       <div class="intro-feature-icon">
         <i class="fa fa-cloud-upload"></i>
       </div>
-      <h3 class="intro-feature-title">One-Command Deployment</h3>
-        <p class="intro-feature-desc">You only need one command to deploy your site to GitHub Pages, Heroku or other platforms.</p>
+      <h3 class="intro-feature-title">Распределение по одному командному делу</h3>
+        <p class="intro-feature-desc">Вам нужна только одна команда для установки вашего сайта на GitHub страницы, Heroku или другие платформы.</p>
       </div></li><li class="intro-feature-wrap">
     <div class="intro-feature">
       <div class="intro-feature-icon">
         <i class="fa fa-cog"></i>
       </div>
-      <h3 class="intro-feature-title">Plugins</h3>
-      <p class="intro-feature-desc">Features powerful APIs for limitless extensibility. Various plugins are available to support most template engines (EJS, Pug, Nunjucks, and many others). Easily integrate with existing NPM packages (Babel, PostCSS, Less/Sass, etc).</p>
+      <h3 class="intro-feature-title">Плагины</h3>
+      <p class="intro-feature-desc">Возможности мощных API для бесконечной расширенности. Различные плагины доступны для поддержки большинства шаблонов (EJS, Pug, Nunjucks, и многие другие). Легкая интеграция с существующими пакетами NPM (Babel, PostCSS, Less/Sass, etc).</p>
     </div>
   </li>
 </ul>
