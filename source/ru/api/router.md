@@ -1,11 +1,12 @@
 ---
-title: Маршрутизатор
+title: Router
 ---
-Маршрутизатор сохраняет все ссылки, используемые на сайте.
 
-## Получение пути
+The router saves all paths used in the site.
 
-Метод `get` возвращает поток [Stream]. Пример для сохранения данных о ссылках в указанное место:
+## Get a Path
+
+The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
 
 ``` js
 var data = hexo.route.get('index.html');
@@ -14,31 +15,31 @@ var dest = fs.createWriteStream('somewhere');
 data.pipe(dest);
 ```
 
-## Установка пути
+## Set a Path
 
-Метод `set` принимает строку, [Buffer] или функцию.
+The `set` method takes a string, a [Buffer][] or a function.
 
 ``` js
-// Строка
+// String
 hexo.route.set('index.html', 'index')
 
 // Buffer
 hexo.route.set('index.html', new Buffer('index'));
 
-// Функция (Запрос)
+// Function (Promise)
 hexo.route.set('index.html', function(){
   return new Promise(function(resolve, reject){
     resolve('index');
   });
 });
 
-// Функция (Обратный вызов)
+// Function (Callback)
 hexo.route.set('index.html', function(callback){
   callback(null, 'index');
 });
 ```
 
-Можно также установить логическое значение, был ли изменён путь. Это позволяет увеличить скорость создания файлов, поскольку игнорируются неизменённые ссылки.
+You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
 
 ``` js
 hexo.route.set('index.html', {
@@ -49,21 +50,21 @@ hexo.route.set('index.html', {
 // hexo.route.isModified('index.html') => false
 ```
 
-## Удаление ссылки
+## Remove a Path
 
 ``` js
 hexo.route.remove('index.html');
 ```
 
-## Получение списка ссылок
+## Get the List of Routes
 
 ``` js
 hexo.route.list();
 ```
 
-## Формат пути
+## Format a Path
 
-Метод `format` преобразует строку в правильную ссылку.
+The `format` method transforms a string to a valid path.
 
 ``` js
 hexo.route.format('archives/');
