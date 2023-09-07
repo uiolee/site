@@ -10,11 +10,11 @@ title: 写作
 $ hexo new [layout] <title>
 ```
 
-`post` is the default `layout`, but you can supply your own. 您可以在命令中指定文章的布局（layout），默认为 `post`，可以通过修改 `_config.yml` 中的 `default_layout` 参数来指定默认布局。
+`post` is the default `layout`, but you can supply your own. 您可以在命令中指定文章的布局（layout），默认为 `post`，可以通过修改 `_config.yml` 中的 `default_layout` 参数来指定默认布局。 您可以在命令中指定文章的布局（layout），默认为 `post`，可以通过修改 `_config.yml` 中的 `default_layout` 参数来指定默认布局。
 
 ## 布局（Layout）
 
-Hexo 有三种默认布局：`post`、`page` 和 `draft`。 Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
+Hexo 有三种默认布局：`post`、`page` 和 `draft`。 Files created by each of them is saved to a different path. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
 
 | 布局      | 路径               |
 | ------- | ---------------- |
@@ -41,23 +41,23 @@ By default, Hexo uses the post title as its filename. You can edit the `new_post
 
 ## 草稿
 
-Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command.
+Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command. `publish` works in a similar way to the `new` command.
 
 ``` bash
 $ hexo publish [layout] <title>
 ```
 
-Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
+Drafts are not displayed by default. Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
 
 ## Scaffolds
 
-在新建文章时，Hexo 会根据 `scaffolds` 文件夹内相对应的文件来建立文件，例如： For example:
+在新建文章时，Hexo 会根据 `scaffolds` 文件夹内相对应的文件来建立文件，例如： For example: For example:
 
 ``` bash
 $ hexo new photo "My Gallery"
 ```
 
-在执行这行指令时，Hexo 会尝试在 `scaffolds` 文件夹中寻找 `photo.md`，并根据其内容建立文章，以下是您可以在模版中使用的变量： The following placeholders are available in scaffolds:
+在执行这行指令时，Hexo 会尝试在 `scaffolds` 文件夹中寻找 `photo.md`，并根据其内容建立文章，以下是您可以在模版中使用的变量： The following placeholders are available in scaffolds: The following placeholders are available in scaffolds:
 
 | Placeholder | 描述     |
 | ----------- | ------ |
