@@ -2,9 +2,9 @@
 title: Console
 ---
 
-O `console` forma a ponte entre o Hexo e os usuários. Ele registra e descreve os comandos disponíveis para o terminal.
+The console forms the bridge between Hexo and its users. It registers and describes the available console commands.
 
-## Resumo
+## Synopsis
 
 ``` js
 hexo.extend.console.register(name, desc, options, function(args){
@@ -12,19 +12,19 @@ hexo.extend.console.register(name, desc, options, function(args){
 });
 ```
 
-Argumento | Descrição
---- | ---
-`name` | Nome
-`desc` | Descrição
-`options`| Opções
+| Argument  | Description |
+| --------- | ----------- |
+| `name`    | Name        |
+| `desc`    | Description |
+| `options` | Options     |
 
-Um argumento `args` será passado para a função. Este é o argumento que os usuários digitam no terminal. Ele é analisado pelo [Minimist].
+An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
-## Opções
+## Options
 
 ### usage
 
-O uso de um comando de terminal. Por exemplo:
+The usage of a console command. For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -33,7 +33,7 @@ O uso de um comando de terminal. Por exemplo:
 
 ### arguments
 
-A descrição de cada argumento de um comando de terminal. Por exemplo:
+The description of each argument of a console command. For example:
 
 ``` js
 {
@@ -46,7 +46,7 @@ A descrição de cada argumento de um comando de terminal. Por exemplo:
 
 ### options
 
-A descrição de cada opção de um comando de terminal. Por exemplo:
+The description of each option of a console command. For example:
 
 ``` js
 {
@@ -58,9 +58,9 @@ A descrição de cada opção de um comando de terminal. Por exemplo:
 
 ### desc
 
-Informações mais detalhadas sobre um comando de terminal.
+More detailed information about a console command.
 
-## Exemplo
+## Example
 
 ``` js
 hexo.extend.console.register('config', 'Display configuration', function(args){
@@ -68,4 +68,4 @@ hexo.extend.console.register('config', 'Display configuration', function(args){
 });
 ```
 
-[Minimist]: https://github.com/substack/minimist
+[Minimist]: https://github.com/minimistjs/minimist
