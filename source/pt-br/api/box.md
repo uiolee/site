@@ -1,12 +1,12 @@
 ---
-title: Box
+title: Cx
 ---
 
-Box is a container used for processing files in a specified folder. Hexo uses two different boxes: `hexo.source` and `hexo.theme`. The former is used to process the `source` folder and the latter to process the `theme` folder.
+O Box é um container usado para processar arquivos em uma pasta específica. Hexo usa duas caixas diferentes: `hexo.source` e `hexo.theme`. O primeiro é usado para processar a pasta `source` e o segundo para processar a pasta `tema`.
 
-## Load Files
+## Carregar Arquivos
 
-Box provides two methods for loading files: `process` and `watch`. `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
+Box fornece dois métodos para carregar arquivos: `processo` e `watch`. `process` loads all files in the folder. `watch` faz o mesmo, mas também começa a observar para ver as alterações de arquivos.
 
 ``` js
 box.process().then(function(){
@@ -14,24 +14,24 @@ box.process().then(function(){
 });
 
 box.watch().then(function(){
-  // You can call box.unwatch() later to stop watching.
+  // Você pode chamar box.unwatch() mais tarde para parar de assistir.
 });
 ```
 
-## Path Matching
+## Correspondência de caminho
 
-Box provides many ways for path matching. You can use a regular expression, a function or an Express-style pattern string. For example:
+Caixa fornece muitas maneiras de combinar caminho. Você pode usar uma expressão regular, uma função ou uma string padrão ao estilo Express. Por exemplo:
 
 ``` plain
 posts/:id => posts/89
-posts/*path => posts/2015/title
+posts/*caminho => posts/2015/title
 ```
 
-See [util.Pattern][] for more info.
+Veja [util.Pattern][] para mais informações.
 
-## Processors
+## Processadores
 
-A processor is an essential element of Box and is used to process files. You can use path matching as described above to restrict what exactly the processor should process. Register a new processor with the `addProcessor` method.
+Um processador é um elemento essencial do Box e é usado para processar arquivos. Você pode usar a correspondência de caminhos conforme descrito acima para restringir o que exatamente o processador deve processar. Registre um novo processador com o método `addProcessor`.
 
 ``` js
 box.addProcessor('posts/:id', function(file){
@@ -39,24 +39,24 @@ box.addProcessor('posts/:id', function(file){
 });
 ```
 
-Box passes the content of matched files to processors. This information can then be read straight from the `file` argument in the callback:
+O Box passa o conteúdo dos arquivos correspondentes para os processadores. Essa informação pode então ser lida diretamente do argumento do arquivo `` no callback:
 
-| Attribute | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
-| `source`  | Full path of the file                                             |
-| `path`    | Relative path to the box of the file                              |
-| `type`    | File type. The value can be `create`, `update`, `skip`, `delete`. |
-| `params`  | The information from path matching.                               |
+| Atributo  | Descrição:                                                                |
+| --------- | ------------------------------------------------------------------------- |
+| `Fonte`   | Caminho completo do arquivo                                               |
+| `caminho` | Caminho relativo para a caixa do arquivo                                  |
+| `Tipo`    | Tipo de arquivo. O valor pode ser `create`, `update`, `pular`, `deletar`. |
+| `params`  | As informações da correspondência do caminho.                             |
 
-Box also provides some methods so you don't have to do file IO by yourself.
+O Box também fornece alguns métodos para que você não tenha que fazer o arquivo IO sozinho.
 
-| Method       | Description                             |
-| ------------ | --------------------------------------- |
-| `read`       | Read a file                             |
-| `readSync`   | Read a file synchronously               |
-| `stat`       | Read the status of a file               |
-| `statSync`   | Read the status of a file synchronously |
-| `render`     | Render a file                           |
-| `renderSync` | Render a file synchronously             |
+| Método           | Descrição:                                    |
+| ---------------- | --------------------------------------------- |
+| `lidos`          | Ler um arquivo                                |
+| `readSync`       | Leia um arquivo sincronizadamente             |
+| `estatística`    | Ler o estado de um arquivo                    |
+| `sincronizaçãod` | Leia o status de um arquivo de forma síncrona |
+| `renderizar`     | Renderizar um arquivo                         |
+| `renderSync`     | Renderizar um arquivo sincronizadamente       |
 
 [util.Pattern]: https://github.com/hexojs/hexo-util#patternrule
