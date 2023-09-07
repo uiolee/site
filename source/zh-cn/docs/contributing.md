@@ -1,29 +1,29 @@
 ---
-title: 贡献中
+title: 贡献
 ---
 
-我们欢迎你参加六日的发展。 🤗
+我们非常欢迎您加入 Hexo 的开发。 🤗
 
-## 贸易和发展会议
+## 开发
 
-我们欢迎你参加六日的发展。 此文档将帮助您完成该进程。
+我们非常欢迎您加入 Hexo 的开发，这份文件将帮助您了解开发流程。 This document will help you through the process.
 
-### 开始前
+### 开始之前
 
-请先读取 [贡献者的行为守则](https://github.com/hexojs/hexo/blob/master/CODE_OF_CONDUCT.md)
+请首先阅读[《贡献者行为准则》](https://github.com/hexojs/hexo/blob/master/CODE_OF_CONDUCT.md)，并确保您不会违反它。
 
-请遵循编码风格：
+请使用以下代码风格：
 
-- 关注 [Google JavaScript 样式指南](https://google.github.io/styleguide/jsguide.html)
-- 使用两个空格缩进的软标签。
-- 不要先放置逗号。
+- 遵守 [Google JavaScript 代码风格](https://google.github.io/styleguide/jsguide.html)。
+- 缩进使用 2 个空格。
+- 不要把逗号放在最前面。
 
-而且，Hexo 有自己的 [ESLint 配置](https://github.com/hexojs/eslint-config-hexo)，所以请确保您的贡献将使ESLint 很高兴。
+另外，Hexo 拥有自己的 [ESLint 配置](https://github.com/hexojs/eslint-config-hexo)，因此请确保您的贡献能够通过 ESLint。
 
 ### 工作流
 
-1. Fork [hexojs/hexo][].
-2. 复制存储库到您的电脑并安装依赖项。
+1. Fork [hexojs/hexo][]
+2. 把库（repository）复制到电脑上，并安装所依赖的插件。
 
 ``` bash
 $ git clone https://github.com/<username>/hexo.git
@@ -32,42 +32,42 @@ $ npm install
 $ git submodule update --init
 ```
 
-3. 创建一个功能分支。
+3. Create a feature branch.
 
 ``` bash
-$ git 结帐-b new_feature
+$ git checkout -b new_feature
 ```
 
-4. 开始黑客。
-5. 推送分支：
+4. Start hacking.
+5. Push the branch:
 
 ```
-$git 推送源新功能
+$ git push origin new_feature
 ```
 
-6. 创建拉请求并描述更改。
+6. 建立一个新的合并申请（pull request）并描述变动。
 
-### 通知
+### 注意事项
 
-- 请不要修改 `package.json` 中的版本号。
-- 您的拉取请求只有在测试通过时才会被合并。 不要忘记在提交前运行测试。
+- 不要修改 `package.json` 的版本号。
+- 只有在测试通过的情况下您的合并申请才会被批准，在提交前别忘了进行测试。 Don't forget to run tests before submission.
 
 ``` bash
-$npm 测试
+$ npm test
 ```
 
-## 正在更新官方插件
+## Updating official-plugins
 
-另外，我们也欢迎PR 或 [官方插件](https://github.com/hexojs)。 🤗
+我们也欢迎给 [Hexo 官方插件](https://github.com/hexojs) 提交 PR 和 Issue 🤗 🤗
 
-## 正在更新文档
+## 更新文档
 
-Hexo 文档是开源的，您可以在 [十六进制/站点][] 中找到源代码。
+Hexo 文档开放源代码，您可以在 [hexojs/site][] 找到源代码。
 
 ### 工作流
 
-1. Fork [十六进制/站点][]
-2. 复制存储库到您的电脑并安装依赖项。
+1. Fork [hexojs/site][]
+2. 把库（repository）复制到电脑上，并安装所依赖的插件。
 
 ``` bash
 $ npm install hexo-cli -g # If you don't have hexo-cli installed
@@ -76,28 +76,28 @@ $ cd site
 $ npm install
 ```
 
-3. 开始编辑文档。 您可以启动服务器进行实时预览。
+3. Start editing the documentation. 开始编辑文件，您可以通过服务器预览变动。
 
 ``` bash
-$ 十六进制服务器
+$ hexo server
 ```
 
-4. 推送分支。
-5. 创建拉请求并描述更改。
+4. 推送（push）分支。
+5. 建立一个新的合并申请（pull request）并描述变动。
 
-### 正在翻译
+### 翻译
 
-1. Add a new language folder in `source` folder. (所有小写)
-2. Copy Markdown and template files in `source` folder to the new language folder.
-3. 将新语言添加到 `source/_data/language.yml`
-4. 用 `themes/navy/languages` 复制 `en.yml` 并重命名为语言名称(所有小写)。
+1. 在 `source` 资料夹中建立一个新的语言资料夹（全小写）。 (All lower case)
+2. 把 `source` 资料夹中相关的文件（Markdown 和模板文件）复制到新的语言资料夹中。
+3. 在 `source/_data/language.yml` 中新增语言。
+4. 将 `en.yml` 复制到 `themes/navy/languages`中并命名为语言名称（全小写）。
 
-## 报告问题
+## Reporting Issues
 
-When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). 如果您找不到答案, 请在 GitHub 上报告。
+当您在使用 Hexo 时遇到问题，您可以尝试在 [问题解答](troubleshooting.html) 中寻找解答，或是在 [GitHub](https://github.com/hexojs/hexo/issues) 或 [Google Group](https://groups.google.com/group/hexo) 上提问。 如果你没有找答案，请在 Github 报告它。
 
-1. Represent the problem in [debug mode](commands.html#Debug_mode).
-2. 按照问题模板的步骤，在GitHub 上提交新问题时提供调试信息和版本。
+1. 在 [调试模式](commands.html#调试模式) 中重现问题。
+2. 在 GitHub 上提交 Issue 时，请遵循 Issue 模板中的步骤提供调试消息和版本信息。
 
 [hexojs/hexo]: https://github.com/hexojs/hexo
-[十六进制/站点]: https://github.com/hexojs/site
+[hexojs/site]: https://github.com/hexojs/site
