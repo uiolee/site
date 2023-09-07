@@ -10,6 +10,7 @@ A renderer is used to render content.
 hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 }, sync);
+}, sync);
 ```
 
 | Argument | 描述                   |
