@@ -1,10 +1,10 @@
 ---
-title: Setup
+title: Configuração
 ---
 
 {% youtube 0m2HnATkHOk %}
 
-Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
+Uma vez que o Hexo estiver instalado, execute os seguintes comandos para inicializar o Hexo no alvo `<folder>`.
 
 ``` bash
 $ hexo init <folder>
@@ -12,57 +12,58 @@ $ cd <folder>
 $ npm install
 ```
 
-Once initialized, here's what your project folder will look like:
+Uma vez inicializado, aqui está a aparência da pasta do seu projeto:
 
 ``` plain
 .
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes
+── _config.yml
+── package.json
+─── scaffolds
+── fonte
+├── _drafts
+─── _drafts 
+ ── _posts
+── temas
 ```
 
 ### _config.yml
 
-Site [configuration](configuration.html) file. You can configure most settings here.
+Arquivo [configuração](configuration.html) do site. Você pode definir a maioria das configurações aqui.
 
 ### package.json
 
-Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
+Dados do aplicativo. Os renderizadores [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) e [Markdown](http://daringfireball.net/projects/markdown/) estão instalados por padrão. Se você quiser, você pode desinstalá-los mais tarde.
 
 ``` json package.json
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "0.0. ",
   "private": true,
   "hexo": {
     "version": ""
   },
-  "dependencies": {
-    "hexo": "^3.8.0",
+  "dependências": {
+    "hexo": "^3. .0",
     "hexo-generator-archive": "^0.1.5",
-    "hexo-generator-category": "^0.1.3",
-    "hexo-generator-index": "^0.2.1",
-    "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.3.1",
+    "hexo-gerador-categoria": "^0. .3",
+    "hexo-gerator-index": "^0.2.1",
+    "hexo-gerador-tag": "^0.2.0",
+    "hexo-renderer-ejs": "^0.3. ",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-renderer-marked": "^0.3.2",
-    "hexo-server": "^0.3.3"
+    "hexo-renderer-marked": "^0. .2",
+    "servidor hexo": "^0.3.3"
   }
 }
 ```
 
-### scaffolds
+### andaimes
 
-[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
+[Pasta Scaffold](writing.html#Scaffolds). Quando você cria um novo post, o Hexo base o novo arquivo no andaime.
 
-### source
+### Fonte
 
-Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
+Pasta de origem. É aqui que você coloca o conteúdo do seu site. Hexo ignora arquivos e pastas ocultos ou cujos nomes são prefixados com `_` (underscore) - exceto a pasta `_posts`. Arquivos renderizáveis (por exemplo, Markdown, HTML) serão processados e colocados na pasta `pública` , enquanto outros arquivos serão simplesmente copiados.
 
-### themes
+### temas
 
-[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
+Pasta [Tema](themes.html). O Hexo gera um site estático combinando o conteúdo do site com o tema.
