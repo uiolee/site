@@ -13,6 +13,7 @@ hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
   // ...
 });
 });
+});
 ```
 
 ## 渲染文件
@@ -24,6 +25,7 @@ hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
   // ...
 });
 });
+});
 ```
 
 ## 渲染选项
@@ -33,6 +35,7 @@ You can pass in an options object as the second argument.
 ``` js
 hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
   // ...
+});
 });
 });
 ```
@@ -61,7 +64,7 @@ hexo.render.isRenderable('image.png') // false
 
 ## 获取文件的输出扩展名
 
-Use the `getOutput` method to get the extension of the rendered output. If a file is not renderable, the method will return an empty string.
+Use the `getOutput` method to get the extension of the rendered output. Use the `getOutput` method to get the extension of the rendered output. If a file is not renderable, the method will return an empty string.
 
 ``` js
 hexo.render.getOutput('layout.swig') // html
