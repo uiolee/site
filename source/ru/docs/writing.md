@@ -1,71 +1,74 @@
 ---
-title: Написание
+title: Writing
 ---
-Чтобы создать новый пост, можно выполнить следующую команду:
+
+{% youtube AIqBubK6ZLc %}
+
+To create a new post or a new page, you can run the following command:
 
 ``` bash
 $ hexo new [layout] <title>
 ```
 
-`post` — это макет (`layout`) по умолчанию, но можно установить свой собственный изменив значение `default_layout` в `_config.yml`.
+`post` is the default `layout`, but you can supply your own. You can change the default layout by editing the `default_layout` setting in `_config.yml`.
 
-### Макет
+## Layout
 
-В Hexo есть три макета по умолчанию: `post`, `page` и `draft`. Каждый из них сохраняется по своему пути. Пользовательские макеты сохраняются в папке `source/_posts`.
+There are three default layouts in Hexo: `post`, `page` and `draft`. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
 
-Макет | Путь
---- | ---
-`post` | `source/_posts`
-`page` | `source`
-`draft` | `source/_drafts`
+| Layout  | Path             |
+| ------- | ---------------- |
+| `post`  | `source/_posts`  |
+| `page`  | `source`         |
+| `draft` | `source/_drafts` |
 
-{% note tip Отключение макета %}
-Если вы не хотите, чтобы статья (пост/страница) обрабатывалась с помощью темы, установите `layout: false` в её шапке. Обратитесь к [этому разделу](/ru/docs/front-matter#Макет) для более подробной информации.
+{% note tip Disabling layout %}
+If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/docs/front-matter#Layout) for more details.
 {% endnote %}
 
-### Имя файла
+## Filename
 
-По умолчанию Hexo использует название поста для создания имени. Для изменения имени файла по умолчанию, можно отредактировать настройки, изменив `new_post_name` в `_config.yml`. Например, у значения `:year-:month-:day-:title.md`, будет префикс с именем файлов и датой создания поста. Можно использовать следующие подстановки:
+By default, Hexo uses the post title as its filename. You can edit the `new_post_name` setting in `_config.yml` to change the default filename. For example, `:year-:month-:day-:title.md` will prefix filenames with the post creation date. You can use the following placeholders:
 
-Подстановка | Описание
---- | ---
-`:title` | Заголовок поста (строчными буквами с пробелами заменёнными на дефисы)
-`:year` | Год создания. Например: `2015`
-`:month` | Месяц создания (с ведущим нулём). Например: `04`
-`:i_month` | Месяц создания (без ведущего нуля). Например: `4`
-`:day` | День создания (с ведущим нулём). Например: `07`
-`:i_day` | Месяц создания (без ведущего нуля). Например: `7`
+| Placeholder | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| `:title`    | Post title (lower case, with spaces replaced by hyphens) |
+| `:year`     | Created year, e.g. `2015`                                |
+| `:month`    | Created month (leading zeros), e.g. `04`                 |
+| `:i_month`  | Created month (no leading zeros), e.g. `4`               |
+| `:day`      | Created day (leading zeros), e.g. `07`                   |
+| `:i_day`    | Created day (no leading zeros), e.g. `7`                 |
 
-### Черновики
+## Drafts
 
-Ранее упоминалось о специальном макете в Hexo: `draft`. В нём сообщения при создании сохраняются в папку `source/_drafts`. Можно использовать команду `publish`, чтобы переместить черновик в папку `source/_posts`. `publish` похожа на команду `new`.
+Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command.
 
 ``` bash
 $ hexo publish [layout] <title>
 ```
 
-Черновики по умолчанию не отображаются. Можно добавить параметр `--draft` при запуске Hexo или установить значение `render_drafts: true` в `_config.yml`, чтобы включить обработку черновиков.
+Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
 
-### Заготовки
+## Scaffolds
 
-При создании сообщения Hexo строит файлы на основе соответствующего файла с каркасом (`scaffolds`). Например:
+When creating posts, Hexo will build files based on the corresponding file in `scaffolds` folder. For example:
 
 ``` bash
 $ hexo new photo "My Gallery"
 ```
 
-Когда выполнится эта команда, Hexo постарается найти `photo.md` в папке `scaffolds` и создать пост на его основе. Эти подстановочные части доступны в заготовках:
+When you run this command, Hexo will try to find `photo.md` in the `scaffolds` folder and build the post based on it. The following placeholders are available in scaffolds:
 
-Подстановка | Описание
---- | ---
-`layout` | Макет
-`title` | Заголовок
-`date` | Дата создания файла
+| Placeholder | Description       |
+| ----------- | ----------------- |
+| `layout`    | Layout            |
+| `title`     | Title             |
+| `date`      | File created date |
 
-### Поддерживаемые форматы
+## Supported Formats
 
-Hexo поддерживает посты в любом формате, если установлен соответствующий плагин для рендеринга.
+Hexo support posts written in any format, as long as the corresponding renderer plugin is installed.
 
-Например, плагины `hexo-renderer-marked` и `hexo-renderer-ejs` установлены в Hexo по умолчанию, таким образом вы можете писать свои посты в `markdown` или `ejs`. Если вы установили `hexo-renderer-pug`, то вы так же можете писать свои посты в формате `pug`.
+For example, Hexo has `hexo-renderer-marked` and `hexo-renderer-ejs` installed by default, so you can write your posts in `markdown` or in `ejs`. If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language.
 
-Вы можете переименовать свои посты и изменить файловое расширение с `.md` на `.ejs`, тогда Hexo будет использовать `hexo-renderer-ejs`, чтобы отрендерить эти файлы, аналогично происходит и для других форматов.
+You can rename your posts and change to file extension from `.md` to `.ejs`, then Hexo will use `hexo-renderer-ejs` to render that file, so do the other formats.
