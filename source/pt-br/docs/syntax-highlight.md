@@ -1,12 +1,12 @@
 ---
-title: Syntax Highlighting
+title: Realce de sintaxe
 ---
 
-Hexo has two built-in syntax highlight libraries, [highlight.js](https://github.com/highlightjs/highlight.js) and [prismjs](https://github.com/PrismJS/prism). This tutorial shows you how to integrate Hexo's built-in syntax highlight into your template.
+Hexo tem duas bibliotecas de destaque de sintaxe integradas, [highlight.js](https://github.com/highlightjs/highlight.js) e [prismjs](https://github.com/PrismJS/prism). Este tutorial mostra como integrar o destaque de sintaxe integrado ao Hexo no seu modelo.
 
-## How to use code block in posts
+## Como usar o bloco de código nas postagens
 
-Hexo supports two ways to write code block: [Tag Plugin - Code Block](tag-plugins#Code-Block) and [Tag Plugin - Backtick Code Block](https://hexo.io/docs/tag-plugins#Backtick-Code-Block):
+Hexo suporta duas maneiras de escrever bloco de código: [Plugin de Tag - Code Block](tag-plugins#Code-Block) e [Plugin de Tag - Backtick Code Block](https://hexo.io/docs/tag-plugins#Backtick-Code-Block):
 
 ````markdown
 {% codeblock [title] [lang:language] [url] [link text] [additional options] %}
@@ -21,12 +21,12 @@ code snippet
 code snippet
 ```
 ````
-The third syntax is a Markdown's fenced code block syntax and Hexo extends it to support more features. Check out [Tag Plugin Docs](tag-plugins#Code-Block) to find out options available.
-> Tip: Hexo support posts written in any format, so long the corresponding renderer plugin is installed. It can be in markdown, ejs, swig, nunjucks, pug, asciidoc, etc. Regardless of the format used, those three code block syntax will always be available.
-## Configuration
+A terceira sintaxe é a sintaxe de um bloco de código de Markdown e o Hexo a estende para suportar mais recursos. Confira a [Documentação do Plugin Tag](tag-plugins#Code-Block) para descobrir as opções disponíveis.
+> Dica: as postagens de suporte ao Hexo escritas em qualquer formato, por isso a extensão de renderização correspondente está instalada. Pode ser em markdown, ejs, swig, nunjucks, pug, asciidoc, etc. Independentemente do formato usado, aquela sintaxe de três blocos de código estará sempre disponível.
+## Configuração
 
 ```yaml
-# _config.yml
+# _configuração. ml
 highlight:
   enable: true
   auto_detect: false
@@ -34,7 +34,7 @@ highlight:
   line_threshold: 0
   tab_replace: ''
   exclude_languages:
-    - example
+    - exemplo
   wrap: true
   hljs: false
 prismjs:
@@ -45,9 +45,9 @@ prismjs:
   tab_replace: ''
 ```
 
-The YAML above is Hexo's default configuration.
+O YAML acima é a configuração padrão do Hexo.
 
-## Disabled
+## Desabilitado
 
 ```yaml
 # _config.yml
@@ -57,59 +57,59 @@ prismjs:
   enable: false
 ```
 
-When both `highlight.enable` and `prismjs.enable` are `false`, the output HTML of the code block is controlled by the corresponding renderer. For example, [`marked.js`](https://github.com/markedjs/marked) (used by [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked), the default markdown renderer of Hexo) will add the language code to the `class` of `<code>`:
+Quando ambos `highlight.enable` e `prismjs.` nable are `false`, o HTML de saída do bloco de código é controlado pelo renderizador correspondente. Por exemplo, [`marcada. s`](https://github.com/markedjs/marked) (usado por [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked), o renderizador padrão de markdown do Hexo) irá adicionar o código de idioma para a classe `` de `<code>`:
 
 ````markdown
 ```yaml
-hello: hexo
+olá: hexo
 ```
 ````
 
 ```html
 <pre>
-  <code class="yaml">hello: hexo</code>
+  <code class="yaml">olá: hexo</code>
 </pre>
 ```
 
-When no built-in syntax highlight is enabled, you can either install third-party syntax-highlight plugin, or use a browser-side syntax hilighter (e.g. `highlight.js` and `prism.js` both support running in browser).
+Quando nenhum destaque de sintaxe embutido estiver ativado, você pode instalar um plugin de realce de sintaxe de terceiros, ou usar um hileter de sintaxe do lado do navegador (e. . `highlight.js` e `prism.js` ambos suportam rodando no navegador).
 
 ## Highlight.js
 
 ```yaml
-# _config.yml
+# _configuração. ml
 highlight:
   enable: true
   auto_detect: false
   line_number: true
   line_threshold: 0
-  tab_replace: '  '
+  tab_replace: ' '
   exclude_languages:
-    - example
+    - exemplo
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: false false
 ```
 
-`highlight.js` is enabled by default and used as server-side highlighting in Hexo; it needs to be disabled if you prefer to run `highlight.js` on browser-side.
+`destaque. s` é habilitado por padrão e usado como realce no lado do servidor em Hexo; precisa ser desativado se você prefere destacar `. s` no lado do navegador.
 
-> Server-side means, the syntax highlight is generated during `hexo generate` or `hexo server`.
+> Server-side means the syntax highlight is generated during `hexo generate` or `hexo server`.
 
-### auto_detect
+### Detectar_automaticamente
 
-`auto_detect` is a `highlight.js` feature that detect language of the code block automatically.
+`auto_detect` é um recurso `highlight.js` que detecta automaticamente o idioma do bloco de código.
 
-> Tip: When you want to use "sublanguage highlight", enable `auto_detect` and don't mark language when writing code block.
+> Dica: Quando você quiser usar "destaque da sublinguagem", habilite `auto_detect` e não marque a linguagem ao escrever um bloco de código.
 
-{% note warn "Warning!" %}
-`auto_detect` is very resource-intensive. Do not enable it unless you really need "sublanguage highlight" or prefer not to mark language when writing code block.
+{% note avise "Aviso!" %}
+`auto_detect` é muito exigente em recursos. Não habilite a menos que você realmente precise do "destaque da sublinguagem" ou prefira não marcar linguagem ao escrever um bloco de código.
 {% endnote %}
 
-### line_number
+### número_linha
 
 `highlight.js` [does not](https://highlightjs.readthedocs.io/en/latest/line-numbers.html) support line number.
 
-Hexo adds line number by wrapping output inside `<figure>` and `<table>`:
+Hexo adiciona um número de linha ao envolver a saída dentro do `<figure>` e `<table>`:
 
 ```html
 <figure class="highlight yaml">
@@ -128,25 +128,25 @@ Hexo adds line number by wrapping output inside `<figure>` and `<table>`:
 </figure>
 ```
 
-It is not the behavior of `highlight.js` and requires custom CSS for `<figure>` and `<table>` elements; some themes have built-in support.
+Não é o comportamento do `realçado. s` e requer CSS personalizado para `<figure>` e `<table>` ; alguns temas possuem suporte embutido.
 
 You might also notice that all `class` has no `hljs-` prefixed, we will revisit it [later part](#hljs).
 
 ### line_threshold (+6.1.0)
 
-Accepts an optional threshold to only show line numbers as long as the numbers of lines of the code block exceed such threshold. Default is `0`.
+Aceita um limite opcional para mostrar apenas números de linha, contanto que os números de linhas do bloco de código excedam esse limite. O padrão é `0`.
 
-### tab_replace
+### substituir_aba
 
-Replace tabs inside code block with given string. By default it is 2 spaces.
+Substituir guias dentro de bloco de código por uma string determinada. Por padrão são 2 espaços.
 
-### exclude_languages (+6.1.0)
+### excluir_linguagens (+6.1.0)
 
-Only wrap with `<pre><code class="lang"></code></pre>` and will not render all tags(`span`, and `br`) in content if are languages matches this option.
+Somente embrulha com `<pre><code class="lang"></code></pre>` e não irá renderizar todas as tags(`span`, e `br`) no conteúdo se são idiomas iguais a esta opção.
 
-### wrap
+### embrulhar
 
-Hexo _wraps_ the output inside `<figure>` and `<table>` to support line number. You need to disable **both** `line_number` and `wrap` to revert to `highlight.js`'s behavior:
+Hexo _encapsula_ a saída dentro de `<figure>` e `<table>` para suportar o número da linha. Você precisa desativar **ambos,** `line_number` e `wrap` para reverter para o comportamento do `highlight.js`:
 
 ```html
 <pre><code class="yaml">
@@ -155,13 +155,13 @@ Hexo _wraps_ the output inside `<figure>` and `<table>` to support line number. 
 </code></pre>
 ```
 
-{% note warn "Warning!" %}
-Because `line_number` feature relies on `wrap`, you can't disable `wrap` with `line_number` enabled: If you set `line_number` to `true`, `wrap` will be automatically enabled.
+{% note avise "Aviso!" %}
+Porque `line_number` recurso depende do `wrap`, você não pode desabilitar `wrap` com `line_number` habilitado: se você definir `line_number` para `true`, , `embrulho` será ativado automaticamente.
 {% endnote %}
 
 ### hljs
 
-When `hljs` is set to `true`, all the HTML output will have `class` prefixed with `hljs-` (regardless `wrap` is enabled or not):
+Quando `hljs` estiver definido como `verdadeiro`, toda a saída HTML terá `classe` com o prefixo `hlj -` (independente de `o embrulho` está habilitado ou não):
 
 ```html
 <pre><code class="yaml hljs">
@@ -170,7 +170,7 @@ When `hljs` is set to `true`, all the HTML output will have `class` prefixed wit
 </code></pre>
 ```
 
-> Tip: When `line_number` is set to `false`, `wrap` is set to false and `hljs` is set to `true`, you can then use `highlight.js` [theme](https://github.com/highlightjs/highlight.js/tree/master/src/styles) directly in your site.
+> Dica: Quando `line_number` está definido como `false`, `wrap` está definido como falso e `hljs` está definido como `verdadeiro`, você pode usar `destaque. s` [tema](https://github.com/highlightjs/highlight.js/tree/master/src/styles) diretamente no seu site.
 
 ## PrismJS
 
@@ -186,46 +186,46 @@ prismjs:
   tab_replace: ''
 ```
 
-Prismjs is disabled by default. You should set `highlight.enable` to `false` before enabling prismjs.
+Prismjs está desativado por padrão. Você deve definir `highlight.enable` para `false` antes de habilitar o prismjs.
 
-### preprocess
+### pré-processamento
 
-Hexo's built-in prismjs supports both browser-side (`preprocess` set to `false`) and server-side (`preprocess` set to `true`).
+O prismjs embutido do Hexo suporta ambos browser-side (`preprocess` set to `false`) e server-side (`preprocess` set to `true`).
 
-When use server-side mode (set `preprocess` to `true`), you only need to include prismjs theme (css stylesheet) in your website. When use browser-side (set `preprocess` to `false`), you have to include the javascript library as well.
+Quando usar o modo server-side (defina `pré-processar` para `true`), você só precisa incluir o tema prismjs (css stylesheet) em seu site. Quando usar o lado do navegador (defina `pré-processar` para `false`), você precisa incluir a biblioteca javascript também.
 
-Prismjs is designed to be used in browser, thus under `preprocess` mode only limited prismjs plugin is supported:
+Prismjs é projetado para ser usado no navegador, portanto, no modo `pré-processamento` apenas o plugin prismjs limitado é suportado:
 
-- [Line Numbers](https://prismjs.com/plugins/line-numbers/): Only `prism-line-numbers.css` is required, No need to include `prism-line-numbers.js` in your website. Hexo will generate required HTML mark up mark up for you.
-- [Show Languages](https://prismjs.com/plugins/show-language/): Hexo will always have `data-language` attribute added as long as language is given for the code block.
-- Any other prism plugins that don't need special HTML markup are supported as well, but you will have to include JavaScript required by those plugins.
+- [Números de linha](https://prismjs.com/plugins/line-numbers/): Somente `prism-linha-números.css` é necessário, não é necessário incluir `números-linha-prisma. js` no seu site. Hexo irá gerar a marcação HTML necessária para você.
+- [Mostrar Idiomas](https://prismjs.com/plugins/show-language/): Hexo sempre terá atributo `idioma de dados` desde que o idioma seja dado para o bloco de código.
+- Quaisquer outros plugins de prisma que não precisam de uma marcação HTML especial também são suportados, mas você terá que incluir JavaScript exigido por esses plugins.
 
-All prism plugins are supported if `preprocess` is set to `false`. Here are a few things you should still pay attention to:
+Todos os plugins prism são suportados se `preprocess` está definido como `false`. Aqui estão algumas coisas para as quais você ainda precisa prestar atenção:
 
-- [Line Numbers](https://prismjs.com/plugins/line-numbers/): Hexo won't generate required HTML mark up when `preprocess` is set to `false`. Requires both `prism-line-numbers.css` and `prism-line-numbers.js`.
-- [Show Languages](https://prismjs.com/plugins/show-language/): Hexo will always have `data-language` attribute added as long as language is given for the code block.
-- [Line Highlight](https://prismjs.com/plugins/line-highlight/): Both Hexo [Tag Plugin - Code Block](tag-plugins#Code-Block) and [Tag Plugin - Backtick Code Block](https://hexo.io/docs/tag-plugins#Backtick-Code-Block) supports Line Highlight syntax (`mark` option). When `mark` option is given, Hexo will generate the corresponding HTML markup.
+- [Números de linha](https://prismjs.com/plugins/line-numbers/): Hexo não gerará a marcação HTML necessária quando o `pré-processo` estiver definido como `false`. Requer ambos `prism-line-numbers.css` e `prism-line-numbers.js`.
+- [Mostrar Idiomas](https://prismjs.com/plugins/show-language/): Hexo sempre terá atributo `idioma de dados` desde que o idioma seja dado para o bloco de código.
+- [realce de linha](https://prismjs.com/plugins/line-highlight/): Tanto Hexo [Plugin de Tag - Code Block](tag-plugins#Code-Block) e [Plugin de Tag - Backtick Code Block](https://hexo.io/docs/tag-plugins#Backtick-Code-Block) suporta sintaxe de realce de linha (`mark` opção). Quando a opção `marcar` for dada, o Hexo irá gerar a marcação HTML correspondente.
 
-### line_number
+### número_linha
 
-With both `preprocess` and `line_number` set to `true`, you just need to include `prism-line-numbers.css` to make line-numbering work. If you set both `preprocess` and `line_number` to false, you will need both `prism-line-numbers.css` and `prism-line-numbers.js`.
+Com ambos `pré-processamento` e `line_number` definido como `verdadeiro`, você só precisa incluir números `de linha de prisma. ss` para fazer a numeração de linha. Se você definir ambos `pré-processamento` e `line_number` para falso, você precisará ambos `prism-line-numbers.css` e `prism-line-numbers.js`.
 
 ### line_threshold (+6.1.0)
 
-Accepts an optional threshold to only show line numbers as long as the numbers of lines of the code block exceed such threshold. Default is `0`.
+Aceita um limite opcional para mostrar apenas números de linha, contanto que os números de linhas do bloco de código excedam esse limite. O padrão é `0`.
 
-### tab_replace
+### substituir_aba
 
-Replace `\t` inside code block with given string. By default it is 2 spaces.
+Substituir `\t` dentro de bloco de código por uma string fornecida. Por padrão são 2 espaços.
 
-## Other useful information
+## Outras informações úteis
 
 - [Highlight.js](https://highlightjs.readthedocs.io/en/latest/)
 - [PrismJS](https://prismjs.com/)
 
-The source codes behind Hexo's syntax highlighting are available in:
+Os códigos de origem por trás do destaque de sintaxe do Hexo estão disponíveis em:
 
-- [Highlight.js Utility Functions](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
-- [PrismJS Utility Functions](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
-- [Tag Plugin - Code Block](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.js)
-- [Tag Plugin - Backtick Code Block](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.js)
+- [Funções de Utilitário Highlight.js](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
+- [Funções Utilitárias PrismJS](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
+- [Plugin de Tag - Bloco de código](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.js)
+- [Plugin de Tag - Bloco de Código Backtick](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.js)
