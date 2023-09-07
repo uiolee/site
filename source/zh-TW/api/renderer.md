@@ -10,6 +10,7 @@ A renderer is used to render content.
 hexo.extend.renderer.register(name, output, function(data, options){
   // ...
 }, sync);
+}, sync);
 ```
 
 | Argument | Description                                                 |
@@ -20,11 +21,11 @@ hexo.extend.renderer.register(name, output, function(data, options){
 
 Three arguments will be passed into the render function:
 
-| Argument   | Description                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------- |
-| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
-| `option`   | Options                                                                                           |
-| `callback` | Callback function of two parameters `err`, `value`.                                               |
+| Argument   | Description                                                                                                                       |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. `path` won't necessarily exist. |
+| `option`   | Options                                                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                                                               |
 
 ## Example
 
