@@ -1,63 +1,63 @@
 ---
-title: Posts
+title: Postagens
 ---
 
-## Create a Post
+## Criar uma postagem
 
 ``` js
 hexo.post.create(data, replace);
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| Argumento    | Descrição:                        |
+| ------------ | --------------------------------- |
+| `Dados`      | Dado                              |
+| `substituir` | Substituir os arquivos existentes |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+Os atributos de uma postagem podem ser definidos em `dados`. A tabela abaixo não é exaustiva. Atributos adicionais podem ser adicionados ao front-matter.
 
-| Data     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `title`  | Title                                                                            |
-| `slug`   | URL                                                                              |
-| `layout` | Layout. Defaults to the `default_layout` setting.                                |
-| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
-| `date`   | Date. Defaults to the current date.                                              |
+| Dado      | Descrição:                                                                                |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `Título`  | Título                                                                                    |
+| `eixo`    | URL:                                                                                      |
+| `layout`  | Leiaute O padrão é a configuração `default_layout`.                                       |
+| `caminho` | Caminho Hexo constrói o caminho do post com base na definição `new_post_path` por padrão. |
+| `Data`    | Data. O padrão é a data atual.                                                            |
 
-## Publish a Draft
-
-``` js
-hexo.post.publish(data, replace);
-```
-
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
-
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
-
-| Data     | Description                                       |
-| -------- | ------------------------------------------------- |
-| `slug`   | File name (Required)                              |
-| `layout` | Layout. Defaults to the `default_layout` setting. |
-
-## Render
+## Publicar um rascunho
 
 ``` js
-hexo.post.render(source, data);
+hexo.post.publish(dados, substituir);
 ```
 
-| Argument | Description                    |
-| -------- | ------------------------------ |
-| `source` | Full path of a file (Optional) |
-| `data`   | Data                           |
+| Argumento    | Descrição:                        |
+| ------------ | --------------------------------- |
+| `Dados`      | Dado                              |
+| `substituir` | Substituir os arquivos existentes |
 
-The data must contain the `content` attribute. If not, Hexo will try to read the original file. The execution steps of this function are as follows:
+Os atributos de uma postagem podem ser definidos em `dados`. A tabela abaixo não é exaustiva. Atributos adicionais podem ser adicionados ao front-matter.
 
-- Execute `before_post_render` filters
-- Render with Markdown or other renderers (depending on the extension name)
-- Render with [Nunjucks][]
-- Execute `after_post_render` filters
+| Dado     | Descrição:                                          |
+| -------- | --------------------------------------------------- |
+| `eixo`   | Nome do arquivo (obrigatório)                       |
+| `layout` | Leiaute O padrão é a configuração `default_layout`. |
+
+## Renderizar
+
+``` js
+hexo.post.render(fonte, dados);
+```
+
+| Argumento | Descrição:                                |
+| --------- | ----------------------------------------- |
+| `Fonte`   | Caminho completo de um arquivo (opcional) |
+| `Dados`   | Dado                                      |
+
+Os dados devem conter o atributo `content`. Se não, o Hexo tentará ler o arquivo original. Os passos de execução desta função são os seguintes:
+
+- Executar filtros `before_post_render`
+- Renderizar com Markdown ou outros renderizadores (dependendo do nome da extensão)
+- Renderizar com [Nunjucks][]
+- Executar `after_post_render` filtros
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
 
