@@ -2,7 +2,7 @@
 title: Events
 ---
 
-hexo  สืบทอดจาก [EventEmitter][]  มันใช้วิธี `on` มาคอยฟัง event ที่ hexo ส่งออกไป Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
+hexo  สืบทอดจาก [EventEmitter][]  มันใช้วิธี `on` มาคอยฟัง event ที่ hexo ส่งออกไป Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
