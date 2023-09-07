@@ -13,15 +13,15 @@ hexo.post.create(data, replace);
 | `data`    | Data                   |
 | `replace` | Replace existing files |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
-| Data     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `title`  | Title                                                                            |
-| `slug`   | URL                                                                              |
-| `layout` | Layout. Defaults to the `default_layout` setting.                                |
-| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
-| `date`   | Date. Defaults to the current date.                                              |
+| Data     | Description                                                                            |
+| -------- | -------------------------------------------------------------------------------------- |
+| `title`  | Title                                                                                  |
+| `slug`   | URL                                                                                    |
+| `layout` | Layout. Layout. Defaults to the `default_layout` setting.                              |
+| `path`   | Path. Path. Hexo builds the post path based on the `new_post_path` setting by default. |
+| `date`   | Date. Date. Defaults to the current date.                                              |
 
 ## Publish a Draft
 
@@ -34,12 +34,12 @@ hexo.post.publish(data, replace);
 | `data`    | Data                   |
 | `replace` | Replace existing files |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
-| Data     | Description                                       |
-| -------- | ------------------------------------------------- |
-| `slug`   | File name (Required)                              |
-| `layout` | Layout. Defaults to the `default_layout` setting. |
+| Data     | Description                                               |
+| -------- | --------------------------------------------------------- |
+| `slug`   | File name (Required)                                      |
+| `layout` | Layout. Layout. Defaults to the `default_layout` setting. |
 
 ## Render
 
