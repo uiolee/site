@@ -45,7 +45,7 @@ pretty_urls:
 
 | Setting        | Description                                                                                                        | 기본값              |
 | -------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `source_dir`   | 컨텐츠들이 저장되어 있는 소스 폴더 Where your content is stored                                                                   | `source`         |
+| `source_dir`   | Public folder. 생성된 정적 사이트들이 저장될 공용 폴더                                                                              | `source`         |
 | `public_dir`   | Public folder. 생성된 정적 사이트들이 저장될 공용 폴더                                                                              | `public`         |
 | `tag_dir`      | 태그 디렉토리                                                                                                            | `tags`           |
 | `archive_dir`  | 저장소 디렉토리                                                                                                           | `archives`       |
