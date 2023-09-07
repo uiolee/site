@@ -1,61 +1,63 @@
 ---
-title: 文章
+title: Posts
 ---
-## 新建文章
+
+## Create a Post
 
 ``` js
 hexo.post.create(data, replace);
 ```
 
-参数 | 描述
---- | ---
-`data` | 数据
-`replace` | 替换现有文件
+| Argument  | Description            |
+| --------- | ---------------------- |
+| `data`    | Data                   |
+| `replace` | Replace existing files |
 
-您可以在 `data` 中指定文章的属性，除了以下属性之外，其他属性也会被加到 front-matter 中。
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
-属性 | 描述
---- | ---
-`title` | 标题
-`slug` | 网址
-`layout` | 布局。默认为 `default_layout` 参数。
-`path` | 路径。默认会根据 `new_post_path` 参数创建文章路径。
-`date` | 日期。默认为当前时间。
+| Data     | Description                                                                      |
+| -------- | -------------------------------------------------------------------------------- |
+| `title`  | Title                                                                            |
+| `slug`   | URL                                                                              |
+| `layout` | Layout. Defaults to the `default_layout` setting.                                |
+| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
+| `date`   | Date. Defaults to the current date.                                              |
 
-## 发布草稿
+## Publish a Draft
 
 ``` js
 hexo.post.publish(data, replace);
 ```
 
-参数 | 描述
---- | ---
-`data` | 数据
-`replace` | 替换现有文件
+| Argument  | Description            |
+| --------- | ---------------------- |
+| `data`    | Data                   |
+| `replace` | Replace existing files |
 
-您可以在 `data` 中指定文章的属性，除了以下的属性之外，其他属性也会被加到 front-matter 中。
+The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
 
-属性 | 描述
---- | ---
-`slug` | 文件名称（必须）
-`layout` | 布局。默认为 `default_layout` 参数。
+| Data     | Description                                       |
+| -------- | ------------------------------------------------- |
+| `slug`   | File name (Required)                              |
+| `layout` | Layout. Defaults to the `default_layout` setting. |
 
-## 渲染
+## Render
 
 ``` js
 hexo.post.render(source, data);
 ```
 
-参数 | 描述
---- | ---
-`source` | 文件的完整路径（可忽略）
-`data` | 数据
+| Argument | Description                    |
+| -------- | ------------------------------ |
+| `source` | Full path of a file (Optional) |
+| `data`   | Data                           |
 
-资料中必须包含 `content` 属性，如果没有的话，会尝试读取原始文件。此函数的执行顺序为：
+The data must contain the `content` attribute. If not, Hexo will try to read the original file. The execution steps of this function are as follows:
 
-- 执行 `before_post_render` 过滤器
-- 使用 Markdown 或其他渲染器渲染（根据扩展名而定）
-- 使用 [Nunjucks] 渲染
-- 执行 `after_post_render` 过滤器
+- Execute `before_post_render` filters
+- Render with Markdown or other renderers (depending on the extension name)
+- Render with [Nunjucks][]
+- Execute `after_post_render` filters
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
+
