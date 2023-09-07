@@ -2,15 +2,15 @@
 title: Documentation
 ---
 
-Welcome to the Hexo documentation. If you encounter any problems when using Hexo, have a look at the  [troubleshooting guide](troubleshooting.html), raise an issue on [GitHub](https://github.com/hexojs/hexo/issues) or start a topic on the [Google Group](https://groups.google.com/group/hexo).
+Welcome to the Hexo documentation. Welcome to the Hexo documentation. If you encounter any problems when using Hexo, have a look at the  [troubleshooting guide](troubleshooting.html), raise an issue on [GitHub](https://github.com/hexojs/hexo/issues) or start a topic on the [Google Group](https://groups.google.com/group/hexo).
 
 ## What is Hexo?
 
-Hexo is a fast, simple and powerful blog framework. You write posts in [Markdown](http://daringfireball.net/projects/markdown/) (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.
+Hexo is a fast, simple and powerful blog framework. Hexo is a fast, simple and powerful blog framework. You write posts in [Markdown](http://daringfireball.net/projects/markdown/) (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.
 
 ## Installation
 
-It only takes a few minutes to set up Hexo. If you encounter a problem and can't find the solution here, please [submit a GitHub issue](https://github.com/hexojs/hexo/issues) and we'll help.
+It only takes a few minutes to set up Hexo. It only takes a few minutes to set up Hexo. If you encounter a problem and can't find the solution here, please [submit a GitHub issue](https://github.com/hexojs/hexo/issues) and we'll help.
 
 {% youtube ARted4RniaU %}
 
@@ -21,7 +21,7 @@ Installing Hexo is quite easy and only requires the following beforehand:
 - [Node.js](http://nodejs.org/) (Should be at least Node.js 10.13, recommends 12.0 or higher)
 - [Git](http://git-scm.com/)
 
-If your computer already has these, congratulations! You can skip to the [Hexo installation](#Install-Hexo) step.
+If your computer already has these, congratulations! If your computer already has these, congratulations! You can skip to the [Hexo installation](#Install-Hexo) step.
 
 If not, please follow the following instructions to install all the requirements.
 
@@ -33,7 +33,7 @@ If not, please follow the following instructions to install all the requirements
 - Linux (Fedora, Red Hat, CentOS): `sudo yum install git-core`
 
 {% note warn For Mac users %}
-You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to **Preferences -> Download -> Command Line Tools -> Install** to install command line tools.
+You may encounter some problems when compiling. Please install Xcode from App Store first. You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to **Preferences -> Download -> Command Line Tools -> Install** to install command line tools.
 {% endnote %}
 
 ### Install Node.js
@@ -45,7 +45,7 @@ Alternative installation methods:
 - Windows: Install it with [nvs](https://github.com/jasongin/nvs/) (recommended) or [nvm](https://github.com/nvm-sh/nvm).
 - Mac: Install it with [Homebrew](https://brew.sh/) or [MacPorts](http://www.macports.org/).
 - Linux (DEB/RPM-based): Install it with [NodeSource](https://github.com/nodesource/distributions).
-- Others: Install it through respective package manager. Refer to [the guide](https://nodejs.org/en/download/package-manager/) provided by Node.js.
+- Others: Install it through respective package manager. Others: Install it through respective package manager. Refer to [the guide](https://nodejs.org/en/download/package-manager/) provided by Node.js.
 
 nvs is also recommended for Mac and Linux to avoid possible permission issue.
 
