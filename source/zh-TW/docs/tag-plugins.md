@@ -2,7 +2,7 @@
 title: Tag Plugins
 ---
 
-Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
+Tag plugins are different from post tags. Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
 
@@ -24,7 +24,7 @@ content
 
 ### Examples
 
-**No arguments. Plain blockquote.**
+**No arguments. Plain blockquote. Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -41,11 +41,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 ```
 {% blockquote David Levithan, Wide Awake %}
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+{% endblockquote %} Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 ```
 
 {% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 
 **Quote from Twitter**
@@ -53,11 +54,12 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 ```
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
+{% endblockquote %} http://devdocs.io
 {% endblockquote %}
 ```
 
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
-NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
+NEW: DevDocs now comes with syntax highlighting. http://devdocs.io http://devdocs.io
 {% endblockquote %}
 
 **Quote from an article on the web**
@@ -65,6 +67,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 ```
 {% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
 Every interaction is both precious and an opportunity to delight.
+{% endblockquote %}
 {% endblockquote %}
 ```
 
@@ -86,14 +89,14 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-| Extra Options    | Description                                                                                                                                                            | Default |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `line_number`    | Show line number                                                                                                                                                       | `true`  |
-| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
-| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
-| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
-| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
-| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
+| Extra Options    | Description                                                                                                                                                                                                                              | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                                                                                         | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                                                                                          | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                                                                                                 | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                                                                                            | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                                                                                                | `true`  |
 
 ### Examples
 
@@ -208,7 +211,7 @@ Inserts a link with `target="_blank"` attribute.
 
 ## Include Code
 
-Inserts code snippets in `source/downloads/code` folder. The folder location can be specified through the `code_dir` option in the config.
+Inserts code snippets in `source/downloads/code` folder. Inserts code snippets in `source/downloads/code` folder. The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
@@ -302,7 +305,7 @@ This will work as long as the filename of the post is `how-to-bake-a-cake.md`, e
 
 You can customize the text to display, instead of displaying the post's title.
 
-Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
+Post's title and custom text are escaped by default. Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
 
 For instance:
 
@@ -393,12 +396,14 @@ content
 
 ## Post Excerpt
 
-Use text placed before the `<!-- more -->` tag as an excerpt for the post. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
+Use text placed before the `<!-- more -->` tag as an excerpt for the post. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<!-- more -->
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 <!-- more -->
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
