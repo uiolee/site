@@ -2,10 +2,10 @@
 title: GitHub Pages
 ---
 
-In this tutorial, we use [GitHub Actions](https://docs.github.com/en/actions) to deploy GitHub Pages. It works in both public and private repository. Skip to the [One-command deployment](#One-command-deployment) section if you prefer not to upload your source folder to GitHub.
+In this tutorial, we use [Travis CI](https://travis-ci.com/) to deploy Github Pages. It is free for open source repository, meaning your repository's `master` branch has to be public. Please skip to the [Private repository](#Private-repository) section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
 
 1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the default branch of your repository. The default branch is usually **main**, older repository may use **master** branch.
+2. Push the files of your Hexo folder to the repository. The default branch is usually **main**, older repository may use **master** branch.
   - To push `main` branch to GitHub:
 
     ```
@@ -57,7 +57,7 @@ jobs:
           publish_dir: ./public
 ```
 
-5. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
+5. In your GitHub repo's setting, navigate to "GitHub Pages" section and change Source to **gh-pages branch**.
 6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
 7. Check the webpage at *username*.github.io.
 
@@ -68,10 +68,10 @@ Note - if you specify a custom domain name with a `CNAME`, you need to add the `
 If you prefer to have a project page on GitHub:
 
 1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
-2. Edit your **_config.yml**, change the `url:` value to <b>https://*username*.github.io/*repository*</b>.
+2. Edit your **_config.yml**, change the `root:` value to the `/<repository>/` (must starts and ends with a slash, without the brackets).
 3. Commit and push to the default branch.
-4. Once the deployment is finished, the generated pages can be found in the `gh-pages` branch of your repository.
-6. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the branch to `gh-pages` and save.
+4. Once Travis CI finish the deployment, the generated pages can be found in the `gh-pages` branch of your repository
+6. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Change the branch to `gh-pages` and save.
 7. Check the webpage at *username*.github.io/*repository*.
 
 ## One-command deployment
@@ -79,7 +79,7 @@ If you prefer to have a project page on GitHub:
 The following instruction is adapted from [one-command deployment](/docs/one-command-deployment) page.
 
 1. Install [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
-2. Add the following configurations to **_config.yml**, (remove existing lines if any).
+2. Add the following configurations to **_config.yml**, (remove existing lines if any)
 
   ``` yml
   deploy:
