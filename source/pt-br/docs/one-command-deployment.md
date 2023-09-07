@@ -1,22 +1,25 @@
 ---
-title: Implantação
+title: One-Command Deployment
 ---
-O Hexo fornece uma estratégia de implantação (deployment) rápida e fácil. Você só precisa de um único comando para implantar seu site no servidor.
 
-``` bash
+Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
+
+```bash
 $ hexo deploy
 ```
 
-Antes da sua primeira implantação, você terá que modificar algumas configurações em `_config.yml`. Uma configuração de implantação válida deve ter um campo `type`. Por exemplo:
+Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
 
-``` yaml
+Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example:
+
+```yaml
 deploy:
   type: git
 ```
 
-Você pode implantar o site em mais de um servidor. O Hexo executará cada implantação na ordem da declaração.
+You can use multiple deployers. Hexo will execute each deployer in order.
 
-``` yaml
+```yaml
 deploy:
 - type: git
   repo:
@@ -28,7 +31,7 @@ Refer to the [Plugins](https://hexo.io/plugins/) list for more deployment plugin
 
 ## Git
 
-1. Install [hexo-deployer-git].
+1. Install [hexo-deployer-git][].
 
 ```bash
 $ npm install hexo-deployer-git --save
@@ -39,17 +42,17 @@ $ npm install hexo-deployer-git --save
 ```yaml
 deploy:
   type: git
-  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: <repository url> # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: [branch]
   message: [message]
 ```
 
-Option | Description | Default
---- | --- | ---
-`repo` | URL of the target repository |
-`branch` | Branch name. | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others)
-`message` | Customize commit message. | `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`
-`token` | Optional token value to authenticate with the repo. Prefix with `$` to read token from environment variable
+| Option    | Description                                                                                                 | Default                                                                             |
+| --------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `repo`    | URL of the target repository                                                                                |                                                                                     |
+| `branch`  | Branch name.                                                                                                | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others) |
+| `message` | Customize commit message.                                                                                   | `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`               |
+| `token`   | Optional token value to authenticate with the repo. Prefix with `$` to read token from environment variable |                                                                                     |
 
 3. Deploy your site `hexo clean && hexo deploy`.
 
@@ -60,37 +63,47 @@ Option | Description | Default
 
 ## Heroku
 
-Instale o pacote [hexo-deployer-heroku].
+Install [hexo-deployer-heroku][].
 
-``` bash
+```bash
 $ npm install hexo-deployer-heroku --save
 ```
 
-Editando as configurações.
+Edit settings.
 
-``` yaml
+```yaml
 deploy:
   type: heroku
   repo: <repository url>
   message: [message]
 ```
 
-Opção | Descrição
---- | ---
-`repo`, `repository` | URL do repositório no Heroku
-`message` | Customiza a mensagem de commit (O padão é: `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)
+| Option               | Description                                                                                                 |
+| -------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `repo`, `repository` | Heroku repository URL                                                                                       |
+| `message`            | Customize commit message (Default to `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
+
+## Netlify
+
+[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
+
+There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. Go to the [create a new site page](https://app.netlify.com/start), select your project repo from GitHub, GitLab, or Bitbucket, and follow the prompts.
+
+Alternatively, you can use Netlify's [Node based CLI](https://www.netlify.com/docs/cli/) tool to manage and deploy sites on Netlify without leaving your terminal.
+
+You can also add a [Deploy to Netlify Button](https://www.netlify.com/docs/deploy-button/) in your README.file to allow others to create a copy of your repository and be deployed to Netlify via one click.
 
 ## Rsync
 
-Instale o pacote [hexo-deployer-rsync].
+Install [hexo-deployer-rsync][].
 
-``` bash
+```bash
 $ npm install hexo-deployer-rsync --save
 ```
 
-Editando as configurações.
+Edit settings.
 
-``` yaml
+```yaml
 deploy:
   type: rsync
   host: <host>
@@ -102,49 +115,49 @@ deploy:
   ignore_errors: [true|false]
 ```
 
-Opção | Descrição | Padão
---- | --- | ---
-`host` | Endereço do host remoto |
-`user` | Nome de usuário |
-`root` | Diretório raiz do host remoto |
-`port` | Porta | 22
-`delete` | Exclui arquivos antigos no host remoto | true
-`verbose` | Exibi mensagens detalhadas | true
-`ignore_errors` | Ignora erros | false
+| Option          | Description                     | Default |
+| --------------- | ------------------------------- | ------- |
+| `host`          | Address of remote host          |         |
+| `user`          | Username                        |         |
+| `root`          | Root directory of remote host   |         |
+| `port`          | Port                            | 22      |
+| `delete`        | Delete old files on remote host | true    |
+| `verbose`       | Display verbose messages        | true    |
+| `ignore_errors` | Ignore errors                   | false   |
 
 ## OpenShift
 
-Instale o pacote [hexo-deployer-openshift].
+Install [hexo-deployer-openshift][].
 
-``` bash
+```bash
 $ npm install hexo-deployer-openshift --save
 ```
 
-Editando as configurações.
+Edit settings.
 
-``` yaml
+```yaml
 deploy:
   type: openshift
   repo: <repository url>
   message: [message]
 ```
 
-Opção | Descrição
---- | ---
-`repo` | URL do repositório no OpenShift
-`message` | Customiza a mensagem de commit (O padrão é `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)
+| Option    | Description                                                                                                 |
+| --------- | ----------------------------------------------------------------------------------------------------------- |
+| `repo`    | OpenShift repository URL                                                                                    |
+| `message` | Customize commit message (Default to `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
 
 ## FTPSync
 
-Instale o pacote [hexo-deployer-ftpsync].
+Install [hexo-deployer-ftpsync][].
 
-``` bash
+```bash
 $ npm install hexo-deployer-ftpsync --save
 ```
 
-Editando as configurações.
+Edit settings.
 
-``` yaml
+```yaml
 deploy:
   type: ftpsync
   host: <host>
@@ -157,28 +170,28 @@ deploy:
   verbose: [true|false]
 ```
 
-Opção | Descrição | Padrão
---- | --- | ---
-`host` | Endereço do host remoto |
-`user` | Nome de usuário |
-`pass` | Senha |
-`remote` | Diretório raiz do host remoto | `/`
-`port` | Porta | 21
-`ignore` | Ignora os arquivos no host remoto |
-`connections` | Número de conexões | 1
-`verbose` | Exibi mensagens detalhadas | false
+| Option        | Description                               | Default |
+| ------------- | ----------------------------------------- | ------- |
+| `host`        | Address of remote host                    |         |
+| `user`        | Username                                  |         |
+| `pass`        | Password                                  |         |
+| `remote`      | Root directory of remote host             | `/`     |
+| `port`        | Port                                      | 21      |
+| `ignore`      | Ignore the files on either host or remote |         |
+| `connections` | Connections number                        | 1       |
+| `verbose`     | Display verbose messages                  | false   |
 
 ## SFTP
 
-Instale o pacote [hexo-deployer-sftp]. Implantação do site via SFTP, permitindo conexões sem senhas usando "ssh-agent".
+Install [hexo-deployer-sftp][]. Deploys the site via SFTP, allowing for passwordless connections using ssh-agent.
 
-``` bash
+```bash
 $ npm install hexo-deployer-sftp --save
 ```
 
-Editando as configurações.
+Edit settings.
 
-``` yaml
+```yaml
 deploy:
   type: sftp
   host: <host>
@@ -191,16 +204,18 @@ deploy:
   agent: [path/to/agent/socket]
 ```
 
-Opção | Descrição | Padrão
---- | --- | ---
-`host` | Endereço do host remoto |
-`user` | Nome de usuário |
-`pass` | Senha |
-`remotePath` | Diretório raiz do host remoto | `/`
-`port` | Porta | 22
-`privateKey` | Caminho para uma chave ssh privada |
-`passphrase` | Frase secreta opcional para a chave privada |
-`agent` | Caminho para o socket do agente ssh | `$SSH_AUTH_SOCK`
+| Option        | Description                                     | Default          |
+| ------------- | ----------------------------------------------- | ---------------- |
+| `host`        | Address of remote host                          |                  |
+| `port`        | Port                                            | 22               |
+| `user`        | Username                                        |                  |
+| `pass`        | Password                                        |                  |
+| `privateKey`  | Path to a ssh private key                       |                  |
+| `passphrase`  | Optional passphrase for the private key         |                  |
+| `agent`       | Path to the ssh-agent socket                    | `$SSH_AUTH_SOCK` |
+| `remotePath`  | Root directory of remote host                   | `/`              |
+| `forceUpload` | Override existing files                         | false            |
+| `concurrency` | Max number of SFTP tasks processed concurrently | 100              |
 
 ## Vercel
 
@@ -252,14 +267,14 @@ After a few moments, your website will be deployed.
 
 ## RSS3
 
-[RSS3] (https://rss3.io) é um protocolo aberto projetado para conteúdo e redes sociais na era da Web 3.0.
+[RSS3](https://rss3.io) is an open protocol designed for content and social networks in the Web 3.0 era.
 
-1. Instale [hexo-deployer-rss3]
+1. Install [hexo-deployer-rss3][].
 
-2. Modifique a configuração.
+2. Modify the configuration.
 
   ``` yaml
-  deploy:
+  deploy: # The root configuration block for all deployers
   - type: rss3
     endpoint: https://hub.rss3.io
     privateKey: 47e18d6c386898b424025cd9db446f779ef24ad33a26c499c87bb3d9372540ba
@@ -271,24 +286,50 @@ After a few moments, your website will be deployed.
         secret: ee8b74626f12b61c1a4bde3b8c331ad390567c86ba779c9b18561ee92c1cbff0
   ```
 
-| Parâmetros | Descrição |
-| ----------------- | ---------------------- |
-| `endpoint` | Um link para o hub RSS3 |
-| `privateKey` | Sua chave privada, 64 bytes |
-| `ipfs/deploy` | Se deve implantar no IPFS |
-| `ipfs/gateway` | Gateway de API IPFS |
-| `ipfs/api/key` | Conteúdo de verificação relacionado ao gateway IPFS |
-| `ipfs/api/secret` | Conteúdo de verificação relacionado ao gateway IPFS |
+| Parameters        | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `endpoint`        | a link to the RSS3 Hub                      |
+| `privateKey`      | your private key, 64 bytes                  |
+| `ipfs/deploy`     | whether to deploy to IPFS                   |
+| `ipfs/gateway`    | IPFS API gateway                            |
+| `ipfs/api/key`    | IPFS gateway-related authentication content |
+| `ipfs/api/secret` | IPFS gateway-related authentication content |
 
-3. Gere arquivos estáticos
+3. generate static files
 
-4. Implantação
+4. deploy
 
-Para precauções relacionadas à implantação específica, você pode consultar [nossa documentação] (https://github.com/NaturalSelectionLabs/hexo-deployer-rss3/tree/develop/docs/zh_CN/start.md).
+For deployment-related considerations, you can refer to [Our documentation](https://github.com/NaturalSelectionLabs/hexo-deployer-rss3/blob/develop/README.md).
 
-## Outros Métodos
+## Edgio (formerly Layer0)
 
-Todos os arquivos gerados são salvos no diretório `public`. Você pode copiá-los para onde quiser.
+[Edgio (formerly Layer0)](https://docs.edg.io) is an Internet-scale platform that makes it easy for teams to build, release, protect, and accelerate their web apps and APIs.
+
+1. In your hexo project directory, install the Edgio CLI:
+
+```bash
+npm i -g @edgio/cli
+```
+
+2. Install Hexo connector by Edgio:
+
+```bash
+edgio init --connector=@edgio/hexo
+```
+
+3. Deploy
+
+```bash
+edgio deploy
+```
+
+Alternatively, you can click the deploy button below to create a new project:
+
+[![Deploy To Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgio-docs%2Fedgio-hexo-example)
+
+## Other Methods
+
+All generated files are saved in the `public` folder. You can copy them to wherever you like.
 
 [hexo-deployer-git]: https://github.com/hexojs/hexo-deployer-git
 [hexo-deployer-heroku]: https://github.com/hexojs/hexo-deployer-heroku
