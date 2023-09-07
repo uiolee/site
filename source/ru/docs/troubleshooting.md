@@ -1,171 +1,171 @@
 ---
-title: Troubleshooting
+title: Решение проблем
 ---
 
-In case you're experiencing problems with using Hexo, here is a list of solutions to some frequently encountered issues. If this page doesn't help you solve your problem, try doing a search on [GitHub](https://github.com/hexojs/hexo/issues) or our [Google Group](https://groups.google.com/group/hexo).
+Если вы столкнулись с проблемами при использовании Hexo, на этот случай существует эта страница со списком ответов на часто возникающие вопросы. Если она не помогла, попробуйте поискать решение на [GitHub](https://github.com/hexojs/hexo/issues) или в нашей группе [Google Group](https://groups.google.com/group/hexo).
 
-## YAML Parsing Error
-
-``` plain
-JS-YAML: incomplete explicit mapping pair; a key node is missed at line 18, column 29:
-      last_updated: Last updated: %s
-```
-
-Wrap the string with quotations if it contains colons.
+## Ошибка обработки YAML
 
 ``` plain
-JS-YAML: bad indentation of a mapping entry at line 18, column 31:
-      last_updated:"Last updated: %s"
+ИС-YAML: неполная пара явного сопоставления; узел ключа пропущен в строке 18, столбец 29:
+      last_updated: Последнее обновление: %s
 ```
 
-Make sure you are using soft tabs and add a space after colons.
-
-You can see [YAML Spec](http://www.yaml.org/spec/1.2/spec.html) for more info.
-
-## EMFILE Error
+Заключите строку в кавычки, если она содержит двоеточия.
 
 ``` plain
-Error: EMFILE, too many open files
+ИС-YAML: плохой отступ записи сопоставления на строке 18, столбец 31:
+      last_updated:"Последнее обновление: %s"
 ```
 
-Though Node.js has non-blocking I/O, the maximum number of synchronous I/O is still limited by the system. You may come across an EMFILE error when trying to generate a large number of files. You can try to run the following command to increase the number of allowed synchronous I/O operations.
+Убедитесь, что используются табы вместо пробелов, и добавьте пробелы после двоеточий.
+
+Больше информации см. здесь [YAML Spec](http://www.yaml.org/spec/1.2/spec.html).
+
+## Ошибка EMFILE
+
+``` plain
+Ошибка: EMFILE, слишком много открытых файлов
+```
+
+Хотя Node.js и использует неблокирующий ввод/вывод, максимальное количество одновременных операций I/O по-прежнему ограничено. Можно встретить ошибку EMFILE при попытке создания большого количества файлов. Попробуйте запустить следующую команду, чтобы увеличить количество синхронных операций ввода-вывода:
 
 ``` bash
 $ ulimit -n 10000
 ```
 
-**Error: cannot modify limit**
+**Ошибка: невозможно изменить предел**
 
-If you encounter the following error:
+Если вы столкнулись со следующей ошибкой:
 
 ``` bash
 $ ulimit -n 10000
-ulimit: open files: cannot modify limit: Operation not permitted
+ulimit: открытые файлы: невозможно изменить предел: Операция не разрешена
 ```
 
-It means some system-wide configurations are preventing `ulimit` to being increased to a certain limit.
+Это означает, что некоторые общесистемные конфигурации препятствуют тому, чтобы `ультимит` был увеличен до определенного предела.
 
-To override the limit:
+Чтобы переопределить лимит:
 
-1. Add the following line to "/etc/security/limits.conf":
+1. Добавить следующую строку в "/etc/security/limits.conf":
 
   ```
   * - nofile 10000
 
-  # '*' applies to all users and '-' set both soft and hard limits
+  # '*' применяется ко всем пользователям и '-' как мягким, так и жестким ограничениям
   ```
 
-  * The above setting may not apply in some cases, ensure "/etc/pam.d/login" and "/etc/pam.d/lightdm" have the following line. (Ignore this step if those files do not exist)
+  * В некоторых случаях вышеприведенные параметры могут не применяться, убедитесь, что "/etc/pam.d/login" и "/etc/pam.d/lightdm" имеют следующую строку. (игнорировать этот шаг, если эти файлы не существуют)
 
   ```
-  session required pam_limits.so
+  требуется pam_limits.so
   ```
 
-2. If you are on a [systemd-based](https://en.wikipedia.org/wiki/Systemd#Adoption) distribution, systemd may override "limits.conf". To set the limit in systemd, add the following line in "/etc/systemd/system.conf" and "/etc/systemd/user.conf":
+2. Если вы используете [системный дистрибутив](https://en.wikipedia.org/wiki/Systemd#Adoption) , система может переопределить "limits.conf". Чтобы установить лимит в системе, вставьте следующую строку в "/etc/systemd/system.conf" и "/etc/systemd/user.conf":
 
   ```
-  DefaultLimitNOFILE=10000
+  Ограничение по умолчанию=10000
   ```
 
 3. Reboot
 
-## Process Out of Memory
+## process out of memory
 
-When you encounter this error during generation:
-
-```
-FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - process out of memory
-```
-
-Increase Node.js heap memory size by changing the first line of `hexo-cli` (`which hexo` to look for the file).
+Когда вы сталкиваетесь с этой ошибкой во время создания
 
 ```
-#!/usr/bin/env node --max_old_space_size=8192
+FATAL ERROR: не удалось CALL_AND_RETRY_LAST - процесс из памяти
 ```
 
-[Out of memory while generating a huge blog · Issue #1735 · hexojs/hexo](https://github.com/hexojs/hexo/issues/1735)
+Повысить размер динамической памяти Node.js можно, изменив в первой строке `hexo-cli` команду (для нахождения местоположения файла используйте `which hexo`).
 
-## Git Deployment Problems
+```
+#!/usr/bin/ruv узел --max_old_space_size=8192
+```
 
-### RPC failed
+[Заканчивается память при создании большого блога · Issue #1735 · hexojs/hexo (eng)](https://github.com/hexojs/hexo/issues/1735)
+
+## Проблемы с публикацией в Git
+
+### Сбой RPC
 
 ``` plain
-error: RPC failed; result=22, HTTP code = 403
+ошибка: Сбой RPC; result=22, HTTP-код = 403
 
-fatal: 'username.github.io' does not appear to be a git repository
+fatal: 'username.github.io' не похож на git репозиторий
 ```
 
-Make sure you have [set up git](https://help.github.com/articles/set-up-git) on your computer properly or try to use HTTPS repository URL instead.
+Убедитесь, что вы настроили [git](https://help.github.com/articles/set-up-git/#setting-up-git) на своём компьютере. Или можно попробовать использовать вместо репозитория URL-адрес https.
 
-### Error: ENOENT: no such file or directory
+### Ошибка: ВНИМАНИЕ: нет такого файла или каталога
 
-If you get an error like `Error: ENOENT: no such file or directory` it's probably due to to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change so it breaks the automatic branching.
+Если вы получаете ошибку, наподобие `Ошибка: ENOENT: нет такого файла или каталога` , вероятно, это из-за смешивания заглавных букв и строчных букв в ваших тэгах, категории или имена файлов. Git не может автоматически объединить это изменение, так что оно ломает автоматическую ветку.
 
-To fix this, try
+Чтобы исправить это, попробуйте
 
-1. Check every tag's and category's case and make sure they are the same.
-1. Commit
-1. Clean and build: `./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate`
-1. Manually copy the public folder to your desktop
-1. Switch branch from your master branch to your deployment branch locally
-1. Copy the contents of the public folder from your desktop into the deployment branch
-1. Commit. You should see any merge conflicts appear that you can manually resolve.
-1. Switch back to your master branch and deploy normally: `./node_modules/.bin/hexo deploy`
+1. Проверьте все теги и категории и убедитесь, что они одинаковы.
+1. Коммит
+1. Чистая и сборка: `./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate`
+1. Скопируйте публичную папку вручную на рабочий стол
+1. Переключить ветку с вашей главной ветки на локальный раздел развертывания
+1. Скопируйте содержимое публичной папки с рабочего стола в ветку установки
+1. Коммит. Вы должны увидеть все конфликты слияний появляются, что вы можете вручную решить.
+1. Вернуться к вашей ветке мастера и установить обычно: `./node_modules/.bin/hexo deploy`
 
-## Server Problems
+## Проблемы с сервером
 
 ``` plain
 Error: listen EADDRINUSE
 ```
 
-You may have started two Hexo servers at the same time or there might be another application using the same port. Try to modify the `port` setting or start the Hexo server with the `-p` flag.
+Были запущены два сервера Hexo одновременно, или возможно другое приложение использует тот же порт. Попробуйте изменить настройки порта или запустить сервер Hexo с флагом `-p`.
 
 ``` bash
-$ hexo server -p 5000
+$ hexo сервер -p 5000
 ```
 
-## Plugin Installation Problems
+## Проблема установки плагина
 
 ``` plain
-npm ERR! node-waf configure build
+ОШИБКА npm! Настройка сборки узла
 ```
 
-This error may occur when trying to install a plugin written in C, C++ or other non-JavaScript languages. Make sure you have installed the right compiler on your computer.
+Эта ошибка может возникать при попытке установить плагин, написанный на C, C++ или любой другой, написанный не на JavaScript. Убедитесь, что вы установили правильный компилятор на компьютере.
 
-## Error with DTrace (Mac OS X)
+## Ошибка с DTrace (Mac OS X)
 
 ```plain
-{ [Error: Cannot find module './build/Release/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
-{ [Error: Cannot find module './build/default/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
-{ [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+{ [Ошибка: Не удается найти код модуля './build/Release/DTraceProviderBindings']: 'MODULE_NOT_FOUND' }
+{ [Error: Невозможно найти модуль '. build/default/DTraceProviderBindings'] код: 'MODULE_NOT_FOUND' }
+{ [Ошибка: Не могу найти модуль './build/Debug/DTraceProviderBindings'] код: 'MODULE_NOT_FOUND' }
 ```
 
-DTrace install may have issue, use this:
+Проблема в DTrace попробуйте эту команду:
 
 ```sh
-$ npm install hexo --no-optional
+$ npm установить hexo --no-optional
 ```
 
-See [#1326](https://github.com/hexojs/hexo/issues/1326#issuecomment-113871796)
+См. также [#1326](https://github.com/hexojs/hexo/issues/1326#issuecomment-113871796)
 
-## Iterate Data Model on Jade or Swig
+## Модель данных Iterate на Джейде или Swig
 
-Hexo uses [Warehouse][] for its data model. It's not an array so you may have to transform objects into iterables.
+Hexo использует склад [Warehouse][] для своей модели данных. Это не массив, так что его можно использовать для преобразования списка объектов в итераторы.
 
 ```
 {% for post in site.posts.toArray() %}
 {% endfor %}
 ```
 
-## Data Not Updated
+## Данные не обновляются
 
-Some data cannot be updated, or the newly generated files are identical to those of the last version. Clean the cache and try again.
+Некоторые данные не могут быть обновлены или вновь созданные файлы идентичны последней версии. Очистите кэш и попробуйте снова.
 
 ``` bash
-$ hexo clean
+$ hexo чистый
 ```
 
-## No command is executed
+## Команда не выполняется
 
 When you can't get any command except `help`, `init` and `version` to work and you keep getting content of `hexo help`, it could be caused by a missing `hexo` in `package.json`:
 
@@ -177,109 +177,109 @@ When you can't get any command except `help`, `init` and `version` to work and y
 }
 ```
 
-## Escape Contents
+## Сокращение содержимого
 
-Hexo uses [Nunjucks][] to render posts ([Swig][] was used in older version, which share a similar syntax). Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
+Hexo использует [Nunjucks][] для отображения сообщения ([Swig][] использовался в предыдущей версии, он использует похожий синтаксис). Содержимое, обёрнутое, в `{{ }}` или `{% %}`, поможет вам разобраться, какая часть вызвала проблемы. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. В качестве альтернативы, теги Nunjucks могут быть отключены через опцию визуализации (если поддерживается), [API](/api/renderer#Disable-Nunjucks-tags) или [front-matter](/docs/front-matter).
 
 ```
 {% raw %}
-Hello {{ world }}
+Привет, {{ world }}
 {% endraw %}
 ```
 
 ````
 ```
-Hello {{ world }}
+Привет, {{ world }}
 ```
 ````
 
 ## ENOSPC Error (Linux)
 
-Sometimes when running the command `$ hexo server` it returns an error:
+Иногда команда `$ hexo server` возвращает ошибку:
 
 ```
-Error: watch ENOSPC ...
+Ошибка: смотрите ENOSPC ...
 ```
 
-It can be fixed by running `$ npm dedupe` or, if that doesn't help, try the following in the Linux console:
+Это может быть исправлено путем запуска `$ npm dedupe`, или, если это не поможет, попробуйте выполнить следующие действия в консоли Linux.
 
 ```
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-This will increase the limit for the number of files you can watch.
+Это позволит увеличить лимит количества файлов, которые можно просматривать одновременно.
 
-## EMPERM Error (Windows Subsystem for Linux)
+## Ошибка EMPERM (подсистема Windows для Linux)
 
-When running `$ hexo server` in a BashOnWindows environment, it returns the following error:
+При запуске `$ hexo сервера` в среде BashOnWindows, он возвращает следующую ошибку:
 
 ```
-Error: watch /path/to/hexo/theme/ EMPERM
+Ошибка: смотрите /path/to/hexo/theme/ EMPERM
 ```
 
-Unfortunately, WSL does not currently support filesystem watchers. Therefore, the live updating feature of hexo's server is currently unavailable. You can still run the server from a WSL environment by first generating the files and then running it as a static server:
+К сожалению, WSL в настоящее время не поддерживает наблюдатели файловой системы. Поэтому в настоящее время функция обновления в реальном времени сервера hexo недоступна. Вы все еще можете запустить сервер из среды WSL, создав файлы и запустив их как статический сервер:
 
 ``` sh
-$ hexo generate
-$ hexo server -s
+$ hexo генерирует
+$ hexo сервер -s
 ```
 
-This is [a known BashOnWindows issue](https://github.com/Microsoft/BashOnWindows/issues/216), and on 15 Aug 2016, the Windows team said they would work on it. You can get progress updates and encourage them to prioritize it on [the issue's UserVoice suggestion page](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/suggestions/13469097-support-for-filesystem-watchers-like-inotify).
+Это [известная проблема BashOnWindows](https://github.com/Microsoft/BashOnWindows/issues/216), и 15 августа 2016 года команда Windows заявила, что они будут работать над ней. You can get progress updates and encourage them to prioritize it on [the issue's UserVoice suggestion page](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/suggestions/13469097-support-for-filesystem-watchers-like-inotify).
 
-## Template render error
+## Ошибка отображения шаблона
 
-Sometimes when running the command `$ hexo generate` it returns an error:
+Иногда при запуске команды `$ hexo генерирует` ошибка:
 
 ```
-FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
-Template render error: (unknown path)
+FATAL что-то неправильное. Возможно вы можете найти решение здесь: http://hexo.io/docs/troubleshooting.html
+Ошибка рендеринга шаблона: (неизвестный путь)
 ```
 
-Possible cause:
-- There are some unrecognizable words in your file, e.g. invisible zero width characters.
-- Incorrect use or limitation of [tag plugin](/docs/tag-plugins).
-  * Block-style tag plugin with content is not enclosed with `{% endplugin_name %}`
+Возможная причина:
+- В вашем файле есть несколько неузнаваемых слов, например невидимые символы ширины нуля.
+- Неправильное использование или ограничение [плагина тегов](/docs/tag-plugins).
+  * Плагин тегов в стиле блока с содержимым не прикреплен к `{% endplugin_name %}`
   ```
-  # Incorrect
+  # Некорректный
   {% codeblock %}
   fn()
   {% codeblock %}
 
-  # Incorrect
+  # Неверный
   {% codeblock %}
   fn()
 
-  # Correct
+  # Верно
   {% codeblock %}
   fn()
   {% endcodeblock %}
   ```
-  * Having Nunjucks-like syntax in a tag plugin, e.g. [`{#`](https://mozilla.github.io/nunjucks/templating.html#comments). A workaround for this example is to use [triple backtick](/docs/tag-plugins#Backtick-Code-Block) instead. [Escape Contents](/docs/troubleshooting#Escape-Contents) section has more details.
+  * Наличие синтаксиса с нунджаксом в плагине тегов, например [`{#`](https://mozilla.github.io/nunjucks/templating.html#comments). Обсуждение этого примера — вместо этого использовать [тройную обратную метку](/docs/tag-plugins#Backtick-Code-Block). [Escape Contents](/docs/troubleshooting#Escape-Contents) section has more details.
   ```
   {% codeblock lang:bash %}
-  Size of array is ${#ARRAY}
+  размер массива составляет ${#ARRAY}
   {% endcodeblock %}
   ```
 
-## YAMLException (Issue [#4917](https://github.com/hexojs/hexo/issues/4917))
+## Содержимое не найдено
 
-Upgrading to `hexo^6.1.0` from an older version may cause the following error when running `$ hexo generate`:
+Обновление до `hexo^6.1.0` из старой версии может привести к следующей ошибке при запуске `$ hexo generate`:
 
 ```
-YAMLException: Specified list of YAML types (or a single Type object) contains a non-Type object.
-    at ...
+YAMLException: Указанный список типов YAML (или объект одного типа) содержит объект нетипа.
+    в ...
 ```
 
-This may be caused by an incorrect dependency(i.e. `js-yaml`) setting that can't be solved automatically by the package manager, and you may have to update it manually running:
+Это может быть вызвано неправильной зависимостью (т.е. `js-yaml`), который не может быть автоматически решен менеджером пакетов, и вам придется обновить его вручную:
 
 ```sh
-$ npm install js-yaml@latest
+$ npm установить js-yaml@latest
 ```
-or
+или
 ```sh
-$ yarn add js-yaml@latest
+$ yarn добавить js-yaml@latest
 ```
-if you use `yarn`.
+если вы используете `yarn`.
 
 [Warehouse]: https://github.com/hexojs/warehouse
 [Swig]: https://node-swig.github.io/swig-templates/
