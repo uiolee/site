@@ -71,7 +71,7 @@ If you prefer to have a project page on GitHub:
 2. Edit your **_config.yml**, change the `root:` value to the `/<repository>/` (must starts and ends with a slash, without the brackets).
 3. Commit and push to the default branch.
 4. Once Travis CI finish the deployment, the generated pages can be found in the `gh-pages` branch of your repository
-6. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Change the branch to `gh-pages` and save.
+6. In your GitHub repo's setting, navigate to "GitHub Pages" section and change Source to **gh-pages branch**. Change the branch to `gh-pages` and save.
 7. Check the webpage at *username*.github.io/*repository*.
 
 ## One-command deployment
