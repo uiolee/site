@@ -1,26 +1,26 @@
 ---
-title: Plugins
+title: Плагины
 ---
 
-Hexo has a powerful plugin system, which makes it easy to extend functions without modifying the source code of the core module. There are two kinds of plugins in Hexo:
+Hexo имеет мощную систему плагинов, это делает его функции легко расширяемыми, не изменяя код основного модуля. Существует два вида плагинов в Hexo:
 
-### Script
+### Скрипты
 
-If your plugin is relatively simple, it's recommended to use a script. All you need to do is put your JavaScript files in the `scripts` folder and Hexo will load them during initialization.
+Если плагин является довольно простым, рекомендуется использовать скрипт. Все, что нужно сделать, это положить ваши JavaScript файлы в папку `scripts`, и Hexo загрузит их при инициализации.
 
-### Plugin
+### Плагины
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+Если код довольно сложен, или если вы хотите опубликовать его через NPM, рекомендуется использовать плагин. Сначала создайте папку в папке `node_modules`. Название должно начинаться с `hexo-`, иначе Hexo проигнорирует её.
 
-Your new folder must contain at least two files: one containing the actual JavaScript code and one `package.json` file that describes the purpose of the plugin and sets its dependencies.
+Папка должна содержать минимум два файла: один содержит фактический код JavaScript и `package.json`, который описывает назначение плагина и устанавливает его зависимости.
 
 ```plain
 .
-├── index.js
-└── package.json
+<unk> <unk> <unk> <unk> index.js
+<unk> <unk> <unk> <unk> <unk> package.json
 ```
 
-At the very least, you should set the `name`, `version` and `main` entries in `package.json`. For example:
+По крайней мере, нужно указать название `name`, версию `version` и параметр `main` в  `package.json`. Например:
 
 ```json package.json
 {
@@ -30,45 +30,43 @@ At the very least, you should set the `name`, `version` and `main` entries in `p
 }
 ```
 
-You'll also need to list your plugin as a dependency in the root `package.json` of your hexo instance in order for Hexo to detect and load it.
+Также понадобится перечислить зависимости плагина в корне `package.json` для вашего экземпляра `hexo`, чтобы Hexo обнаружил и загрузил его.
 
-### Tools
+### Инструментарий
 
-You can make use of the official tools provided by Hexo to accelerate development:
+Возможно использовать официальные инструменты Hexo для ускорения разработки:
 
-- [hexo-fs][]：File IO
-- [hexo-util][]：Utilities
-- [hexo-i18n][]：Localization (i18n)
-- [hexo-pagination][]：Generate pagination data
+- [hexo-fs][]：Чтение/запись файлов
+- [hexo-util][]：Утилиты Hexo
+- [hexo-i18n][]：Локализация (i18n)
+- [hexo-pagination][]：Постраничная разбивка
 
-### Publishing
+### Публикация
 
-When your plugin is ready, you may consider publishing it to the [plugin list](/plugins) to invite other people to start using it. Publishing your own plugins is very similar to [updating documentation](contributing.html#Updating_Documentation).
+Когда плагин будет готов, можно рассмотреть возможность его публикации в список [плагинов](/plugins), чтобы пригласить других людей воспользоваться им. Публикация плагинов очень похожа на [обновление документации](contributing.html#Обновление-документации). Публикация собственных плагинов очень похожа на [обновление документации](contributing.html#Updating_Documentation).
 
-1. Fork [hexojs/site][]
-2. Clone the repository to your computer and install dependencies.
+1. Создайте форк [hexojs/site][]
+2. Клонируйте репозиторий на компьютер и установите все зависимости.
 
    ```shell
-   $ git clone https://github.com/<username>/site.git
-   $ cd site
-   $ npm install
+   /site.git
+ $ cd site
+ $ npm install
    ```
 
 3. Create a new yaml file in `source/_data/plugins/`, use your plugin name as the file name
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Отредактируйте `source/_data/plugins.yml` добавив свой плагин. Например:
 
    ```yaml
-   description: Server module for Hexo.
+   name: hexo-server
+description: Server module for Hexo.
    link: https://github.com/hexojs/hexo-server
-   tags:
-     - official
-     - server
-     - console
+tags:
    ```
 
-5. Push the branch.
-6. Create a pull request and describe the change.
+5. Перетащите ветку.
+6. Создайте запрос на слияние с описанием изменений.
 
 [hexo-fs]: https://github.com/hexojs/hexo-fs
 [hexo-util]: https://github.com/hexojs/hexo-util
