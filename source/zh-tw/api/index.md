@@ -8,7 +8,7 @@ title: API
 
 ## 初始化
 
-First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. Next, we initialize this instance by calling the `init` method on it, which will then cause Hexo to load its configuration and plugins.
+First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. Next, we initialize this instance by calling the `init` method on it, which will then cause Hexo to load its configuration and plugins.
 
 ``` js
 var Hexo = require('hexo');
@@ -16,6 +16,7 @@ var hexo = new Hexo(process.cwd(), {});
 
 hexo.init().then(function(){
   // ...
+});
 });
 });
 ```
@@ -30,11 +31,13 @@ hexo.init().then(function(){
 
 ## 載入檔案
 
-Hexo 提供了兩種方法來載入檔案：`load`, `watch`，前者用於載入 `source` 資料夾內的所有檔案及主題資料；而後者除了執行 `load` 以外，還會繼續監看檔案變動。 `load` is used for loading all files in the `source` folder as well as the theme data. `watch` does the same things `load` does, but will also start watching for file changes continuously.
+Hexo 提供了兩種方法來載入檔案：`load`, `watch`，前者用於載入 `source` 資料夾內的所有檔案及主題資料；而後者除了執行 `load` 以外，還會繼續監看檔案變動。 `load` is used for loading all files in the `source` folder as well as the theme data. `load` is used for loading all files in the `source` folder as well as the theme data. `watch` does the same things `load` does, but will also start watching for file changes continuously.
 
-Both methods will load the list of files and pass them to the corresponding processors. After all files have been processed, they will call upon the generators to create the routes.
+Both methods will load the list of files and pass them to the corresponding processors. After all files have been processed, they will call upon the generators to create the routes. After all files have been processed, they will call upon the generators to create the routes.
 
 ``` js
+hexo.load().then(function(){
+  // ...
 hexo.load().then(function(){
   // ...
 hexo.load().then(function(){
@@ -45,15 +48,17 @@ hexo.watch().then(function(){
   // 之後可呼叫 hexo.unwatch() 停止檔案監看
 });
 });
+});
 ```
 
 ## 執行指令
 
-Any console command can be called explicitly using the `call` method on the Hexo instance. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands.
+Any console command can be called explicitly using the `call` method on the Hexo instance. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands.
 
 ``` js
 hexo.call('generate', {}).then(function(){
   // ...
+});
 });
 });
 ```
@@ -62,11 +67,12 @@ hexo.call('generate', {}).then(function(){
 hexo.call('list', { _: ['post'] }).then(function() {
   // ...
 })
+})
 ```
 
 ## Exit
 
-You should call the `exit` method upon successful or unsuccessful completion of a console command. This allows Hexo to exit gracefully and finish up important things such as saving the database.
+You should call the `exit` method upon successful or unsuccessful completion of a console command. This allows Hexo to exit gracefully and finish up important things such as saving the database. This allows Hexo to exit gracefully and finish up important things such as saving the database.
 
 ``` js
 hexo.call('generate').then(function(){
