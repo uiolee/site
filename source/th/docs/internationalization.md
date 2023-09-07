@@ -2,7 +2,7 @@
 title: Internationalization (i18n)
 ---
 
-You can use internationalization to present your site in different languages. คุณสามารถใช้ internationalization มาโชว์ไซต์ของคุณด้วยภาษาต่างๆ ภาษา dafault ของไซต์นั้นแก้ไขได้ใน  `language` ของ `_config.yml` คุณยังตั้งค่าหลายภาษาและแก้ไขลำดับของภาษา default ได้เช่นกัน You can also set multiple languages and modify the order of default languages.
+You can use internationalization to present your site in different languages. คุณสามารถใช้ internationalization มาโชว์ไซต์ของคุณด้วยภาษาต่างๆ ภาษา dafault ของไซต์นั้นแก้ไขได้ใน  `language` ของ `_config.yml` คุณยังตั้งค่าหลายภาษาและแก้ไขลำดับของภาษา default ได้เช่นกัน คุณสามารถใช้ internationalization มาโชว์ไซต์ของคุณด้วยภาษาต่างๆ ภาษา dafault ของไซต์นั้นแก้ไขได้ใน  `language` ของ `_config.yml` คุณยังตั้งค่าหลายภาษาและแก้ไขลำดับของภาษา default ได้เช่นกัน You can also set multiple languages and modify the order of default languages.
 
 ``` yaml
 language: zh-tw
@@ -46,7 +46,7 @@ index:
 i18n_dir: :lang
 ```
 
-default value ของการตั้งค่า  `i18n_dir` คือ `:lang` ซึ่งหมายความว่า hexo จะสืบค้นภาษาท่ีอยู่ใน segment ตัวแรกของ URL ยกตัวอย่างเช่น： For example:
+คุณใช้ helper ของ `__` หรือ `_p` ใน template ได้เพื่อได้  string ท่ีแปลมาแล้ว ตัวแรกใช้ในกรณีทางการ ส่วนตัวหลังใช้ในกรณีท่ีมีหลาย string ยกตัวอย่างเช่น： The former is for normal usage and the latter is for plural strings. For example:
 
 ``` plain
 /index.html => en
