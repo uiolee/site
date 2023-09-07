@@ -1,9 +1,10 @@
 ---
-title: 渲染引擎（Renderer）
+title: Renderer
 ---
-渲染引擎用於渲染內容。
 
-## 概要
+A renderer is used to render content.
+
+## Synopsis
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
@@ -11,22 +12,23 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-參數 | 描述
---- | ---
-`name` | 輸入的副檔名（小寫，不含開頭的 `.`）
-`output` | 輸出的副檔名（小寫，不含開頭的 `.`）
-`sync` | 同步模式
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-渲染函數中會傳入兩個參數：
+Three arguments will be passed into the render function:
 
-參數 | 描述
---- | ---
-`data` | 包含兩個屬性：檔案路徑 `path` 和檔案內容 `text`。`path` 不一定存在。
-`option` | 選項
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## 範例
+## Example
 
-### 非同步模式
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
@@ -44,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### 同步模式
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
