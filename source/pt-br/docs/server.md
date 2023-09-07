@@ -1,63 +1,41 @@
 ---
-title: Servidor
+title: Server
 ---
 
-## [hexo-server]
+## [hexo-server][]
 
-Com o lançamento do Hexo 3, o servidor foi separado do módulo principal. Para começar a usar o servidor, primeiro você deve instalar o pacote [hexo-server].
+With the release of Hexo 3, the server has been separated from the main module. To start using the server, you will first have to install [hexo-server][].
 
 ``` bash
 $ npm install hexo-server --save
 ```
 
-Uma vez instalado o servidor, execute o comando a seguir para iniciar o servidor. Seu site será acessível em `http://localhost:4000` por padrão. Quando o servidor estiver sendo executado, o Hexo assistirá por alterações nos arquivos do projeto e atualizará automaticamente a página, por isso não é necessário reiniciar manualmente o servidor.
+Once the server has been installed, run the following command to start the server. Your website will run at `http://localhost:4000` by default. When the server is running, Hexo will watch for file changes and update automatically so it's not necessary to manually restart the server.
 
 ``` bash
 $ hexo server
 ```
 
-Se você quiser mudar a porta ou se estiver encontrando erros `EADDRINUSE`, use a opção `-p` para configurar uma porta diferente.
+If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
 
 ``` bash
 $ hexo server -p 5000
 ```
 
-### Modo Estático
+### Static Mode
 
-No modo estático, somente arquivos do diretório `public` serão servidos e nenhum arquivo será assistido por mudanças. Você deve executar `hexo generate` antes de iniciar o servidor. Em geral, é desta forma que o site é servido em produção.
+In static mode, only files in the `public` folder will be served and file watching is disabled. You have to run `hexo generate` before starting the server. Usually used in production.
 
 ``` bash
 $ hexo server -s
 ```
 
-### Ip Customizado
+### Custom IP
 
-O Hexo executa o servidor em `0.0.0.0` por padrão. Você pode substituir a configuração de IP padrão.
+Hexo runs the server at `0.0.0.0` by default. You can override the default IP setting.
 
 ``` bash
 $ hexo server -i 192.168.1.1
 ```
 
-## Pow
-
-[Pow] é um servidor Rack sem configuração para Mac.
-
-### Instalaçãos
-
-``` bash
-$ curl get.pow.cx | sh
-```
-
-### Configuração
-
-Link simbólico no diretório `~/.pow`
-
-``` bash
-$ cd ~/.pow
-$ ln -s /path/to/myapp
-```
-
-Seu site estará funcionando em `http://myapp.dev`. A URL é baseada no nome do link simbólico.
-
 [hexo-server]: https://github.com/hexojs/hexo-server
-[Pow]: http://pow.cx/
