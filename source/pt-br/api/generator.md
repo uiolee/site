@@ -1,10 +1,10 @@
 ---
-title: Generator
+title: Gerador
 ---
 
-A generator builds routes based on processed files.
+Um gerador constrói rotas com base em arquivos processados.
 
-## Synopsis
+## Sinopse
 
 ``` js
 hexo.extend.generator.register(name, function(locals){
@@ -12,9 +12,9 @@ hexo.extend.generator.register(name, function(locals){
 });
 ```
 
-A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
+Um argumento `locais` será passado para a função, contendo as variáveis [do site](../docs/variables.html#Site-Variables). Você deve usar esse argumento para obter os dados do site, evitando ter que acessar o banco de dados diretamente.
 
-## Update Routes
+## Atualizar rotas
 
 ``` js
 hexo.extend.generator.register('test', function(locals){
@@ -32,52 +32,52 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-| Attribute | Description                                                                                                                                   |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`    | Path not including the prefixing `/`.                                                                                                         |
-| `data`    | Data                                                                                                                                          |
-| `layout`  | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
+| Atributo  | Descrição:                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `caminho` | Caminho não incluindo o prefixo `/`.                                                                                                                   |
+| `Dados`   | Dado                                                                                                                                                   |
+| `layout`  | Leiaute Especifique os layouts para renderização. O valor pode ser uma string ou uma matriz. Se é ignorado então a rota retornará `dados` diretamente. |
 
-When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.**
+Quando os arquivos de origem são atualizados, o Hexo executará todos os geradores e reconstruirá as rotas. **Please return the data and do not access the router directly.**
 
-## Example
+## Exemplo
 
-### Archive Page
+### Página de arquivo
 
-Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+Criar uma página de arquivos em `archives/index.html`. Nós passamos todas as postagens como dados para os modelos. Esses dados são equivalentes à variável `página` nos templates.
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Em seguida, defina o atributo `layout` para renderizar com os templates do tema. Estamos definindo dois layouts nesse exemplo: se o layout `archive` não existir, o layout `índice` será usado.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
   return {
     path: 'archives/index.html',
-    data: locals,
+    data: locais,
     layout: ['archive', 'index']
   }
 });
 ```
 
-### Archive Page with Pagination
+### Página de arquivo com paginação
 
-You can use the convenient official tool [hexo-pagination][] to easily build archive pages with pagination.
+Você pode usar a conveniente ferramenta oficial [hexo-paginação][] para facilmente construir páginas de arquivos com paginação.
 
 ``` js
 var pagination = require('hexo-pagination');
 
 hexo.extend.generator.register('archive', function(locals){
-  // hexo-pagination makes an index.html for the /archives route
-  return pagination('archives', locals.posts, {
-    perPage: 10,
+  // hexo-paginação faz um índice. tml para a rota /archives
+  return pagination('archives', locais. ostos, {
+    perpágina: 10,
     layout: ['archive', 'index'],
     data: {}
   });
 });
 ```
 
-### Generate All Posts
+### Gerar todas as postagens
 
-Iterate over all posts in `locals.posts` and create routes for all the posts.
+Iterar sobre todos os posts em `locals.posts` e criar rotas para todos os posts.
 
 ``` js
 hexo.extend.generator.register('post', function(locals){
@@ -91,9 +91,9 @@ hexo.extend.generator.register('post', function(locals){
 });
 ```
 
-### Copy Files
+### Copiar Arquivos
 
-This time we don't return the data explicitly but instead set `data` to a function so the route will build `fs.ReadStream` only when needed.
+Desta vez nós não retornamos os dados explicitamente, mas, em vez disso, definimos `dados` para uma função para que a rota construa `fs. eadStream` apenas quando necessário.
 
 ``` js
 var fs = require('hexo-fs');
@@ -108,4 +108,4 @@ hexo.extend.generator.register('asset', function(locals){
 });
 ```
 
-[hexo-pagination]: https://github.com/hexojs/hexo-pagination
+[hexo-paginação]: https://github.com/hexojs/hexo-pagination
