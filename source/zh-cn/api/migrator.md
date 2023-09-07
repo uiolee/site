@@ -11,6 +11,7 @@ hexo.extend.migrator.register(name, function(args){
   // ...
 });
 });
+});
 ```
 
 在函数中需要传入 `args` 参数，该参数包含了开发者在终端中所传入的参数。 This argument will contain the user's input into the terminal.
