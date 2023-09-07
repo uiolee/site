@@ -1,73 +1,73 @@
 ---
-title: Migration
+title: Миграция
 ---
 
-## RSS
+## RSS-лента
 
-First, install the `hexo-migrator-rss` plugin.
-
-``` bash
-$ npm install hexo-migrator-rss --save
-```
-
-Once the plugin is installed, run the following command to migrate all posts from RSS. `source` can be a file path or URL.
+Прежде нужно установить плагин `hexo-migrator-rss`.
 
 ``` bash
-$ hexo migrate rss <source>
+$ npm установить hexo-migrator-rss --save
 ```
 
-## Jekyll
+После установки плагина запустите следующую команду для миграции всех постов в RSS. `source` может быть путём к файлу или URL ссылкой.
 
-Move all files in the Jekyll `_posts` folder to the `source/_posts` folder.
-
-Modify the `new_post_name` setting in `_config.yml`:
-
-``` yaml
-new_post_name: :year-:month-:day-:title.md
+``` bash
+$ шестнадцать rss <source>
 ```
 
-## Octopress
+## Чекилль
 
-Move all files in the Octopress `source/_posts` folder to `source/_posts`
+Переместите все файлы из папки Jekyll `_posts` в папку `source/_posts`.
 
-Modify the `new_post_name` setting in `_config.yml`:
+Измените переменную `new_post_name` в `_config.yml`:
 
 ``` yaml
-new_post_name: :year-:month-:day-:title.md
+new_post_name: :year :month-:day-:title.md
+```
+
+## Осьминог
+
+Переместите все файлы из папки Octopress `source/_posts` в папку `source/_posts`.
+
+Измените переменную `new_post_name` в `_config.yml`:
+
+``` yaml
+new_post_name: :year :month-:day-:title.md
 ```
 
 ## WordPress
 
-First, install the `hexo-migrator-wordpress` plugin.
+Сначала установите плагин `hexo-migrator-wordpress`.
 
 ``` bash
-$ npm install hexo-migrator-wordpress --save
+$ npm установить hexo-migrator-wordpress --save
 ```
 
-Export your WordPress site by going to "Tools" → "Export" → "WordPress" in the WordPress dashboard (see the [WordPress support page](http://en.support.wordpress.com/export/) for more details).
+Экспортируйте WordPress сайт, зайдя в “Инструменты” → “Экспорт” → “Wordpress” в панели WordPress (см. страницу [поддержки WordPress](https://wordpress.com/ru/support/export/) для более подробной информации.
 
-Now run:
+Выполнить:
 
 ``` bash
-$ hexo migrate wordpress <source>
+$ hexo мигрировать wordpress <source>
 ```
 
-Where `source` is the file path or URL to the WordPress export file.
+Где `source` — это путь или URL файла экспортированного из WordPress.
 
 ## Joomla
 
-First, install the `hexo-migrator-joomla` plugin.
+Во-первых, нужно установить плагин `hexo-migrator-joomla`.
 
 ```bash
-$ npm install hexo-migrator-joomla --save
+$ npm установить hexo-migrator-joomla --save
 ```
 
-Export your Joomla articles using the [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D) component.
+Экспортируйте статьи Joomla с помощью компонента [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D)
 
-Now run:
+Выполнить:
 
 ```bash
 $ hexo migrate joomla <source>
 ```
 
-Where `source` is the file path or URL to the Joomla export file.
+Где `source` — это путь или URL файла экспортированного из Joomla.
