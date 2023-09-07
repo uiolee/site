@@ -1,38 +1,38 @@
 ---
-title: Permalinks
+title: Постоянные ссылки
 ---
 
-You can specify the permalinks for your site in `_config.yml` or in the front-matter for each post.
+Вы можете указать формат постоянных ссылок на вашем сайте в файле `_config.yml`. Или в шапке каждого поста.
 
-### Variables
+### Переменные
 
-Besides the following variables, you can use any attributes in the permalink.
+Помимо переменных можно использовать любые атрибуты постоянной ссылки.
 
-| Variable      | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `:year`       | Published year of posts (4-digit)                                                   |
-| `:month`      | Published month of posts (2-digit)                                                  |
-| `:i_month`    | Published month of posts (Without leading zeros)                                    |
-| `:day`        | Published day of posts (2-digit)                                                    |
-| `:i_day`      | Published day of posts (Without leading zeros)                                      |
-| `:hour`       | Published hour of posts (2-digit)                                                   |
-| `:minute`     | Published minute of posts (2-digit)                                                 |
-| `:second`     | Published second of posts (2-digit)                                                 |
-| `:title`      | Filename (relative to "source/_posts/" folder)                                      |
-| `:name`       | Filename                                                                            |
-| `:post_title` | Post title                                                                          |
-| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_)               |
-| `:category`   | Categories. If the post is uncategorized, it will use the `default_category` value. |
-| `:hash`       | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)                  |
+| Переменная    | Описание                                                                                           |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| `:year`       | Год публикации поста (4-х значный)                                                                 |
+| `:month`      | Месяц публикации поста (2-х значный)                                                               |
+| `:i_месяц`    | Месяц публикации поста (Без ведущего нуля)                                                         |
+| `:day`        | День публикации поста (2-х значный)                                                                |
+| `:i_день`     | День публикации поста (Без ведущего нуля)                                                          |
+| `:hour`       | Опубликованный час сообщений (2-цифры)                                                             |
+| `:minute`     | Опубликованная минута сообщений (2-цифры)                                                          |
+| `:second`     | Опубликованный второй пост (2-цифры)                                                               |
+| `:title`      | Имя файла (relative to "source/_posts/" folder)                                                    |
+| `:name`       | Имя файла                                                                                          |
+| `:post_title` | Заголовок записи                                                                                   |
+| `:id`         | ID поста (_not persistent across [cache reset](/ru/docs/commands#clean)_)                          |
+| `:category`   | Категории. Если категория поста не указана, возьмётся значение по умолчанию из `default_category`. |
+| `:hash`       | Хэш SHA1 (то же самое, что и `:title`) и дата (12-шестнадцатеричное)                               |
 
-You can define the default value of each variable in the permalink through the `permalink_defaults` setting:
+Можно определить значение по умолчанию для переменной постоянной ссылки, задав значение `permalink_defaults` в конфигурации:
 
 ``` yaml
 permalink_defaults:
-  lang: en
+  lang: ru
 ```
 
-### Examples
+### Примеры
 
 ``` yaml source/_posts/hello-world.md
 title: Hello World
@@ -42,12 +42,12 @@ categories:
 - bar
 ```
 
-| Setting                         | Result                      |
+| Настройка                       | Результат                   |
 | ------------------------------- | --------------------------- |
 | `:year/:month/:day/:title/`     | 2013/07/14/hello-world/     |
-| `:year-:month-:day-:title.html` | 2013-07-14-hello-world.html |
+| `:year :month-:day-:title.html` | 2013-07-14-hello-world.html |
 | `:category/:title/`             | foo/bar/hello-world/        |
-| `:title-:hash/`                 | hello-world-a2c8ac003b43/   |
+| `:title-:hash/`                 | 2c8ac003b43/                |
 
 ``` yaml source/_posts/lorem/hello-world.md
 title: Hello World
@@ -57,28 +57,28 @@ categories:
 - bar
 ```
 
-| Setting                     | Result                        |
+| Настройка                   | Результат                     |
 | --------------------------- | ----------------------------- |
 | `:year/:month/:day/:title/` | 2013/07/14/lorem/hello-world/ |
 | `:year/:month/:day/:name/`  | 2013/07/14/hello-world/       |
 
-### Multi-language Support
+### Многоязычность
 
-To create a multi-language site, you can modify the `new_post_name` and `permalink` settings like this:
+Для создания многоязыкового сайта можно изменить `new_post_name` и `permalink`. Например:
 
 ``` yaml
 new_post_name: :lang/:title.md
 permalink: :lang/:title/
 ```
 
-When you create a new post, the post will be saved to:
+При создании нового поста, он будет сохранен в папке указанного языка:
 
 ``` bash
 $ hexo new "Hello World" --lang tw
 # => source/_posts/tw/Hello-World.md
 ```
 
-and the URL will be:
+и URL-адрес:
 
 ``` plain
 http://localhost:4000/tw/hello-world/
