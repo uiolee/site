@@ -1,11 +1,12 @@
 ---
-title: Рендеринг
+title: Rendering
 ---
-Существует два метода обработки файлов или строк для рендеринга: асинхронный `hexo.render.render` и синхронный `hexo.render.renderSync`. Нет ничего удивительного в похожести этих методов. Ниже описываются только асинхронные методы.
 
-## Обработка строки
+There are two methods for rendering files or strings in Hexo: the asynchronous `hexo.render.render` method and the synchronous `hexo.render.renderSync` method. Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs.
 
-При рендеринге строки Hexo необходимо указать, каким обработчиком (`engine`) её обрабатывать.
+## Render a String
+
+When rendering a string, you must specify an `engine` to let Hexo know which rendering engine it should use.
 
 ``` js
 hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
@@ -13,9 +14,9 @@ hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
 });
 ```
 
-## Обработка файла
+## Render a File
 
-При обработке файла не нужно указывать `engine`, потому что Hexo сам обнаружит соответствующий рендер автоматически в зависимости от расширения файла. Конечно, возможно и явно задать обработчик.
+When rendering a file, it's not necessary to specify an `engine` because Hexo will detect the relevant rendering engine automatically based on the extension of the file. Of course, you are also allowed to explicitly define the `engine`.
 
 ``` js
 hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
@@ -23,9 +24,9 @@ hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
 });
 ```
 
-## Опции обработчика
+## Render Options
 
-Можно задать опции в качестве второго аргумента.
+You can pass in an options object as the second argument.
 
 ``` js
 hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
@@ -33,9 +34,9 @@ hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
 });
 ```
 
-## Фильтр after_render
+## after_render Filters
 
-При окончании обработки Hexo выполнит соответствующие фильтры, заданные в переменной `after_render`. Например, эта функция запустит минификацию JavaScript'а.
+When rendering is complete, Hexo will execute the corresponding `after_render` filters. For example, we can use this feature to implement a JavaScript minifier.
 
 ``` js
 var UglifyJS = require('uglify-js');
@@ -46,18 +47,18 @@ hexo.extend.filter.register('after_render:js', function(str, data){
 });
 ```
 
-## Проверка, существует ли обработчик для типа файла
+## Check Whether a File is Renderable
 
-Можно использовать метод `isRenderable` или `isRenderableSync` для проверки, зарегистрирован ли обработчик для типа файла. Только когда соответствующий обработчик был зарегистрирован, будет возвращёно значение `true`.
+You can use the `isRenderable` or `isRenderableSync` method to check whether a file path is renderable. Only when a corresponding renderer has been registered will this method return true.
 
 ``` js
 hexo.render.isRenderable('layout.swig') // true
 hexo.render.isRenderable('image.png') // false
 ```
 
-## Определение расширения на выходе
+## Get the Output Extension
 
-Метод `getOutput` получает расширение на выходе обработчика. Если передать необрабатываемый файл, то обработчик вернёт пустую строку.
+Use the `getOutput` method to get the extension of the rendered output. If a file is not renderable, the method will return an empty string.
 
 ``` js
 hexo.render.getOutput('layout.swig') // html
