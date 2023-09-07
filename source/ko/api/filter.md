@@ -94,7 +94,7 @@ Hexo에서 사용하는 filter의 목록은 아래와 같습니다.
 
 ### before_post_render
 
-Post가 생성되기 전에 실행됩니다. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
+Executed after a post is rendered. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
 
 아래 예시는 title을 소문자로 변경하는 것을 보여줍니다.
 
@@ -107,7 +107,7 @@ hexo.extend.filter.register('before_post_render', function(data){
 
 ### after_post_render
 
-렌더링이 완료된 후 실행됩니다. [Rendering](rendering.html#after_render_Filters)에서 더 많은 정보를 확인하실 수 있습니다.
+Post가 생성되기 전에 실행됩니다. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
 
 아래 예시는 `@username`을 Twitter link로 대체하는 것을 보여줍니다.
 
@@ -193,7 +193,7 @@ hexo.extend.filter.register('post_permalink', function(data){
 
 ### after_render
 
-Executed after a post is rendered. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
+렌더링이 완료된 후 실행됩니다. [Rendering](rendering.html#after_render_Filters)에서 더 많은 정보를 확인하실 수 있습니다.
 
 ### after_clean
 
