@@ -1,63 +1,63 @@
 ---
-title: Posts
+title: 员额
 ---
 
-## Create a Post
+## 创建帖子
 
 ``` js
-hexo.post.create(data, replace);
+hexo.post.create(data, replace)；
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| 参数   | 描述     |
+| ---- | ------ |
+| `数据` | 数据     |
+| `替换` | 替换现有文件 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+帖子的属性可以在 `数据` 中定义。 下表并非详尽无遗。 其他属性可附在前面的事项上。
 
-| Data     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `title`  | Title                                                                            |
-| `slug`   | URL                                                                              |
-| `layout` | Layout. Defaults to the `default_layout` setting.                                |
-| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
-| `date`   | Date. Defaults to the current date.                                              |
+| 数据   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `标题` | 标题                                            |
+| `缩写` | 网址                                            |
+| `布局` | 布局。 Defaults to the `default_layout` setting. |
+| `路径` | 路径. Hexo 默认基于 `new_post_path` 设置构建帖子路径。       |
+| `日期` | 4. 日期。 默认当前日期。                                |
 
-## Publish a Draft
+## 发布草稿
 
 ``` js
-hexo.post.publish(data, replace);
+hexo.post.publish(data, replace)；
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| 参数   | 描述     |
+| ---- | ------ |
+| `数据` | 数据     |
+| `替换` | 替换现有文件 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+帖子的属性可以在 `数据` 中定义。 下表并非详尽无遗。 其他属性可附在前面的事项上。
 
-| Data     | Description                                       |
-| -------- | ------------------------------------------------- |
-| `slug`   | File name (Required)                              |
-| `layout` | Layout. Defaults to the `default_layout` setting. |
+| 数据   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `缩写` | 文件名(必填)                                       |
+| `布局` | 布局。 Defaults to the `default_layout` setting. |
 
-## Render
+## 渲染
 
 ``` js
-hexo.post.render(source, data);
+hexo.post.render(源，数据)；
 ```
 
-| Argument | Description                    |
-| -------- | ------------------------------ |
-| `source` | Full path of a file (Optional) |
-| `data`   | Data                           |
+| 参数   | 描述          |
+| ---- | ----------- |
+| `来源` | 文件的完整路径(可选) |
+| `数据` | 数据          |
 
-The data must contain the `content` attribute. If not, Hexo will try to read the original file. The execution steps of this function are as follows:
+数据必须包含 `内容` 属性。 如果不是，十六进制将尝试读取原始文件。 此函数的执行步骤如下：
 
-- Execute `before_post_render` filters
-- Render with Markdown or other renderers (depending on the extension name)
-- Render with [Nunjucks][]
-- Execute `after_post_render` filters
+- 执行 `之前_post_render` 过滤器
+- 使用Markdown 或其他渲染器渲染(取决于扩展名称)
+- 使用 [Nunjuck][]
+- 执行 `后 _post_render` 过滤器
 
-[Nunjucks]: https://mozilla.github.io/nunjucks/
+[Nunjuck]: https://mozilla.github.io/nunjucks/
 
