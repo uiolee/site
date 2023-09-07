@@ -1,15 +1,15 @@
 ---
-title: Processor
+title: 处理器
 ---
 
-A processor is used to process source files in the `source` folder.
+处理器用于处理 `源` 文件夹中的源文件。
 
-## Synopsis
+## 简述
 
 ``` js
-hexo.extend.processor.register(rule, function(file){
- // ...
+hexo.extend.processor.register(rule, function(file)@un.org.
+/...
 });
 ```
 
-For more info, see [box](box.html).
+欲了解更多信息，请参阅 [box](box.html)。
