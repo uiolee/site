@@ -1,6 +1,7 @@
 ---
 title: Scaffolds
 ---
+
 ## Получить Scaffold
 
 ``` js
