@@ -1,24 +1,25 @@
 ---
-title: Локальные переменные
+title: Local Variables
 ---
-Локальные переменные используются для рендеринга шаблона, они доступны через переменную `site` в шаблоне.
 
-## Переменные по умолчанию
+Local variables are used for template rendering, which is the `site` variable in templates.
 
-Переменная | Описание
---- | ---
-`posts` | Все посты
-`pages` | Все страницы
-`categories` | Все категории
-`tags` | Все теги
+## Default Variables
 
-## Получение переменной
+| Variable     | Description    |
+| ------------ | -------------- |
+| `posts`      | All posts      |
+| `pages`      | All pages      |
+| `categories` | All categories |
+| `tags`       | All tags       |
+
+## Get a Variable
 
 ``` js
 hexo.locals.get('posts')
 ```
 
-## Установка переменной
+## Set a Variable
 
 ``` js
 hexo.locals.set('posts', function(){
@@ -26,20 +27,20 @@ hexo.locals.set('posts', function(){
 });
 ```
 
-## Удаление переменной
+## Remove a Variable
 
 ``` js
 hexo.locals.remove('posts');
 ```
 
-## Получение всех переменных
+## Get All Variable
 
 ``` js
 hexo.locals.toObject();
 ```
 
-## Очистка кэша
+## Invalidate the cache
 
 ``` js
 hexo.locals.invalidate();
-``
+```
