@@ -26,6 +26,7 @@ hexo.locals.set('posts', function(){
   return ...
 });
 });
+});
 ```
 
 ## 移除變數
