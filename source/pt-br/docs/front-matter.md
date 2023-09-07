@@ -4,71 +4,71 @@ title: Front-matter
 
 {% youtube pfD6FCZdW4Q %}
 
-Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
+Front-matter é um bloco de YAML ou JSON no início do arquivo que é usado para configurar as configurações de seus escritos. Front-matter é rescindido por três traços quando escritos em YAML ou três ponto-e-vírgulas quando escritos em JSON.
 
 **YAML**
 
 ``` yaml
 ---
-title: Hello World
-date: 2013/7/13 20:46:25
+título: Olá Mundo
+data: 2013/7/13 20:46:25
 ---
 ```
 
 **JSON**
 
 ``` json
-"title": "Hello World",
+"title": "Olá, mundo",
 "date": "2013/7/13 20:46:25"
-;;;
+;;
 ```
 
-### Settings & Their Default Values
+### Configurações & Seus Valores Padrão
 
-| Setting           | Description                                                                                         | Default                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `layout`          | Layout                                                                                              | [`config.default_layout`](/docs/configuration#Writing) |
-| `title`           | Title                                                                                               | Filename (posts only)                                  |
-| `date`            | Published date                                                                                      | File created date                                      |
-| `updated`         | Updated date                                                                                        | File updated date                                      |
-| `comments`        | Enables comment feature for the post                                                                | true                                                   |
-| `tags`            | Tags (Not available for pages)                                                                      |                                                        |
-| `categories`      | Categories (Not available for pages)                                                                |                                                        |
-| `permalink`       | Overrides the default permalink of the post. Permalink should end with `/` or `.html`               | `null`                                                 |
-| `excerpt`         | Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text    |                                                        |
-| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled | false                                                  |
-| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                      | Inherited from `_config.yml`                           |
+| Configuração          | Descrição:                                                                                                     | Padrão                                                 |
+| --------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `layout`              | Disposição                                                                                                     | [`config.default_layout`](/docs/configuration#Writing) |
+| `Título`              | Título                                                                                                         | Nome do arquivo (apenas postagens)                     |
+| `Data`                | Data de publicação                                                                                             | Data de criação                                        |
+| `Atualizado`          | Data de atualização                                                                                            | Data de atualização                                    |
+| `Comentários`         | Habilita o comentário na postagem                                                                              | verdadeiro                                             |
+| `Etiquetas`           | Tags (não disponíveis para páginas)                                                                            |                                                        |
+| `Categorias`          | Categorias (não disponível para páginas)                                                                       |                                                        |
+| `permalink`           | Sobrescreve o link padrão do post. Permalink deve terminar com `/` ou `.html`                                  | `nulo`                                                 |
+| `resumo`              | Resumo de página em texto simples. Usar [este plugin](/docs/tag-plugins#Post-Excerpt) para formatar o texto    |                                                        |
+| `desabilitarNunjucks` | Desabilitar renderização da tag Nunjucks `{{ }}`/`{% %}` e [plugins de tags](/docs/tag-plugins) quando ativado | Falso                                                  |
+| `lang`                | Definir o idioma para substituir [auto detecção](/docs/internationalization#Path)                              | Herdado de `_config.yml`                               |
 
-#### Layout
+#### Disposição
 
-The default layout is `post`, in accordance to the value of [`default_layout`](/docs/configuration#Writing) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML.
+O layout padrão é `post`, de acordo com o valor de [`default_layout`](/docs/configuration#Writing) definição em `_config.yml`. Quando o layout é desativado (`layout: false`) em um artigo, ele não será processado com um tema. No entanto ele ainda será renderizado por qualquer renderizador disponível: se um artigo for escrito em Markdown e um renderizador Markdown (como o padrão [hexo-renderer](https://github.com/hexojs/hexo-renderer-marked)) estiver instalado, será renderizado para HTML.
 
-[Tag plugins](/docs/tag-plugins) are always processed regardless of layout, unless disabled by the `disableNunjucks` setting or [renderer](/api/renderer#Disable-Nunjucks-tags).
+[Plugins de tags](/docs/tag-plugins) são sempre processados independentemente do layout, a menos que esteja desabilitado pelo `disableNunjucks` setting ou [renderer](/api/renderer#Disable-Nunjucks-tags).
 
-#### Categories & Tags
+#### Categorias & Etiquetas
 
-Only posts support the use of categories and tags. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important.
+Somente os posts suportam o uso de categorias e tags. Categorias se aplicam às postagens em ordem, resultando numa hierarquia de classificações e subclassificações. Etiquetas são todas definidas no mesmo nível hierárquico e por isso a ordem em que aparecem não é importante.
 
-**Example**
+**Exemplo**
 
 ``` yaml
-categories:
-- Sports
+categorias:
+- Esportes
 - Baseball
 tags:
-- Injury
-- Fight
-- Shocking
+- Lesões
+- Lute contra
+- Eletrificado
 ```
 
-If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.
+Se você quiser aplicar múltiplas hierarquias de categorias, use uma lista de nomes ao invés de um único nome. Se o Hexo vir qualquer categoria definida desta forma em uma publicação, tratará cada categoria da publicação como sua própria hierarquia independente.
 
-**Example**
+**Exemplo**
 
 ``` yaml
-categories:
-- [Sports, Baseball]
-- [MLB, American League, Boston Red Sox]
-- [MLB, American League, New York Yankees]
+categorias:
+- [Esportes, Baseball]
+- [MLB, Liga Americana, Boston Red Sox]
+- [MLB, Liga Americana, Nova Iorque]
 - Rivalries
 ```
