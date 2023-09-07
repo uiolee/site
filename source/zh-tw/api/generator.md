@@ -1,9 +1,10 @@
 ---
-title: 產生器（Generator）
+title: Generator
 ---
-產生器根據處理後的原始檔案建立路由。
 
-## 概要
+A generator builds routes based on processed files.
+
+## Synopsis
 
 ``` js
 hexo.extend.generator.register(name, function(locals){
@@ -11,9 +12,9 @@ hexo.extend.generator.register(name, function(locals){
 });
 ```
 
-在函數中會傳入一個 `locals` 參數，等同於 [網站變數](../docs/variables.html#網站變數)，請盡量利用此參數取得網站資料，避免直接存取資料庫。
+A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
 
-## 更新路由
+## Update Routes
 
 ``` js
 hexo.extend.generator.register('test', function(locals){
@@ -22,7 +23,7 @@ hexo.extend.generator.register('test', function(locals){
     path: 'foo',
     data: 'foo'
   };
-  
+
   // Array
   return [
     {path: 'foo', data: 'foo'},
@@ -31,41 +32,42 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-屬性 | 描述
---- | ---
-`path` | 路徑。不可包含開頭的 `/`。
-`data` | 資料
-`layout` | 佈局。指定用於渲染的模板，可為字串或陣列，如果省略此屬性的話則會直接輸出 `data`。
+| Attribute | Description                                                                                                                                   |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `path`    | Path not including the prefixing `/`.                                                                                                         |
+| `data`    | Data                                                                                                                                          |
+| `layout`  | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
 
-在原始檔案更新時，Hexo 會執行所有產生器並重建路由，**請直接回傳資料，不要直接操作路由**。
+When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.**
 
-## 範例
+## Example
 
-### 彙整頁面
+### Archive Page
 
-在 `archives/index.html` 建立一彙整頁面，把所有文章當作資料傳入模板內，這個資料也就等同於模板中的 `page` 變數。
+Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-然後，設定 `layout` 屬性好讓 Hexo 使用主題模板來渲染，在此例中同時設定了兩個佈局，當 `archive` 佈局不存在時，會繼續嘗試 `index` 佈局。
+Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
   return {
     path: 'archives/index.html',
-    data: locals.posts,
+    data: locals,
     layout: ['archive', 'index']
   }
 });
 ```
 
-### 有分頁的彙整頁面
+### Archive Page with Pagination
 
-您可透過 [hexo-pagination] 這個方便的官方工具程式來輕鬆建立分頁彙整。
+You can use the convenient official tool [hexo-pagination][] to easily build archive pages with pagination.
 
 ``` js
 var pagination = require('hexo-pagination');
 
 hexo.extend.generator.register('archive', function(locals){
-  return pagination('archives/index.html', locals.posts, {
+  // hexo-pagination makes an index.html for the /archives route
+  return pagination('archives', locals.posts, {
     perPage: 10,
     layout: ['archive', 'index'],
     data: {}
@@ -73,9 +75,9 @@ hexo.extend.generator.register('archive', function(locals){
 });
 ```
 
-### 產生所有文章
+### Generate All Posts
 
-遍歷 `locals.posts` 中的所有文章並產生所有文章的路由。
+Iterate over all posts in `locals.posts` and create routes for all the posts.
 
 ``` js
 hexo.extend.generator.register('post', function(locals){
@@ -89,9 +91,9 @@ hexo.extend.generator.register('post', function(locals){
 });
 ```
 
-### 複製檔案
+### Copy Files
 
-這次不直接在 `data` 中傳回資料而是傳回一個函數，如此一來這個路由唯有在使用時才會建立 `fs.ReadStream`。
+This time we don't return the data explicitly but instead set `data` to a function so the route will build `fs.ReadStream` only when needed.
 
 ``` js
 var fs = require('hexo-fs');
