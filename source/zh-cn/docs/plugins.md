@@ -1,18 +1,18 @@
 ---
-title: Plugins
+title: 插件
 ---
 
-Hexo has a powerful plugin system, which makes it easy to extend functions without modifying the source code of the core module. There are two kinds of plugins in Hexo:
+Hexo 有一个功能强大的插件系统，它可以方便扩展功能，而不修改核心模块的源代码。 Hexo有两种插件：
 
-### Script
+### 脚本
 
-If your plugin is relatively simple, it's recommended to use a script. All you need to do is put your JavaScript files in the `scripts` folder and Hexo will load them during initialization.
+如果你的插件相对简单，建议使用脚本。 您需要做的只是将您的 JavaScript 文件放入 `脚本` 文件夹，Hexo 将在初始化过程中加载它们。
 
-### Plugin
+### 插件
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+如果你的代码是复杂的，或者如果你想要将它发布到NPM注册表，我们建议使用一个插件。 首先，在 `node_modules` 文件夹中创建一个文件夹。 The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
-Your new folder must contain at least two files: one containing the actual JavaScript code and one `package.json` file that describes the purpose of the plugin and sets its dependencies.
+您的新文件夹必须包含至少两个文件：一个包含实际的 JavaScript 代码和 `包。 son` 文件描述了插件的目的并设置了它的依赖性。
 
 ```plain
 .
@@ -20,58 +20,58 @@ Your new folder must contain at least two files: one containing the actual JavaS
 └── package.json
 ```
 
-At the very least, you should set the `name`, `version` and `main` entries in `package.json`. For example:
+至少，您应该设置 `名称`, `版本` 和 `主` 在 `package.json` 中的条目。 例如：
 
 ```json package.json
-{
+●
   "name": "hexo-my-plugin",
   "version": "0.0.1",
   "main": "index"
 }
 ```
 
-You'll also need to list your plugin as a dependency in the root `package.json` of your hexo instance in order for Hexo to detect and load it.
+你还需要将你的插件列为根 `软件包中的依赖项。 你的十六进制实例的son` 以便让十六进制探测和加载它。
 
-### Tools
+### 工具
 
-You can make use of the official tools provided by Hexo to accelerate development:
+您可以使用Hexo提供的官方工具来加速开发：
 
 - [hexo-fs][]：File IO
 - [hexo-util][]：Utilities
-- [hexo-i18n][]：Localization (i18n)
+- [十六进制][]：本地化 (i18n)
 - [hexo-pagination][]：Generate pagination data
 
-### Publishing
+### 发布
 
-When your plugin is ready, you may consider publishing it to the [plugin list](/plugins) to invite other people to start using it. Publishing your own plugins is very similar to [updating documentation](contributing.html#Updating_Documentation).
+When your plugin is ready, you may consider publishing it to the [plugin list](/plugins) to invite other people to start using it. 发布您自己的插件非常类似于 [更新文档](contributing.html#Updating_Documentation)。
 
-1. Fork [hexojs/site][]
-2. Clone the repository to your computer and install dependencies.
+1. Fork [十六进制/站点][]
+2. 复制存储库到您的电脑并安装依赖项。
 
    ```shell
    $ git clone https://github.com/<username>/site.git
-   $ cd site
-   $ npm install
+   $cd site
+   $ npm 安装
    ```
 
 3. Create a new yaml file in `source/_data/plugins/`, use your plugin name as the file name
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. 例如：
 
    ```yaml
-   description: Server module for Hexo.
-   link: https://github.com/hexojs/hexo-server
-   tags:
-     - official
-     - server
-     - console
+   描述：十六进制服务器模块。
+   链接：https://github.com/hexojs/hexo-server
+   标签：
+     - 官方
+     - 服务器
+     - 控制台
    ```
 
-5. Push the branch.
-6. Create a pull request and describe the change.
+5. 推送分支。
+6. 创建拉请求并描述更改。
 
 [hexo-fs]: https://github.com/hexojs/hexo-fs
 [hexo-util]: https://github.com/hexojs/hexo-util
-[hexo-i18n]: https://github.com/hexojs/hexo-i18n
+[十六进制]: https://github.com/hexojs/hexo-i18n
 [hexo-pagination]: https://github.com/hexojs/hexo-pagination
-[hexojs/site]: https://github.com/hexojs/site
+[十六进制/站点]: https://github.com/hexojs/site
