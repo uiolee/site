@@ -25,6 +25,7 @@ hexo.locals.get('posts')
 hexo.locals.set('posts', function(){
   return ...
 });
+});
 ```
 
 ## Remove a Variable
