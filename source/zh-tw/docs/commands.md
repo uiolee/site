@@ -13,7 +13,7 @@ $ hexo init [folder]
 This command is a shortcut that runs the following steps:
 
 1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) including [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) into the current directory or a target folder if specified.
-2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
+2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default. npm is bundled with [Node.js](/docs/#Install-Node-js) by default. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
 
 ## new
 
@@ -21,15 +21,15 @@ This command is a shortcut that runs the following steps:
 $ hexo new [layout] <title>
 ```
 
-建立一篇新的文章。 如果沒有設定 `layout` 的話，則會使用 [_config.yml](configuration.html) 中的 `default_layout` 設定代替。 Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+建立一篇新的文章。 如果沒有設定 `layout` 的話，則會使用 [_config.yml](configuration.html) 中的 `default_layout` 設定代替。 Use the layout `draft` to create a draft. Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
 
-| 選項                | 描述                                         |
-| ----------------- | ------------------------------------------ |
-| `-p`, `--path`    | Post path. Customize the path of the post. |
-| `-r`, `--replace` | Replace the current post if existed.       |
-| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+| 選項                | 描述                                                    |
+| ----------------- | ----------------------------------------------------- |
+| `-p`, `--path`    | Post path. Post path. Customize the path of the post. |
+| `-r`, `--replace` | Replace the current post if existed.                  |
+| `-s`, `--slug`    | Post slug. Post slug. Customize the URL of the post.  |
 
-By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path: For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
 
 ```bash
 hexo new page --path about/me "About me"
@@ -37,13 +37,13 @@ hexo new page --path about/me "About me"
 
 will create `source/about/me.md` file with the title "About me" set in the front matter.
 
-Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+Please note that the title is mandatory. Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
 
 ```bash
 hexo new page --path about/me
 ```
 
-will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
+will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`. This is because there is only one argument (`page`) and the default layout is `post`.
 
 ## generate
 
@@ -53,13 +53,13 @@ $ hexo generate
 
 Generates static files.
 
-| 選項                    | 描述                                                                       |
-| --------------------- | ------------------------------------------------------------------------ |
-| `-d`, `--deploy`      | Deploy after generation finishes                                         |
-| `-w`, `--watch`       | Watch file changes                                                       |
-| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
-| `-f`, `--force`       | Force regenerate                                                         |
-| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
+| 選項                    | 描述                                                                                           |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| `-d`, `--deploy`      | Deploy after generation finishes                                                             |
+| `-w`, `--watch`       | Watch file changes                                                                           |
+| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation                        |
+| `-f`, `--force`       | Force regenerate                                                                             |
+| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity Default is infinity |
 
 ## publish
 
@@ -75,13 +75,13 @@ $ hexo publish [layout] <filename>
 $ hexo server
 ```
 
-Starts a local server. By default, this is at `http://localhost:4000/`.
+Starts a local server. Starts a local server. By default, this is at `http://localhost:4000/`.
 
-| 選項               | 描述                                     |
-| ---------------- | -------------------------------------- |
-| `-p`, `--port`   | Override default port                  |
-| `-s`, `--static` | 只使用靜態檔案                                |
-| `-l`, `--log`    | Enable logger. Override logger format. |
+| 選項               | 描述                                                    |
+| ---------------- | ----------------------------------------------------- |
+| `-p`, `--port`   | Override default port                                 |
+| `-s`, `--static` | 只使用靜態檔案                                               |
+| `-l`, `--log`    | Enable logger. Enable logger. Override logger format. |
 
 ## deploy
 
@@ -147,7 +147,7 @@ $ hexo version
 $ hexo --safe
 ```
 
-Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
+Disables loading plugins and scripts. Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
 
 ### 除錯模式
 
@@ -155,7 +155,7 @@ Disables loading plugins and scripts. Try this if you encounter problems after i
 $ hexo --debug
 ```
 
-在終端機中顯示除錯訊息並儲存記錄檔到 `debug.log`。 Try this if you encounter any problems with Hexo. 當您碰到問題時，試著以除錯模式重新執行一次，並 [把除錯訊息貼到 GitHub](https://github.com/hexojs/hexo/issues/new)。
+在終端機中顯示除錯訊息並儲存記錄檔到 `debug.log`。 Try this if you encounter any problems with Hexo. Try this if you encounter any problems with Hexo. 當您碰到問題時，試著以除錯模式重新執行一次，並 [把除錯訊息貼到 GitHub](https://github.com/hexojs/hexo/issues/new)。
 
 ### 安靜模式
 
