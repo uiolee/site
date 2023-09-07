@@ -17,6 +17,7 @@ Once initialized, here's what your project folder will look like:
 ``` plain
 .
 .
+.
 ├── _config.yml
 ├── package.json
 ├── scaffolds
@@ -32,7 +33,7 @@ Once initialized, here's what your project folder will look like:
 
 ### package.json
 
-Application data. [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) renderer 已預設安裝，您可以稍後移除。 If you want, you can uninstall them later.
+Application data. Application data. [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) renderer 已預設安裝，您可以稍後移除。 If you want, you can uninstall them later.
 
 ``` json package.json
 {
