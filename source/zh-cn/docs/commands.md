@@ -1,194 +1,194 @@
 ---
-title: Commands
+title: 命令
 ---
 
 ## init
 
 ``` bash
-$ hexo init [folder]
+美元十六进制 [folder]
 ```
 
-Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
+初始化一个网站。 如果没有提供 `文件夹` ，Hexo 将在当前目录中设置一个网站。
 
-This command is a shortcut that runs the following steps:
+此命令是一个运行以下步骤的快捷方式：
 
-1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) including [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) into the current directory or a target folder if specified.
-2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
+1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) includes [hexo-theme-scription](https://github.com/hexojs/hexo-theme-landscape) into current 目录或目标文件夹，如果指定的话。
+2. 使用软件包管理器安装依赖关系: [Yarn 1](https://classic.yarnpkg.com/lang/en/) [pnpm](https://pnpm.js.org) 或 [npm](https://docs.npmjs.com/cli/install), 以安装者为准； 如果有多个安装，优先级将列在列表中。 npm 默认与 [Node.js](/docs/#Install-Node-js) 捆绑。
 
-## new
+## 新的
 
 ``` bash
-$ hexo new [layout] <title>
+美元新增 [layout] <title>
 ```
 
-Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+创建新文章 If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. 如果 `标题` 包含空格，用引号环绕它。
 
-| Option            | Description                                |
-| ----------------- | ------------------------------------------ |
-| `-p`, `--path`    | Post path. Customize the path of the post. |
-| `-r`, `--replace` | Replace the current post if existed.       |
-| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+| 选项                | 描述                  |
+| ----------------- | ------------------- |
+| `-p`, `--path`    | 后期路径。 自定义帖子路径。      |
+| `-r`, `--replace` | 如果存在的话替换当前帖子。       |
+| `-s`, `--slug`    | 发布slug。 自定义帖子的 URL。 |
 
-By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+默认情况下，Hexo 将使用标题来定义文件的路径。 对于页面来说，它将创建一个该名称的目录和其中的 `index.md` 文件。 使用 `--path` 选项来覆盖该行为并定义文件路径：
 
 ```bash
-hexo new page --path about/me "About me"
+十六进制新页面 --path about/me "关于我"
 ```
 
-will create `source/about/me.md` file with the title "About me" set in the front matter.
+将创建 `源代码/about/me.md` 文件，标题“关于我” 设置在前端。
 
-Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+请注意标题是强制性的。 例如，这不会导致您可能期望的行为：
 
 ```bash
-hexo new page --path about/me
+十六进制新页面 --path about/me
 ```
 
-will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
+will create the post `source/_posts/about/me.md` with the title "page" in the front matter. 这是因为只有一个参数(`页`)，而默认的布局是 `帖子`。
 
-## generate
+## 生成
 
 ``` bash
-$ hexo generate
+$ 十六进制生成
 ```
 
-Generates static files.
+生成静态文件。
 
-| Option                | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| `-d`, `--deploy`      | Deploy after generation finishes                                         |
-| `-w`, `--watch`       | Watch file changes                                                       |
-| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
-| `-f`, `--force`       | Force regenerate                                                         |
-| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
+| 选项                    | 描述                    |
+| --------------------- | --------------------- |
+| `-d`, `--deplement`   | 生成完成后部署               |
+| `-w`, `--watch`       | 监视文件更改                |
+| `-b`, `--bail`        | 在生成过程中抛出任何未处理异常时出现错误  |
+| `-f`, `--force`       | 强制重新生成                |
+| `-c`, `--concurrency` | 要同时生成的文件的最大数量。 默认是无限的 |
 
-## publish
+## 发布
 
 ``` bash
-$ hexo publish [layout] <filename>
+$十六进制发布 [layout] <filename>
 ```
 
-Publishes a draft.
+发布草稿。
 
-## server
+## 服务器
 
 ``` bash
-$ hexo server
+$ 十六进制服务器
 ```
 
-Starts a local server. By default, this is at `http://localhost:4000/`.
+启动本地服务器。 By default, this is at `http://localhost:4000/`.
 
-| Option           | Description                            |
-| ---------------- | -------------------------------------- |
-| `-p`, `--port`   | Override default port                  |
-| `-s`, `--static` | Only serve static files                |
-| `-l`, `--log`    | Enable logger. Override logger format. |
+| 选项               | 描述                            |
+| ---------------- | ----------------------------- |
+| `-p`, `--端口`     | 覆盖默认端口                        |
+| `-s`, `--static` | 仅用于静态文件                       |
+| `-l`, `--log`    | 启用日志。 Override logger format. |
 
-## deploy
+## 部署
 
 ``` bash
-$ hexo deploy
+$十六进制部署
 ```
 
-Deploys your website.
+部署您的网站。
 
-| Option             | Description                |
-| ------------------ | -------------------------- |
-| `-g`, `--generate` | Generate before deployment |
+| 选项                 | 描述     |
+| ------------------ | ------ |
+| `-g`, `--generate` | 在部署前生成 |
 
-## render
+## 渲染
 
 ``` bash
 $ hexo render <file1> [file2] ...
 ```
 
-Renders files.
+渲染文件。
 
-| Option           | Description        |
-| ---------------- | ------------------ |
-| `-o`, `--output` | Output destination |
+| 选项               | 描述   |
+| ---------------- | ---- |
+| `-o`, `--output` | 输出目标 |
 
-## migrate
-
-``` bash
-$ hexo migrate <type>
-```
-
-[Migrates](migration.html) content from other blog systems.
-
-## clean
+## 迁移
 
 ``` bash
-$ hexo clean
+美元十六进制迁移 <type>
 ```
 
-Cleans the cache file (`db.json`) and generated files (`public`).
+[从其它博客系统迁移了](migration.html) 内容。
 
-## list
+## 清理
 
 ``` bash
-$ hexo list <type>
+美元十六进制清理
 ```
 
-Lists all routes.
+清除缓存文件 (`db.json`并生成文件 (`public`).
 
-## version
+## 邮件列表
 
 ``` bash
-$ hexo version
+美元十六进制列表 <type>
 ```
 
-Displays version information.
+列出所有路线。
 
-## Options
+## 版本
 
-### Safe mode
+``` bash
+$ 十六进制版本
+```
+
+显示版本信息。
+
+## 备选方案
+
+### 安全模式
 
 ``` bash
 $ hexo --safe
 ```
 
-Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
+禁用加载插件和脚本。 如果您在安装新插件后遇到问题，请尝试此操作。
 
-### Debug mode
+### 调试模式
 
 ``` bash
 $ hexo --debug
 ```
 
-Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
+Logs verbose messages to the terminal and to `debug.log`. 如果你遇到了任何问题，请尝试使用 Hexo If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
 
-### Silent mode
+### 静音模式
 
 ``` bash
-$ hexo --silent
+$ 十六进制--静音
 ```
 
-Silences output to the terminal.
+静音输出到终端。
 
-### Customize config file path
+### 自定义配置文件路径
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
+使用自定义配置文件(而不是 `_config.yml`)。 还接受一个 JSON 或 YAML 配置文件的逗号分隔列表 (无空格) 将文件合并为单个的 `_multiconfig.yml`。
 
 ``` bash
 $ hexo --config custom.yml,custom2.json
 ```
 
-### Display drafts
+### 显示草稿
 
 ``` bash
-$ hexo --draft
+$ 十六进制--draft
 ```
 
-Displays draft posts (stored in the `source/_drafts` folder).
+显示草稿帖子(存储在 `source/_draft` 文件夹中)。
 
-### Customize CWD
+### 自定义 CWD
 
 ``` bash
 $ hexo --cwd /path/to/cwd
 ```
 
-Customizes the path of current working directory.
+自定义当前工作目录的路径。
