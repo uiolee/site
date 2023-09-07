@@ -6,18 +6,18 @@ title: Variables
 
 ### Global Variables
 
-| Variable | Description                                                         | Type                                 |
-| -------- | ------------------------------------------------------------------- | ------------------------------------ |
-| `site`   | Sitewide information.                                               | `object`; see [Site Variables][]     |
-| `page`   | Page specific information and custom variables set in front-matter. | `object`; see [Page Variables][]     |
-| `config` | Site configuration.                                                 | `object` (your site's _config file)  |
-| `theme`  | Theme configuration. Inherits from site configuration.              | `object` (your theme's _config file) |
-| `path`   | Path of current page                                                | `string`                             |
-| `url`    | Full URL of current page                                            | `string`                             |
-| `env`    | Environment variables                                               | ???                                  |
+| Variable | Description                                                                 | Type                                 |
+| -------- | --------------------------------------------------------------------------- | ------------------------------------ |
+| `site`   | Sitewide information.                                                       | `object`; see [Site Variables][]     |
+| `page`   | Page specific information and custom variables set in front-matter.         | `object`; see [Page Variables][]     |
+| `config` | Site configuration.                                                         | `object` (your site's _config file)  |
+| `theme`  | Theme configuration. Theme configuration. Inherits from site configuration. | `object` (your theme's _config file) |
+| `path`   | Path of current page                                                        | `string`                             |
+| `url`    | Full URL of current page                                                    | `string`                             |
+| `env`    | Environment variables                                                       | ???                                  |
 
 {% note warn %}
-Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
+Lodash has been removed from global variables since Hexo 5.0.0. Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 {% endnote %}
 
 ### Site Variables
@@ -33,25 +33,25 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 
 **Article (`page`)**
 
-| Variable           | Description                                                                            | Type                 |
-| ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
-| `page.title`       | Article title                                                                          | `string`             |
-| `page.date`        | Article created date                                                                   | [Moment.js][] object |
-| `page.updated`     | Article last updated date                                                              | [Moment.js][] object |
-| `page.comments`    | Comment enabled or not                                                                 | `boolean`            |
-| `page.layout`      | Layout name                                                                            | `string`             |
-| `page.content`     | The full processed content of the article                                              | `string`             |
-| `page.excerpt`     | Article excerpt                                                                        | `string`             |
-| `page.more`        | Contents except article excerpt                                                        | `string`             |
-| `page.source`      | The path of the source file                                                            | `string`             |
-| `page.full_source` | Full path of the source file                                                           | `string`             |
-| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
-| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
-| `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
-| `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
-| `page.raw`         | The raw data of the article                                                            | ???                  |
-| `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
-| `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
+| Variable           | Description                                                                                                                          | Type                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `page.title`       | Article title                                                                                                                        | `string`             |
+| `page.date`        | Article created date                                                                                                                 | [Moment.js][] object |
+| `page.updated`     | Article last updated date                                                                                                            | [Moment.js][] object |
+| `page.comments`    | Comment enabled or not                                                                                                               | `boolean`            |
+| `page.layout`      | Layout name                                                                                                                          | `string`             |
+| `page.content`     | The full processed content of the article                                                                                            | `string`             |
+| `page.excerpt`     | Article excerpt                                                                                                                      | `string`             |
+| `page.more`        | Contents except article excerpt                                                                                                      | `string`             |
+| `page.source`      | The path of the source file                                                                                                          | `string`             |
+| `page.full_source` | Full path of the source file                                                                                                         | `string`             |
+| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. We usually use `url_for(page.path)` in theme. | `string`             |
+| `page.permalink`   | Full (encoded) URL of the article                                                                                                    | `string`             |
+| `page.prev`        | The previous post, `null` if the post is the first post                                                                              | ???                  |
+| `page.next`        | The next post, `null` if the post is the last post                                                                                   | ???                  |
+| `page.raw`         | The raw data of the article                                                                                                          | ???                  |
+| `page.photos`      | The photos of the article (Used in gallery posts)                                                                                    | array of ???         |
+| `page.link`        | The external link of the article (Used in link posts)                                                                                | `string`             |
 
 **Post (`post`):** Same as `page` layout but add the following variables.
 
@@ -63,18 +63,18 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 
 **Home (`index`)**
 
-| Variable           | Description                                                                             | Type     |
-| ------------------ | --------------------------------------------------------------------------------------- | -------- |
-| `page.per_page`    | Posts displayed per page                                                                | `number` |
-| `page.total`       | Total number of pages                                                                   | `number` |
-| `page.current`     | Current page number                                                                     | `number` |
-| `page.current_url` | The URL of current page                                                                 | `string` |
-| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                  | `object` |
-| `page.prev`        | Previous page number. `0` if the current page is the first.                             | `number` |
-| `page.prev_link`   | The URL of previous page. `''` if the current page is the first.                        | `string` |
-| `page.next`        | Next page number. `0` if the current page is the last.                                  | `number` |
-| `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
-| `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
+| Variable           | Description                                                                                                                       | Type     |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `page.per_page`    | Posts displayed per page                                                                                                          | `number` |
+| `page.total`       | Total number of pages                                                                                                             | `number` |
+| `page.current`     | Current page number                                                                                                               | `number` |
+| `page.current_url` | The URL of current page                                                                                                           | `string` |
+| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                                                            | `object` |
+| `page.prev`        | Previous page number. Previous page number. `0` if the current page is the first.                                                 | `number` |
+| `page.prev_link`   | The URL of previous page. The URL of previous page. `''` if the current page is the first.                                        | `string` |
+| `page.next`        | Next page number. Next page number. `0` if the current page is the last.                                                          | `number` |
+| `page.next_link`   | The URL of next page. The URL of next page. `''` if the current page is the last.                                                 | `string` |
+| `page.path`        | The URL of current page without root URL. The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
 
 **Archive (`archive`):** Same as `index` layout but add the following variables.
 
