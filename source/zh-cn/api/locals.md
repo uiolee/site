@@ -1,24 +1,25 @@
 ---
-title: 局部变量
+title: Local Variables
 ---
-局部变量用于模版渲染，也就是模版中的 `site` 变量。
 
-## 默认变量
+Local variables are used for template rendering, which is the `site` variable in templates.
 
-变量 | 描述
---- | ---
-`posts` | 所有文章
-`pages` | 所有分页
-`categories` | 所有分类
-`tags` | 所有标签
+## Default Variables
 
-## 获取变量
+| Variable     | Description    |
+| ------------ | -------------- |
+| `posts`      | All posts      |
+| `pages`      | All pages      |
+| `categories` | All categories |
+| `tags`       | All tags       |
+
+## Get a Variable
 
 ``` js
 hexo.locals.get('posts')
 ```
 
-## 设置变量
+## Set a Variable
 
 ``` js
 hexo.locals.set('posts', function(){
@@ -26,19 +27,19 @@ hexo.locals.set('posts', function(){
 });
 ```
 
-## 移除变量
+## Remove a Variable
 
 ``` js
 hexo.locals.remove('posts');
 ```
 
-## 获取所有变量
+## Get All Variable
 
 ``` js
 hexo.locals.toObject();
 ```
 
-## 清除缓存
+## Invalidate the cache
 
 ``` js
 hexo.locals.invalidate();
