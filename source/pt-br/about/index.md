@@ -1,42 +1,42 @@
 ---
-title: About
+title: SOBRE
 ---
 
 [![github stars](https://img.shields.io/github/stars/hexojs/hexo?style=for-the-badge&color=0e83cd&logo=github)](https://github.com/hexojs/hexo) [![github forks](https://img.shields.io/github/forks/hexojs/hexo?style=for-the-badge&color=0e83cd&logo=github)](https://github.com/hexojs/hexo) [![npm stats](https://img.shields.io/npm/dm/hexo?style=for-the-badge&color=0e83cd&label=npm%20downloads&logo=npm)](https://www.npmjs.com/package/hexo)
 
-Hexo was originally created and maintained by [Tommy Chen](https://github.com/tommy351) in 2012. Since then, it has helped thousands of people to build their dream website/blog.
+Hexo foi originalmente criado e mantido por [Tommy Chen](https://github.com/tommy351) em 2012. Desde então, ele tem ajudado milhares de pessoas a construir o site/blog dos seus sonhos.
 
-## Join us
+## Junte-se a nós
 
-We are the passionate people behind the Hexo. If you would like to join Hexo, you should have at least one approved PR. If you have already contributed to Hexo, simply shot out an issue in any Hexo repos.
+Somos as pessoas apaixonadas por detrás do Hexo. Se você gostaria de participar do Hexo, você deve ter pelo menos uma RP aprovada. Se você já contribuiu para o Hexo, simplesmente atirou uma falha em qualquer repouso de Hexo.
 
-If you have any question regarding joining Hexo, feel free to contact the maintainer [Abner Chou](https://github.com/NoahDragon) or simply create an issue to ask.
+Se você tiver alguma dúvida sobre ingressar no Hexo, fique à vontade para entrar em contato com o mantenedor [Abner Chou](https://github.com/NoahDragon) ou simplesmente criar uma issue para perguntar.
 
-## Contribute
+## Contribuir
 
-Don't know where to start? Pick up any item in [Hexo Roadmap](https://github.com/hexojs/hexo/issues/2492), and start from there. Don't hesitate to ask questions, we are glad to help.
+Não sei por onde começar? Pegue qualquer item no [Hexo Roadmap](https://github.com/hexojs/hexo/issues/2492), e comece por lá. Não hesite em fazer perguntas, estamos felizes em ajudar.
 
-## Donate
+## Doar
 
-[![Backers](https://opencollective.com/hexo/tiers/backers.svg?avatarHeight=60&width=600)](https://opencollective.com/hexo)
+[![Apoiantes](https://opencollective.com/hexo/tiers/backers.svg?avatarHeight=60&width=600)](https://opencollective.com/hexo)
 
-#### Why?
+#### Porquê?
 
-First of all, many people have asked about donation, so here it is!
+Em primeiro lugar, muitas pessoas perguntaram sobre a doação, portanto aqui está!
 
-Second, in all good conscience, most of the visible costs (like the domain fees) are already covered by us. We also spend tremendous time to keep Hexo running and functioning. This is the real cost and also invisible.
+Em segundo lugar, em boa consciência, a maior parte dos custos visíveis (como as taxas de domínio) já estão cobertos por nós. Passamos também um tempo tremendo para manter o Hexo a funcionar e a funcionar. Este é o custo real e também invisível.
 
-#### Benefits
+#### Benefícios
 
-We are grateful for every penny donated, here is a list of benefits you and us can achieve:
+Estamos gratos por cada centavo doado, aqui está uma lista de benefícios que você e nós podemos alcançar:
 
-1. Cover our cost.
-2. Motivate and acknowledge our work.
-3. List your name on Hexo.io website (2.5k users and 10k pageviews per day!).
+1. Cubra o nosso custo.
+2. Motive e reconheça o nosso trabalho.
+3. Liste o seu nome no site Hexo.io (2.5k usuários e 10k visualizações de páginas por dia!).
 
-There are two tiers of donation:
+Existem dois níveis de doação:
 
-- Less than $100, your name and website link will be on the donor list.
-- More than $100, your name, icon, and website link will be on the home page for at least one month (depending on the amount).
+- Menos de $100, o seu nome e o link do website estarão na lista de doadores.
+- Mais de $100, seu nome, ícone e link do website estarão na página inicial por pelo menos um mês (dependendo da quantidade).
 
-Again, thanks for your support!
+Mais uma vez, obrigado pelo seu apoio!
