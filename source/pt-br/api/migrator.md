@@ -2,9 +2,9 @@
 title: Migrator
 ---
 
-Um `migrator` ajuda os usuários a migrarem seus sistemas para o Hexo.
+A migrator helps users migrate from other systems to Hexo.
 
-## Sinopse
+## Synopsis
 
 ``` js
 hexo.extend.migrator.register(name, function(args){
@@ -12,4 +12,4 @@ hexo.extend.migrator.register(name, function(args){
 });
 ```
 
-O argumento `args` será passado na função. Esse argumento conterá as entradas do usuário no terminal.
+An argument `args` will be passed into the function. This argument will contain the user's input into the terminal.
