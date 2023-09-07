@@ -1,9 +1,10 @@
 ---
-title: Рендер
+title: Renderer
 ---
-Рендер используется для создания содержимого.
 
-## Краткий обзор
+A renderer is used to render content.
+
+## Synopsis
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
@@ -11,32 +12,33 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-Аргумент | Описание
---- | ---
-`name` | Вводится расширение входного файла (нижний регистр, без ведущей `.`)
-`output` | Выводится расширение входного файла (нижний регистр, без ведущей `.`)
-`sync` | Режим синхронизации
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-В функцию рендера передаются два аргумента:
+Three arguments will be passed into the render function:
 
-Аргумент | Описание
---- | ---
-`data` | Включает два атрибута: путь к файлу `path` и содержимое файла  `text`. Переменная `path` не является обязательной.
-`option` | Опции
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## Пример
+## Example
 
-### Асинхронный режим
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
 
-// Обратный вызов
+// Callback
 hexo.extend.renderer.register('styl', 'css', function(data, options, callback){
   stylus(data.text).set('filename', data.path).render(callback);
 });
 
-// Запрос
+// Promise
 hexo.extend.renderer.register('styl', 'css', function(data, options){
   return new Promise(function(resolve, reject){
     resolve('test');
@@ -44,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### Синхронный режим
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
