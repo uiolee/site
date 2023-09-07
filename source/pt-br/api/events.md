@@ -2,31 +2,31 @@
 title: Events
 ---
 
-O Hexo herda de [EventEmitter]. Use o método `on` para ouvir os eventos emitidos pelo Hexo, e use o método `emit` para emitir eventos. Para obter mais informações, consulte a documentação da API do Node.js.
+Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
-Emitido antes do deployment começar.
+Emitted before deployment begins.
 
 ### deployAfter
 
-Emitido depois do deployment finalizado.
+Emitted after deployment finishes.
 
 ### exit
 
-Emitido antes de Hexo sair.
+Emitted before Hexo exits.
 
 ### generateBefore
 
-Emitido antes da geração começar.
+Emitted before generation begins.
 
 ### generateAfter
 
-Emitido depois da geração finalizada.
+Emitted after generation finishes.
 
 ### new
 
-Emitido depois de uma nova postagem ter sido criada. Este evento retorna os dados da postagem:
+Emitted after a new post has been created. This event returns the post data:
 
 ``` js
 hexo.on('new', function(post){
@@ -34,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-Dados | Descrição
---- | ---
-`post.path` | Caminho completo do arquivo da postagem
-`post.content` | Conteúdo do arquivo da postagem
+| Data           | Description                |
+| -------------- | -------------------------- |
+| `post.path`    | Full path of the post file |
+| `post.content` | Content of the post file   |
 
 ### processBefore
 
-Emitido antes do início do processamento. Este evento retorna um caminho que representa o diretório raiz do box.
+Emitted before processing begins. This event returns a path representing the root directory of the box.
 
 ### processAfter
 
-Emitido depois do processamento finalizado. Este evento retorna um caminho que representa o diretório raiz do `box`.
+Emitted after processing finishes. This event returns a path representing the root directory of the box.
 
 ### ready
 
-Emitido depois da inicialização terminar.
+Emitted after initialization finishes.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
