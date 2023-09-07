@@ -1,7 +1,8 @@
 ---
-title: 鷹架（Scaffold）
+title: Scaffolds
 ---
-## 取得鷹架
+
+## Get a Scaffold
 
 ``` js
 hexo.scaffold.get(name);
