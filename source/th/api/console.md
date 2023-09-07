@@ -2,7 +2,7 @@
 title: Console
 ---
 
-console เป็นสะพานระหว่าง Hexo และผู้ใช้ของมัน และ console บันทึกและอธิบายคำสั่ง console ที่มีอยู่ It registers and describes the available console commands.
+console เป็นสะพานระหว่าง Hexo และผู้ใช้ของมัน และ console บันทึกและอธิบายคำสั่ง console ที่มีอยู่ console เป็นสะพานระหว่าง Hexo และผู้ใช้ของมัน และ console บันทึกและอธิบายคำสั่ง console ที่มีอยู่ It registers and describes the available console commands.
 
 ## Synopsis
 
@@ -24,7 +24,7 @@ An argument `args` will be passed into the function. This is the argument that u
 
 ### usage
 
-วิธีการใช้งานของคำสั่ง console ยกตัวอย่างเช่น For example:
+วิธีการใช้งานของคำสั่ง console ยกตัวอย่างเช่น For example: For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -33,7 +33,7 @@ An argument `args` will be passed into the function. This is the argument that u
 
 ### arguments
 
-คำอธิบายทุก argument ของคำสั่ง console ยกตัวอย่างเช่น For example:
+คำอธิบายทุก argument ของคำสั่ง console ยกตัวอย่างเช่น For example: For example:
 
 ``` js
 {
@@ -46,7 +46,7 @@ An argument `args` will be passed into the function. This is the argument that u
 
 ### options
 
-คำอธิบายทุกตัวเลือกของคำสั่ง console ยกตัวอย่างเช่น For example:
+คำอธิบายทุกตัวเลือกของคำสั่ง console ยกตัวอย่างเช่น For example: For example:
 
 ``` js
 {
