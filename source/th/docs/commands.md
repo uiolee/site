@@ -21,7 +21,7 @@ This command is a shortcut that runs the following steps:
 $ hexo new [layout] <title>
 ```
 
-สร้างบทความใหม่. ถ้าไม่ได้ตั้งค่าชั้ดเจน hexo จะใช้ `default_layout` ของไฟล์ [_config.yml](configuration.html) ถ้า `title` ของบทความนั้นมี  space  จะต้องห่อ `title` นั้นด้วยเครื่องหมายอ้างอิง Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+สร้างบทความใหม่. ถ้าไม่ได้ตั้งค่าชั้ดเจน hexo จะใช้ `default_layout` ของไฟล์ [_config.yml](configuration.html) ถ้า `title` ของบทความนั้นมี  space  จะต้องห่อ `title` นั้นด้วยเครื่องหมายอ้างอิง Use the layout `draft` to create a draft. Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
 
 | Option            | Description                                |
 | ----------------- | ------------------------------------------ |
