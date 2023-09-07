@@ -17,7 +17,7 @@ title: 變數
 | `env`    | 環境變數                            | ???                                  |
 
 {% note warn %}
-Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
+Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration. Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 {% endnote %}
 
 ### Site Variables
@@ -86,15 +86,15 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 
 **分類 (category)**：與 `index` 佈局相同，但新增以下變數。
 
-| 變數     | 描述   | Type     |
-| ------ | ---- | -------- |
-| `文章分類` | 分類名稱 | `string` |
+| 變數         | 描述   | Type     |
+| ---------- | ---- | -------- |
+| `category` | 分類名稱 | `string` |
 
 Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 
 | Variable | 文章摘要 | Type   |
 | -------- | ---- | ------ |
-| `本頁文章`   | 標籤名稱 | `全局變數` |
+| `本頁文章`   | tag  | `全局變數` |
 
 [Moment.js]: http://momentjs.com/
 [Site Variables]: #Site-Variables
