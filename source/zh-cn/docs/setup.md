@@ -1,10 +1,10 @@
 ---
-title: Setup
+title: 设置
 ---
 
 {% youtube 0m2HnATkHOk %}
 
-Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
+Hexo安装完毕后，运行以下命令来初始化目标 `<folder>`
 
 ``` bash
 $ hexo init <folder>
@@ -12,7 +12,7 @@ $ cd <folder>
 $ npm install
 ```
 
-Once initialized, here's what your project folder will look like:
+一旦启动，您的项目文件夹将是什么样子：
 
 ``` plain
 .
@@ -25,13 +25,13 @@ Once initialized, here's what your project folder will look like:
 └── themes
 ```
 
-### _config.yml
+### yml
 
-Site [configuration](configuration.html) file. You can configure most settings here.
+站点 [配置](configuration.html) 文件。 您可以在这里配置大部分设置。
 
-### package.json
+### json
 
-Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
+应用程序数据。 [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) 渲染器是默认安装的。 如果你想要，你可以稍后卸载它们。
 
 ``` json package.json
 {
@@ -55,14 +55,14 @@ Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.
 }
 ```
 
-### scaffolds
+### 卡福尔德
 
-[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
+[Scaffold](writing.html#Scaffolds) 文件夹。 当你创建一个新帖子时，Hexo会把新的文件建立在架子上。
 
-### source
+### 来源
 
-Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
+源文件夹。 这是您放置网站内容的地方。 Hexo 忽略了隐藏文件和文件或文件夹，其名称前缀为 `_` (下划线) - 但 `_post` 文件夹除外。 可渲染文件 (例如Markdown, HTML) 将被处理并放入 `公开的` 文件夹，而其他文件将只是被复制的。
 
-### themes
+### 主题
 
-[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
+[主题](themes.html) 文件夹。 Hexo 通过将网站内容与主题结合起来生成一个静态网站。
