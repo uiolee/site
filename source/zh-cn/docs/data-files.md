@@ -1,28 +1,28 @@
 ---
-title: Data Files
+title: 数据文件
 ---
 
-Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new **Data files**. This feature loads YAML or JSON files in `source/_data` folder so you can use them in your site.
+有时您可能需要在模板中使用一些在您的帖子中无法直接获取的数据。 或者你想要在别处重新使用数据。 对于这种情况，Hexo 3 引入了新的 **数据文件**。 此功能在 `source/_data` 文件夹中加载了YAML 或 JSON 文件，以便您可以在您的网站中使用它们。
 
 {% youtube CN31plHbI-w %}
 
-For example, add `menu.yml` in `source/_data` folder.
+例如，在 `source/_data` 文件夹中添加 `menu.yml`
 
 ``` yaml
-Home: /
-Gallery: /gallery/
-Archives: /archives/
+主页: /
+图库: /gallery/
+档案: /archives/
 ```
 
-And you can use them in templates:
+你可以在模板中使用它们：
 
 ```
-<% for (var link in site.data.menu) { %>
+<% 用于 (站点数据中的 var 链接)。 enu: %>
   <a href="<%= site.data.menu[link] %>"> <%= link %> </a>
-<% } %>
+<% }>
 ```
 
-render like this :
+渲染就像这样：
 
 ```
 <a href="/"> Home </a>
