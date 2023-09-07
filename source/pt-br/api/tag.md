@@ -1,34 +1,34 @@
 ---
-title: Tag
+title: Etiqueta
 ---
 
-A tag allows users to quickly and easily insert snippets into their posts.
+Uma tag permite que os usuários insiram de forma rápida e fácil em suas publicações.
 
-## Synopsis
+## Sinopse
 
 ``` js
 hexo.extend.tag.register(name, function(args, content){
   // ...
-}, options);
+}, opções);
 ```
 
-Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
+Dois argumentos serão passados para a função tag: `args` e `content`. `args` contém argumentos passados para o plugin de tag e `content` é o conteúdo encapsulado do plugin de tag.
 
-Since the introduction of asynchronous rendering in Hexo 3, we are using [Nunjucks][] for rendering. The behavior may be somewhat different from that in [Swig][].
+Desde a introdução da renderização assíncrona no Hexo 3, estamos usando [Nunjucks][] para renderização. O comportamento pode ser um pouco diferente do comportamento em [Swig][].
 
-## Unregister Tags
+## Desregistrar tags
 
-Use `unregister()` to replace existing [tag plugins](/docs/tag-plugins) with custom functions.
+Use `unregister()` para substituir plugins de tags [existentes](/docs/tag-plugins) por funções personalizadas.
 
 ``` js
-hexo.extend.tag.unregister(name);
+hexo.extend.tag.unregister(nome);
 ```
 
-**Example**
+**Exemplo**
 
 ``` js
 const tagFn = (args, content) => {
-  content = 'something';
+  content = 'algo';
   return content;
 };
 
@@ -38,21 +38,21 @@ hexo.extend.tag.unregister('youtube');
 hexo.extend.tag.register('youtube', tagFn);
 ```
 
-## Options
+## Opções
 
-### ends
+### Termina
 
-Use end tags. This option is `false` by default.
+Use tags finais. Esta opção é `false` por padrão.
 
-### async
+### assíncrono
 
-Enable async mode. This option is `false` by default.
+Ativar o modo assíncrono. Esta opção é `false` por padrão.
 
-## Examples
+## Exemplos
 
-### Without End Tags
+### Sem tags finais
 
-Insert a Youtube video.
+Insira um vídeo do Youtube.
 
 ``` js
 hexo.extend.tag.register('youtube', function(args){
@@ -61,18 +61,18 @@ hexo.extend.tag.register('youtube', function(args){
 });
 ```
 
-### With End Tags
+### Com tags de fim
 
-Insert a pull quote.
+Insira um pull quote.
 
 ``` js
 hexo.extend.tag.register('pullquote', function(args, content){
-  var className =  args.join(' ');
+  var className = args.join(' ');
   return '<blockquote class="pullquote' + className + '">' + content + '</blockquote>';
 }, {ends: true});
 ```
 
-### Async Rendering
+### Renderização assíncrona
 
 Insert a file.
 
@@ -80,33 +80,33 @@ Insert a file.
 var fs = require('hexo-fs');
 var pathFn = require('path');
 
-hexo.extend.tag.register('include_code', function(args){
+hexo.extend.tag. egister('include_code', function(args){
   var filename = args[0];
-  var path = pathFn.join(hexo.source_dir, filename);
+  var path = pathFn.join(hexo. ource_dir, filename);
 
-  return fs.readFile(path).then(function(content){
+  return fs.readFile(path). hen(function(content){
     return '<pre><code>' + content + '</code></pre>';
   });
 }, {async: true});
 ```
 
-## Front-matter and user configuration
+## Configuração Front-matter e do usuário
 
-Any of the following options is valid:
+Qualquer uma das seguintes opções é válida:
 
 1.
 
 ``` js
-hexo.extend.tag.register('foo', function (args) {
+tag.hex.extend. egister('foo', function (args) {
   const [firstArg] = args;
 
-  // User config
+  // Configuração do usuário
   const { config } = hexo;
-  const editor = config.author + firstArg;
+  const editor = config. uthor + firstArg;
 
-  // Theme config
-  const { config: themeCfg } = hexo.theme;
-  if (themeCfg.fancybox) // do something...
+  // Configuração do tema
+  const { config: themeCfg } = hexo. hemo;
+  if (themeCfg.fancybox) // fazer algo...
 
   // Front-matter
   const { title } = this; // article's (post/page) title
@@ -126,15 +126,15 @@ hexo.extend.tag.register('foo', require('./lib/foo')(hexo));
 ```
 
 ``` js lib/foo.js
-module.exports = hexo => {
-  return function fooFn(args) {
+Módulo xports = hexo => {
+  retorna a função fooFn(args) {
     const [firstArg] = args;
 
     const { config } = hexo;
-    const editor = config.author + firstArg;
+    const editor = config. uthor + primeiro;
 
     const { config: themeCfg } = hexo.theme;
-    if (themeCfg.fancybox) // do something...
+    if (themeCfg.fancybox) // fazer algo...
 
     const { title, _content, content } = this;
 
