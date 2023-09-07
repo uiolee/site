@@ -1,7 +1,10 @@
 ---
 title: Setup
 ---
-Hexo를 설치했다면, 타겟 `<folder>`의 Hexo를 초기화하기 위해 아래의 명령을 수행하세요.
+
+{% youtube 0m2HnATkHOk %}
+
+Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
 
 ``` bash
 $ hexo init <folder>
@@ -9,7 +12,7 @@ $ cd <folder>
 $ npm install
 ```
 
-초기화가 완료되면 다음과 같은 폴더 구조를 가지게 될 것입니다.
+Once initialized, here's what your project folder will look like:
 
 ``` plain
 .
@@ -24,11 +27,11 @@ $ npm install
 
 ### _config.yml
 
-이 파일은 [환경설정](configuration.html) 파일입니다. 대부분의 설정을 여기서 할 수 있습니다.
+Site [configuration](configuration.html) file. You can configure most settings here.
 
 ### package.json
 
-어플리케이션 데이터 파일입니다. [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/), [Markdown](http://daringfireball.net/projects/markdown/) 렌더러들이 기본으로 설치됩니다. 원한다면, 나중에 당신이 제거할 수도 있습니다.
+Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
 
 ``` json package.json
 {
@@ -54,12 +57,12 @@ $ npm install
 
 ### scaffolds
 
-[Scaffold](writing.html#Scaffolds) 폴더입니다. 새로운 포스트를 생성할 때, Hexo는 scaffold를 기준으로 새 파일을 생성합니다.
+[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
 
 ### source
 
-소스 폴더입니다. 당신의 웹 사이트 컨텐츠들을 위치시키는 곳 입니다. Hexo는 숨겨진 파일과 `_` (언더스코어)로 시작하는 파일 및 폴더들을 무시합니다. - `_posts` 폴더는 제외하고 말이죠. 렌더링이 가능한 파일들(예. Markdown, HTML)은 처리된 후 `public` 폴더로 들어가게 됩니다. 그 동안 다른 파일들은 단순히 복사됩니다.
+Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
 
 ### themes
 
-[테마](themes.html) 폴더입니다. Hexo는 테마와 컨텐츠를 혼합하여 정적인 웹 사이트를 생성합니다.
+[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
