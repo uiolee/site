@@ -1,45 +1,45 @@
 ---
-title: Router
+title: 路由器
 ---
 
-The router saves all paths used in the site.
+路由器保存站点中使用的所有路径。
 
-## Get a Path
+## 获取路径
 
-The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
+The `get` method returns a [Stream][]. 例如，要将路径数据保存到指定目的地：
 
 ``` js
 var data = hexo.route.get('index.html');
-var dest = fs.createWriteStream('somewhere');
+var test = fs.createWriteStream('somwhere');
 
 data.pipe(dest);
 ```
 
-## Set a Path
+## 设置路径
 
-The `set` method takes a string, a [Buffer][] or a function.
+`设置` 方法需要一个字符串， [缓存][] 或一个函数。
 
 ``` js
 // String
 hexo.route.set('index.html', 'index')
 
 // Buffer
-hexo.route.set('index.html', new Buffer('index'));
+hexo.route.set('index.html', new Buffer('index');
 
-// Function (Promise)
-hexo.route.set('index.html', function(){
-  return new Promise(function(resolve, reject){
+// 函数(Promise)
+hexo.route.set('index. tml', function()pension()post.
+  return new Promise(function(resolve, reject))por
     resolve('index');
   });
 });
 
-// Function (Callback)
-hexo.route.set('index.html', function(callback){
+// 函数 (Callback)
+hexo. oute.set('index.html', function(callback)@un.org,
   callback(null, 'index');
 });
 ```
 
-You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
+您还可以设置一个是否修改路径的布尔值。 这可以加速文件生成，因为它允许忽略未修改的文件。
 
 ``` js
 hexo.route.set('index.html', {
@@ -50,26 +50,26 @@ hexo.route.set('index.html', {
 // hexo.route.isModified('index.html') => false
 ```
 
-## Remove a Path
+## 删除路径
 
 ``` js
 hexo.route.remove('index.html');
 ```
 
-## Get the List of Routes
+## 获取路由列表
 
 ``` js
-hexo.route.list();
+十六进制列表();
 ```
 
-## Format a Path
+## 格式化路径
 
-The `format` method transforms a string to a valid path.
+`格式` 方法将字符串转换为有效路径。
 
 ``` js
-hexo.route.format('archives/');
+十六进制格式('archives/');
 // archives/index.html
 ```
 
 [Stream]: http://nodejs.org/api/stream.html
-[Buffer]: http://nodejs.org/api/buffer.html
+[缓存]: http://nodejs.org/api/buffer.html
