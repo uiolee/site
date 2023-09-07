@@ -28,7 +28,7 @@ JS-YAML: bad indentation of a mapping entry at line 18, column 31:
 Error: EMFILE, too many open files
 ```
 
-虽然 Node.js 有非阻塞 I/O，同步 I/O 的数量仍被系统所限制，在生成大量静态文件的时候，您可能会碰到 EMFILE 错误，您可以尝试提高同步 I/O 的限制数量来解决此问题。 You may come across an EMFILE error when trying to generate a large number of files. You can try to run the following command to increase the number of allowed synchronous I/O operations.
+虽然 Node.js 有非阻塞 I/O，同步 I/O 的数量仍被系统所限制，在生成大量静态文件的时候，您可能会碰到 EMFILE 错误，您可以尝试提高同步 I/O 的限制数量来解决此问题。 You may come across an EMFILE error when trying to generate a large number of files. You can try to run the following command to increase the number of allowed synchronous I/O operations. You can try to run the following command to increase the number of allowed synchronous I/O operations.
 
 ``` bash
 $ ulimit -n 10000
@@ -55,7 +55,7 @@ ulimit: open files: cannot modify limit: Operation not permitted
   # '*' applies to all users and '-' set both soft and hard limits
   ```
 
-  * 上述设置在某些情况下可能不适用，请确保 `/etc/pam.d/login` 和 `/etc/pam.d/lightdm` 有以下一行(如果这些文件不存在，请忽略此步骤)： (Ignore this step if those files do not exist)
+  * 上述设置在某些情况下可能不适用，请确保 `/etc/pam.d/login` 和 `/etc/pam.d/lightdm` 有以下一行(如果这些文件不存在，请忽略此步骤)： (Ignore this step if those files do not exist) (Ignore this step if those files do not exist)
 
   ```
   session required pam_limits.so
@@ -99,7 +99,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 
 ### Error: ENOENT: no such file or directory
 
-If you get an error like `Error: ENOENT: no such file or directory` it's probably due to to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change so it breaks the automatic branching.
+If you get an error like `Error: ENOENT: no such file or directory` it's probably due to to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change so it breaks the automatic branching. Git cannot automatically merge this change so it breaks the automatic branching.
 
 To fix this, try
 
@@ -109,7 +109,7 @@ To fix this, try
 1. Manually copy the public folder to your desktop
 1. Switch branch from your master branch to your deployment branch locally
 1. Copy the contents of the public folder from your desktop into the deployment branch
-1. Commit. You should see any merge conflicts appear that you can manually resolve.
+1. Commit. Commit. You should see any merge conflicts appear that you can manually resolve.
 1. Switch back to your master branch and deploy normally: `./node_modules/.bin/hexo deploy`
 
 ## 服务器问题
@@ -127,7 +127,7 @@ $ hexo server -p 5000
 ## 插件安装问题
 
 ``` plain
-npm ERR! node-waf configure build
+npm ERR! npm ERR! node-waf configure build
 ```
 
 当您尝试安装以 C/C++ 或其他非 JavaScript 语言所编写的插件时，可能会遇到此类问题，请确认您已经在电脑上安装相对应的编译器。 Make sure you have installed the right compiler on your computer.
@@ -159,7 +159,7 @@ Hexo 使用 [Warehouse][] 存储资料，它不是一般数组所以必须先进
 
 ## 资料没有更新
 
-Some data cannot be updated, or the newly generated files are identical to those of the last version. Clean the cache and try again.
+Some data cannot be updated, or the newly generated files are identical to those of the last version. Clean the cache and try again. Clean the cache and try again.
 
 ``` bash
 $ hexo clean
@@ -179,7 +179,7 @@ $ hexo clean
 
 ## Escape Contents
 
-Hexo 使用 [Nunjucks][] 来解析文章（旧版本使用 [Swig][]，两者语法类似），内容若包含 `{{ }}` 或 `{% %}` 可能导致解析错误，您可以用 [`raw`](/zh-cn/docs/tag-plugins#Raw) 标签包裹，单反引号 `` `{{ }}` `` 或 三反引号 来避免潜在问题发生。 Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. 此外，Nunjucks 标签也可以通过渲染器的选项（如果支持的话）、[API](/zh-cn/api/renderer#禁用-Nunjucks-标签) 或 [front-matter](/zh-cn/docs/front-matter) 来禁用。
+Hexo 使用 [Nunjucks][] 来解析文章（旧版本使用 [Swig][]，两者语法类似），内容若包含 `{{ }}` 或 `{% %}` 可能导致解析错误，您可以用 [`raw`](/zh-cn/docs/tag-plugins#Raw) 标签包裹，单反引号 `` `{{ }}` `` 或 三反引号 来避免潜在问题发生。 Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. 此外，Nunjucks 标签也可以通过渲染器的选项（如果支持的话）、[API](/zh-cn/api/renderer#禁用-Nunjucks-标签) 或 [front-matter](/zh-cn/docs/front-matter) 来禁用。 此外，Nunjucks 标签也可以通过渲染器的选项（如果支持的话）、[API](/zh-cn/api/renderer#禁用-Nunjucks-标签) 或 [front-matter](/zh-cn/docs/front-matter) 来禁用。
 
 ```
 {% raw %}
@@ -217,21 +217,21 @@ $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo
 Error: watch /path/to/hexo/theme/ EMPERM
 ```
 
-这是由于你使用的 WSL 版本不支持监听文件系统改动。 Therefore, the live updating feature of hexo's server is currently unavailable. 您也仍然可以通过先使用 `hexo g` 生成文件然后将其作为静态服务器运行来从 WSL 环境运行服务器：
+这是由于你使用的 WSL 版本不支持监听文件系统改动。 Therefore, the live updating feature of hexo's server is currently unavailable. 您也仍然可以通过先使用 `hexo g` 生成文件然后将其作为静态服务器运行来从 WSL 环境运行服务器： 您也仍然可以通过先使用 `hexo g` 生成文件然后将其作为静态服务器运行来从 WSL 环境运行服务器：
 
 ``` sh
 $ hexo generate
 $ hexo server -s
 ```
 
-This is [a known BashOnWindows issue](https://github.com/Microsoft/BashOnWindows/issues/216), and on 15 Aug 2016, the Windows team said they would work on it. You can get progress updates and encourage them to prioritize it on [the issue's UserVoice suggestion page](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/suggestions/13469097-support-for-filesystem-watchers-like-inotify).
+This is [a known BashOnWindows issue](https://github.com/Microsoft/BashOnWindows/issues/216), and on 15 Aug 2016, the Windows team said they would work on it. This is [a known BashOnWindows issue](https://github.com/Microsoft/BashOnWindows/issues/216), and on 15 Aug 2016, the Windows team said they would work on it. You can get progress updates and encourage them to prioritize it on [the issue's UserVoice suggestion page](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/suggestions/13469097-support-for-filesystem-watchers-like-inotify).
 
 ## 模板渲染错误
 
 有的时候你在执行 `hexo generate` 时会返回以下错误信息：
 
 ```
-FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+FATAL Something's wrong. FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
 Template render error: (unknown path)
 ```
 
@@ -254,7 +254,7 @@ Possible cause:
   fn()
   {% endcodeblock %}
   ```
-  * Having Nunjucks-like syntax in a tag plugin, e.g. [`{#`](https://mozilla.github.io/nunjucks/templating.html#comments). A workaround for this example is to use [triple backtick](/docs/tag-plugins#Backtick-Code-Block) instead. [Escape Contents](/docs/troubleshooting#Escape-Contents) section has more details.
+  * Having Nunjucks-like syntax in a tag plugin, e.g. [`{#`](https://mozilla.github.io/nunjucks/templating.html#comments). A workaround for this example is to use [triple backtick](/docs/tag-plugins#Backtick-Code-Block) instead. [Escape Contents](/docs/troubleshooting#Escape-Contents) section has more details. A workaround for this example is to use [triple backtick](/docs/tag-plugins#Backtick-Code-Block) instead. [Escape Contents](/docs/troubleshooting#Escape-Contents) section has more details.
   ```
   {% codeblock lang:bash %}
   Size of array is ${#ARRAY}
@@ -267,6 +267,7 @@ Possible cause:
 
 ```
 YAMLException: Specified list of YAML types (or a single Type object) contains a non-Type object.
+    at ...
     at ...
     at ...
 ```
