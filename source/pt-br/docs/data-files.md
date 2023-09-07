@@ -1,20 +1,20 @@
 ---
-title: Data Files
+title: Arquivos de dados
 ---
 
-Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new **Data files**. This feature loads YAML or JSON files in `source/_data` folder so you can use them in your site.
+Às vezes, você pode precisar usar alguns dados em templates que não estão diretamente disponíveis nas suas publicações, ou você deseja reutilizar os dados em outro lugar. Para tais casos de uso, o Hexo 3 introduziu os novos arquivos **Dados**. Esse recurso carrega arquivos YAML ou JSON na pasta `source/_data` para que você possa usá-los no seu site.
 
 {% youtube CN31plHbI-w %}
 
-For example, add `menu.yml` in `source/_data` folder.
+Por exemplo, adicione o `menu.yml` na pasta `source/_data`.
 
 ``` yaml
-Home: /
-Gallery: /gallery/
-Archives: /archives/
+Casa: /
+Galeria: /gallery/
+Arquivos: /archives/
 ```
 
-And you can use them in templates:
+E você pode usá-los nos templates:
 
 ```
 <% for (var link in site.data.menu) { %>
@@ -22,10 +22,10 @@ And you can use them in templates:
 <% } %>
 ```
 
-render like this :
+renderizar assim:
 
 ```
-<a href="/"> Home </a>
-<a href="/gallery/"> Gallery </a>
-<a href="/archives/"> Archives </a>
+<a href="/"> Casa </a>
+<a href="/gallery/"> Galeria </a>
+<a href="/archives/"> Arquiva </a>
 ```
