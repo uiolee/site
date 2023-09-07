@@ -1,8 +1,6 @@
 ---
-title: 指令
+title: Commands
 ---
-
-{% youtube mgdXi5npArQ %}
 
 ## init
 
@@ -10,7 +8,7 @@ title: 指令
 $ hexo init [folder]
 ```
 
-建立一個新的網站。如果沒有設定 `folder` 的話，Hexo 會在目前的資料夾建立網站。
+Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
 
 This command is a shortcut that runs the following steps:
 
@@ -23,7 +21,29 @@ This command is a shortcut that runs the following steps:
 $ hexo new [layout] <title>
 ```
 
-建立一篇新的文章。如果沒有設定 `layout` 的話，則會使用 [_config.yml](configuration.html) 中的 `default_layout` 設定代替。如果標題包含空格的話，請使用引號括起來。
+Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+
+| Option            | Description                                |
+| ----------------- | ------------------------------------------ |
+| `-p`, `--path`    | Post path. Customize the path of the post. |
+| `-r`, `--replace` | Replace the current post if existed.       |
+| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+
+By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+
+```bash
+hexo new page --path about/me "About me"
+```
+
+will create `source/about/me.md` file with the title "About me" set in the front matter.
+
+Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+
+```bash
+hexo new page --path about/me
+```
+
+will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
 
 ## generate
 
@@ -31,12 +51,15 @@ $ hexo new [layout] <title>
 $ hexo generate
 ```
 
-產生靜態檔案。
+Generates static files.
 
-選項 | 描述
---- | ---
-`-d`, `--deploy` | 產生完成即部署網站
-`-w`, `--watch` | 監看檔案變更
+| Option                | Description                                                              |
+| --------------------- | ------------------------------------------------------------------------ |
+| `-d`, `--deploy`      | Deploy after generation finishes                                         |
+| `-w`, `--watch`       | Watch file changes                                                       |
+| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
+| `-f`, `--force`       | Force regenerate                                                         |
+| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
 
 ## publish
 
@@ -44,7 +67,7 @@ $ hexo generate
 $ hexo publish [layout] <filename>
 ```
 
-發表草稿。
+Publishes a draft.
 
 ## server
 
@@ -52,13 +75,13 @@ $ hexo publish [layout] <filename>
 $ hexo server
 ```
 
-啟動伺服器，預設是 `http://localhost:4000/`。
+Starts a local server. By default, this is at `http://localhost:4000/`.
 
-選項 | 描述
---- | ---
-`-p`, `--port` | 覆蓋連接埠設定
-`-s`, `--static` | 只使用靜態檔案
-`-l`, `--log` | 啟動記錄器，或覆蓋記錄格式
+| Option           | Description                            |
+| ---------------- | -------------------------------------- |
+| `-p`, `--port`   | Override default port                  |
+| `-s`, `--static` | Only serve static files                |
+| `-l`, `--log`    | Enable logger. Override logger format. |
 
 ## deploy
 
@@ -66,23 +89,23 @@ $ hexo server
 $ hexo deploy
 ```
 
-部署網站。
+Deploys your website.
 
-選項 | 描述
---- | ---
-`-g`, `--generate` | 部署網站前先產生靜態檔案
+| Option             | Description                |
+| ------------------ | -------------------------- |
+| `-g`, `--generate` | Generate before deployment |
 
 ## render
 
 ``` bash
-$ hexo render <file> [file2] ...
+$ hexo render <file1> [file2] ...
 ```
 
-渲染檔案。
+Renders files.
 
-選項 | 描述
---- | ---
-`-o`, `--output` | 輸出位置
+| Option           | Description        |
+| ---------------- | ------------------ |
+| `-o`, `--output` | Output destination |
 
 ## migrate
 
@@ -90,7 +113,7 @@ $ hexo render <file> [file2] ...
 $ hexo migrate <type>
 ```
 
-從其他系統 [轉移內容](migration.html)。
+[Migrates](migration.html) content from other blog systems.
 
 ## clean
 
@@ -98,7 +121,7 @@ $ hexo migrate <type>
 $ hexo clean
 ```
 
-清除快取檔案 (`db.json`) 和已產生的靜態檔案 (`public`)。
+Cleans the cache file (`db.json`) and generated files (`public`).
 
 ## list
 
@@ -106,7 +129,7 @@ $ hexo clean
 $ hexo list <type>
 ```
 
-列出網站資料。
+Lists all routes.
 
 ## version
 
@@ -114,58 +137,58 @@ $ hexo list <type>
 $ hexo version
 ```
 
-顯示版本資訊。
+Displays version information.
 
-## 選項
+## Options
 
-### 安全模式
+### Safe mode
 
 ``` bash
 $ hexo --safe
 ```
 
-在安全模式下，不會載入外掛和腳本。當您在安裝新外掛後遭遇問題時，可以嘗試以安全模式重新執行。
+Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
 
-### 除錯模式
+### Debug mode
 
 ``` bash
 $ hexo --debug
 ```
 
-在終端機中顯示除錯訊息並儲存記錄檔到 `debug.log`。當您碰到問題時，試著以除錯模式重新執行一次，並 [把除錯訊息貼到 GitHub](https://github.com/hexojs/hexo/issues/new)。
+Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
 
-### 安靜模式
+### Silent mode
 
 ``` bash
 $ hexo --silent
 ```
 
-隱藏終端機的訊息。
+Silences output to the terminal.
 
-### 自訂配置檔的路徑
+### Customize config file path
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-自訂配置檔的路徑而不是使用 `_config.yml`。此參數也接受以逗號分隔的 JSON 或 YAML 檔列表字串 (不得含有空格)，它們將會被合併產生一個 `_multiconfig.yml`。
+Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
 
 ``` bash
 $ hexo --config custom.yml,custom2.json
 ```
 
-### 顯示草稿
+### Display drafts
 
 ``` bash
 $ hexo --draft
 ```
 
-顯示 `source/_drafts` 資料夾中的草稿文章。
+Displays draft posts (stored in the `source/_drafts` folder).
 
-### 自定 CWD
+### Customize CWD
 
 ``` bash
 $ hexo --cwd /path/to/cwd
 ```
 
-自訂目前工作目錄（Current working directory）的路徑。
+Customizes the path of current working directory.
