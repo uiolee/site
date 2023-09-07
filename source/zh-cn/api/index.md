@@ -2,13 +2,13 @@
 title: API
 ---
 
-This documentation provides more detailed information about the API and will be particularly helpful for people who want to modify the Hexo source code or write new plugins. If you are interested in more basic usage of Hexo, please refer to the [docs](../docs) instead.
+此文档提供了更多关于API的详细信息，对于想要修改Hexo源代码或编写新插件的人将特别有用。 If you are interested in more basic usage of Hexo, please refer to the [docs](../docs) instead.
 
-Please note that this documentation is only valid for Hexo 3 and above.
+请注意，此文档仅适用于 Hexo 3及以上。
 
-## Initialize
+## 初始化
 
-First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. Next, we initialize this instance by calling the `init` method on it, which will then cause Hexo to load its configuration and plugins.
+首先，我们必须创建一个十六进制实例。 一个新实例需要两个参数：网站根目录， `base_dir`和一个包含初始化选项的对象。 接下来，我们通过调用 `init` 方法初始化这个实例，这将导致Hexo 加载它的配置和插件。
 
 ``` js
 var Hexo = require('hexo');
@@ -19,37 +19,39 @@ hexo.init().then(function(){
 });
 ```
 
-| Option             | Description                                                                                           | Default                        |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `debug`            | Enable debug mode. Display debug messages in the terminal and save `debug.log` in the root directory. | `false`                        |
-| `safe`             | Enable safe mode. Don't load any plugins.                                                             | `false`                        |
-| `silent`           | Enable silent mode. Don't display any messages in the terminal.                                       | `false`                        |
-| `config`           | Specify the path of the configuration file.                                                           | `_config.yml`                  |
-| `draft` / `drafts` | Enable to add drafts to the posts list.<br> example: when you use `hexo.locals.get('posts')`    | `render_drafts` of _config.yml |
+| 选项          | 描述                                                                                         | 默认设置               |
+| ----------- | ------------------------------------------------------------------------------------------ | ------------------ |
+| `debug`     | 启用调试模式。 Display debug messages in the terminal and save `debug.log` in the root directory. | `false`            |
+| `安全`        | 启用安全模式。 不加载任何插件。                                                                           | `false`            |
+| `静音`        | 启用静音模式。 不在终端中显示任何消息。                                                                       | `false`            |
+| `配置`        | 指定配置文件的路径。                                                                                 | `yml`              |
+| `草稿` / `草稿` | 启用以将草稿添加到帖子列表。<br> 示例：当您使用 `hexo.locals.get('posts')`                                | `渲染草稿` _config.yml |
 
-## Load Files
+## 加载文件
 
-Hexo provides two methods for loading files: `load` and `watch`. `load` is used for loading all files in the `source` folder as well as the theme data. `watch` does the same things `load` does, but will also start watching for file changes continuously.
+Hexo 提供了两种加载文件的方法： `负载` 和 `观察`。 `加载` 用于加载 `源` 中的所有文件以及主题数据。 `观看` 做了同样的事情。 `加载` 做了同样的事情，但也将开始持续监视文件的更改。
 
-Both methods will load the list of files and pass them to the corresponding processors. After all files have been processed, they will call upon the generators to create the routes.
+这两种方法都会加载文件列表并传递给相应的处理器。 在所有文件处理完毕后，他们将呼叫发电机来创建路线。
 
 ``` js
 hexo.load().then(function(){
   // ...
-});
+(ii)
 
-hexo.watch().then(function(){
-  // You can call hexo.unwatch() later to stop watching.
+hexo.watch().then(function()}); 
+
+ hexo.watch().then(函数().
+  // 你可以稍后调用 hexo.unwatch() 以停止监视。
 });
 ```
 
-## Execute Commands
+## 执行命令
 
-Any console command can be called explicitly using the `call` method on the Hexo instance. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands.
+任何控制台命令都可以在 Hexo 实例上明确使用 `调用` 方法。 这种调用需要两个论点：控制台命令的名称和选项参数。 不同的控制台命令有不同的选项。
 
 ``` js
-hexo.call('generate', {}).then(function(){
-  // ...
+hexo.call('generate', {}).then(function()@un.org.
+/...
 });
 ```
 
@@ -59,14 +61,14 @@ hexo.call('list', { _: ['post'] }).then(function() {
 })
 ```
 
-## Exit
+## 退出
 
-You should call the `exit` method upon successful or unsuccessful completion of a console command. This allows Hexo to exit gracefully and finish up important things such as saving the database.
+当控制台命令完成成功或失败时，您应该调用 `退出` 方法。 这使Hexo能够体面地退出并完成保存数据库等重要工作。
 
 ``` js
-hexo.call('generate').then(function(){
+hexo.call('generate').then(function()own
   return hexo.exit();
-}).catch(function(err){
+}).catch(function(err)paper.
   return hexo.exit(err);
 });
 ```
