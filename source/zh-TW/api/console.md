@@ -2,13 +2,14 @@
 title: Console
 ---
 
-The console forms the bridge between Hexo and its users. It registers and describes the available console commands.
+The console forms the bridge between Hexo and its users. It registers and describes the available console commands. It registers and describes the available console commands.
 
 ## Synopsis
 
 ``` js
 hexo.extend.console.register(name, desc, options, function(args){
   // ...
+});
 });
 ```
 
@@ -18,13 +19,13 @@ hexo.extend.console.register(name, desc, options, function(args){
 | `desc`    | Description |
 | `options` | Options     |
 
-An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
+An argument `args` will be passed into the function. This is the argument that users type into the terminal. An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
 ## Options
 
 ### usage
 
-The usage of a console command. For example:
+The usage of a console command. For example: For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -33,7 +34,7 @@ The usage of a console command. For example:
 
 ### arguments
 
-The description of each argument of a console command. For example:
+The description of each argument of a console command. For example: For example:
 
 ``` js
 {
@@ -46,7 +47,7 @@ The description of each argument of a console command. For example:
 
 ### options
 
-The description of each option of a console command. For example:
+The description of each option of a console command. For example: For example:
 
 ``` js
 {
