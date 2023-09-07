@@ -2,13 +2,13 @@
 title: API
 ---
 
-This documentation provides more detailed information about the API and will be particularly helpful for people who want to modify the Hexo source code or write new plugins. If you are interested in more basic usage of Hexo, please refer to the [docs](../docs) instead.
+Эта документация содержит подробную информацию об API и будет особенно полезна для людей, желающих изменить исходный код Hexo или писать новые плагины. Если Вас интересуют основы использования Hexo, пожалуйста, используйте [документацию](../docs).
 
-Please note that this documentation is only valid for Hexo 3 and above.
+Обратите внимание, эта документация действительна только для Hexo 3 и выше.
 
-## Initialize
+## Инициализация
 
-First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. Next, we initialize this instance by calling the `init` method on it, which will then cause Hexo to load its configuration and plugins.
+Во-первых, нужно создать экземпляр Hexo. Он принимает два аргумента: корневой каталог сайта `base_dir` и объект, содержащий параметры инициализации. Далее для инициализации выполняется метод `init`, он вызывает Hexo и загружает настройки и плагины.
 
 ``` js
 var Hexo = require('hexo');
@@ -19,19 +19,19 @@ hexo.init().then(function(){
 });
 ```
 
-| Option             | Description                                                                                           | Default                        |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `debug`            | Enable debug mode. Display debug messages in the terminal and save `debug.log` in the root directory. | `false`                        |
-| `safe`             | Enable safe mode. Don't load any plugins.                                                             | `false`                        |
-| `silent`           | Enable silent mode. Don't display any messages in the terminal.                                       | `false`                        |
-| `config`           | Specify the path of the configuration file.                                                           | `_config.yml`                  |
-| `draft` / `drafts` | Enable to add drafts to the posts list.<br> example: when you use `hexo.locals.get('posts')`    | `render_drafts` of _config.yml |
+| Опция              | Описание                                                                                                                             | Значение по умолчанию          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ |
+| `debug`            | Включает режим отладки. Отображает отладочные сообщения в консоль и сохраняет в файл `debug.log`, находящийся в корневой директории. | `ложь`                         |
+| `безопасный`       | Включает безопасный режим. Пропускается загрузка всех плагинов.                                                                      | `ложь`                         |
+| `тихий`            | Включает тихий режим. Скрывает отображение любых сообщений в терминале.                                                              | `ложь`                         |
+| `настройки`        | Указывает путь к файлу конфигурации.                                                                                                 | `_config.yml`                  |
+| `draft` / `drafts` | Enable to add drafts to the posts list.<br> example: when you use `hexo.locals.get('posts')`                                   | `render_drafts` of _config.yml |
 
-## Load Files
+## Загрузка файлов
 
-Hexo provides two methods for loading files: `load` and `watch`. `load` is used for loading all files in the `source` folder as well as the theme data. `watch` does the same things `load` does, but will also start watching for file changes continuously.
+Hexo предусматривает два способа загрузки файлов: `load` и `watch`. `load` используется для загрузки всех файлов из исходной папки и данных темы. `watch` делает то же самое, а также следит за файлами и запускает обработку при их изменении.
 
-Both methods will load the list of files and pass them to the corresponding processors. After all files have been processed, they will call upon the generators to create the routes.
+Оба метода позволяют загрузить список файлов и передать их в соответствующие обработчики. После того, как все файлы будут обработаны, они вызовут генератор создания ссылок.
 
 ``` js
 hexo.load().then(function(){
@@ -39,13 +39,13 @@ hexo.load().then(function(){
 });
 
 hexo.watch().then(function(){
-  // You can call hexo.unwatch() later to stop watching.
+  // Можно использовать hexo.unwatch() позже для отмены отслеживания изменений в файлах.
 });
 ```
 
-## Execute Commands
+## Выполнение команд
 
-Any console command can be called explicitly using the `call` method on the Hexo instance. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands.
+Любую консольную команду можно вызвать явно с помощью метода `call` в экземпляре Hexo. Такой вызов принимает два аргумента: команду и её опции. Для каждой команды доступны свои опции.
 
 ``` js
 hexo.call('generate', {}).then(function(){
@@ -59,9 +59,9 @@ hexo.call('list', { _: ['post'] }).then(function() {
 })
 ```
 
-## Exit
+## Выход
 
-You should call the `exit` method upon successful or unsuccessful completion of a console command. This allows Hexo to exit gracefully and finish up important things such as saving the database.
+После успешного или неудачного завершения команд в консоли нужно вызывать метод `exit`. Это позволяет Hexo корректно завершить и закончить важные задачи, например, сохранение базы данных.
 
 ``` js
 hexo.call('generate').then(function(){
