@@ -1,9 +1,10 @@
 ---
-title: Тег
+title: Tag
 ---
-Тег позволяет легко и быстро вставлять фрагменты в свои посты.
 
-## Краткий обзор
+A tag allows users to quickly and easily insert snippets into their posts.
+
+## Synopsis
 
 ``` js
 hexo.extend.tag.register(name, function(args, content){
@@ -11,9 +12,9 @@ hexo.extend.tag.register(name, function(args, content){
 }, options);
 ```
 
-В функцию тега передаются два аргумента: `args` и `content`. `args` содержит аргументы, передаваемые плагину. `content` оборачивается содержанием с помощью плагина тега.
+Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
 
-С момента введения в асинхронное отображение Hexo 3 использует [Nunjucks] для обработки. Его поведение несколько отличается от применяемого в [Swig].
+Since the introduction of asynchronous rendering in Hexo 3, we are using [Nunjucks][] for rendering. The behavior may be somewhat different from that in [Swig][].
 
 ## Unregister Tags
 
@@ -37,21 +38,21 @@ hexo.extend.tag.unregister('youtube');
 hexo.extend.tag.register('youtube', tagFn);
 ```
 
-## Опции
+## Options
 
 ### ends
 
-Использовать закрывающие теги. По умолчанию установлено в `false`.
+Use end tags. This option is `false` by default.
 
 ### async
 
-Включает асинхронный режим. По умолчанию установлено в `false`.
+Enable async mode. This option is `false` by default.
 
-## Примеры
+## Examples
 
-### Без закрывающих тегов
+### Without End Tags
 
-Вставка видео с YouTube.
+Insert a Youtube video.
 
 ``` js
 hexo.extend.tag.register('youtube', function(args){
@@ -60,9 +61,9 @@ hexo.extend.tag.register('youtube', function(args){
 });
 ```
 
-### С закрывающими тегами
+### With End Tags
 
-Вставка цитаты.
+Insert a pull quote.
 
 ``` js
 hexo.extend.tag.register('pullquote', function(args, content){
@@ -71,9 +72,9 @@ hexo.extend.tag.register('pullquote', function(args, content){
 }, {ends: true});
 ```
 
-### Асинхронная обработка
+### Async Rendering
 
-Вставка файла.
+Insert a file.
 
 ``` js
 var fs = require('hexo-fs');
