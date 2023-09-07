@@ -1,96 +1,101 @@
 ---
 title: Variables
 ---
-### 전역 변수
 
-변수 | 설명
---- | ---
-`site` | 사이트 전체의 정보.
-`page` | 페이지 정보와 front-matter의 사용자 정의 변수 집합.
-`config` | 사이트 환경설정
-`theme` | 테마 환경설정. 사이트 환경설정을 상속합니다.
-`path` | 현재 페이지의 경로
-`url` | 현재 페이지의 전체 경로
-`env` | 환경설정 변수
+{% youtube T9oAax-IRw0 %}
+
+### Global Variables
+
+| Variable | Description                                                         | Type                                 |
+| -------- | ------------------------------------------------------------------- | ------------------------------------ |
+| `site`   | Sitewide information.                                               | `object`; see [Site Variables][]     |
+| `page`   | Page specific information and custom variables set in front-matter. | `object`; see [Page Variables][]     |
+| `config` | Site configuration.                                                 | `object` (your site's _config file)  |
+| `theme`  | Theme configuration. Inherits from site configuration.              | `object` (your theme's _config file) |
+| `path`   | Path of current page                                                | `string`                             |
+| `url`    | Full URL of current page                                            | `string`                             |
+| `env`    | Environment variables                                               | ???                                  |
 
 {% note warn %}
 Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 {% endnote %}
 
-### 사이트 변수
+### Site Variables
 
-변수 | 설명
---- | ---
-`site.posts` | 모든 포스트
-`site.pages` | 모든 페이지
-`site.categories` | 모든 카테고리
-`site.tags` | 모든 태그
+| Variable          | Description    | Type                      |
+| ----------------- | -------------- | ------------------------- |
+| `site.posts`      | All posts      | `array` of `post` objects |
+| `site.pages`      | All pages      | `array` of `page` objects |
+| `site.categories` | All categories | `array` of ???            |
+| `site.tags`       | All tags       | `array` of ???            |
 
-### 페이지 변수
+### Page Variables
 
-**Article (page)**
+**Article (`page`)**
 
-변수 | 설명
---- | ---
-`page.title` | 게시글 제목
-`page.date` | 게시글 생성 날짜 ([Moment.js] object)
-`page.updated` | 게시글이 마지막으로 갱신된 날짜 ([Moment.js] object)
-`page.comments` | 코멘트를 활성화 할지 여부
-`page.layout` | 레이아웃명
-`page.content` | 게시글에서 full 처리될 컨텐츠
-`page.excerpt` | 게시글 발췌
-`page.more` | 게시글 발췌를 제외한 컨텐츠
-`page.source` | 소스 파일의 경로
-`page.full_source` | 소스 파일의 전체 경로
-`page.path` | 루트 URL을 제외한 게시글의 URL. 테마에서는 `url_for(page.path)`를 자주 사용합니다.
-`page.permalink` | 게시글의 전체 URL
-`page.prev` | 이전 포스트, 현재 포스트가 첫 포스트라면 `null`입니다.
-`page.next` | 다음 포스트, 현재 포스트가 마지막 포스트라면 `null`입니다.
-`page.raw` | 게시글의 raw 데이터
-`page.photos` | 게시글의 사진들 (Gallery post를 사용한 것들)
-`page.link` | 게시글의 외부 링크 (Link post를 사용한 것들)
+| Variable           | Description                                                                            | Type                 |
+| ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
+| `page.title`       | Article title                                                                          | `string`             |
+| `page.date`        | Article created date                                                                   | [Moment.js][] object |
+| `page.updated`     | Article last updated date                                                              | [Moment.js][] object |
+| `page.comments`    | Comment enabled or not                                                                 | `boolean`            |
+| `page.layout`      | Layout name                                                                            | `string`             |
+| `page.content`     | The full processed content of the article                                              | `string`             |
+| `page.excerpt`     | Article excerpt                                                                        | `string`             |
+| `page.more`        | Contents except article excerpt                                                        | `string`             |
+| `page.source`      | The path of the source file                                                            | `string`             |
+| `page.full_source` | Full path of the source file                                                           | `string`             |
+| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
+| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
+| `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
+| `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
+| `page.raw`         | The raw data of the article                                                            | ???                  |
+| `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
+| `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
 
-**Post (post):** `page` 레이아웃과 동일하지만 아래의 변수를 추가로 갖습니다.
+**Post (`post`):** Same as `page` layout but add the following variables.
 
-변수 | 설명
---- | ---
-`page.published` | Post가 draft상태가 아니라면 true를 반환합니다.
-`page.categories` | Post의 모든 카테고리
-`page.tags` | Post의 모든 태그
+| Variable          | Description                     | Type           |
+| ----------------- | ------------------------------- | -------------- |
+| `page.published`  | True if the post is not a draft | `boolean`      |
+| `page.categories` | All categories of the post      | `array` of ??? |
+| `page.tags`       | All tags of the post            | `array` of ??? |
 
-**Home (index)**
+**Home (`index`)**
 
-변수 | 설명
---- | ---
-`page.per_page` | 한 페이지에 보여질 포스트의 수
-`page.total` | 페이지의 전체 개수
-`page.current` | 현재 페이지의 번호
-`page.current_url` | 현재 페이지의 URL
-`page.posts` | 이 페이지에 있는 포스트들 ([Data Model])
-`page.prev` | 이전 페이지 번호. 현재 페이지가 첫 페이지라면 `0`입니다.
-`page.prev_link` | 이전 페이지의 URL. 현재 페이지가 첫 페이지라면 `''`입니다.
-`page.next` | 다음 페이지 번호. 현재 페이지가 마지막 페이지라면 `0`입니다.
-`page.next_link` | 다음 페이지의 URL. 현재 페이지가 마지막 페이지라면 `''`입니다.
-`page.path` | 루트 URL을 제외한 현재 페이지의 URL. 테마에서는 `url_for(page.path)`를 자주 사용합니다.
+| Variable           | Description                                                                             | Type     |
+| ------------------ | --------------------------------------------------------------------------------------- | -------- |
+| `page.per_page`    | Posts displayed per page                                                                | `number` |
+| `page.total`       | Total number of pages                                                                   | `number` |
+| `page.current`     | Current page number                                                                     | `number` |
+| `page.current_url` | The URL of current page                                                                 | `string` |
+| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                  | `object` |
+| `page.prev`        | Previous page number. `0` if the current page is the first.                             | `number` |
+| `page.prev_link`   | The URL of previous page. `''` if the current page is the first.                        | `string` |
+| `page.next`        | Next page number. `0` if the current page is the last.                                  | `number` |
+| `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
+| `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
 
-**Archive (archive):** `index` 레이아웃과 동일하지만 아래의 변수를 추가로 갖습니다.
+**Archive (`archive`):** Same as `index` layout but add the following variables.
 
-변수 | 설명
---- | ---
-`page.archive` | `true`와 동일합니다.
-`page.year` | 아카이브 연도 (4자리 숫자)
-`page.month` | 아카이브 월 (0을 제외한 2자리 숫자)
+| Variable       | Description                                   | Type      |
+| -------------- | --------------------------------------------- | --------- |
+| `page.archive` | Equals `true`                                 | `boolean` |
+| `page.year`    | Archive year (4-digit)                        | `number`  |
+| `page.month`   | Archive month (2-digit without leading zeros) | `number`  |
 
-**Category (category):** `index` 레이아웃과 동일하지만 아래의 변수를 추가로 갖습니다.
+**Category (`category`):** Same as `index` layout but add the following variables.
 
-변수 | 설명
---- | ---
-`page.category` | 카테고리명
+| Variable        | Description   | Type     |
+| --------------- | ------------- | -------- |
+| `page.category` | Category name | `string` |
 
-**Tag (tag):** `index` 레이아웃과 동일하지만 아래의 변수를 추가로 갖습니다.
+**Tag (`tag`):** Same as `index` layout but add the following variables.
 
-변수 | 설명
---- | ---
-`page.tag` | 태그명
+| Variable   | Description | Type     |
+| ---------- | ----------- | -------- |
+| `page.tag` | Tag name    | `string` |
 
 [Moment.js]: http://momentjs.com/
+[Site Variables]: #Site-Variables
+[Page Variables]: #Page-Variables
