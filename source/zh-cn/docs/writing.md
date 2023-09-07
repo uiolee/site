@@ -1,74 +1,74 @@
 ---
-title: 写入中
+title: 写作
 ---
 
-{% youtube AIqBubK6ZLc %}
+{% youtube HLJ9jJy7CMg %}
 
-要创建一个新的帖子或一个新的页面，您可以运行以下命令：
+你可以执行下列命令来创建一篇新文章或者新的页面。
 
 ``` bash
-美元新增 [layout] <title>
+$ hexo new [layout] <title>
 ```
 
-`post` is the default `layout`, but you can supply your own. You can change the default layout by editing the `default_layout` setting in `_config.yml`.
+`post` is the default `layout`, but you can supply your own. 您可以在命令中指定文章的布局（layout），默认为 `post`，可以通过修改 `_config.yml` 中的 `default_layout` 参数来指定默认布局。
 
-## 布局
+## 布局（Layout）
 
-十六进制有三个默认布局： `发布`、 `页面` 和 `草稿`。 每个文件创建的文件被保存到不同的路径。 新创建的帖子被保存到 `源/_post` 文件夹。
+Hexo 有三种默认布局：`post`、`page` 和 `draft`。 Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
 
-| 布局   | 路径       |
-| ---- | -------- |
-| `发帖` | `来源/帖子`  |
-| `页面` | `来源`     |
-| `草稿` | `来源/_草稿` |
+| 布局      | 路径               |
+| ------- | ---------------- |
+| `post`  | `source/_posts`  |
+| `page`  | `source`         |
+| `draft` | `source/_drafts` |
 
-{% note tip Disabling layout %}
-如果您不想用主题处理文章 (post/page)，请设置 `布局：false` 在其前端。 Refer to [this section](/docs/front-matter#Layout) for more details.
+{% note tip 禁用布局 %}
+如果你不希望一篇文章（post/page）使用主题处理，请在它的 front-matter 中设置 `layout: false`。 详情请参考[本节](/zh-cn/docs/front-matter#布局)。
 {% endnote %}
 
-## 文件名
+## 文件名称
 
-默认情况下，Hexo使用帖子标题作为其文件名。 您可以编辑 `_config.yml` 中的 `新的 post_name` 设置更改默认文件名。 例如， `:year :month-:day:title.md` 将在帖子创建日期前修复文件名。 您可以使用以下占位符：
+By default, Hexo uses the post title as its filename. You can edit the `new_post_name` setting in `_config.yml` to change the default filename. For example, `:year-:month-:day-:title.md` will prefix filenames with the post creation date. 你可以使用以下占位符：
 
-| 占位符      | 描述                 |
-| -------- | ------------------ |
-| `:title` | 帖子标题 (小写，空格替换为连字符) |
-| `:年`     | 创建年份，例如： `2015`    |
-| `:月`     | 创建月 (前导零)，例如： `04` |
-| `:i_月`   | 创建月 (无前端零)，例如： `4` |
-| `:day`   | 创建日 (前零)，例如： `07`  |
-| `:i_day` | 创建日 (无前导零)，例如： `7` |
+| Placeholder | 描述                   |
+| ----------- | -------------------- |
+| `:title`    | 标题（小写，空格将会被替换为短杠）    |
+| `:year`     | 建立的年份，比如， `2015`     |
+| `:month`    | 建立的月份（有前导零），比如， `04` |
+| `:i_month`  | 建立的月份（无前导零），比如， `4`  |
+| `:day`      | 建立的日期（有前导零），比如， `07` |
+| `:i_day`    | 建立的日期（无前导零），比如， `7`  |
 
 ## 草稿
 
-以前，我们在 Hexo: `草案` 中提到了一个特殊的布局。 以此布局初始化的帖子被保存到 `源/_草稿` 文件夹。 您可以使用 `发布` 命令将草稿移动到 `source/_posts` 文件夹。 `发布` 工作方式类似于 `新的` 命令。
+Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command.
 
 ``` bash
-$十六进制发布 [layout] <title>
+$ hexo publish [layout] <title>
 ```
 
-草稿不默认显示。 您可以在运行 Hexo 时添加 `--draft` 选项或启用 `render_draft` 设置 `_config.yml` 来渲染草稿。
+Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
 
-## 手柄武器库
+## Scaffolds
 
-创建帖子时，Hexo 将会根据 `scaffolds` 文件夹中的相应文件构建文件。 例如：
+在新建文章时，Hexo 会根据 `scaffolds` 文件夹内相对应的文件来建立文件，例如： For example:
 
 ``` bash
-$ 十六进制新照片"My Gallery
+$ hexo new photo "My Gallery"
 ```
 
-当你运行此命令时，Hexo会尝试找到 `张照片。 d` `scaffolds` 文件夹并基于它构建帖子。 以下占位符可用于scaffolds：
+在执行这行指令时，Hexo 会尝试在 `scaffolds` 文件夹中寻找 `photo.md`，并根据其内容建立文章，以下是您可以在模版中使用的变量： The following placeholders are available in scaffolds:
 
-| 占位符  | 描述     |
-| ---- | ------ |
-| `布局` | 布局     |
-| `标题` | 标题     |
-| `日期` | 文件创建日期 |
+| Placeholder | 描述     |
+| ----------- | ------ |
+| `layout`    | 布局     |
+| `title`     | 标题     |
+| `date`      | 文件建立日期 |
 
 ## 支持的格式
 
-十六进制支持帖子以任何格式写出，只要相应的渲染器插件已经安装。
+Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。
 
-例如，Hexo 有 `十六进制渲染器标记为` 和 `十六进制渲染器-ejs` 默认情况下安装， 这样您就可以在 `Markdown` 或 `ejs` 中写您的帖子。 If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language.
+例如，Hexo 默认安装了 `hexo-renderer-marked` 和 `hexo-renderer-ejs`，因此你不仅可以用 Markdown 写作，你还可以用 EJS 写作。 如果你安装了 `hexo-renderer-pug`，你甚至可以用 Pug 模板语言书写文章。
 
-您可以将您的帖子重命名并更改为文件扩展名从 `.md` 更改为 `js`, 然后Hexo 将使用 `十六进制渲染器-ejs` 来渲染该文件，其他格式就是这样的。
+只需要将文章的扩展名从 `md` 改成 `ejs`，Hexo 就会使用 `hexo-renderer-ejs` 渲染这个文件，其他格式同理。
