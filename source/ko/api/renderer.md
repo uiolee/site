@@ -1,9 +1,10 @@
 ---
 title: Renderer
 ---
-Renderer는 내용들을 그릴(render) 때 사용합니다.
 
-## 개요
+A renderer is used to render content.
+
+## Synopsis
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
@@ -11,22 +12,23 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-인자 | 설명
---- | ---
-`name` | 입력 파일의 확장자 (소문자, '.' 사용 불가)
-`output` | 출력 파일의 확장자 (소문자, '.' 사용 불가)
-`sync` | 동기(Sync) 모드
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-두 개의 인자가 render 함수로 전달됩니다:
+Three arguments will be passed into the render function:
 
-인자 | 설명
---- | ---
-`data` |두 개의 속성을 포함합니다: 파일 경로인 `path`와 파일 컨텐츠인 `text`. `path`는 없어도 됩니다.
-`option` | 옵션
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## 예시
+## Example
 
-### 비동기(Async) 모드
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
@@ -44,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### 동기(Sync) Mode
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
