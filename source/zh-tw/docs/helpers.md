@@ -2,7 +2,7 @@
 title: Helpers
 ---
 
-Helpers are used in templates to help you insert snippets quickly.  Helpers cannot be used in source files.
+Helpers are used in templates to help you insert snippets quickly.  Helpers cannot be used in source files.  Helpers cannot be used in source files.
 
 You could easily [write your own custom helper](https://hexo.io/api/helper.html) or use our ready-made helpers.
 
@@ -12,7 +12,7 @@ You could easily [write your own custom helper](https://hexo.io/api/helper.html)
 
 ### url_for
 
-Returns a url with the root path prefixed. Output is encoded automatically.
+Returns a url with the root path prefixed. Output is encoded automatically. Output is encoded automatically.
 
 ``` js
 <%- url_for(path) %>
@@ -51,6 +51,9 @@ relative_link: true
  */
 <%- url_for('/css/style.css', {relative: false}) %>
 // /css/style.css
+ */
+<%- url_for('/css/style.css', {relative: false}) %>
+// /css/style.css
 ```
 
 ### relative_url
@@ -70,7 +73,7 @@ relative_link: true
 
 ### full_url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Returns a url with the `config.url` prefixed. Output is encoded automatically. Output is encoded automatically.
 
 ``` js
 <%- full_url_for(path) %>
@@ -92,7 +95,7 @@ url: https://example.com/blog # example
 
 Returns the gravatar image url from an email.
 
-If you didn't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
+If you didn't specify the [options] parameter, the default options will apply. If you didn't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
 
 ``` js
 <%- gravatar(email, [size]) %>
@@ -124,7 +127,7 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
 ### css
 
-載入 CSS 檔案。 `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. `path` 可以是陣列或字串，如果 `path` 開頭不是 `/` 或任何協議，則會自動加上根路徑；如果後面沒有加上 `.css` 副檔名的話，也會自動加上。 Use object type for custom attributes.
+載入 CSS 檔案。 `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. `path` 可以是陣列或字串，如果 `path` 開頭不是 `/` 或任何協議，則會自動加上根路徑；如果後面沒有加上 `.css` 副檔名的話，也會自動加上。 `path` can be a string, an array, an object or an array of objects. `path` 可以是陣列或字串，如果 `path` 開頭不是 `/` 或任何協議，則會自動加上根路徑；如果後面沒有加上 `.css` 副檔名的話，也會自動加上。 Use object type for custom attributes.
 
 ``` js
 <%- css(path, ...) %>
@@ -348,7 +351,7 @@ Check whether the current page is a monthly archive page.
 
 ### is_category
 
-Check whether the current page is a category page. If a string is given as parameter, check whether the current page match the given category.
+Check whether the current page is a category page. Check whether the current page is a category page. If a string is given as parameter, check whether the current page match the given category.
 
 ``` js
 <%- is_category() %>
@@ -356,7 +359,7 @@ Check whether the current page is a category page. If a string is given as param
 
 ### is_tag
 
-Check whether the current page is a tag page. If a string is given as parameter, check whether the current page match the given tag.
+Check whether the current page is a tag page. Check whether the current page is a tag page. If a string is given as parameter, check whether the current page match the given tag.
 
 ``` js
 <%- is_tag() %>
@@ -384,6 +387,7 @@ Check whether the current page is a tag page. If a string is given as parameter,
 
 ``` js
 <%- strip_html('It\'s not <b>important</b> anymore!') %>
+// It's not important anymore! %>
 // It's not important anymore!
 ```
 
@@ -451,7 +455,7 @@ See [Rendering](https://hexo.io/zh-twapi/rendering) for more details.
 
 ### truncate
 
-Truncates text after certain `length`. Default is 30 characters.
+Truncates text after certain `length`. Default is 30 characters. Default is 30 characters.
 
 ``` js
 <%- truncate(text, length) %>
@@ -463,8 +467,14 @@ Truncates text after certain `length`. Default is 30 characters.
 <%- truncate('Once upon a time in a world far far away', 16) %>
 // Once upon a time
 
+<%- truncate('Once upon a time in a world far far away', 16) %>
+// Once upon a time
+
 <%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
 // Once upon a...
+
+<%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
+// And they f... (continued)
 
 <%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
 // And they f... (continued)
@@ -489,7 +499,7 @@ Escapes HTML entities in a string.
 
 ### partial
 
-Loads other template files. You can define local variables in `locals`.
+Loads other template files. Loads other template files. You can define local variables in `locals`.
 
 ``` js
 <%- partial(layout, [locals], [options]) %>
@@ -502,7 +512,7 @@ Loads other template files. You can define local variables in `locals`.
 
 ### fragment_cache
 
-Caches the contents in a fragment. It saves the contents within a fragment and serves the cache when the next request comes in.
+Caches the contents in a fragment. Caches the contents in a fragment. It saves the contents within a fragment and serves the cache when the next request comes in.
 
 ``` js
 <%- fragment_cache(id, fn);
@@ -627,17 +637,17 @@ Inserts a list of all tags.
 <%- list_tags([tags], [options]) %>
 ```
 
-| Option       | Description                                                                                                       | Default |
-| ------------ | ----------------------------------------------------------------------------------------------------------------- | ------- |
-| `orderby`    | 分類排列方式                                                                                                            | name    |
-| `order`      | 分類排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                            | 1       |
-| `show_count` | Display the number of posts for each tag                                                                          | true    |
-| `style`      | Style to display the tag list. 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it. | list    |
-| `separator`  | 文章間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                              | ,       |
-| `class`      | Class name of tag list (string) or customize each tag's class (object, see below).                                | tag     |
-| `transform`  | The function that changes the display of tag name. See examples in [list_categories](#list-categories).           |         |
-| `amount`     | 要顯示的標籤數量（0 = 無限制）                                                                                                 | 0       |
-| `suffix`     | Add a suffix to link.                                                                                             | None    |
+| Option       | Description                                                                                             | Default |
+| ------------ | ------------------------------------------------------------------------------------------------------- | ------- |
+| `orderby`    | 分類排列方式                                                                                                  | name    |
+| `order`      | 分類排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                  | 1       |
+| `show_count` | Display the number of posts for each tag                                                                | true    |
+| `style`      | 文章列表的顯示方式。 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it.           | list    |
+| `separator`  | 文章間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                    | ,       |
+| `class`      | Class name of tag list (string) or customize each tag's class (object, see below).                      | tag     |
+| `transform`  | The function that changes the display of tag name. See examples in [list_categories](#list-categories). |         |
+| `amount`     | 要顯示的標籤數量（0 = 無限制）                                                                                       | 0       |
+| `suffix`     | Add a suffix to link.                                                                                   | None    |
 
 Class advanced customization:
 
@@ -666,16 +676,16 @@ Examples:
 <%- list_archives([options]) %>
 ```
 
-| Option       | Description                                                                                                           | Default   |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- | --------- |
-| `type`       | 類型。 此設定可為 `yearly` 或 `monthly`。                                                                                       | monthly   |
-| `order`      | 文章排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                                | 1         |
-| `show_count` | Display the number of posts for each archive                                                                          | true      |
-| `format`     | 日期格式                                                                                                                  | MMMM YYYY |
-| `style`      | Style to display the archive list. 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it. | list      |
-| `separator`  | 標籤間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                                  | ,         |
-| `class`      | 彙整列表的 class 名稱。                                                                                                       | archive   |
-| `transform`  | The function that changes the display of archive name. See examples in [list_categories](#list-categories).           |           |
+| Option       | Description                                                                                                                                                      | Default   |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `type`       | 類型。 此設定可為 `yearly` 或 `monthly`。                                                                                                                                  | monthly   |
+| `order`      | 文章排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                                                                           | 1         |
+| `show_count` | Display the number of posts for each archive                                                                                                                     | true      |
+| `format`     | 日期格式                                                                                                                                                             | MMMM YYYY |
+| `style`      | Style to display the archive list. Style to display the archive list. 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it.         | list      |
+| `separator`  | 標籤間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                                                                             | ,         |
+| `class`      | 彙整列表的 class 名稱。                                                                                                                                                  | archive   |
+| `transform`  | The function that changes the display of archive name. See examples in [list_categories](#list-categories). See examples in [list_categories](#list-categories). |           |
 
 ### list_posts
 
@@ -685,15 +695,15 @@ Examples:
 <%- list_posts([options]) %>
 ```
 
-| Option      | Description                                                                                              | Default |
-| ----------- | -------------------------------------------------------------------------------------------------------- | ------- |
-| `orderby`   | Order of posts                                                                                           | date    |
-| `order`     | 標籤排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                   | 1       |
-| `style`     | 文章列表的顯示方式。 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it.            | list    |
-| `separator` | 彙整間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                     | ,       |
-| `class`     | 插入分類列表。                                                                                                  | post    |
-| `amount`    | 要顯示的文章數量（0 = 無限制）                                                                                        | 6       |
-| `transform` | The function that changes the display of post name. See examples in [list_categories](#list-categories). |         |
+| Option      | Description                                                                                                                                                                                                      | Default |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `orderby`   | Order of posts                                                                                                                                                                                                   | date    |
+| `order`     | 標籤排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                                                                                                                           | 1       |
+| `style`     | 文章列表的顯示方式。 Style to display the tag list. 使用 `list` 以無序列表（unordered list）方式顯示。 Use `false` or any other value to disable it.                                                                                     | list    |
+| `separator` | 彙整間的分隔符號。 只有在 `style` 不是 `list` 時有用。                                                                                                                                                                             | ,       |
+| `class`     | 插入分類列表。                                                                                                                                                                                                          | post    |
+| `amount`    | 要顯示的文章數量（0 = 無限制）                                                                                                                                                                                                | 6       |
+| `transform` | The function that changes the display of post name. See examples in [list_categories](#list-categories). The function that changes the display of tag name. See examples in [list_categories](#list-categories). |         |
 
 ### tagcloud
 
@@ -804,11 +814,11 @@ Inserts a paginator.
 <%- search_form(options) %>
 ```
 
-| Option   | Description                                                                                                | Default     |
-| -------- | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| `class`  | 表單的 class name                                                                                             | search-form |
-| `text`   | 搜尋提示文字                                                                                                     | Search      |
-| `button` | 顯示搜尋按鈕。 The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
+| Option   | Description                                                                                                                                        | Default     |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `class`  | 表單的 class name                                                                                                                                     | search-form |
+| `text`   | 搜尋提示文字                                                                                                                                             | Search      |
+| `button` | 顯示搜尋按鈕。 The value can be a boolean or a string. The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
 
 ### number_format
 
@@ -916,7 +926,7 @@ Parses all heading tags (h1~h6) in the content and inserts a table of contents.
 
 Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be display).
 
-{% note warn "Warning!" %} %}
+{% note warn "Warning!" %} %} %}
 For using `data-toc-unnumbered="true"`, the renderer must have the option to add CSS classes.
 
 Please see below PRs.
