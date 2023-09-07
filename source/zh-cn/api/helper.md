@@ -1,12 +1,16 @@
 ---
 title: 辅助函数（Helper）
 ---
-辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。
+
+辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。 We recommend using helpers instead of templates when you're dealing with more complicated code.
+
+Helpers can not be accessed from `source` files.
 
 ## 概要
 
 ``` js
 hexo.extend.helper.register(name, function(){
+});
 });
 ```
 
@@ -31,7 +35,7 @@ hexo.extend.helper.register('js', function(path){
 
 ### 如何在我的定制 helper 中使用另外一个已经注册的 helper？
 
-所有的辅助函数都在同一个上下文中执行。例如，在一个自定义的辅助函数中使用 [`url_for()`](/zh-cn/docs/helpers#url-for)：
+所有的辅助函数都在同一个上下文中执行。 例如，在一个自定义的辅助函数中使用 [`url_for()`](/zh-cn/docs/helpers#url-for)：
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
