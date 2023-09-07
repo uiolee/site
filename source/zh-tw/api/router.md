@@ -39,7 +39,7 @@ hexo.route.set('index.html', function(callback){
 });
 ```
 
-You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
+You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files. This can speed up file generation as it allows for ignoring the unmodified files.
 
 ``` js
 hexo.route.set('index.html', {
