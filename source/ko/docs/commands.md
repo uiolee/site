@@ -8,7 +8,7 @@ title: Commands
 $ hexo init [folder]
 ```
 
-Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
+웹 사이트를 초기화합니다. `folder`가 준비되어 있지 않다면 Hexo는 현재 디렉토리에 웹 사이트를 세팅합니다.
 
 This command is a shortcut that runs the following steps:
 
@@ -21,9 +21,9 @@ This command is a shortcut that runs the following steps:
 $ hexo new [layout] <title>
 ```
 
-Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+새 글(article)을 생성합니다. `layout`이 준비되어 있지 않다면, Hexo는 [_config.yml](configuration.html)에 정의된 `default_layout`을 사용합니다. Use the layout `draft` to create a draft. 만약 `title`에 공백이 포함된다면 따옴표로 감싸주세요.
 
-| Option            | Description                                |
+| 옵션                | 설명                                         |
 | ----------------- | ------------------------------------------ |
 | `-p`, `--path`    | Post path. Customize the path of the post. |
 | `-r`, `--replace` | Replace the current post if existed.       |
@@ -51,12 +51,12 @@ will create the post `source/_posts/about/me.md` with the title "page" in the fr
 $ hexo generate
 ```
 
-Generates static files.
+정적 파일들을 생성합니다.
 
-| Option                | Description                                                              |
+| 옵션                    | 설명                                                                       |
 | --------------------- | ------------------------------------------------------------------------ |
-| `-d`, `--deploy`      | Deploy after generation finishes                                         |
-| `-w`, `--watch`       | Watch file changes                                                       |
+| `-d`, `--deploy`      | 생성이 종료된 후 deploy 합니다.                                                    |
+| `-w`, `--watch`       | 파일의 변경사항을 감시(watch)합니다.                                                  |
 | `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
 | `-f`, `--force`       | Force regenerate                                                         |
 | `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
@@ -75,13 +75,13 @@ Publishes a draft.
 $ hexo server
 ```
 
-Starts a local server. By default, this is at `http://localhost:4000/`.
+로컬 서버를 구동시킵니다. 기본적으로 `http://localhost:4000/` 를 사용합니다.
 
-| Option           | Description                            |
-| ---------------- | -------------------------------------- |
-| `-p`, `--port`   | Override default port                  |
-| `-s`, `--static` | Only serve static files                |
-| `-l`, `--log`    | Enable logger. Override logger format. |
+| 옵션               | 설명                                  |
+| ---------------- | ----------------------------------- |
+| `-p`, `--port`   | 기본 포트를 덮어씁니다.                       |
+| `-s`, `--static` | 정적인 파일만 구동합니다.                      |
+| `-l`, `--log`    | Logger를 활성화 시킵니다. Logger 형식을 덮어씁니다. |
 
 ## deploy
 
@@ -89,11 +89,11 @@ Starts a local server. By default, this is at `http://localhost:4000/`.
 $ hexo deploy
 ```
 
-Deploys your website.
+웹 사이트를 deploy 합니다.
 
-| Option             | Description                |
-| ------------------ | -------------------------- |
-| `-g`, `--generate` | Generate before deployment |
+| 옵션                 | 설명                            |
+| ------------------ | ----------------------------- |
+| `-g`, `--generate` | Deploy 하기 전에 generate를 수행합니다. |
 
 ## render
 
@@ -101,7 +101,7 @@ Deploys your website.
 $ hexo render <file1> [file2] ...
 ```
 
-Renders files.
+파일을 렌더링합니다.
 
 | Option           | Description        |
 | ---------------- | ------------------ |
@@ -113,7 +113,7 @@ Renders files.
 $ hexo migrate <type>
 ```
 
-[Migrates](migration.html) content from other blog systems.
+다른 블로그 시스템의 내용을 Hexo로 [마이그레이션](migration.html) 합니다.
 
 ## clean
 
@@ -121,7 +121,7 @@ $ hexo migrate <type>
 $ hexo clean
 ```
 
-Cleans the cache file (`db.json`) and generated files (`public`).
+캐시 파일 (`db.json`) 및 생성된 파일들 (`public`) 을 삭제합니다.
 
 ## list
 
@@ -129,7 +129,7 @@ Cleans the cache file (`db.json`) and generated files (`public`).
 $ hexo list <type>
 ```
 
-Lists all routes.
+경로(route) 목록을 보여줍니다.
 
 ## version
 
@@ -137,27 +137,27 @@ Lists all routes.
 $ hexo version
 ```
 
-Displays version information.
+버전 정보를 보여줍니다.
 
-## Options
+## 옵션
 
-### Safe mode
+### 안전 모드
 
 ``` bash
 $ hexo --safe
 ```
 
-Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
+플러그인과 스크립트를 불러오지 않습니다. 새로운 플러그인을 설치한 후 문제가 생기면 이 모드를 사용해 보시기 바랍니다.
 
-### Debug mode
+### 디버그 모드
 
 ``` bash
 $ hexo --debug
 ```
 
-Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
+터미널에 verbose 로그 메시지를 출력하고 `debug.log` 파일에 저장합니다. Hexo에 문제 발생 시 사용해 보시기 바랍니다. 에러 발견 시 [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new)에 등록해 주세요.
 
-### Silent mode
+### Silent 모드
 
 ``` bash
 $ hexo --silent
@@ -165,25 +165,25 @@ $ hexo --silent
 
 Silences output to the terminal.
 
-### Customize config file path
+### 설정 파일의 변경(customizing)
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
+`_config.yml` 대신 커스터미이징한 설정 파일을 사용할 수 있습니다. Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
 
 ``` bash
 $ hexo --config custom.yml,custom2.json
 ```
 
-### Display drafts
+### Draft 포스트 표시
 
 ``` bash
 $ hexo --draft
 ```
 
-Displays draft posts (stored in the `source/_drafts` folder).
+Draft 포스트를 보여줍니다(`source/_drafts` 폴더에 저장되어 있습니다).
 
 ### Customize CWD
 
@@ -191,4 +191,4 @@ Displays draft posts (stored in the `source/_drafts` folder).
 $ hexo --cwd /path/to/cwd
 ```
 
-Customizes the path of current working directory.
+현재 작업 디렉토리의 경로를 변경할 수 있습니다.
