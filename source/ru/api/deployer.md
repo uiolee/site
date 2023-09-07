@@ -1,9 +1,10 @@
 ---
-title: Инструмент размещения
+title: Deployer
 ---
-Позволяет быстро развернуть свой сайт на удалённом сервере без сложных команд.
 
-## Краткий обзор
+A deployer helps users quickly deploy their site to a remote server without complicated commands.
+
+## Synopsis
 
 ``` js
 hexo.extend.deployer.register(name, function(args){
@@ -11,4 +12,4 @@ hexo.extend.deployer.register(name, function(args){
 });
 ```
 
-В аргумент `args` передаётся функция, которая содержит развернутое значение, взятое из `_config.yml`. Дополнительно нужно ввести через терминал данные для входа.
+An argument `args` will be passed into the function. It contains the `deploy` value set in `_config.yml`, as well as the exact input users typed into their terminal.
