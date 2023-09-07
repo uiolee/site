@@ -1,18 +1,18 @@
 ---
-title: Setup
+title: Установка
 ---
 
 {% youtube 0m2HnATkHOk %}
 
-Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
+После установки Hexo, запустите следующие команды в консоли для инициализации Hexo в папке `<folder>`.
 
 ``` bash
 $ hexo init <folder>
 $ cd <folder>
-$ npm install
+$ npm установки
 ```
 
-Once initialized, here's what your project folder will look like:
+После инициализации папка будет выглядеть так:
 
 ``` plain
 .
@@ -27,42 +27,42 @@ Once initialized, here's what your project folder will look like:
 
 ### _config.yml
 
-Site [configuration](configuration.html) file. You can configure most settings here.
+Файл [конфигурации](configuration.html) сайта. В нём возможно настроить большинство параметров.
 
 ### package.json
 
-Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
+Данные приложений. [EJS](https://ejs.co/)-, [Stylus](http://learnboost.github.io/stylus/)- и [Markdown](http://daringfireball.net/projects/markdown/)-обработчики устанавливаются по умолчанию. При желании можно удалить их позже.
 
 ``` json package.json
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "0.0. ",
   "private": true,
   "hexo": {
     "version": ""
   },
   "dependencies": {
-    "hexo": "^3.8.0",
+    "hexo": "^3. .0",
     "hexo-generator-archive": "^0.1.5",
-    "hexo-generator-category": "^0.1.3",
+    "hexo-generator-category": "^0. .3",
     "hexo-generator-index": "^0.2.1",
     "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.3.1",
+    "hexo-renderer-ejs": "^0.3. ",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-renderer-marked": "^0.3.2",
+    "hexo-renderer-marked": "^0. .2",
     "hexo-server": "^0.3.3"
   }
 }
 ```
 
-### scaffolds
+### леса
 
-[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
+Папка с [заготовками](writing.html#Заготовки). При создании нового поста Hexo формирует файл в папке scaffold.
 
-### source
+### источник
 
-Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
+Папка с исходниками. Это содержащая сайт папка. Hexo игнорирует скрытые файлы и файлы или папки, имена которых начинаются с `_` (подчеркивания). Исключением является папка `_posts`. Обрабатываемые файлы (напр., markdown, HTML) будут вставлены в общую папку, остальные файлы просто копируются.
 
-### themes
+### темы
 
-[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
+Папка с [темами](themes.html). Hexo генерирует статический сайт, комбинируя содержимое сайта с темой.
