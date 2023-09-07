@@ -2,53 +2,53 @@
 title: 事件
 ---
 
-Hexo inherits from [EventEmitter][]. 在</code> 方法上使用 `来监听十六进制发出的事件，并使用 <code>emit` 方法来排放事件。 欲了解更多信息，请参阅Node.js API 文档。
+Hexo 继承了 [EventEmitter][]，您可以用 `on` 方法监听 Hexo 所发布的事件，也可以使用 `emit` 方法对 Hexo 发布事件，更详细的说明请参阅 Node.js 的 API。 Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
-### 部署前
+### deployBefore
 
-在部署开始之前发出信号。
+Emitted before deployment begins.
 
-### 部署后
+### deployAfter
 
-部署结束后发出。
+Emitted after deployment finishes.
 
-### 退出
+### exit
 
-在十六进制退出前发出。
+在 Hexo 结束前发布。
 
-### 生成前
+### generateBefore
 
-在代际开始之前发出信号。
+Emitted before generation begins.
 
-### 生成
+### generateAfter
 
-生成完成后发出。
+Emitted after generation finishes.
 
-### 新的
+### new
 
-新帖子创建后发出。 此事件返回帖子数据：
+在文章文件建立后发布。 该事件返回文章参数。
 
 ``` js
 hexo.on('new', function(post){
-  //
+  // 
 });
 ```
 
-| 数据     | 描述        |
-| ------ | --------- |
-| `发布路径` | 帖子文件的完整路径 |
-| `内容`   | 帖子文件的内容   |
+| 资料             | 描述        |
+| -------------- | --------- |
+| `post.path`    | 文章文件的完整路径 |
+| `post.content` | 文章文件的内容   |
 
-### 处理前
+### processBefore
 
-处理开始前发送。 此事件返回一个代表方框根目录的路径。
+在处理原始文件前发布。 此事件会返回一个地址，代表 Box（Box）的根目录。
 
 ### processAfter
 
-处理完成后发出。 此事件返回一个代表方框根目录的路径。
+在原始文件处理后发布。 此事件会返回一个地址，代表 Box（Box）的根目录。
 
-### 已就绪
+### ready
 
-初始化完成后发出。
+在初始化完成后发布。
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
