@@ -6,7 +6,7 @@ The router saves all paths used in the site.
 
 ## Get a Path
 
-The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
+The `get` method returns a [Stream][]. For example, to save the path data to a specified destination: For example, to save the path data to a specified destination:
 
 ``` js
 var data = hexo.route.get('index.html');
@@ -39,7 +39,7 @@ hexo.route.set('index.html', function(callback){
 });
 ```
 
-You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
+You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files. This can speed up file generation as it allows for ignoring the unmodified files.
 
 ``` js
 hexo.route.set('index.html', {
