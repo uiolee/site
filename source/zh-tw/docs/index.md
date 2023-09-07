@@ -10,7 +10,7 @@ Hexo 是一個快速、簡單且強大的網誌框架。 Hexo 使用 [Markdown](
 
 ## 安裝
 
-It only takes a few minutes to set up Hexo. 讓 Hexo 準備就緒僅需幾分鐘，若您在安裝時遭遇問題而且找不到任何解決方式，請 [回報問題](https://github.com/hexojs/hexo/issues)，我會試著解決您的問題。
+It only takes a few minutes to set up Hexo. 讓 Hexo 準備就緒僅需幾分鐘，若您在安裝時遭遇問題而且找不到任何解決方式，請 [回報問題](https://github.com/hexojs/hexo/issues)，我會試著解決您的問題。 讓 Hexo 準備就緒僅需幾分鐘，若您在安裝時遭遇問題而且找不到任何解決方式，請 [回報問題](https://github.com/hexojs/hexo/issues)，我會試著解決您的問題。
 
 {% youtube PsXWbI2Mqu0 %}
 
@@ -33,7 +33,7 @@ If not, please follow the following instructions to install all the requirements
 - Linux (Fedora, Red Hat, CentOS)：`sudo yum install git-core`
 
 {% note warn Mac 使用者 %}
-You may encounter some problems when compiling. Please install Xcode from App Store first. 您在編譯時可能會碰到問題，請先至 App Store 安裝 Xcode，一旦 Xcode 安裝完成後，開啟它並前往 **Preferences -> Download -> Command Line Tools -> Install** 安裝命令列工具。
+You may encounter some problems when compiling. Please install Xcode from App Store first. You may encounter some problems when compiling. Please install Xcode from App Store first. 您在編譯時可能會碰到問題，請先至 App Store 安裝 Xcode，一旦 Xcode 安裝完成後，開啟它並前往 **Preferences -> Download -> Command Line Tools -> Install** 安裝命令列工具。
 {% endnote %}
 
 ### 安裝 Node.js
@@ -45,7 +45,7 @@ Node.js 為大多數平台提供了官方的 [安裝程序](https://nodejs.org/e
 - Windows：通過 [nvs](https://github.com/jasongin/nvs/)（推薦）或者[nvm](https://github.com/nvm-sh/nvm) 安裝。
 - Mac：使用 [Homebrew](https://brew.sh/) 或 [MacPorts](http://www.macports.org/) 安裝。
 - Linux（DEB/RPM-based）：從 [NodeSource](https://github.com/nodesource/distributions) 安裝。
-- Others: Install it through respective package manager. 其它：使用相應的軟件包管理器進行安裝，可以參考由 Node.js 提供的 [指導](https://nodejs.org/en/download/package-manager/)
+- Others: Install it through respective package manager. 其它：使用相應的軟件包管理器進行安裝，可以參考由 Node.js 提供的 [指導](https://nodejs.org/en/download/package-manager/) 其它：使用相應的軟件包管理器進行安裝，可以參考由 Node.js 提供的 [指導](https://nodejs.org/en/download/package-manager/)
 
 對於 Mac 和 Linux 同樣建議使用 nvs 或者 nvm，以避免可能會出現的權限問題。
 
