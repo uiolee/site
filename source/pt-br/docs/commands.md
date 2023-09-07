@@ -1,194 +1,194 @@
 ---
-title: Commands
+title: Comandos
 ---
 
-## init
+## iniciar
 
 ``` bash
 $ hexo init [folder]
 ```
 
-Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
+Inicializa um site. Se nenhuma pasta `` for fornecida, o Hexo vai configurar um site no diretório atual.
 
-This command is a shortcut that runs the following steps:
+Este comando é um atalho que executa as seguintes etapas:
 
-1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) including [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) into the current directory or a target folder if specified.
-2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
+1. O Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) incluindo [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) no diretório atual ou uma pasta de destino, se especificado.
+2. Instale dependências usando um gerenciador de pacotes: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) ou [npm](https://docs.npmjs.com/cli/install), o que for instalado; se houver mais de um instalado, a prioridade é como listada. npm é empacotado com [Node.js](/docs/#Install-Node-js) por padrão.
 
-## new
-
-``` bash
-$ hexo new [layout] <title>
-```
-
-Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
-
-| Option            | Description                                |
-| ----------------- | ------------------------------------------ |
-| `-p`, `--path`    | Post path. Customize the path of the post. |
-| `-r`, `--replace` | Replace the current post if existed.       |
-| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
-
-By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
-
-```bash
-hexo new page --path about/me "About me"
-```
-
-will create `source/about/me.md` file with the title "About me" set in the front matter.
-
-Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
-
-```bash
-hexo new page --path about/me
-```
-
-will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
-
-## generate
+## Novo
 
 ``` bash
-$ hexo generate
+$ hexo novo [layout] <title>
 ```
 
-Generates static files.
+Cria um novo artigo. Se nenhum `layout` for fornecido, Hexo usará o `default_layout` de [_config.yml](configuration.html). Use o layout `rascunho` para criar um rascunho. Se o `título` contém espaços, cerque-o com aspas.
 
-| Option                | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| `-d`, `--deploy`      | Deploy after generation finishes                                         |
-| `-w`, `--watch`       | Watch file changes                                                       |
-| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
-| `-f`, `--force`       | Force regenerate                                                         |
-| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
+| Alternativa       | Descrição:                                                 |
+| ----------------- | ---------------------------------------------------------- |
+| `-p`, `--path`    | Caminho de postagem. Personalizar o caminho da publicação. |
+| `-r`, `--replace` | Substituir a publicação atual se existir.                  |
+| `-s`, `--slug`    | Postar slug. Personalizar a URL do post.                   |
 
-## publish
+Por padrão, o Hexo usará o título para definir o caminho do arquivo. Para páginas, irá criar um diretório com esse nome e um arquivo `index.md` nele. Use a opção `--path` para substituir esse comportamento e definir o caminho do arquivo:
+
+```bash
+hexo nova página --path sobre/me "Sobre mim"
+```
+
+irá criar o arquivo `source/about/me.md` com o título "Sobre mim" definido no front matter.
+
+Por favor, note que o título é obrigatório. Por exemplo, isso não resultará no comportamento que você pode esperar:
+
+```bash
+nova página hexo --path sobre/me
+```
+
+irá criar o post `source/_posts/about/me.md` com o título "page" no front. Isso porque há apenas um argumento (`página`) e o layout padrão é `post`.
+
+## gerar
+
+``` bash
+Geração de $ hexos
+```
+
+Gera arquivos estáticos.
+
+| Alternativa           | Descrição:                                                                 |
+| --------------------- | -------------------------------------------------------------------------- |
+| `-d`, `--deploy`      | Implementar após a finalização da geração                                  |
+| `-w`, `--watch`       | Ver alterações de arquivos                                                 |
+| `-b`, `--bail`        | Gera um erro se qualquer exceção não tratada for lançada durante a geração |
+| `-f`, `--force`       | Forçar regeneração                                                         |
+| `-c`, `--concurrency` | Número máximo de arquivos a serem gerados em paralelo. Padrão é infinito   |
+
+## publicar
 
 ``` bash
 $ hexo publish [layout] <filename>
 ```
 
-Publishes a draft.
+Publica um rascunho.
 
-## server
-
-``` bash
-$ hexo server
-```
-
-Starts a local server. By default, this is at `http://localhost:4000/`.
-
-| Option           | Description                            |
-| ---------------- | -------------------------------------- |
-| `-p`, `--port`   | Override default port                  |
-| `-s`, `--static` | Only serve static files                |
-| `-l`, `--log`    | Enable logger. Override logger format. |
-
-## deploy
+## Servidor
 
 ``` bash
-$ hexo deploy
+$ servidor hexo
 ```
 
-Deploys your website.
+Inicia um servidor local. Por padrão, isso está em `http://localhost:4000/`.
 
-| Option             | Description                |
+| Alternativa      | Descrição:                                |
+| ---------------- | ----------------------------------------- |
+| `-p`, `--port`   | Substituir a porta padrão                 |
+| `-s`, `--static` | Usar apenas arquivos estáticos            |
+| `-l`, `--log`    | Habilitar logger. Override logger format. |
+
+## implantar
+
+``` bash
+Campo hexo de $
+```
+
+Imprime o seu site.
+
+| Alternativa        | Descrição:                 |
 | ------------------ | -------------------------- |
-| `-g`, `--generate` | Generate before deployment |
+| `-g`, `--generate` | Gerar antes da implantação |
 
-## render
-
-``` bash
-$ hexo render <file1> [file2] ...
-```
-
-Renders files.
-
-| Option           | Description        |
-| ---------------- | ------------------ |
-| `-o`, `--output` | Output destination |
-
-## migrate
+## renderizar
 
 ``` bash
-$ hexo migrate <type>
+$ hexo de renderização <file1> [file2]...
 ```
 
-[Migrates](migration.html) content from other blog systems.
+Renderiza arquivos.
 
-## clean
+| Alternativa      | Descrição:       |
+| ---------------- | ---------------- |
+| `-o`, `--output` | Destino de saída |
+
+## migrar
 
 ``` bash
-$ hexo clean
+$ hexo migrar <type>
 ```
 
-Cleans the cache file (`db.json`) and generated files (`public`).
+[Migrates](migration.html) conteúdo de outros sistemas de blog.
 
-## list
+## limpar
 
 ``` bash
-$ hexo list <type>
+Limpeza de $ hexos
 ```
 
-Lists all routes.
+Limpa o arquivo de cache (`db.json`) e os arquivos gerados (`public`).
 
-## version
+## lista
 
 ``` bash
-$ hexo version
+$ lista hexo <type>
 ```
 
-Displays version information.
+Lista de todas as rotas.
 
-## Options
+## Versão
 
-### Safe mode
+``` bash
+Versão de $ hexo
+```
+
+Exibe informações da versão
+
+## Opções
+
+### Modo de segurança
 
 ``` bash
 $ hexo --safe
 ```
 
-Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
+Desativa o carregamento de plugins e scripts. Tente isto se você encontrar problemas depois de instalar um novo plugin.
 
-### Debug mode
+### Modo de depuração
 
 ``` bash
 $ hexo --debug
 ```
 
-Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
+Registra mensagens detalhadas no terminal e para `debug.log`. Tente isso se você encontrar qualquer problema com o Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
 
-### Silent mode
+### Modo silencioso
 
 ``` bash
 $ hexo --silent
 ```
 
-Silences output to the terminal.
+Silencia a saída para o terminal.
 
-### Customize config file path
+### Personalizar caminho do arquivo de configuração
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
+Usa um arquivo de configuração personalizado (em vez de `_config.yml`). Também aceita uma lista separada por vírgulas (sem espaços) de arquivos de configuração JSON ou YAML que combinarão os arquivos em um único `_multiconfig.yml`.
 
 ``` bash
 $ hexo --config custom.yml,custom2.json
 ```
 
-### Display drafts
+### Exibir rascunhos
 
 ``` bash
 $ hexo --draft
 ```
 
-Displays draft posts (stored in the `source/_drafts` folder).
+Exibe postagens de rascunho (armazenadas na pasta `source/_drafts`).
 
-### Customize CWD
+### Personalizar CWD
 
 ``` bash
 $ hexo --cwd /path/to/cwd
 ```
 
-Customizes the path of current working directory.
+Personaliza o caminho do diretório de trabalho atual.
