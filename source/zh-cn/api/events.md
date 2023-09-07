@@ -1,32 +1,32 @@
 ---
-title: Events
+title: 事件
 ---
 
-Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
+Hexo inherits from [EventEmitter][]. 在</code> 方法上使用 `来监听十六进制发出的事件，并使用 <code>emit` 方法来排放事件。 欲了解更多信息，请参阅Node.js API 文档。
 
-### deployBefore
+### 部署前
 
-Emitted before deployment begins.
+在部署开始之前发出信号。
 
-### deployAfter
+### 部署后
 
-Emitted after deployment finishes.
+部署结束后发出。
 
-### exit
+### 退出
 
-Emitted before Hexo exits.
+在十六进制退出前发出。
 
-### generateBefore
+### 生成前
 
-Emitted before generation begins.
+在代际开始之前发出信号。
 
-### generateAfter
+### 生成
 
-Emitted after generation finishes.
+生成完成后发出。
 
-### new
+### 新的
 
-Emitted after a new post has been created. This event returns the post data:
+新帖子创建后发出。 此事件返回帖子数据：
 
 ``` js
 hexo.on('new', function(post){
@@ -34,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-| Data           | Description                |
-| -------------- | -------------------------- |
-| `post.path`    | Full path of the post file |
-| `post.content` | Content of the post file   |
+| 数据     | 描述        |
+| ------ | --------- |
+| `发布路径` | 帖子文件的完整路径 |
+| `内容`   | 帖子文件的内容   |
 
-### processBefore
+### 处理前
 
-Emitted before processing begins. This event returns a path representing the root directory of the box.
+处理开始前发送。 此事件返回一个代表方框根目录的路径。
 
 ### processAfter
 
-Emitted after processing finishes. This event returns a path representing the root directory of the box.
+处理完成后发出。 此事件返回一个代表方框根目录的路径。
 
-### ready
+### 已就绪
 
-Emitted after initialization finishes.
+初始化完成后发出。
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
