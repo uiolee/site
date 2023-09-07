@@ -1,35 +1,33 @@
 ---
-title: Интернационализация (i18n)
+title: Internationalization (i18n)
 ---
-[Что такое: i18n](https://ru.wiktionary.org/wiki/i18n)
 
-Можно использовать интернационализацию на вашем сайте для поддержки многоязычности. Язык по умолчанию устанавливается путём изменения настройки языка `language` в `_config.yml`. Возможно также установить несколько языков и изменить их порядок по умолчанию.
+You can use internationalization to present your site in different languages. The default language is set by modifying the `language` setting in `_config.yml`. You can also set multiple languages and modify the order of default languages.
 
 ``` yaml
-language: ru
+language: zh-tw
 
 language:
-- ru
-- en
 - zh-tw
+- en
 ```
 
-### Языковые файлы
+### Language Files
 
-Языковые файлы могут быть в формате YAML или JSON. Нужно поместить их в папку языков `languages` в теме. Также поддерживается формат [printf](https://github.com/alexei/sprintf.js).
+Language files can be YAML or JSON files. You should put them into the `languages` folder in the theme. There is support for the [printf format](https://github.com/alexei/sprintf.js) in language files.
 
-### Шаблоны
+### Templates
 
-Используйте `__` или `_p`  в шаблонах помощников, чтобы получить переведённые строки. Первое предназначено для нормального использования, а второе для многострочного использования. Например:
+Use `__` or `_p` helpers in templates to get the translated strings. The former is for normal usage and the latter is for plural strings. For example:
 
-``` yaml ru.yml
+``` yaml en.yml
 index:
-  title: Главная
-  add: Добавить
+  title: Home
+  add: Add
   video:
-    zero: Нет видео
-    one: Одно видео
-    other: %d видео
+    zero: No videos
+    one: One video
+    other: %d videos
 ```
 
 ``` js
@@ -40,15 +38,15 @@ index:
 // 3 videos
 ```
 
-### Путь
+### Path
 
-Вы можете установить язык в шапке страницы или изменить `i18n_dir`, установив значение в `_config.yml` для поддержки автоматического обнаружения в Hexo.
+You can set the language of pages in front-matter, or modify the `i18n_dir` setting in `_config.yml` to enable automatic detection by Hexo.
 
 ``` yaml
 i18n_dir: :lang
 ```
 
-Значение по умолчанию `i18n_dir` параметр `:lang` означает, что Hexo будет определять язык в первом сегменте URL-адреса. Например:
+The default value of `i18n_dir` setting is `:lang`, which means that Hexo will detect the language within the first segment of URL. For example:
 
 ``` plain
 /index.html => en
@@ -56,4 +54,4 @@ i18n_dir: :lang
 /zh-tw/index.html => zh-tw
 ```
 
-Строка языка применяется только при наличии языкового файла. Так архивы `archives` в `/archives/index.html` (из второй строки примера) не будет обработана как другой язык.
+The string will only be served as a language when the language file exists. So `archives` in `/archives/index.html` (example 2) will not get served as a language.
