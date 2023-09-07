@@ -1,34 +1,34 @@
 ---
-title: Renderer
+title: 渲染器
 ---
 
-A renderer is used to render content.
+渲染器用于渲染内容。
 
-## Synopsis
+## 简述
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
   // ...
-}, sync);
+}，同步；
 ```
 
-| Argument | Description                                                 |
-| -------- | ----------------------------------------------------------- |
-| `name`   | Input filename extension (lower case, without leading `.`)  |
-| `output` | Output filename extension (lower case, without leading `.`) |
-| `sync`   | Sync mode                                                   |
+| 参数   | 描述                      |
+| ---- | ----------------------- |
+| `名称` | 输入文件名扩展名 (小写，不带前端的 `。`) |
+| `输出` | 输出文件名扩展名 (小写，不带前端的 `。`) |
+| `同步` | 同步模式                    |
 
-Three arguments will be passed into the render function:
+三个参数将传递到渲染函数中：
 
-| Argument   | Description                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------- |
-| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
-| `option`   | Options                                                                                           |
-| `callback` | Callback function of two parameters `err`, `value`.                                               |
+| 参数         | 描述                                     |
+| ---------- | -------------------------------------- |
+| `数据`       | 包含两个属性：文件路径 `` 和文件内容 `文本`。 `路径` 不一定存在。 |
+| `选项`       | 备选方案                                   |
+| `callback` | 两个参数 `err`, `值` 的回调函数。                 |
 
-## Example
+## 示例
 
-### Async Mode
+### 异步模式
 
 ``` js
 var stylus = require('stylus');
@@ -46,27 +46,27 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### Sync Mode
+### 同步模式
 
 ``` js
 var ejs = require('ejs');
 
-hexo.extend.renderer.register('ejs', 'html', function(data, options){
+hexo.extend.render.register('ejs', 'html', functions, functions, options)_
   options.filename = data.path;
   return ejs.render(data.text, options);
 }, true);
 ```
 
-### Disable Nunjucks tags
+### 禁用 Nunjucks 标签
 
-Nunjucks tags `{{ }}` or `{% %}` (utilized by [tag plugin](/docs/tag-plugins)) are processed by default, to disable:
+Nunjucks 标签 `{{ }}` 或 `{% %}` (被 [标签插件](/docs/tag-plugins)使用) 默认处理以禁用：
 
 ``` js
-function lessFn(data, options) {
-  // do something
-}
+function lessFn(data, options) PDF
+  // do some
+
 
 lessFn.disableNunjucks = true
 
-hexo.extend.renderer.register('less', 'css', lessFn);
+hexo.extend.render.register('less', 'css', lessFn);
 ```
