@@ -2,19 +2,19 @@
 title: Scaffolds
 ---
 
-## Get a Scaffold
+## Scaffold 얻어오기
 
 ``` js
 hexo.scaffold.get(name);
 ```
 
-## Set a Scaffold
+## Scaffold 설정하기
 
 ``` js
 hexo.scaffold.set(name, content);
 ```
 
-## Remove a Scaffold
+## Scaffold의 제거
 
 ``` js
 hexo.scaffold.remove(name);
