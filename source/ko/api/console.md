@@ -24,7 +24,7 @@ hexo.extend.console.register(name, desc, options, function(args){
 
 ### 사용법
 
-Console 명령어의 사용법의 예시입니다: For example:
+Console 명령어의 사용법의 예시입니다: For example: For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -46,7 +46,7 @@ Console 명령어의 각 인자에 대한 예시입니다: For example:
 
 ### options
 
-Console 명령어의 각 옵션에 대한 예시입니다: For example:
+Console 명령어의 각 옵션에 대한 예시입니다: For example: For example:
 
 ``` js
 {
