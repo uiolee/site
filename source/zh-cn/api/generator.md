@@ -1,30 +1,30 @@
 ---
-title: 生成器
+title: 生成器（Generator）
 ---
 
-生成器基于已处理文件构建路由。
+生成器根据处理后的原始文件建立路由。
 
-## 简述
+## 概要
 
 ``` js
-hexo.extend.generator.register(name, functification(locals)@un.org.
-/...
+hexo.extend.generator.register(name, function(locals){
+});
 });
 ```
 
-`locals` 参数将被传递到函数中，包含 [站点变量](../docs/variables.html#Site-Variables)。 您应该使用此参数获取网站数据，从而避免直接访问数据库。
+在函数中会传入一个 `locals` 参数，等同于 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接存取资料库。 You should use this argument to get the website data, thereby avoiding having to access the database directly.
 
 ## 更新路由
 
 ``` js
-hexo.extend.generator.register('test', function(locals)}.
+hexo.extend.generator.register('test', function(locals){
   // Object
   return {
     path: 'foo',
     data: 'foo'
   };
 
-  // 数组
+  // Array
   return [
     {path: 'foo', data: 'foo'},
     {path: 'bar', data: 'bar'}
@@ -32,52 +32,51 @@ hexo.extend.generator.register('test', function(locals)}.
 });
 ```
 
-| 属性   | 描述                                            |
-| ---- | --------------------------------------------- |
-| `路径` | Path not including the prefixing `/`.         |
-| `数据` | 数据                                            |
-| `布局` | 布局。 指定渲染的布局。 值可以是字符串或数组。 如果它被忽略，路由将直接返回 `数据`。 |
+| 属性       | 描述                                                                                                                                        |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `path`   | 路径。 不可包含开头的 `/`。                                                                                                                          |
+| `data`   | 数据                                                                                                                                        |
+| `layout` | 布局。 Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
 
-当源文件被更新时，Hexo将执行所有的发电机并重建路径。 **Please return the data and do not access the router directly.**
+在原始文件更新时，Hexo 会执行所有生成器并重建路由，**请直接回传资料，不要直接操作路由**。 **Please return the data and do not access the router directly.**
 
-## 示例
+## 范例
 
 ### 归档页面
 
-Create an archive page at `archives/index.html`. 我们将所有帖子作为数据传递到模板中。 此数据等于模板中的 `页面` 变量。
+在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-Next, set the `layout` attribute to render with the theme templates. 我们在此示例中设置两个布局：如果 `存档` 布局不存在，则将使用 `索引` 布局。
+Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
   return {
     path: 'archives/index.html',
-    data: locals,
+    data: locals.posts,
     layout: ['archive', 'index']
   }
 });
 ```
 
-### 带分页归档页面
+### 有分页的归档页面
 
-您可以使用方便的官方工具 [十六进制][] 来轻松构建带分页的归档页面。
+您可以通过 [hexo-pagination][] 这个方便的官方工具来轻松建立分页归档。
 
 ``` js
 var pagination = require('hexo-pagination');
 
-hexo.extend.generator.register('archive', funculturals', locals)power
-  // hexo-pagination make 一个索引。 tml for the /archives route
-  return pagination('archives', locals. osts, 常务副秘书长,
+hexo.extend.generator.register('archive', function(locals){
+  return pagination('archives/index.html', locals.posts, {
     perPage: 10,
-    layout: ['archive', 'index']，
-    数据：{}
-  })；
-})；
+    layout: ['archive', 'index'],
+    data: {}
+  });
+});
 ```
 
-### 生成所有帖子
+### 生成所有文章
 
-Iterate over all posts in `locals.posts` and create routes for all the posts.
+遍历 `locals.posts` 中的所有文章并生成所有文章的路由。
 
 ``` js
 hexo.extend.generator.register('post', function(locals){
@@ -93,19 +92,19 @@ hexo.extend.generator.register('post', function(locals){
 
 ### 复制文件
 
-这次我们不会明确返回数据，而是将 `数据` 设置为一个函数，因此路由将会生成 `fs。 eadStream` 只在需要时进行。
+这次不直接在 `data` 中返回数据而是返回一个函数，如此一来这个路由唯有在使用时才会建立 `fs.ReadStream`。
 
 ``` js
 var fs = require('hexo-fs');
 
-hexo.extend.generator.register('asset', funcult(locals))_
-  return
+hexo.extend.generator.register('asset', function(locals){
+  return {
     path: 'file.txt',
-    data: function()_
+    data: function(){
       return fs.createReadStream('path/to/file.txt')
     }
   };
 });
 ```
 
-[十六进制]: https://github.com/hexojs/hexo-pagination
+[hexo-pagination]: https://github.com/hexojs/hexo-pagination
