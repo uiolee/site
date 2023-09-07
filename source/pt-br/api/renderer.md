@@ -2,9 +2,9 @@
 title: Renderer
 ---
 
-Um `renderer` é utilizado para renderizar conteúdos.
+A renderer is used to render content.
 
-## Resumo
+## Synopsis
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
@@ -12,22 +12,23 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-Argumento | Descrição
---- | ---
-`name` | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial)
-`output` | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)
-`sync` | Modo de sincronização
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-Dois argumentos devem ser passados para a função renderer:
+Three arguments will be passed into the render function:
 
-Argumento | Descrição
---- | ---
-`data` | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista.
-`option` | Opções
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## Exemplo
+## Example
 
-### Modo Assíncrono
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
@@ -45,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### Modo Síncrono
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
