@@ -1,20 +1,20 @@
 ---
-title: 手柄武器库
+title: Scaffolds
 ---
 
-## 获得一个手柄武器库
+## 获得脚手架
 
 ``` js
 hexo.scaffold.get(name);
 ```
 
-## 设置一个手柄武器库
+## 设置脚手架
 
 ``` js
-hexo.scaffold.set(name, content)；
+hexo.scaffold.set(name, content);
 ```
 
-## 移除一个手柄武器库
+## 移除脚手架
 
 ``` js
 hexo.scaffold.remove(name);
