@@ -1,32 +1,32 @@
 ---
-title: Rendering
+title: 渲染
 ---
 
-There are two methods for rendering files or strings in Hexo: the asynchronous `hexo.render.render` method and the synchronous `hexo.render.renderSync` method. Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs.
+There are two methods for rendering files or strings in Hexo: the asynchronous `hexo.render.render` method and the synchronous `hexo.render.renderSync` method. 不足为奇的是，这两种方法非常相似，因此只有异步的 `hexo.render.render` 将在以下段落中进一步讨论。
 
-## Render a String
+## 渲染字符串
 
-When rendering a string, you must specify an `engine` to let Hexo know which rendering engine it should use.
+在渲染字符串时，您必须指定一个 `引擎` 才能让Hexo 知道它应该使用哪个渲染引擎。
 
 ``` js
-hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
+hexo.render.render({text: 'example', engine: 'swig'}).then(functional) power
+//
+});
+```
+
+## 渲染文件
+
+当渲染文件时， 不需要指定一个 `引擎` 因为Hexo 会自动检测到相关的渲染引擎。 当然，您也可以明确定义 `引擎`。
+
+``` js
+hexo.render.render({path: 'path/to/file.swig'}).then(函数(result)}.
   // ...
 });
 ```
 
-## Render a File
+## 渲染选项
 
-When rendering a file, it's not necessary to specify an `engine` because Hexo will detect the relevant rendering engine automatically based on the extension of the file. Of course, you are also allowed to explicitly define the `engine`.
-
-``` js
-hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
-  // ...
-});
-```
-
-## Render Options
-
-You can pass in an options object as the second argument.
+您可以作为第二个参数传递选项对象。
 
 ``` js
 hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
@@ -34,47 +34,47 @@ hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
 });
 ```
 
-## after_render Filters
+## 后渲染过滤器
 
-When rendering is complete, Hexo will execute the corresponding `after_render` filters. For example, we can use this feature to implement a JavaScript minifier.
+渲染完成后，十六进制将执行相应的 `后渲染` 过滤器。 例如，我们可以使用此功能来实现 JavaScript 迷你。
 
 ``` js
-var UglifyJS = require('uglify-js');
+var UglifyJS = required ('uglify-js');
 
-hexo.extend.filter.register('after_render:js', function(str, data){
-  var result = UglifyJS.minify(str);
+hexo.extend.filter.register('after_render:js', function(str,data))_
+  var results = UglifyJS.minify(str);
   return result.code;
 });
 ```
 
-## Check Whether a File is Renderable
+## 检查文件是否可渲染。
 
-You can use the `isRenderable` or `isRenderableSync` method to check whether a file path is renderable. Only when a corresponding renderer has been registered will this method return true.
+You can use the `isRenderable` or `isRenderableSync` method to check whether a file path is renderable. 只有当对应的渲染器已注册，这个方法才会返回 true。
 
 ``` js
-hexo.render.isRenderable('layout.swig') // true
-hexo.render.isRenderable('image.png') // false
+hexo.renderable('layout.swig') // true
+hexo.render.isRenderable('image.png') // falsel
 ```
 
-## Get the Output Extension
+## 获取输出扩展
 
-Use the `getOutput` method to get the extension of the rendered output. If a file is not renderable, the method will return an empty string.
+使用 `getoutput` 方法来获取渲染输出的扩展。 如果一个文件不可渲染，方法将返回一个空字符串。
 
 ``` js
 hexo.render.getOutput('layout.swig') // html
 hexo.render.getOutput('image.png') // '''
 ```
 
-## Disable Nunjucks tags
+## 禁用 Nunjucks 标签
 
-If you are not using a [tag plugin](/docs/tag-plugins) and want to use `{{ }}` or `{% %}` in your post without using content [escaping](/docs/troubleshooting#Escape-Contents), you can disable processing of Nunjucks tag in existing renderer by:
+如果您不使用 [标签插件](/docs/tag-plugins) 并且想要在您的帖子中使用 `{{ }}` 或 `{% %}` 而不使用内容 [逃避](/docs/troubleshooting#Escape-Contents), 您可以在现有渲染器中禁用处理Nunjucks标签：
 
 ``` js
-// following example only applies to '.md' file extension
-// you may need to cover other extensions, e.g. '.markdown', '.mkd', etc
-const renderer = hexo.render.renderer.get('md')
-if (renderer) {
-  renderer.disableNunjucks = true
+// 以下示例仅适用于“.md”文件扩展名
+// 你可能需要覆盖其他扩展，e。 。'.markdown', '.mkd', etc
+const renderer = hexo. ender.renderer.get('md')
+if (Renderer) v.
+  render.disableNunjucks = true
   hexo.extend.renderer.register('md', 'html', renderer)
 }
 ```
