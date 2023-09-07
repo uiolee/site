@@ -2,34 +2,34 @@
 title: Configuration
 ---
 
-You can modify site settings in `_config.yml` or in an [alternate config file](#Using-an-Alternate-Config).
+`_config.yml` 파일의 사이트 환경 설정을 수정할 수 있습니다.
 
 ### Site
 
-| Setting       | Description                                                                                                                                                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`       | The title of your website                                                                                                                                                                                                                                     |
-| `subtitle`    | The subtitle of your website                                                                                                                                                                                                                                  |
-| `description` | The description of your website                                                                                                                                                                                                                               |
-| `keywords`    | The keywords of your website. Supports multiple values.                                                                                                                                                                                                       |
-| `author`      | Your name                                                                                                                                                                                                                                                     |
-| `language`    | The language of your website. Use a [2-letter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) or optionally [its variant](/docs/internationalization). Default is `en`.                                                                |
-| `timezone`    | The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Some examples are `America/New_York`, `Japan`, and `UTC`. |
+| Setting       | Description                                                                                                                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | 웹 사이트의 제목                                                                                                                                                                                    |
+| `subtitle`    | The subtitle of your website                                                                                                                                                                 |
+| `description` | 웹 사이트에 대한 설명                                                                                                                                                                                 |
+| `keywords`    | The keywords of your website. Supports multiple values.                                                                                                                                      |
+| `author`      | 작성자 이름                                                                                                                                                                                       |
+| `language`    | 웹 사이트의 주 사용언어. [2-lettter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 참조. 기본값은 `en`.                                                                              |
+| `timezone`    | 웹 사이트에서 사용하는 timezone. Hexo는 기본적으로 PC의 시간값을 사용합니다. 사용 가능한 timezone의 종류는 [여기](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)에서 확인할 수 있습니다. `America/New_York`, `Japan`, `UTC`. |
 
 ### URL
 
-| Setting                      | Description                                                                               | Default                     |
+| Setting                      | Description                                                                               | 기본값                         |
 | ---------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
-| `url`                        | The URL of your website, must starts with `http://` or `https://`                         |                             |
-| `root`                       | The root directory of your website                                                        | `url's pathname`            |
-| `permalink`                  | The [permalink](permalinks.html) format of articles                                       | `:year/:month/:day/:title/` |
-| `permalink_defaults`         | Default values of each segment in permalink                                               |                             |
-| `pretty_urls`                | Rewrite the [`permalink`](permalinks.html) variables to pretty URLs                       |                             |
+| `url`                        | 웹 사이트의 URL, must starts with `http://` or `https://`                                      |                             |
+| `root`                       | 웹 사이트의 루트 디렉토리                                                                            | `url's pathname`            |
+| `permalink`                  | 게시글의 [permalink](permalinks.html) 형식                                                      | `:year/:month/:day/:title/` |
+| `permalink_defaults`         | Permalink 각 부분(segment)의 기본값                                                              |                             |
+| `pretty_urls`                | Rewrite the [`permalink`](variables.html) variables to pretty URLs                        |                             |
 | `pretty_urls.trailing_index` | Trailing `index.html`, set to `false` to remove it                                        | `true`                      |
 | `pretty_urls.trailing_html`  | Trailing `.html`, set to `false` to remove it (_does not apply to trailing `index.html`_) | `true`                      |
 
 {% note info Website in subdirectory %}
-If your website is in a subdirectory (such as `http://example.org/blog`) set `url` to `http://example.org/blog` and set `root` to `/blog/`.
+당신의 웹 사이트가 `http://example.org/blog`와 같이 서브디렉토리에 있다면 `url`은 `http://example.org/blog`고 설정하고 `root`는 `/blog/`로 설정하세요.
 {% endnote %}
 
 Examples:
@@ -43,16 +43,16 @@ pretty_urls:
 
 ### Directory
 
-| Setting        | Description                                                                                                                                                                      | Default          |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `source_dir`   | Source folder. Where your content is stored                                                                                                                                      | `source`         |
-| `public_dir`   | Public folder. Where the static site will be generated                                                                                                                           | `public`         |
-| `tag_dir`      | Tag directory                                                                                                                                                                    | `tags`           |
-| `archive_dir`  | Archive directory                                                                                                                                                                | `archives`       |
-| `category_dir` | Category directory                                                                                                                                                               | `categories`     |
-| `code_dir`     | Include code directory (subdirectory of `source_dir`)                                                                                                                            | `downloads/code` |
-| `i18n_dir`     | i18n directory                                                                                                                                                                   | `:lang`          |
-| `skip_render`  | Paths that will be copied to `public` raw, without being rendered. You can use [glob expressions](https://github.com/micromatch/micromatch#extended-globbing) for path matching. |                  |
+| Setting        | Description                                                                                                        | 기본값              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
+| `source_dir`   | 컨텐츠들이 저장되어 있는 소스 폴더 Where your content is stored                                                                   | `source`         |
+| `public_dir`   | Public folder. 생성된 정적 사이트들이 저장될 공용 폴더                                                                              | `public`         |
+| `tag_dir`      | 태그 디렉토리                                                                                                            | `tags`           |
+| `archive_dir`  | 저장소 디렉토리                                                                                                           | `archives`       |
+| `category_dir` | 카테고리 디렉토리                                                                                                          | `categories`     |
+| `code_dir`     | Include code directory (subdirectory of `source_dir`)                                                              | `downloads/code` |
+| `i18n_dir`     | i18n 디렉토리                                                                                                          | `:lang`          |
+| `skip_render`  | 렌더링하지 않을 경로. 경로 매칭을 위해 [glob expressions](https://github.com/micromatch/micromatch#extended-globbing)를 사용할 수 있습니다. |                  |
 
 Examples:
 
@@ -67,26 +67,26 @@ skip_render: "_posts/test-post.md"
 
 ### Writing
 
-| Setting                 | Description                                                                                                           | Default     |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `new_post_name`         | The filename format for new posts                                                                                     | `:title.md` |
-| `default_layout`        | Default layout                                                                                                        | `post`      |
-| `titlecase`             | Transform titles into title case?                                                                                     | `false`     |
-| `external_link`         | Open external links in a new tab?                                                                                     |             |
-| `external_link.enable`  | Open external links in a new tab?                                                                                     | `true`      |
-| `external_link.field`   | Applies to the whole `site` or `post` only                                                                            | `site`      |
-| `external_link.exclude` | Exclude hostname. Specify subdomain when applicable, including `www`                                                  | `[]`        |
-| `filename_case`         | Transform filenames to `1` lower case; `2` upper case                                                                 | `0`         |
-| `render_drafts`         | Display drafts?                                                                                                       | `false`     |
-| `post_asset_folder`     | Enable the [Asset Folder](asset-folders.html)?                                                                        | `false`     |
-| `relative_link`         | Make links relative to the root folder?                                                                               | `false`     |
-| `future`                | Display future posts?                                                                                                 | `true`      |
-| `highlight`             | Code block syntax highlight settings, see [Highlight.js](/docs/syntax-highlight#Highlight-js) section for usage guide |             |
-| `prismjs`               | Code block syntax highlight settings, see [PrismJS](/docs/syntax-highlight#PrismJS) section for usage guide           |             |
+| Setting                 | Description                                                                                     | 기본값         |
+| ----------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
+| `new_post_name`         | 새 포스트의 파일명 형식                                                                                   | `:title.md` |
+| `default_layout`        | 기본 레이아웃                                                                                         | `post`      |
+| `titlecase`             | Transform titles into title case?                                                               | `false`     |
+| `external_link`         | 외부 링크를 새 탭에서 열 것인지 선택                                                                           |             |
+| `external_link.enable`  | 외부 링크를 새 탭에서 열 것인지 선택                                                                           | `true`      |
+| `external_link.field`   | Applies to the whole `site` or `post` only                                                      | `site`      |
+| `external_link.exclude` | Exclude hostname. Specify subdomain when applicable, including `www`                            | `[]`        |
+| `filename_case`         | 파일명을 소문자(`1`) 또는 대문자(`2`)로 변경                                                                   | `0`         |
+| `render_drafts`         | Display drafts?                                                                                 | `false`     |
+| `post_asset_folder`     | [Asset 폴더](asset-folders.html)를 활성화 할 것인지 선택                                                    | `false`     |
+| `relative_link`         | 루트 폴더에 대한 상대 경로로 링크를 만들 것인지 선택                                                                  | `false`     |
+| `future`                | 미래의 포스트를 표시할 것인지 선택                                                                             | `true`      |
+| `highlight`             | Code block의 설정, see [Highlight.js](/docs/syntax-highlight#Highlight-js) section for usage guide |             |
+| `prismjs`               | Code block의 설정, see [PrismJS](/docs/syntax-highlight#PrismJS) section for usage guide           |             |
 
 ### Home page setting
 
-| Setting                          | Description                                                                                                     | Default |
+| Setting                          | Description                                                                                                     | 기본값     |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------- |
 | `index_generator`                | Generate an archive of posts, powered by [hexo-generator-index](https://github.com/hexojs/hexo-generator-index) |         |
 | `index_generator.path`           | Root path for your blog's index page                                                                            | `''`    |
@@ -96,9 +96,9 @@ skip_render: "_posts/test-post.md"
 
 ### Category & Tag
 
-| Setting            | Description             | Default         |
+| Setting            | Description             | 기본값             |
 | ------------------ | ----------------------- | --------------- |
-| `default_category` | Default category        | `uncategorized` |
+| `default_category` | 기본 분류                   | `uncategorized` |
 | `category_map`     | Override category slugs |                 |
 | `tag_map`          | Override tag slugs      |                 |
 
@@ -112,13 +112,13 @@ category_map:
 
 ### Date / Time format
 
-Hexo uses [Moment.js](http://momentjs.com/) to process dates.
+Hexo는 날짜 처리 시 [Moment.js](http://momentjs.com/)를 사용합니다.
 
-| Setting          | Description                                                                                         | Default      |
-| ---------------- | --------------------------------------------------------------------------------------------------- | ------------ |
-| `date_format`    | Date format                                                                                         | `YYYY-MM-DD` |
-| `time_format`    | Time format                                                                                         | `HH:mm:ss`   |
-| `updated_option` | The [`updated`](/docs/variables#Page-Variables) value to used when not provided in the front-matter | `mtime`      |
+| Setting          | Description                                                                                    | 기본값          |
+| ---------------- | ---------------------------------------------------------------------------------------------- | ------------ |
+| `date_format`    | 날짜 형식                                                                                          | `YYYY-MM-DD` |
+| `time_format`    | 시간 형식                                                                                          | `HH:mm:ss`   |
+| `updated_option` | The [`updated`](/ko/docs/variables#페이지 변수) value to used when not provided in the front-matter | `mtime`      |
 
 {% note info updated_option %}
 `updated_option` controls the `updated` value when not provided in the front-matter:
@@ -132,10 +132,10 @@ Hexo uses [Moment.js](http://momentjs.com/) to process dates.
 
 ### Pagination
 
-| Setting          | Description                                                     | Default |
-| ---------------- | --------------------------------------------------------------- | ------- |
-| `per_page`       | Number of posts displayed on each page. `0` disables pagination | `10`    |
-| `pagination_dir` | URL format                                                      | `page`  |
+| Setting          | Description                                        | 설정     |
+| ---------------- | -------------------------------------------------- | ------ |
+| `per_page`       | 하나의 페이지에 표시할 포스트의 개수. `0`이면 pagination을 표시하지 않습니다. | `10`   |
+| `pagination_dir` | URL format                                         | `page` |
 
 Examples:
 
@@ -151,9 +151,9 @@ pagination_dir: 'awesome-page'
 
 | Setting          | Description                                                                                                                             |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `theme`          | Theme name. `false` disables theming                                                                                                    |
+| `theme`          | 테마명. `false`라면 테마를 끕니다.                                                                                                                 |
 | `theme_config`   | Theme configuration. Include any custom theme settings under this key to override theme defaults.                                       |
-| `deploy`         | Deployment settings                                                                                                                     |
+| `deploy`         | Deployment 설정                                                                                                                           |
 | `meta_generator` | [Meta generator](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#Attributes) tag. `false` disables injection of the tag. |
 
 ### Include/Exclude Files or Folders
@@ -231,9 +231,9 @@ For instance, in the above example if `foo: bar` is in `custom.yml`, but `"foo":
 
 Hexo themes are independent projects, with separate `_config.yml` files.
 
-Instead of forking a theme, and maintaining a custom version with your settings, you can configure it from somewhere else:
+Instead of forking a theme, and maintaining a custom branch with your settings, you can configure it from somewhere else.
 
-**from `theme_config` in site's primary configuration file**
+**`theme_config` in site's primary configuration file**
 
 > Supported since Hexo 2.8.2
 
@@ -267,7 +267,7 @@ Resulting in theme configuration:
 }
 ```
 
-**from a dedicated `_config.[theme].yml` file**
+**dedicated `_config.[theme].yml` file**
 
 > Supported since Hexo 5.0.0
 
@@ -307,5 +307,5 @@ Resulting in theme configuration:
 ```
 
 {% note %}
-We strongly recommend you to store your theme configuration in one place. But in case you have to store your theme configuration separately, you need to know the priority of those configurations: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file. The `_config.yml` file under the theme directory has the lowest priority.
+We strongly recommends you to store your theme configuration in one place. But in case you have to store your theme configuration separately, those information is quite important: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file. the `_config.yml` file under the theme directory has the lowest priority.
 {% endnote %}
