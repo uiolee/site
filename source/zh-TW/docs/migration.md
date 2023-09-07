@@ -10,7 +10,7 @@ First, install the `hexo-migrator-rss` plugin.
 $ npm install hexo-migrator-rss --save
 ```
 
-Once the plugin is installed, run the following command to migrate all posts from RSS. `source` can be a file path or URL.
+Once the plugin is installed, run the following command to migrate all posts from RSS. `source` can be a file path or URL. `source` can be a file path or URL.
 
 ``` bash
 $ hexo migrate rss <source>
