@@ -1,46 +1,42 @@
 ---
-title: Documentação
+title: Documentation
 ---
 
-Bem-vindo à documentação do Hexo. Se você encontrar algum problema ao usar o Hexo, dê uma olhada no  [guia de solução de problemas](troubleshooting.html), abra uma issue no [GitHub](https://github.com/hexojs/hexo/issues) ou inicie um tópico no [Google Group](https://groups.google.com/group/hexo).
+Welcome to the Hexo documentation. If you encounter any problems when using Hexo, have a look at the  [troubleshooting guide](troubleshooting.html), raise an issue on [GitHub](https://github.com/hexojs/hexo/issues) or start a topic on the [Google Group](https://groups.google.com/group/hexo).
 
-## O que é o Hexo?
+## What is Hexo?
 
-O Hexo é uma ferramenta simples, rápida e poderosa para criação blog. Você escreve postagens em [Markdown](http://daringfireball.net/projects/markdown/) (ou outras linguagens) e o Hexo gera arquivos estáticos com um lindo tema em segundos.
+Hexo is a fast, simple and powerful blog framework. You write posts in [Markdown](http://daringfireball.net/projects/markdown/) (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.
 
-## Instalação
+## Installation
 
-Demora apenas alguns minutos para configurar o Hexo. Se você encontrar um problema e não conseguir encontrar a solução aqui, por favor [abra uma issue no GitHub](https://github.com/hexojs/hexo/issues) e vamos tentar resolvê-lo.
+It only takes a few minutes to set up Hexo. If you encounter a problem and can't find the solution here, please [submit a GitHub issue](https://github.com/hexojs/hexo/issues) and we'll help.
 
 {% youtube ARted4RniaU %}
 
-### Requerimentos
+### Requirements
 
-Instalar o Hexo é bastante fácil. No entanto, você precisa ter algumas outras coisas instaladas primeiro:
+Installing Hexo is quite easy and only requires the following beforehand:
 
 - [Node.js](http://nodejs.org/) (Should be at least Node.js 10.13, recommends 12.0 or higher)
 - [Git](http://git-scm.com/)
 
-Se o seu computador já possui estes, parabéns! Basta instalar o Hexo com o npm:
+If your computer already has these, congratulations! You can skip to the [Hexo installation](#Install-Hexo) step.
 
-``` bash
-$ npm install -g hexo-cli
-```
+If not, please follow the following instructions to install all the requirements.
 
-Caso contrário, siga as instruções a seguir para instalar todos os requisitos.
+### Install Git
 
-{% note warn Para usuários Mac %}
-Você pode encontrar alguns problemas ao compilar. Instale o Xcode da App Store primeiro. Depois que o Xcode estiver instalado, abra o Xcode e vá para **Preferences -> Download -> Command Line Tools -> Install** para instalar as ferramentas de linhas de comandos.
-{% endnote %}
-
-### Instalando o Git
-
-- Windows: Download e instalação do [Git](https://git-scm.com/download/win).
-- Mac: Intalação com o [Homebrew](http://mxcl.github.com/homebrew/), [MacPorts](http://www.macports.org/) ou [installer](http://sourceforge.net/projects/git-osx-installer/).
+- Windows: Download & install [git](https://git-scm.com/download/win).
+- Mac: Install it with [Homebrew](https://brew.sh/), [MacPorts](http://www.macports.org/) or [installer](http://sourceforge.net/projects/git-osx-installer/).
 - Linux (Ubuntu, Debian): `sudo apt-get install git-core`
 - Linux (Fedora, Red Hat, CentOS): `sudo yum install git-core`
 
-### Instalando o Node.js
+{% note warn For Mac users %}
+You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to **Preferences -> Download -> Command Line Tools -> Install** to install command line tools.
+{% endnote %}
+
+### Install Node.js
 
 Node.js provides [official installer](https://nodejs.org/en/download/) for most platforms.
 
@@ -65,13 +61,32 @@ If you encounter `EACCES` permission error when trying to install Hexo, please f
 If you installed Node.js using Snap, you may need to manually run `npm install` in the target folder when [initializing](/docs/commands#init) a blog.
 {% endnote %}
 
-### Instalando Hexo
+### Install Hexo
 
-Uma vez que todos os requisitos estão instalados, você pode instalar o Hexo com npm:
+Once all the requirements are installed, you can install Hexo with npm:
 
 ``` bash
 $ npm install -g hexo-cli
 ```
+
+### Advanced installation and usage
+
+Advanced users may prefer to install and use `hexo` package instead.
+
+``` bash
+$ npm install hexo
+```
+
+Once installed, you can run Hexo in two ways:
+
+1. `npx hexo <command>`
+2. Linux users can set relative path of `node_modules/` folder:
+
+  ``` bash
+  echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
+  ```
+
+  then run Hexo using `hexo <command>`
 
 ### Required Node.js version
 
@@ -81,14 +96,14 @@ Please note we do not provide bugfixes to past versions of Hexo.
 
 We highly recommend to always install the [latest version](https://www.npmjs.com/package/hexo?activeTab=versions) of Hexo and the [recommended version](#Requirements) of Node.js, whenever possible.
 
-Hexo version | Minimum (Node.js version) | Less than (Node.js version)
---- | --- | ---
-6.2+ | 12.13.0 | latest
-6.0+ | 12.13.0 | 18.5.0
-5.0+ | 10.13.0 | 12.0.0
-4.1 - 4.2 | 8.10 | 10.0.0
-4.0 | 8.6 | 8.10.0
-3.3 - 3.9 | 6.9 | 8.0.0
-3.2 - 3.3 | 0.12 | unknown
-3.0 - 3.1 | 0.10 or iojs | unknown
-0.0.1 - 2.8 | 0.10 | unknown
+| Hexo version | Minimum (Node.js version) | Less than (Node.js version) |
+| ------------ | ------------------------- | --------------------------- |
+| 6.2+         | 12.13.0                   | latest                      |
+| 6.0+         | 12.13.0                   | 18.5.0                      |
+| 5.0+         | 10.13.0                   | 12.0.0                      |
+| 4.1 - 4.2    | 8.10                      | 10.0.0                      |
+| 4.0          | 8.6                       | 8.10.0                      |
+| 3.3 - 3.9    | 6.9                       | 8.0.0                       |
+| 3.2 - 3.3    | 0.12                      | unknown                     |
+| 3.0 - 3.1    | 0.10 or iojs              | unknown                     |
+| 0.0.1 - 2.8  | 0.10                      | unknown                     |
