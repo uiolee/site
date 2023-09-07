@@ -21,11 +21,8 @@ code snippet
 code snippet
 ```
 ````
-
 The third syntax is a Markdown's fenced code block syntax and Hexo extends it to support more features. Check out [Tag Plugin Docs](tag-plugins#Code-Block) to find out options available.
-
 > Tip: Hexo support posts written in any format, so long the corresponding renderer plugin is installed. It can be in markdown, ejs, swig, nunjucks, pug, asciidoc, etc. Regardless of the format used, those three code block syntax will always be available.
-
 ## Configuration
 
 ```yaml
@@ -142,7 +139,6 @@ Accepts an optional threshold to only show line numbers as long as the numbers o
 ### tab_replace
 
 Replace tabs inside code block with given string. By default it is 2 spaces.
-
 
 ### exclude_languages (+6.1.0)
 
