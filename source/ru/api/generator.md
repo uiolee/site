@@ -1,10 +1,10 @@
 ---
-title: Generator
+title: Генератор
 ---
 
-A generator builds routes based on processed files.
+Генератор создаёт ссылки на основе обработанных файлов.
 
-## Synopsis
+## Краткий обзор
 
 ``` js
 hexo.extend.generator.register(name, function(locals){
@@ -12,9 +12,9 @@ hexo.extend.generator.register(name, function(locals){
 });
 ```
 
-A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
+Аргумент `locals` передается в функцию, содержащую переменные сайта. Нужно использовать этот аргумент, чтобы получить [переменные сайта](../docs/variables.html#Переменные-сайта), тем самым убирается необходимость обращаться к базе данных напрямую.
 
-## Update Routes
+## Обновление путей
 
 ``` js
 hexo.extend.generator.register('test', function(locals){
@@ -32,42 +32,41 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-| Attribute | Description                                                                                                                                   |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`    | Path not including the prefixing `/`.                                                                                                         |
-| `data`    | Data                                                                                                                                          |
-| `layout`  | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
+| Атрибут  | Описание                                                                                                                                                   |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `путь`   | Путь не включает префикс `/`.                                                                                                                              |
+| `данные` | Данные                                                                                                                                                     |
+| `макет`  | Макет. Укажите макеты для рендеринга. Значение может быть строкой или массивом. Если это проигнорировать, то путь будет возвращать данные `data` напрямую. |
 
-When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.**
+Когда исходные файлы обновляются, Hexo выполняет генерацию и пересоздаёт ссылки. **Пожалуйста, генерируйте данные, а не создавайте ссылки напрямую.**
 
-## Example
+## Примеры
 
-### Archive Page
+### Страница архива
 
-Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+Создаёт страницу архива в `archives/index.html`. Проходит по данным всех постов, указанных в шаблонах. Эти данные соответствуют переменной `page` в шаблонах.
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Далее устанавливается атрибут `layout` для рендеринга шаблонов. В этом примере два варианта: если макета для `archive` нет, будет использоваться макет `index`.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
   return {
     path: 'archives/index.html',
-    data: locals,
+    data: locals.posts,
     layout: ['archive', 'index']
   }
 });
 ```
 
-### Archive Page with Pagination
+### Страница архива с постраничным разбиением
 
-You can use the convenient official tool [hexo-pagination][] to easily build archive pages with pagination.
+Можно использовать удобный официальный инструмент [hexo-pagination][] для легкого создания страниц с постраничной нумерацией.
 
 ``` js
 var pagination = require('hexo-pagination');
 
 hexo.extend.generator.register('archive', function(locals){
-  // hexo-pagination makes an index.html for the /archives route
-  return pagination('archives', locals.posts, {
+  return pagination('archives/index.html', locals.posts, {
     perPage: 10,
     layout: ['archive', 'index'],
     data: {}
@@ -75,9 +74,9 @@ hexo.extend.generator.register('archive', function(locals){
 });
 ```
 
-### Generate All Posts
+### Генерация всех постов
 
-Iterate over all posts in `locals.posts` and create routes for all the posts.
+Перебирает все посты из переменной `locals.posts` и создаёт пути для всех найденных.
 
 ``` js
 hexo.extend.generator.register('post', function(locals){
@@ -91,9 +90,9 @@ hexo.extend.generator.register('post', function(locals){
 });
 ```
 
-### Copy Files
+### Копирование файлов
 
-This time we don't return the data explicitly but instead set `data` to a function so the route will build `fs.ReadStream` only when needed.
+На этот раз данные не возвращаются явно, вместо этого данные `data` отправляются в функцию, чтобы `fs.ReadStream` вызывался только при необходимости.
 
 ``` js
 var fs = require('hexo-fs');
