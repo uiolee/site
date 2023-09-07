@@ -1,11 +1,12 @@
 ---
-title: 路由
+title: Router
 ---
-路由存储了网站中所用到的所有路径。
 
-## 获取路径
+The router saves all paths used in the site.
 
-`get` 方法会传回一个 [Stream]，例如把该路径的资料存储到某个指定位置。
+## Get a Path
+
+The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
 
 ``` js
 var data = hexo.route.get('index.html');
@@ -14,9 +15,9 @@ var dest = fs.createWriteStream('somewhere');
 data.pipe(dest);
 ```
 
-## 设置路径
+## Set a Path
 
-您可以在 `set` 方法中使用字符串、[Buffer] 或函数，如下：
+The `set` method takes a string, a [Buffer][] or a function.
 
 ``` js
 // String
@@ -38,7 +39,7 @@ hexo.route.set('index.html', function(callback){
 });
 ```
 
-您还可以设置该路径是否更新，这样在生成文件时便能忽略未更动的文件，加快生成时间。
+You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
 
 ``` js
 hexo.route.set('index.html', {
@@ -49,21 +50,21 @@ hexo.route.set('index.html', {
 // hexo.route.isModified('index.html') => false
 ```
 
-## 移除路径
+## Remove a Path
 
 ``` js
 hexo.route.remove('index.html');
 ```
 
-## 获得路由表
+## Get the List of Routes
 
 ``` js
 hexo.route.list();
 ```
 
-## 格式化路径
+## Format a Path
 
-`format` 方法可将字符串转为合法的路径。
+The `format` method transforms a string to a valid path.
 
 ``` js
 hexo.route.format('archives/');
