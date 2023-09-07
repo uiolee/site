@@ -10,11 +10,11 @@ To create a new post or a new page, you can run the following command:
 $ hexo new [layout] <title>
 ```
 
-`post` is the default `layout`, but you can supply your own. You can change the default layout by editing the `default_layout` setting in `_config.yml`.
+`post` is the default `layout`, but you can supply your own. `post` is the default `layout`, but you can supply your own. You can change the default layout by editing the `default_layout` setting in `_config.yml`.
 
 ## Layout
 
-There are three default layouts in Hexo: `post`, `page` and `draft`. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
+There are three default layouts in Hexo: `post`, `page` and `draft`. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder. Files created by each of them is saved to a different path. Newly created posts are saved to the `source/_posts` folder.
 
 | Layout  | Path             |
 | ------- | ---------------- |
@@ -23,7 +23,7 @@ There are three default layouts in Hexo: `post`, `page` and `draft`. Files creat
 | `draft` | `source/_drafts` |
 
 {% note tip Disabling layout %}
-If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/docs/front-matter#Layout) for more details.
+If you don't want an article (post/page) to be processed with a theme, set `layout: false` in its front-matter. Refer to [this section](/docs/front-matter#Layout) for more details. Refer to [this section](/docs/front-matter#Layout) for more details.
 {% endnote %}
 
 ## Filename
@@ -41,23 +41,23 @@ By default, Hexo uses the post title as its filename. You can edit the `new_post
 
 ## Drafts
 
-Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command.
+Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. Previously, we mentioned a special layout in Hexo: `draft`. Posts initialized with this layout are saved to the `source/_drafts` folder. You can use the `publish` command to move drafts to the `source/_posts` folder. `publish` works in a similar way to the `new` command. `publish` works in a similar way to the `new` command.
 
 ``` bash
 $ hexo publish [layout] <title>
 ```
 
-Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
+Drafts are not displayed by default. Drafts are not displayed by default. You can add the `--draft` option when running Hexo or enable the `render_drafts` setting in `_config.yml` to render drafts.
 
 ## Scaffolds
 
-When creating posts, Hexo will build files based on the corresponding file in `scaffolds` folder. For example:
+When creating posts, Hexo will build files based on the corresponding file in `scaffolds` folder. For example: For example:
 
 ``` bash
 $ hexo new photo "My Gallery"
 ```
 
-When you run this command, Hexo will try to find `photo.md` in the `scaffolds` folder and build the post based on it. The following placeholders are available in scaffolds:
+When you run this command, Hexo will try to find `photo.md` in the `scaffolds` folder and build the post based on it. The following placeholders are available in scaffolds: The following placeholders are available in scaffolds:
 
 | Placeholder | Description       |
 | ----------- | ----------------- |
@@ -69,6 +69,6 @@ When you run this command, Hexo will try to find `photo.md` in the `scaffolds` f
 
 Hexo support posts written in any format, as long as the corresponding renderer plugin is installed.
 
-For example, Hexo has `hexo-renderer-marked` and `hexo-renderer-ejs` installed by default, so you can write your posts in `markdown` or in `ejs`. If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language.
+For example, Hexo has `hexo-renderer-marked` and `hexo-renderer-ejs` installed by default, so you can write your posts in `markdown` or in `ejs`. If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language. If you have `hexo-renderer-pug` installed, then you can even write your post in pug template language.
 
 You can rename your posts and change to file extension from `.md` to `.ejs`, then Hexo will use `hexo-renderer-ejs` to render that file, so do the other formats.
