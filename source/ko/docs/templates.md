@@ -2,11 +2,11 @@
 title: Templates
 ---
 
-Templates define the presentation of your website by describing what each page should look like. The table below shows the corresponding template for every available page. At the very least, a theme should contain an `index` template.
+템플릿은 당신의 웹 사이트를 외관을 어떻게 표현할지 정의합니다. 아래 표는 페이지에 따른 적절한 템플릿을 소개합니다. 테마는 최소한 `index` 템플릿은 가지고 있어야 합니다.
 
 {% youtube mb65bQ4iUc4 %}
 
-| Template   | Page              | Fallback  |
+| 템플릿        | 페이지               | Fallback  |
 | ---------- | ----------------- | --------- |
 | `index`    | Home page         |           |
 | `post`     | Posts             | `index`   |
@@ -15,9 +15,9 @@ Templates define the presentation of your website by describing what each page s
 | `category` | Category archives | `archive` |
 | `tag`      | Tag archives      | `archive` |
 
-## Layouts
+## 레이아웃
 
-When pages share a similar structure - for instance, when two templates have both a header and a footer - you can consider using a `layout` to declare these structural similarities. Every layout file should contain a `body` variable to display the contents of the template in question. For example:
+페이지들이 비슷한 구조를 공유하는 경우 - 예를 들어, header와 footer를 갖는 두 개의 템플릿이 있다고 할 때 - 당신은 `layout`을 사용하여 구조적인 유사성을 나타낼 수 있습니다. 모든 레이아웃 파일은 템플릿의 컨텐츠를 표시할 `body` 변수를 가지고 있어야 합니다. For example:
 
 ``` html index.ejs
 index
@@ -39,11 +39,11 @@ yields:
 </html>
 ```
 
-By default, the `layout` template is used by all other templates. You can specify additional layouts in the front-matter or set it to `false` to disable it. It's even possible to build a complex nested structure by including more layout templates in your top layout.
+기본적으로 `layout` 템플릿은 다른 모든 템플릿에서 사용합니다. 추가적인 레이아웃을 front-matter 내부에 지정할 수도 있고 `false`로 설정하여 비활성화 시킬 수도 있습니다. 심지어 최상위 레이아웃에 레이아웃 템플릿을 더 포함시켜서 복잡하게 중첩된 구조를 만들 수도 있습니다.
 
 ## Partials
 
-Partials are useful for sharing components between your templates. Typical examples include headers, footers or sidebars. You may want to put your partials in separate files to make maintaining your website significantly more convenient. For example:
+Partial은 템플릿끼리 구성 요소를 공유할 때 유용합니다. 일반적인 예로 header, footer, sidebar가 있습니다. Partial을 각각의 파일에 포함시켜서 당신의 웹 사이트를 좀 더 간단하게 유지보수 할 수 있습니다. For example:
 
 ``` html partial/header.ejs
 <h1 id="logo"><%= config.title %></h1>
@@ -61,12 +61,12 @@ yields:
 <div id="content">Home page</div>
 ```
 
-## Local Variables
+## 지역 변수
 
-You can define local variables in templates and use them in other templates.
+템플릿 내에 지역 변수를 정의할 수 있고 이를 다른 팀플릿 내에서 사용할 수 있습니다.
 
 ``` html partial/header.ejs
-<h1 id="logo"><%= title %></h1>
+<h1 id="logo"><%= title></h1>
 ```
 
 ``` html index.ejs
@@ -81,13 +81,13 @@ yields:
 <div id="content">Home page</div>
 ```
 
-## Optimization
+## 최적화
 
-If your theme is exceedingly complex or if the number of files to generate becomes too large, Hexo's file generation performance may begin to decrease considerably. Aside from simplifying your theme, you may also try Fragment Caching, which was introduced in Hexo 2.7.
+당신의 테마가 대단히 복잡하거나 매우 많은 수의 파일을 생성한다면, Hexo의 파일 생성 속도가 상당히 느려질 수 있습니다. 이 외에도 테마를 단순화 함으로써 Hexo 2.7에서 소개한 Fragment Caching을 사용할 수도 있습니다.
 
-This feature was borrowed from [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching). It causes content to be saved as fragments and cached for when additional requests are made. This can reduce the number of database queries and can also speed up file generation.
+이 기능은 [Ruby on Rails](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching)에서 차용하였습니다. 이는 컨텐츠를 조각으로 나누어 저장하고 추가 요청이 발생할 때를 위해 캐시합니다. 이 방법으로 데이터베이스 쿼리 빈도를 낮출 수 있고 파일 생성 속도를 단축시킬 수 있습니다.
 
-Fragment caching is best used for headers, footers, sidebars or other static content that is unlikely to change from template to template. For example:
+Fragment caching은 header, footer, sidebar, 다른 정적인 컨텐츠를 사용할 때 최고입니다. For example:
 
 ``` js
 <%- fragment_cache('header', function(){
@@ -95,7 +95,7 @@ Fragment caching is best used for headers, footers, sidebars or other static con
 });
 ```
 
-Though it may be easier to use partials:
+그렇다 하더라도 Partial을 사용하는 것이 더 쉬울 수 있습니다.
 
 ``` js
 <%- partial('header', {}, {cache: true});
