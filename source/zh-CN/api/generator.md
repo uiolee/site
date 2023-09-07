@@ -10,9 +10,10 @@ A generator builds routes based on processed files.
 hexo.extend.generator.register(name, function(locals){
   // ...
 });
+});
 ```
 
-A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
+A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly. You should use this argument to get the website data, thereby avoiding having to access the database directly.
 
 ## Update Routes
 
@@ -38,15 +39,15 @@ hexo.extend.generator.register('test', function(locals){
 | `data`    | Data                                                                                                                                          |
 | `layout`  | Layout. Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
 
-When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.**
+When the source files are updated, Hexo will execute all generators and rebuild the routes. **Please return the data and do not access the router directly.** **Please return the data and do not access the router directly.**
 
 ## Example
 
 ### Archive Page
 
-Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+Create an archive page at `archives/index.html`. We pass all posts as data to the templates. Create an archive page at `archives/index.html`. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Next, set the `layout` attribute to render with the theme templates. Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
