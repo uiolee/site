@@ -1,31 +1,32 @@
 ---
-title: События
+title: Events
 ---
-Hexo унаследован от сборщика событий [EventEmitter]. Используйте метод `on` для просмотра событий Hexo и метод `emit` для генерации событий. Более подробную информацию смотрите в документации Node.js API.
+
+Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
-Вызывается перед началом развёртывания.
+Emitted before deployment begins.
 
 ### deployAfter
 
-Вызывается после окончания развёртывания.
+Emitted after deployment finishes.
 
 ### exit
 
-Вызывается перед закрытием Hexo.
+Emitted before Hexo exits.
 
 ### generateBefore
 
-Вызывается перед началом генерации.
+Emitted before generation begins.
 
 ### generateAfter
 
-Вызывается после окончания генерации.
+Emitted after generation finishes.
 
 ### new
 
-Вызывается после того, как пост создан. Событие возвращает данные поста:
+Emitted after a new post has been created. This event returns the post data:
 
 ``` js
 hexo.on('new', function(post){
@@ -33,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-Данные | Описание
---- | ---
-`post.path` | Полный путь к файлу поста
-`post.content` | Содержание файла поста
+| Data           | Description                |
+| -------------- | -------------------------- |
+| `post.path`    | Full path of the post file |
+| `post.content` | Content of the post file   |
 
 ### processBefore
 
-Генерируется перед началом процесса. Событие возвращает корневой каталог модуля.
+Emitted before processing begins. This event returns a path representing the root directory of the box.
 
 ### processAfter
 
-Генерируется после окончания процесса. Событие возвращает корневой каталог модуля.
+Emitted after processing finishes. This event returns a path representing the root directory of the box.
 
 ### ready
 
-Генерируется после инициализации.
+Emitted after initialization finishes.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
