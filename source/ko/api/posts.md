@@ -2,62 +2,62 @@
 title: Posts
 ---
 
-## Create a Post
+## 포스트 생성
 
 ``` js
 hexo.post.create(data, replace);
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| Argument  | 설명           |
+| --------- | ------------ |
+| `data`    | 데이터          |
+| `replace` | 존재하는 파일을 대체함 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+포스트의 속성은 `data`에 정의할 수 있습니다. 아래의 표는 완벽하진 않습니다. 추가 속성은 앞의 내용(front-matter)에 추가할 수 있습니다.
 
-| Data     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `title`  | Title                                                                            |
-| `slug`   | URL                                                                              |
-| `layout` | Layout. Defaults to the `default_layout` setting.                                |
-| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
-| `date`   | Date. Defaults to the current date.                                              |
+| 데이터      | 설명                                               |
+| -------- | ------------------------------------------------ |
+| `title`  | 타이틀                                              |
+| `slug`   | URL                                              |
+| `layout` | 레이아웃. 기본 값은 `default_layout` 설정을 따릅니다.           |
+| `path`   | 경로. Hexo는 기본적으로 `new_post_path`를 기반으로 경로를 설정합니다. |
+| `date`   | 날짜. 기본 값은 현재 시간입니다.                              |
 
-## Publish a Draft
+## Draft 배포
 
 ``` js
 hexo.post.publish(data, replace);
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| Argument  | 설명           |
+| --------- | ------------ |
+| `data`    | 데이터          |
+| `replace` | 존재하는 파일을 대체함 |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+포스트의 속성은 `data`에 정의할 수 있습니다. 아래의 표는 완벽하진 않습니다. 추가 속성은 앞의 내용(front-matter)에 추가할 수 있습니다.
 
-| Data     | Description                                       |
-| -------- | ------------------------------------------------- |
-| `slug`   | File name (Required)                              |
-| `layout` | Layout. Defaults to the `default_layout` setting. |
+| 데이터      | 설명                                     |
+| -------- | -------------------------------------- |
+| `slug`   | 파일명 (Required)                         |
+| `layout` | 레이아웃. 기본 값은 `default_layout` 설정을 따릅니다. |
 
-## Render
+## 그리기 (Render)
 
 ``` js
 hexo.post.render(source, data);
 ```
 
-| Argument | Description                    |
-| -------- | ------------------------------ |
-| `source` | Full path of a file (Optional) |
-| `data`   | Data                           |
+| Argument | 설명                   |
+| -------- | -------------------- |
+| `source` | 파일의 전체 경로 (Optional) |
+| `data`   | 데이터                  |
 
-The data must contain the `content` attribute. If not, Hexo will try to read the original file. The execution steps of this function are as follows:
+데이터는 반드시 `content` 속성 내에 포함되어야 합니다. 그렇지 않을 경우, Hexo는 원본 파일을 읽으려고 시도할 것입니다. 이 함수의 실행 단계는 아래와 같습니다.
 
-- Execute `before_post_render` filters
-- Render with Markdown or other renderers (depending on the extension name)
-- Render with [Nunjucks][]
-- Execute `after_post_render` filters
+- `before_post_render` filter를 실행합니다.
+- Markdown 또는 다른 렌더러를 통해 렌더링 합니다. (확장자명에 따라 다릅니다.)
+- [Nunjucks][]를 사용하여 렌더링 합니다.
+- `after_post_render` filter를 실행합니다.
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
 
