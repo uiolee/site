@@ -1,28 +1,30 @@
 ---
-title: 标签插件（Tag）
+title: Tag
 ---
-标签插件帮助开发者在文章中快速插入内容。
 
-## 概要
+A tag allows users to quickly and easily insert snippets into their posts.
+
+## Synopsis
 
 ``` js
 hexo.extend.tag.register(name, function(args, content){
+  // ...
 }, options);
 ```
 
-标签函数会传入两个参数：`args` 和 `content`，前者代表开发者在使用标签插件时传入的参数，而后者则是标签插件所覆盖的内容。
+Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
 
-从 Hexo 3 开始，因为新增了非同步渲染功能，而改用 [Nunjucks] 作为渲染引擎，其行为可能会与过去使用的 [Swig] 有些许差异。
+Since the introduction of asynchronous rendering in Hexo 3, we are using [Nunjucks][] for rendering. The behavior may be somewhat different from that in [Swig][].
 
-## 移除标签插件
+## Unregister Tags
 
-使用 `unregister()` 来用自定义函数替换现有的 [标签插件](/zh-cn/docs/tag-plugins)。
+Use `unregister()` to replace existing [tag plugins](/docs/tag-plugins) with custom functions.
 
 ``` js
 hexo.extend.tag.unregister(name);
 ```
 
-**示例**
+**Example**
 
 ``` js
 const tagFn = (args, content) => {
@@ -36,21 +38,21 @@ hexo.extend.tag.unregister('youtube');
 hexo.extend.tag.register('youtube', tagFn);
 ```
 
-## 选项
+## Options
 
 ### ends
 
-使用结束标签，此选项默认为 `false`。
+Use end tags. This option is `false` by default.
 
 ### async
 
-开启非同步模式，此选项默认为 `false`。
+Enable async mode. This option is `false` by default.
 
-## 范例
+## Examples
 
-### 没有结束标签
+### Without End Tags
 
-插入 Youtube 影片。
+Insert a Youtube video.
 
 ``` js
 hexo.extend.tag.register('youtube', function(args){
@@ -59,9 +61,9 @@ hexo.extend.tag.register('youtube', function(args){
 });
 ```
 
-### 有结束标签
+### With End Tags
 
-插入 pull quote。
+Insert a pull quote.
 
 ``` js
 hexo.extend.tag.register('pullquote', function(args, content){
@@ -70,9 +72,9 @@ hexo.extend.tag.register('pullquote', function(args, content){
 }, {ends: true});
 ```
 
-### 非同步渲染
+### Async Rendering
 
-插入文件。
+Insert a file.
 
 ``` js
 var fs = require('hexo-fs');
@@ -81,16 +83,16 @@ var pathFn = require('path');
 hexo.extend.tag.register('include_code', function(args){
   var filename = args[0];
   var path = pathFn.join(hexo.source_dir, filename);
-  
+
   return fs.readFile(path).then(function(content){
     return '<pre><code>' + content + '</code></pre>';
   });
 }, {async: true});
 ```
 
-## Front-matter 和用户配置
+## Front-matter and user configuration
 
-以下任何选项都是有效的：
+Any of the following options is valid:
 
 1.
 
