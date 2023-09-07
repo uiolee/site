@@ -1,6 +1,7 @@
 ---
 title: Migração
 ---
+
 ## RSS
 
 Primeiramente, instale o plugin `hexo-migrator-rss`.
