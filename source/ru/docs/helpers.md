@@ -1,36 +1,113 @@
 ---
-title: Помощники
+title: Helpers
 ---
-Помощники используются в шаблонах, чтобы быстро вставлять фрагменты. Помощники не могут быть использованы в исходных файлах .
+
+Helpers are used in templates to help you insert snippets quickly.  Helpers cannot be used in source files.
+
+You could easily [write your own custom helper](https://hexo.io/api/helper.html) or use our ready-made helpers.
+
+{% youtube Uc53pW0GJHU %}
 
 ## URL
 
 ### url_for
 
-Возвращает URL-адрес корневого пути с префиксом. Нужно использовать этот помощник вместо `config.root + path`, начиная с Hexo версии 2.7.
+Returns a url with the root path prefixed. Output is encoded automatically.
 
 ``` js
-<%- url_for(path) %>
+<%- url_for(path, [option]) %>
+```
+
+| Option     | Description          | Default                         |
+| ---------- | -------------------- | ------------------------------- |
+| `relative` | Output relative link | Value of `config.relative_link` |
+
+**Examples:**
+
+``` yml
+_config.yml
+root: /blog/ # example
+```
+
+``` js
+<%- url_for('/a/path') %>
+// /blog/a/path
+```
+
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
+
+``` yml
+_config.yml
+relative_link: true
+```
+
+``` js
+<%- url_for('/css/style.css') %>
+// ../../css/style.css
+
+/* Override option
+ * you could also disable it to output a non-relative link,
+ * even when `relative_link` is enabled and vice versa.
+ */
+<%- url_for('/css/style.css', {relative: false}) %>
+// /css/style.css
 ```
 
 ### relative_url
 
-Возвращает относительный URL путь от `from` до `to`.
+Returns the relative URL from `from` to `to`.
 
 ``` js
 <%- relative_url(from, to) %>
 ```
 
+**Examples:**
+
+``` js
+<%- relative_url('foo/bar/', 'css/style.css') %>
+// ../../css/style.css
+```
+
+### full_url_for
+
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
+
+``` js
+<%- full_url_for(path) %>
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+url: https://example.com/blog # example
+```
+
+``` js
+<%- full_url_for('/a/path') %>
+// https://example.com/blog/a/path
+```
+
 ### gravatar
 
-Вставка изображения с Gravatar.
-Если не указать в параметрах, будет применена опция по умолчанию. Иначе можно установить число, которое будет передаваться в качестве параметра размера изображения, получаемого с Gravatar. Наконец, если установить его ссылкой на объект, он будет преобразован в строку запроса параметров для Gravatar.
+Returns the gravatar image url from an email.
+
+If you didn't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
 
 ``` js
 <%- gravatar(email, [options]) %>
 ```
 
-**Примеры:**
+| Option | Description       | Default |
+| ------ | ----------------- | ------- |
+| `s`    | Output image size | 80      |
+| `d`    | Default image     |         |
+| `f`    | Force default     |         |
+| `r`    | Rating            |         |
+
+More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
+
+**Examples:**
 
 ``` js
 <%- gravatar('a@abc.com') %>
@@ -43,17 +120,17 @@ title: Помощники
 // https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40&d=https%3A%2F%2Fvia.placeholder.com%2F150
 ```
 
-## HTML теги
+## HTML Tags
 
 ### css
 
-Загружает CSS-файлы. `path` может быть массивом или строкой. Если путь не начинается с префикса `/` или с любого протокола, то будет начинаться с корневого URL-адреса. Если не добавить `.css` в конце пути, он будет подставлен автоматически. Используйте тип объекта для пользовательских атрибутов.
+Loads CSS files. `path` can be an array or a string. `path` can be a string, an array, an object or an array of objects. [`/<root>/`](/docs/configuration#URL) value is prepended while `.css` extension is appended to the `path` automatically. Use object type for custom attributes.
 
 ``` js
 <%- css(path, ...) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- css('style.css') %>
@@ -73,13 +150,13 @@ title: Помощники
 
 ### js
 
-Загружает JavaScript файлы. `path` может быть массивом или строкой. Если путь не начинается с префикса `/` или с любого протокола, то будет начинаться с корневого URL-адреса. Если не добавить `.js` в конце пути, он будет подставлен автоматически. Используйте тип объекта для пользовательских атрибутов.
+Loads JavaScript files. `path` can be a string, an array, an object or an array of objects. [`/<root>/`](/docs/configuration#URL) value is prepended while `.js` extension is appended to the `path` automatically. Use object type for custom attributes.
 
 ``` js
 <%- js(path, ...) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- js('script.js') %>
@@ -99,19 +176,19 @@ title: Помощники
 
 ### link_to
 
-Вставляет ссылку.
+Inserts a link.
 
 ``` js
 <%- link_to(path, [text], [options]) %>
 ```
 
-Опции | Описание | Значение по умолчанию
---- | --- | ---
-`external` | Открывает ссылку в новой вкладке | false
-`class` | Имя класса |
-`id` | ID |
+| Option     | Description                 | Default |
+| ---------- | --------------------------- | ------- |
+| `external` | Opens the link in a new tab | false   |
+| `class`    | Class name                  |         |
+| `id`       | ID                          |         |
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- link_to('http://www.google.com') %>
@@ -126,22 +203,22 @@ title: Помощники
 
 ### mail_to
 
-Вставка почтовой ссылки.
+Inserts a mail link.
 
 ``` js
 <%- mail_to(path, [text], [options]) %>
 ```
 
-Опция | Описание
---- | ---
-`class` | Имя класса
-`id` | ID
-`subject` | Тема письма
-`cc` | Копия
-`bcc` | Скрытая копия
-`body` | Содержание сообщения
+| Option    | Description  |
+| --------- | ------------ |
+| `class`   | Class name   |
+| `id`      | ID           |
+| `subject` | Mail subject |
+| `cc`      | CC           |
+| `bcc`     | BCC          |
+| `body`    | Mail content |
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- mail_to('a@abc.com') %>
@@ -153,23 +230,23 @@ title: Помощники
 
 ### image_tag
 
-Вставка изображения.
+Inserts an image.
 
 ``` js
 <%- image_tag(path, [options]) %>
 ```
 
-Опция | Описание
---- | ---
-`alt` | Альтернативный текст изображения
-`class` | Имя класса
-`id` | ID
-`width` | Ширина изображения
-`height` | Высота изображения
+| Option   | Description                   |
+| -------- | ----------------------------- |
+| `alt`    | Alternative text of the image |
+| `class`  | Class name                    |
+| `id`     | ID                            |
+| `width`  | Image width                   |
+| `height` | Image height                  |
 
 ### favicon_tag
 
-Вставка иконки сайта (favicon).
+Inserts a favicon.
 
 ``` js
 <%- favicon_tag(path) %>
@@ -177,16 +254,16 @@ title: Помощники
 
 ### feed_tag
 
-Вставка ссылки на канал.
+Inserts a feed link.
 
 ``` js
 <%- feed_tag(path, [options]) %>
 ```
 
-Опции | Описание | Значение по умолчанию
---- | --- | ---
-`title` | Имя канала | `config.title`
-`type` | Тип канала | 
+| Option  | Description | Default        |
+| ------- | ----------- | -------------- |
+| `title` | Feed title  | `config.title` |
+| `type`  | Feed type   |                |
 
 **Examples:**
 
@@ -195,18 +272,18 @@ title: Помощники
 // <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 
 <%- feed_tag('rss.xml', { title: 'RSS Feed', type: 'rss' }) %>
-// <link rel="alternate" href="/atom.xml" title="RSS Feed" type="application/rss+xml">
+// <link rel="alternate" href="/atom.xml" title="RSS Feed" type="application/atom+xml">
 
 /* Defaults to hexo-generator-feed's config if no argument */
 <%- feed_tag() %>
 // <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 ```
 
-### Условные теги
+## Conditional Tags
 
 ### is_current
 
-Проверить, соответствует ли `path` URL-адресу текущей страницы. Используйте `strict` для обеспечения строгого соответствия.
+Check whether `path` matches the URL of the current page. Use `strict` options to enable strict matching.
 
 ``` js
 <%- is_current(path, [strict]) %>
@@ -214,23 +291,39 @@ title: Помощники
 
 ### is_home
 
-Проверить, является ли текущая страница главной.
+Check whether the current page is home page.
 
 ``` js
 <%- is_home() %>
 ```
 
+### is_home_first_page (+6.3.0)
+
+Check whether the current page is the first of home page.
+
+``` js
+<%- is_home_first_page() %>
+```
+
 ### is_post
 
-Проверить, является ли текущая страница постом.
+Check whether the current page is a post.
 
 ``` js
 <%- is_post() %>
 ```
 
+### is_page
+
+Check whether the current page is a page.
+
+``` js
+<%- is_page() %>
+```
+
 ### is_archive
 
-Проверить, является ли текущая страница архивом.
+Check whether the current page is an archive page.
 
 ``` js
 <%- is_archive() %>
@@ -238,7 +331,7 @@ title: Помощники
 
 ### is_year
 
-Проверить, является ли текущая страница годовым архивом.
+Check whether the current page is a yearly archive page.
 
 ``` js
 <%- is_year() %>
@@ -246,7 +339,7 @@ title: Помощники
 
 ### is_month
 
-Проверить, является ли текущая страница месячным архивом.
+Check whether the current page is a monthly archive page.
 
 ``` js
 <%- is_month() %>
@@ -254,8 +347,7 @@ title: Помощники
 
 ### is_category
 
-Проверить, является ли текущая страница страницей категории.
-Если строка содержит параметр, проверяется, соответствует ли текущая страница заданной категории.
+Check whether the current page is a category page. If a string is given as parameter, check whether the current page match the given category.
 
 ``` js
 <%- is_category() %>
@@ -264,18 +356,18 @@ title: Помощники
 
 ### is_tag
 
-Проверить, является ли текущая страница страницей тега. Если строка содержит параметр, проверяется, соответствует ли текущая страница заданному тегу.
+Check whether the current page is a tag page. If a string is given as parameter, check whether the current page match the given tag.
 
 ``` js
 <%- is_tag() %>
 <%- is_tag('hobby') %>
 ```
 
-## Работа со строками
+## String Manipulation
 
 ### trim
 
-Удаляет префиксы и конечные пробелы из строки.
+Removes prefixing and trailing spaces of a string.
 
 ``` js
 <%- trim(string) %>
@@ -283,13 +375,13 @@ title: Помощники
 
 ### strip_html
 
-Санирует(sanitizes) все HTML-теги в строку.
+Sanitizes all HTML tags in a string.
 
 ``` js
 <%- strip_html(string) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- strip_html('It\'s not <b>important</b> anymore!') %>
@@ -298,13 +390,13 @@ title: Помощники
 
 ### titlecase
 
-Правильно расставляет заглавные буквы в строке заголовка.
+Transforms a string into proper title caps.
 
 ``` js
 <%- titlecase(string) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- titlecase('this is an apple') %>
@@ -313,13 +405,13 @@ title: Помощники
 
 ### markdown
 
-Преобразует строку с помощью Markdown.
+Renders a string with Markdown.
 
 ``` js
 <%- markdown(str) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- markdown('make me **strong**') %>
@@ -328,7 +420,7 @@ title: Помощники
 
 ### render
 
-Обрабатывает строку.
+Renders a string.
 
 ``` js
 <%- render(str, engine, [options]) %>
@@ -341,17 +433,17 @@ title: Помощники
 // <p class="example">Test</p>
 ```
 
-См. [отрисовка](https://hexo.io/ru/api/rendering) для получения более подробной информации.
+See [Rendering](https://hexo.io/api/rendering) for more details.
 
 ### word_wrap
 
-Переносит строки длиннее указанного в `length` количества символов. `length` равняется 80 по умолчанию.
+Wraps text into lines no longer than `length`. `length` is 80 by default.
 
 ``` js
 <%- word_wrap(str, [length]) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- word_wrap('Once upon a time', 8) %>
@@ -360,13 +452,13 @@ title: Помощники
 
 ### truncate
 
-Обрезает текст после определённого в `length` количества символов. По умолчанию `length` 30 символов.
+Truncates text after certain `length`. Default is 30 characters.
 
 ``` js
 <%- truncate(text, [options]) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- truncate('Once upon a time in a world far far away', {length: 17}) %>
@@ -394,30 +486,30 @@ Escapes HTML entities in a string.
 // &lt;p&gt;Hello &quot;world&quot;.&lt;&#x2F;p&gt;
 ```
 
-## Шаблоны
+## Templates
 
 ### partial
 
-Загружает другие файлы шаблонов. Можно назначить локальные переменные в `locals`.
+Loads other template files. You can define local variables in `locals`.
 
 ``` js
 <%- partial(layout, [locals], [options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`cache` | Кэшировать содержимое (Использовать кэш фрагментов.) | `false`
-`only` | Строгие локальные переменные. Использовать только указанные в шаблоне переменные `locals`. | `false`
+| Option  | Description                                                              | Default |
+| ------- | ------------------------------------------------------------------------ | ------- |
+| `cache` | Cache contents (Use fragment cache)                                      | `false` |
+| `only`  | Strict local variables. Only use variables set in `locals` in templates. | `false` |
 
 ### fragment_cache
 
-Кэширует содержимое фрагмента. Сохраняет содержимое внутри фрагмента в кэш и при следующем запросе берет значения из него.
+Caches the contents in a fragment. It saves the contents within a fragment and serves the cache when the next request comes in.
 
 ``` js
 <%- fragment_cache(id, fn);
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- fragment_cache('header', function(){
@@ -425,17 +517,17 @@ Escapes HTML entities in a string.
 }) %>
 ```
 
-## Дата и время
+## Date & Time
 
 ### date
 
-Вставляет отформатированную дату. `date` может быть в формате времени Unix, строки ISO, объекта date, или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен `date_format`.
+Inserts formatted date. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `date_format` setting by default.
 
 ``` js
 <%- date(date, [format]) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- date(Date.now()) %>
@@ -447,13 +539,13 @@ Escapes HTML entities in a string.
 
 ### date_xml
 
-Вставляет дату в формате XML. `date` может быть в формате времени Unix, строки ISO, объекта date или [Moment.js](https://momentjs.com/) объекта.
+Inserts date in XML format. `date` can be unix time, ISO string, date object, or [Moment.js][] object.
 
 ``` js
 <%- date_xml(date) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- date_xml(Date.now()) %>
@@ -462,13 +554,13 @@ Escapes HTML entities in a string.
 
 ### time
 
-Вставляет отформатированное время. `date` может быть в формате времени Unix, строки ISO, объекта date или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен  `time_format`.
+Inserts formatted time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `time_format` setting by default.
 
 ``` js
 <%- time(date, [format]) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- time(Date.now()) %>
@@ -480,13 +572,13 @@ Escapes HTML entities in a string.
 
 ### full_date
 
-Вставляет отформатированные дату и время. `date` может быть в формате времени Unix, строки ISO, объекта date или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен `date_format + time_format`.
+Inserts formatted date and time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `date_format + time_format` setting by default.
 
 ``` js
 <%- full_date(date, [format]) %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- full_date(new Date()) %>
@@ -498,60 +590,79 @@ Escapes HTML entities in a string.
 
 ### moment
 
-Библиотека [Moment.js](https://momentjs.com/).
+[Moment.js][] library.
 
-## Списки
+## List
 
 ### list_categories
 
-Вставляет список всех категорий.
+Inserts a list of all categories.
 
 ``` js
 <%- list_categories([options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`orderby` | Упорядочивание категорий | name
-`order` | Порядок сортировки. `1`, `asc` для сортировки по возрастанию; `-1`, `desc` для сортировки по убыванию | 1
-`show_count` | Отображать количество постов для каждой категории | true
-`style` | Стиль показа списка категорий. `list` отображает категории в неупорядоченном списке.  | list
-`separator` | Разделитель категорий. (Работает если только стиль `style` не задан как `list`) | ,
-`depth` | Глубина вложенных категорий для отображения. `0` отображает все категории и подкатегории; `-1` похож на `0` но отображается в плоскости; `1` отображает только разделы верхнего уровня. | 0
-`class` | Имя класса списка категорий. | category
-`transform` | Функция, позволяющая изменить отображаемое имя категории. |
+| Option       | Description                                                                                                                                                                   | Default  |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `orderby`    | Order of categories                                                                                                                                                           | name     |
+| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                                                                          | 1        |
+| `show_count` | Display the number of posts for each category                                                                                                                                 | true     |
+| `style`      | Style to display the category list. `list` displays categories in an unordered list. Use `false` or any other value to disable it.                                            | list     |
+| `separator`  | Separator between categories. (Only works if `style` is not `list`)                                                                                                           | ,        |
+| `depth`      | Levels of categories to be displayed. `0` displays all categories and child categories; `-1` is similar to `0` but displayed in flat; `1` displays only top level categories. | 0        |
+| `class`      | Class name of category list.                                                                                                                                                  | category |
+| `transform`  | The function that changes the display of category name.                                                                                                                       |          |
+| `suffix`     | Add a suffix to link.                                                                                                                                                         | None     |
+
+**Examples:**
+
+``` js
+<%- list_categories(post.categories, {
+  class: 'post-category',
+  transform(str) {
+    return titlecase(str);
+  }
+}) %>
+
+<%- list_categories(post.categories, {
+  class: 'post-category',
+  transform(str) {
+    return str.toUpperCase();
+  }
+}) %>
+```
 
 ### list_tags
 
-Вставка списка всех тегов.
+Inserts a list of all tags.
 
 ``` js
 <%- list_tags([options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`orderby` | Сортировать по категориям | name
-`order` | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию | 1
-`show_count` | Отображать количество постов для каждого тега. | true
-`style` | Стиль показа списка тегов. `list` отображает категории в неупорядоченном списке. | list
-`separator` | Разделитель тегов. (Работает если только стиль `style` не задан как `list`) | ,
-`class` | Имя класса списка тегов (string) или настройте класс каждого тега (object, см. Ниже). | tag
-`transform` | Функция, позволяющая изменить отображаемое имя категории. |
-`amount` | Ограничение количества отображаемых тегов (0 = неограниченно) | 0
-`suffix` | Добавьте суффикс к ссылке. | None
+| Option       | Description                                                                                                             | Default |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- | ------- |
+| `orderby`    | Order of categories                                                                                                     | name    |
+| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                    | 1       |
+| `show_count` | Display the number of posts for each tag                                                                                | true    |
+| `style`      | Style to display the tag list. `list` displays tags in an unordered list. Use `false` or any other value to disable it. | list    |
+| `separator`  | Separator between categories. (Only works if `style` is not `list`)                                                     | ,       |
+| `class`      | Class name of tag list (string) or customize each tag's class (object, see below).                                      | tag     |
+| `transform`  | The function that changes the display of tag name. See examples in [list_categories](#list-categories).                 |         |
+| `amount`     | The number of tags to display (0 = unlimited)                                                                           | 0       |
+| `suffix`     | Add a suffix to link.                                                                                                   | None    |
 
-Расширенная настройка класса:
+Class advanced customization:
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`class.ul` | `<ul>` имя класса (только для стиля `list`) | `tag-list` (стиль списка)
-`class.li` | `<li>` имя класса (только для стиля `list`) | `tag-list-item` (стиль списка)
-`class.a` | `<a>` имя класса | `tag-list-link` (list style) `tag-link` (обычный стиль)
-`class.label` | имя класса `<span>`, в котором хранится метка тега (только для обычного стиля, когда задан `class.label`, метка помещается в `<span>`) | `tag-label` (обычный стиль)
-`class.count` | имя класса `<span>`, в котором хранится счетчик тегов (только если `show_count` имеет значение `true`) | `tag-list-count` (стиль списка) `tag-count` (обычный стиль)
+| Option        | Description                                                                                                                                     | Default                                                  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `class.ul`    | `<ul>` class name (only for style `list`)                                                                                                 | `tag-list` (list style)                                  |
+| `class.li`    | `<li>` class name (only for style `list`)                                                                                                 | `tag-list-item` (list style)                             |
+| `class.a`     | `<a>` class name                                                                                                                          | `tag-list-link` (list style) `tag-link` (normal style)   |
+| `class.label` | `<span>` class name where the tag label is stored (only for normal style, when `class.label` is set the label is put in a `<span>`) | `tag-label` (normal style)                               |
+| `class.count` | `<span>` class name where the tag counter is stored (only when `show_count` is `true`)                                                    | `tag-list-count` (list style) `tag-count` (normal style) |
 
-Примеры:
+Examples:
 
 ```ejs
 <%- list_tags(site.tags, {class: 'classtest', style: false, separator: ' | '}) %>
@@ -562,89 +673,108 @@ Escapes HTML entities in a string.
 
 ### list_archives
 
-Вставка списка архивов.
+Inserts a list of archives.
 
 ``` js
 <%- list_archives([options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`type` | Тип. Значение может быть год `yearly` или месяц `monthly`. | monthly
-`order` | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убывантю | 1
-`show_count` | Отобразить количество сообщений для каждого архива | true
-`format` | Формат даты | MMMM YYYY
-`style` | Стиль показа списка архивов. `list` отображает категории в неупорядоченном списке.  | list
-`separator` | Разделитель архивов. (Работает если только стиль `style` не задан как `list`) | ,
-`class` | Имя класса списка архивов. | archive
-`transform` | Функция, позволяющая изменить отображаемое имя архива. |
+| Option       | Description                                                                                                                     | Default   |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `type`       | Type. This value can be `yearly` or `monthly`.                                                                                  | monthly   |
+| `order`      | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                            | 1         |
+| `show_count` | Display the number of posts for each archive                                                                                    | true      |
+| `format`     | Date format                                                                                                                     | MMMM YYYY |
+| `style`      | Style to display the archive list. `list` displays archives in an unordered list. Use `false` or any other value to disable it. | list      |
+| `separator`  | Separator between archives. (Only works if `style` is not `list`)                                                               | ,         |
+| `class`      | Class name of archive list.                                                                                                     | archive   |
+| `transform`  | The function that changes the display of archive name. See examples in [list_categories](#list-categories).                     |           |
 
 ### list_posts
 
-Список постов.
+Inserts a list of posts.
 
 ``` js
 <%- list_posts([options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`orderby` | Сортировка постов | date
-`order` | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию | 1
-`style` | Стиль показа списка постов. `list` отображает категории в неупорядоченном списке.  | list
-`separator` | Разделитель постов. (Работает если только стиль `style` не задан как `list`) | ,
-`class` | Имя класса списка постов. | post
-`amount` | Ограничени количества отображаемых постов (0 = неограниченно) | 6
-`transform` | Функция, позволяющая изменить отображаемое имя поста. |
+| Option      | Description                                                                                                               | Default |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `orderby`   | Order of posts                                                                                                            | date    |
+| `order`     | Sort of order. `1`, `asc` for ascending; `-1`, `desc` for descending                                                      | 1       |
+| `style`     | Style to display the post list. `list` displays posts in an unordered list. Use `false` or any other value to disable it. | list    |
+| `separator` | Separator between posts. (Only works if `style` is not `list`)                                                            | ,       |
+| `class`     | Class name of post list.                                                                                                  | post    |
+| `amount`    | The number of posts to display (0 = unlimited)                                                                            | 6       |
+| `transform` | The function that changes the display of post name. See examples in [list_categories](#list-categories).                  |         |
 
 ### tagcloud
 
-Облако тегов.
+Inserts a tag cloud.
 
 ``` js
 <%- tagcloud([tags], [options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`min_font` | Минимальный размер шрифта | 10
-`max_font` | Максимальный размер шрифта | 20
-`unit` | Единица измерения размера шрифта | px
-`amount` | Общая сумма тегов | 40
-`orderby` | Упорядочить по тегу | name
-`order` | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию | 1
-`color` | Цветное облако тегов | false
-`start_color` | Стартовый цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`. |
-`end_color` | Конечный цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`. |
-`class` | Префикс имени класса тегов
-`level` | Количество различных имен классов. Эта опция работает только тогда, когда переменная `class` установлена. | 10
+| Option                 | Description                                                                                                                                                                   | Default   |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `min_font`             | Minimum font size                                                                                                                                                             | 10        |
+| `max_font`             | Maximum font size                                                                                                                                                             | 20        |
+| `unit`                 | Unit of font size                                                                                                                                                             | px        |
+| `amount`               | Total amount of tags                                                                                                                                                          | unlimited |
+| `orderby`              | Order of tags                                                                                                                                                                 | name      |
+| `order`                | Sort order. `1`, `asc` as ascending; `-1`, `desc` as descending                                                                                                               | 1         |
+| `color`                | Colorizes the tag cloud                                                                                                                                                       | false     |
+| `start_color`          | Start color. You can use hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) or [color keywords][]. This option only works when `color` is true. |           |
+| `end_color`            | End color. You can use hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) or [color keywords][]. This option only works when `color` is true.   |           |
+| `class`                | Class name prefix of tags                                                                                                                                                     |           |
+| `level`                | The number of different class names. This option only works when `class` is set.                                                                                              | 10        |
+| `show_count` (+6.3.0)  | Display the number of posts for each tag                                                                                                                                      | false     |
+| `count_class` (+6.3.0) | Class name of tag count                                                                                                                                                       | count     |
 
-## Разное
+**Examples:**
+
+``` js
+// Default options
+<%- tagcloud() %>
+
+// Limit number of tags to 30
+<%- tagcloud({amount: 30}) %>
+```
+
+## Miscellaneous
 
 ### paginator
 
-Вставляет нумерацию страниц.
+Inserts a paginator.
 
 ``` js
 <%- paginator(options) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`base` | Базовый URL-адрес | /
-`format` | Формат URL-адреса | page/%d/
-`total` | Количество страниц | 1
-`current` | Номер текущей страницы | 0
-`prev_text` | Ссылка на предыдущую страницу. Работает только если `prev_next` имеет значение `true`. | Prev
-`next_text` | Ссылка на следующую страницу. Работает только если `prev_next` имеет значение `true`. | Next
-`space` | Пространство в тексте | &hellp;
-`prev_next` | Отображает ссылки на предыдущую и следующую страницы | true
-`end_size` | Количество страниц, отображаемых с начала и конца. | 1
-`mid_size` | Количество страниц, отображаемых от текущей страницы. Текущая страница не включена. | 2
-`show_all` | Отобразить все страницы. Если установлено в `true`, `end_size` и `mid_size` не работают. | false
-`escape` | Экранирование HTML-тегов | true
+| Option                     | Description                                                                        | Default       |
+| -------------------------- | ---------------------------------------------------------------------------------- | ------------- |
+| `base`                     | Base URL                                                                           | /             |
+| `format`                   | URL format                                                                         | page/%d/      |
+| `total`                    | The number of pages                                                                | 1             |
+| `current`                  | Current page number                                                                | 0             |
+| `prev_text`                | The link text of previous page. Works only if `prev_next` is set to true.          | Prev          |
+| `next_text`                | The link text of next page. Works only if `prev_next` is set to true.              | Next          |
+| `space`                    | The space text                                                                     | &hellp;       |
+| `prev_next`                | Display previous and next links                                                    | true          |
+| `end_size`                 | The number of pages displayed on the start and the end side                        | 1             |
+| `mid_size`                 | The number of pages displayed between current page, but not including current page | 2             |
+| `show_all`                 | Display all pages. If this is set to true, `end_size` and `mid_size` will not work | false         |
+| `escape`                   | Escape HTML tags                                                                   | true          |
+| `page_class` (+6.3.0)      | Page class name                                                                    | `page-number` |
+| `current_class` (+6.3.0)   | Current page class name                                                            | `current`     |
+| `space_class` (+6.3.0)     | Space class name                                                                   | `space`       |
+| `prev_class` (+6.3.0)      | Previous page class name                                                           | `extend prev` |
+| `next_class` (+6.3.0)      | Next page class name                                                               | `extend next` |
+| `force_prev_next` (+6.3.0) | Force display previous and next links                                              | false         |
 
-**Примеры:**
+
+**Examples:**
 
 ``` js
 <%- paginator({
@@ -681,33 +811,33 @@ Escapes HTML entities in a string.
 
 ### search_form
 
-Вставляет форму поиска Google.
+Inserts a Google search form.
 
 ``` js
 <%- search_form(options) %>
 ```
 
-Опции | Описание | Значение по умолчанию
---- | --- | ---
-`class` | Имя класса формы | search-form
-`text` | Подсказка поиска | Search
-`button` | Отображать кнопку поиска. Значение может быть логическим или строковым. Если значение — строка, тогда она подставится в текст кнопки. | false
+| Option   | Description                                                                                                               | Default     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `class`  | The class name of form                                                                                                    | search-form |
+| `text`   | Search hint word                                                                                                          | Search      |
+| `button` | Display search button. The value can be a boolean or a string. If the value is a string, it'll be the text of the button. | false       |
 
 ### number_format
 
-Формат чисел.
+Formats a number.
 
 ``` js
 <%- number_format(number, [options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`precision` | Точность чисел. Значение можно установить в `false` или неотрицательное целое число. | false
-`delimiter` | Разделитель тысяч | ,
-`separator` | Разделитель дробной части числа от целой. | .
+| Option      | Description                                                                 | Default |
+| ----------- | --------------------------------------------------------------------------- | ------- |
+| `precision` | The precision of number. The value can be `false` or a nonnegative integer. | false   |
+| `delimiter` | The thousands delimiter                                                     | ,       |
+| `separator` | The separator between the fractional and integer digits.                    | .       |
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- number_format(12345.67, {precision: 1}) %>
@@ -728,13 +858,13 @@ Escapes HTML entities in a string.
 
 ### meta_generator
 
-Добавляет [генерирование тегов](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta).
+Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta).
 
 ``` js
 <%- meta_generator() %>
 ```
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- meta_generator() %>
@@ -743,47 +873,53 @@ Escapes HTML entities in a string.
 
 ### open_graph
 
-Вставляет график [Open Graph].
+Inserts [Open Graph][] data.
 
 ``` js
 <%- open_graph([options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`title` | Заголовок страницы (`og:title`) | `page.title`
-`type` | Тип страницы (`og:type`) | blog
-`url` | URL-адрес страницы (`og:url`) | `url`
-`image` | Обложка страницы (`og:image`) | Все изображения в материалах
-`author` | Автор статьи (`og:article:author`) | `config.author`
-`date` | Время публикации статьи (`og:article:published_time`) | Время публикации страницы
-`updated` | Время изменения статьи (`og:article:modified_time`) | Время изменения страницы
-`language` | Язык статьи (`og:locale`) | `page.lang || page.language || config.language`
-`site_name` | Имя сайта (`og:site_name`) | `config.title`
-`description` | Описание страницы (`og:description`) | Отрывок страницы или первые 200 символов содержимого
-`twitter_card` | Карточка Twitter (`twitter:card`) | Краткое изложение
-`twitter_id` | Twitter ID (`twitter:creator`) |
-`twitter_site` | Сайт Twitter (`twitter:site`) |
-`google_plus` | Ссылка на профиль Google+ |
-`fb_admins` | Facebook ID администратора |
-`fb_app_id` | Facebook ID приложения |
+| Option         | Description                                          | Default                                             |
+| -------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| `title`        | Page title (`og:title`)                              | `page.title`                                        |
+| `type`         | Page type (`og:type`)                                | blog                                                |
+| `url`          | Page URL (`og:url`)                                  | `url`                                               |
+| `image`        | Page images (`og:image`)                             | All images in the content                           |
+| `author`       | Article author (`og:article:author`)                 | `config.author`                                     |
+| `date`         | Article published time (`og:article:published_time`) | Page published time                                 |
+| `updated`      | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
+| `language`     | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
+| `site_name`    | Site name (`og:site_name`)                           | `config.title`                                      |
+| `description`  | Page description (`og:description`)                  | Page excerpt or first 200 characters of the content |
+| `twitter_card` | Twitter card type (`twitter:card`)                   | summary                                             |
+| `twitter_id`   | Twitter ID (`twitter:creator`)                       |                                                     |
+| `twitter_site` | Twitter Site (`twitter:site`)                        |                                                     |
+| `google_plus`  | Google+ profile link                                 |                                                     |
+| `fb_admins`    | Facebook admin ID                                    |                                                     |
+| `fb_app_id`    | Facebook App ID                                      |                                                     |
 
 ### toc
 
-Анализирует все теги заголовков (H1~н6) на странице и создаёт на их основе оглавление.
+Parses all heading tags (h1~h6) in the content and inserts a table of contents.
 
 ``` js
 <%- toc(str, [options]) %>
 ```
 
-Опция | Описание | Значение по умолчанию
---- | --- | ---
-`class` | Имя класса | toc
-`list_number` | Отображать нумерацию | true
-`max_depth` | Максимальная глубина генерации заголовков toc | 6
-`min_depth` | Минимальная глубина генерации заголовков toc | 1
+| Option                  | Description                            | Default           |
+| ----------------------- | -------------------------------------- | ----------------- |
+| `class`                 | Class name                             | `toc`             |
+| `class_item` (+6.3.0)   | Class name of item                     | `${class}-item`   |
+| `class_link` (+6.3.0)   | Class name of link                     | `${class}-link`   |
+| `class_text` (+6.3.0)   | Class name of text                     | `${class}-text`   |
+| `class_child` (+6.3.0)  | Class name of child                    | `${class}-child`  |
+| `class_number` (+6.3.0) | Class name of number                   | `${class}-number` |
+| `class_level` (+6.3.0)  | Class name prefix of level             | `${class}-level`  |
+| `list_number`           | Displays list number                   | true              |
+| `max_depth`             | Maximum heading depth of generated toc | 6                 |
+| `min_depth`             | Minimum heading depth of generated toc | 1                 |
 
-**Примеры:**
+**Examples:**
 
 ``` js
 <%- toc(page.content) %>
@@ -803,6 +939,6 @@ Please see below PRs.
 - https://github.com/hexojs/hexo-renderer-markdown-it/pull/174
 {% endnote %}
 
-[Имена цветов]: http://www.w3.org/TR/css3-color/#svg-color
+[color keywords]: http://www.w3.org/TR/css3-color/#svg-color
 [Moment.js]: http://momentjs.com/
 [Open Graph]: http://ogp.me/
