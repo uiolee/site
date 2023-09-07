@@ -1,17 +1,20 @@
 ---
-title: 标签插件（Tag Plugins）
+title: Tag Plugins
 ---
-标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。
 
-虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。
+Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
 
-_标签插件不应该被包裹在 Markdown 语法中，例如： `[]({% post_path lorem-ipsum %})` 是不被支持的。_
+Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
 
-## 引用块
+{% youtube I07XMi7MHd4 %}
 
-在文章中插入引言，可包含作者、来源和标题。
+_Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
 
-**别号：** quote
+## Block Quote
+
+Perfect for adding quotes to your post, with optional author, source and title information.
+
+**Alias:** quote
 
 ```
 {% blockquote [author[, source]] [link] [source_link_title] %}
@@ -19,9 +22,9 @@ content
 {% endblockquote %}
 ```
 
-### 示例
+### Examples
 
-**没有提供参数，则只输出普通的 blockquote**
+**No arguments. Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -33,7 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}
 
-**引用书上的句子**
+**Quote from a book**
 
 ```
 {% blockquote David Levithan, Wide Awake %}
@@ -45,7 +48,7 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 
-**引用 Twitter**
+**Quote from Twitter**
 
 ```
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
@@ -57,7 +60,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 {% endblockquote %}
 
-**引用网络上的文章**
+**Quote from an article on the web**
 
 ```
 {% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
@@ -69,11 +72,11 @@ Every interaction is both precious and an opportunity to delight.
 Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 
-## 代码块
+## Code Block
 
-在文章中插入代码。
+Useful feature for adding code snippets to your post.
 
-**别名：** code
+**Alias:** code
 
 ```
 {% codeblock [title] [lang:language] [url] [link text] [additional options] %}
@@ -81,20 +84,20 @@ code snippet
 {% endcodeblock %}
 ```
 
-以 `option:value` 的格式指定额外选项，例如：`line_number:false first_line:5`。
+Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-额外选项 | 描述 | 默认值
---- | --- | ---
-`line_number` | 显示行号 | `true`
-`line_threshold` | 只有代码块的行数超过该阈值，才显示行数 | `0` |
-`highlight` | 启用代码高亮 | `true`
-`first_line` | 指定第一个行号 | `1`
-`mark` | 突出显示特定的行，每个值用逗号分隔。 使用破折号指定数字范围<br>例如： `mark:1,4-7,10` 将标记第1、4至7和10行 |
-`wrap` | 用 [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) 包裹代码块 | `true`
+| Extra Options    | Description                                                                                                                                                            | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                       | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
 
-### 示例
+### Examples
 
-**普通的代码块**
+**A plain code block**
 
 ```
 {% codeblock %}
@@ -106,7 +109,7 @@ alert('Hello World!');
 alert('Hello World!');
 {% endcodeblock %}
 
-**指定语言**
+**Specifying the language**
 
 ```
 {% codeblock lang:objc %}
@@ -118,7 +121,7 @@ alert('Hello World!');
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
-**附加说明**
+**Adding a caption to the code block**
 
 ```
 {% codeblock Array.map %}
@@ -130,7 +133,7 @@ array.map(callback[, thisArg])
 array.map(callback[, thisArg])
 {% endcodeblock %}
 
-**附加说明和网址**
+**Adding a caption and a URL**
 
 ```
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
@@ -140,23 +143,22 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
-## 反引号代码块
+## Backtick Code Block
 
-另一种形式的代码块，不同的是它使用三个反引号来包裹。
+This is identical to using a code block, but instead uses three backticks to delimit the block.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
 ## Pull Quote
 
-在文章中插入 Pull quote。
+To add pull quotes to your posts:
 
 ```
 {% pullquote [class] %}
@@ -166,7 +168,7 @@ content
 
 ## jsFiddle
 
-在文章中嵌入 jsFiddle。
+To embed a jsFiddle snippet:
 
 ```
 {% jsfiddle shorttag [tabs] [skin] [width] [height] %}
@@ -174,7 +176,7 @@ content
 
 ## Gist
 
-在文章中嵌入 Gist。
+To embed a Gist snippet:
 
 ```
 {% gist gist_id [filename] %}
@@ -182,7 +184,7 @@ content
 
 ## iframe
 
-在文章中插入 iframe。
+To embed an iframe:
 
 ```
 {% iframe url [width] [height] %}
@@ -190,7 +192,7 @@ content
 
 ## Image
 
-在文章中插入指定大小的图片。
+Inserts an image with specified size.
 
 ```
 {% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
@@ -198,7 +200,7 @@ content
 
 ## Link
 
-在文章中插入链接，并自动给外部链接添加 `target="_blank"` 属性。
+Inserts a link with `target="_blank"` attribute.
 
 ```
 {% link text url [external] [title] %}
@@ -206,69 +208,69 @@ content
 
 ## Include Code
 
-插入 `source/downloads/code` 文件夹内的代码文件。`source/downloads/code` 不是固定的，取决于你在配置文件中 `code_dir` 的配置。
+Inserts code snippets in `source/downloads/code` folder. The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
 ```
 
-### 示例
+### Examples
 
-**嵌入 test.js 文件全文**
+**Embed the whole content of test.js**
 
 ```
 {% include_code lang:javascript test.js %}
 ```
 
-**只嵌入第 3 行**
+**Embed line 3 only**
 
 ```
 {% include_code lang:javascript from:3 to:3 test.js %}
 ```
 
-**嵌入第 5 行至第 8 行**
+**Embed line 5 to 8**
 
 ```
 {% include_code lang:javascript from:5 to:8 test.js %}
 ```
 
-**嵌入第 5 行至文件结束**
+**Embed line 5 to the end of file**
 
 ```
 {% include_code lang:javascript from:5 test.js %}
 ```
 
-**嵌入第 1 行至第 8 行**
+**Embed line 1 to 8**
 
 ```
 {% include_code lang:javascript to:8 test.js %}
 ```
 
-## Youtube
+## YouTube
 
-在文章中插入 Youtube 视频。
+Inserts a YouTube video.
 
 ```
 {% youtube video_id [type] [cookie] %}
 ```
 
-### 示例
+### Examples
 
-**视频**
+**Embed a video**
 
 ```
 {% youtube lJIrF4YjHfQ %}
 ```
 
-**播放列表**
+**Embed a playlist**
 
 ```
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' %}
 ```
 
-**隐私模式**
+**Enable privacy-enhanced mode**
 
-在这种模式下，禁用 YouTube cookie
+YouTube's cookie is not used in this mode.
 
 ```
 {% youtube lJIrF4YjHfQ false %}
@@ -277,60 +279,63 @@ content
 
 ## Vimeo
 
-在文章中插入 Vimeo 视频。
+Inserts a responsive or specified size Vimeo video.
 
 ```
-{% vimeo video_id %}
+{% vimeo video_id [width] [height] %}
 ```
 
-## 引用文章
+## Include Posts
 
-引用其他文章的链接。
+Include links to other posts.
 
 ```
 {% post_path filename %}
 {% post_link filename [title] [escape] %}
 ```
 
-在使用此标签时可以忽略文章文件所在的路径或者文章的永久链接信息、如语言、日期。
+You can ignore permalink and folder information, like languages and dates, when using this tag.
 
-例如，在文章中使用 `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}` 时，只需有一个名为 `how-to-bake-a-cake.md` 的文章文件即可。即使这个文件位于站点文件夹的 `source/posts/2015-02-my-family-holiday` 目录下、或者文章的永久链接是 `2018/en/how-to-bake-a-cake`，都没有影响。
+For instance: `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`.
 
-默认链接文字是文章的标题，你也可以自定义要显示的文本。
+This will work as long as the filename of the post is `how-to-bake-a-cake.md`, even if the post is located at `source/posts/2015-02-my-family-holiday` and has permalink `2018/en/how-to-bake-a-cake`.
 
-默认对文章的标题和自定义标题里的特殊字符进行转义。可以使用 `escape` 选项，禁止对特殊字符进行转义。
+You can customize the text to display, instead of displaying the post's title.
 
-例如：
+Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
 
-**链接使用文章的标题**
+For instance:
+
+**Display title of the post.**
 
 `{% raw %}{% post_link hexo-3-8-released %}{% endraw %}`
 
 {% post_link hexo-3-8-released %}
 
-**链接使用自定义文字**
+**Display custom text.**
 
-`{% raw %}{% post_link hexo-3-8-released '通往文章的链接' %}{% endraw %}`
+`{% raw %}{% post_link hexo-3-8-released 'Link to a post' %}{% endraw %}`
 
-{% post_link hexo-3-8-released '通往文章的链接' %}
+{% post_link hexo-3-8-released 'Link to a post' %}
 
-**对标题的特殊字符进行转义**
+**Escape title.**
 
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
-**禁止对标题的特殊字符进行转义**
+**Do not escape title.**
 
 ```
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 ```
+
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
-## 引用资源
+## Include Assets
 
-引用文章的资源，与 [资源文件夹](/zh-cn/docs/asset-folders) 一起使用。
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -338,13 +343,13 @@ content
 {% asset_link filename [title] [escape] %}
 ```
 
-### 嵌入图片
+### Embed image
 
-_hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径，参考 [本节](/zh-cn/docs/asset-folders#使用-Markdown-嵌入图片) 如何启用它。_
+_hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an image automatically, refer to [this section](/docs/asset-folders#Embedding-an-image-using-markdown) on how to enable it._
 
-"foo.jpg" 位于 `http://example.com/2020/01/02/hello/foo.jpg`。
+"foo.jpg" is located at `http://example.com/2020/01/02/hello/foo.jpg`.
 
-**默认（无选项）**
+**Default (no option)**
 
 `{% asset_img foo.jpg %}`
 
@@ -352,7 +357,7 @@ _hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径
 <img src="/2020/01/02/hello/foo.jpg">
 ```
 
-**自定义 class 属性**
+**Custom class**
 
 `{% asset_img post-image foo.jpg %}`
 
@@ -360,7 +365,7 @@ _hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径
 <img src="/2020/01/02/hello/foo.jpg" class="post-image">
 ```
 
-**展示尺寸**
+**Display size**
 
 `{% asset_img foo.jpg 500 400 %}`
 
@@ -368,9 +373,9 @@ _hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径
 <img src="/2020/01/02/hello/foo.jpg" width="500" height="400">
 ```
 
-**title 和 alt 属性**
+**Title & Alt**
 
-`{% asset_img logo.svg "lorem ipsum'dolor'" %}`
+`{% asset_img foo.jpg "lorem ipsum'dolor'" %}`
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
@@ -378,7 +383,7 @@ _hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径
 
 ## Raw
 
-如果您想在文章中插入 Swig 标签，可以尝试使用 Raw 标签，以免发生解析异常。
+If certain content is causing processing issues in your posts, wrap it with the `raw` tag to avoid rendering errors.
 
 ```
 {% raw %}
@@ -386,30 +391,14 @@ content
 {% endraw %}
 ```
 
-## 文章摘要和截断
+## Post Excerpt
 
-在文章中使用 `<!-- more -->`，那么 `<!-- more -->` 之前的文字将会被视为摘要。首页中将只出现这部分文字，同时这部分文字也会出现在正文之中。
+Use text placed before the `<!-- more -->` tag as an excerpt for the post. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
-例如：
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 <!-- more -->
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
-
-首页中将只会出现
-
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-```
-
-正文中则会出现
-
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-```
-
-注意，摘要可能会被 Front Matter 中的 `excerpt` 覆盖。
