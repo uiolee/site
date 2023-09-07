@@ -1,15 +1,15 @@
 ---
-title: 处理器
+title: 处理器（Processor）
 ---
 
-处理器用于处理 `源` 文件夹中的源文件。
+处理器用于处理 `source` 文件夹内的原始文件。
 
-## 简述
+## 概要
 
 ``` js
-hexo.extend.processor.register(rule, function(file)@un.org.
-/...
+hexo.extend.processor.register(rule, function(file){
+});
 });
 ```
 
-欲了解更多信息，请参阅 [box](box.html)。
+完整说明请参考 [Box](box.html)。
