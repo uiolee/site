@@ -1,101 +1,101 @@
 ---
-title: Variables
+title: Variáveis
 ---
 
 {% youtube T9oAax-IRw0 %}
 
-### Global Variables
+### Variáveis globais
 
-| Variable | Description                                                         | Type                                 |
-| -------- | ------------------------------------------------------------------- | ------------------------------------ |
-| `site`   | Sitewide information.                                               | `object`; see [Site Variables][]     |
-| `page`   | Page specific information and custom variables set in front-matter. | `object`; see [Page Variables][]     |
-| `config` | Site configuration.                                                 | `object` (your site's _config file)  |
-| `theme`  | Theme configuration. Inherits from site configuration.              | `object` (your theme's _config file) |
-| `path`   | Path of current page                                                | `string`                             |
-| `url`    | Full URL of current page                                            | `string`                             |
-| `env`    | Environment variables                                               | ???                                  |
+| Variável       | Descrição:                                                                              | tipo                                        |
+| -------------- | --------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `Site`         | Informações do Site.                                                                    | `objeto`; ver [Variáveis do site][]         |
+| `Página`       | Informações específicas da página e variáveis personalizadas definidas no front-matter. | `objeto`; ver [Variáveis de Página][]       |
+| `configuração` | Configuração do site.                                                                   | `objeto` (arquivo de _config do site)       |
+| `Tema`         | Configuração do tema. Herda da configuração do site.                                    | `objeto` (arquivo de _configuração do tema) |
+| `caminho`      | Caminho da página atual                                                                 | `sequência`                                 |
+| `URL`          | URL completo da página atual                                                            | `sequência`                                 |
+| `env`          | Variáveis de ambiente                                                                   | ???                                         |
 
 {% note warn %}
-Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
+Lodash foi removido de variáveis globais desde o Hexo 5.0.0. [You-Dont-Need-Lodash-Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore) might be helpful for your migration.
 {% endnote %}
 
-### Site Variables
+### Variáveis do Site
 
-| Variable          | Description    | Type                      |
-| ----------------- | -------------- | ------------------------- |
-| `site.posts`      | All posts      | `array` of `post` objects |
-| `site.pages`      | All pages      | `array` of `page` objects |
-| `site.categories` | All categories | `array` of ???            |
-| `site.tags`       | All tags       | `array` of ???            |
+| Variável          | Descrição:          | tipo                         |
+| ----------------- | ------------------- | ---------------------------- |
+| `site.posts`      | Todas as postagens  | `array` de `postar objetos`  |
+| `site.pages`      | Todas as páginas    | `array` da página `` objetos |
+| `site.categorias` | Todas as categorias | `array` de ???               |
+| `tags.site`       | Todas as tags       | `array` de ???               |
 
-### Page Variables
+### Variáveis da Página
 
-**Article (`page`)**
+**Artigo (`página`)**
 
-| Variable           | Description                                                                            | Type                 |
-| ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
-| `page.title`       | Article title                                                                          | `string`             |
-| `page.date`        | Article created date                                                                   | [Moment.js][] object |
-| `page.updated`     | Article last updated date                                                              | [Moment.js][] object |
-| `page.comments`    | Comment enabled or not                                                                 | `boolean`            |
-| `page.layout`      | Layout name                                                                            | `string`             |
-| `page.content`     | The full processed content of the article                                              | `string`             |
-| `page.excerpt`     | Article excerpt                                                                        | `string`             |
-| `page.more`        | Contents except article excerpt                                                        | `string`             |
-| `page.source`      | The path of the source file                                                            | `string`             |
-| `page.full_source` | Full path of the source file                                                           | `string`             |
-| `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
-| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
-| `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
-| `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
-| `page.raw`         | The raw data of the article                                                            | ???                  |
-| `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
-| `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
+| Variável           | Descrição:                                                                     | tipo                 |
+| ------------------ | ------------------------------------------------------------------------------ | -------------------- |
+| `page.title`       | Título do artigo                                                               | `sequência`          |
+| `page.date`        | Data de criação                                                                | [objeto Moment.js][] |
+| `atualizada`       | Última data de atualização do artigo                                           | [objeto Moment.js][] |
+| `comentários`      | Comentário habilitado ou não                                                   | `boolean`            |
+| `layout`           | Nome do layout                                                                 | `sequência`          |
+| `page.content`     | O conteúdo processado completo do artigo                                       | `sequência`          |
+| `trecho`           | Resumo do artigo                                                               | `sequência`          |
+| `page.more`        | Conteúdo exceto resumo do artigo                                               | `sequência`          |
+| `page.ssource`     | O caminho do arquivo de origem                                                 | `sequência`          |
+| `_fonte_de_página` | Caminho completo do arquivo de origem                                          | `sequência`          |
+| `caminho`          | A URL do artigo sem URL raiz. Normalmente usamos `url_for(page.path)` no tema. | `sequência`          |
+| `page.permalink`   | URL completa (codificada) do artigo                                            | `sequência`          |
+| `page.prev`        | O post anterior, `null` se a publicação é a primeira postagem                  | ???                  |
+| `próximo`          | A próxima publicação, `null` se a publicação for a última publicação           | ???                  |
+| `novembro`         | Os dados brutos do artigo                                                      | ???                  |
+| `fotografias`      | As fotos do artigo (Usado em publicações de galeria)                           | matriz de ???        |
+| `link_de_página`   | O link externo do artigo (Usado em postagens de links)                         | `sequência`          |
 
-**Post (`post`):** Same as `page` layout but add the following variables.
+**Post (`post`):** O mesmo que o layout `página` mas adicione as seguintes variáveis.
 
-| Variable          | Description                     | Type           |
-| ----------------- | ------------------------------- | -------------- |
-| `page.published`  | True if the post is not a draft | `boolean`      |
-| `page.categories` | All categories of the post      | `array` of ??? |
-| `page.tags`       | All tags of the post            | `array` of ??? |
+| Variável       | Descrição:                                   | tipo           |
+| -------------- | -------------------------------------------- | -------------- |
+| `publicado`    | Verdadeiro se a postagem não for um rascunho | `boolean`      |
+| `categoria(s)` | Todas as categorias da postagem              | `array` de ??? |
+| `tags-página`  | Todas as tags da postagem                    | `array` de ??? |
 
-**Home (`index`)**
+**Casa (`índice`)**
 
-| Variable           | Description                                                                             | Type     |
-| ------------------ | --------------------------------------------------------------------------------------- | -------- |
-| `page.per_page`    | Posts displayed per page                                                                | `number` |
-| `page.total`       | Total number of pages                                                                   | `number` |
-| `page.current`     | Current page number                                                                     | `number` |
-| `page.current_url` | The URL of current page                                                                 | `string` |
-| `page.posts`       | Posts in this page ([Data Model](https://hexojs.github.io/warehouse/))                  | `object` |
-| `page.prev`        | Previous page number. `0` if the current page is the first.                             | `number` |
-| `page.prev_link`   | The URL of previous page. `''` if the current page is the first.                        | `string` |
-| `page.next`        | Next page number. `0` if the current page is the last.                                  | `number` |
-| `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
-| `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
+| Variável               | Descrição:                                                                           | tipo        |
+| ---------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `página_por_página`    | Posts exibidos por página                                                            | `Número`    |
+| `_total`               | Número total de páginas                                                              | `Número`    |
+| `page.corrente`        | Número de página atual                                                               | `Número`    |
+| `URL_de_publicação`    | A URL da página atual                                                                | `sequência` |
+| `posts`                | Posts nesta página ([Modelo de Dados](https://hexojs.github.io/warehouse/))          | `objeto`    |
+| `page.prev`            | Número de página anterior. `0` se a página atual é a primeira.                       | `Número`    |
+| `link_de_page.previna` | A URL da página anterior. `''` if the current page is the first.                     | `sequência` |
+| `próximo`              | Próximo número da página. `0` se a página atual for a última.                        | `Número`    |
+| `próximo_link`         | O URL da próxima página. `''` if the current page is the last.                       | `sequência` |
+| `caminho`              | A URL da página atual sem URL raiz. Normalmente usamos `url_for(page.path)` no tema. | `sequência` |
 
-**Archive (`archive`):** Same as `index` layout but add the following variables.
+**Archive (`archive`):** O mesmo que o layout `índice` , mas adicione as seguintes variáveis.
 
-| Variable       | Description                                   | Type      |
-| -------------- | --------------------------------------------- | --------- |
-| `page.archive` | Equals `true`                                 | `boolean` |
-| `page.year`    | Archive year (4-digit)                        | `number`  |
-| `page.month`   | Archive month (2-digit without leading zeros) | `number`  |
+| Variável       | Descrição:                                         | tipo      |
+| -------------- | -------------------------------------------------- | --------- |
+| `page.archive` | Equals `true`                                      | `boolean` |
+| `ano_página`   | Ano de arquivo (4 dígitos)                         | `Número`  |
+| `mês`          | Arquivar mês (dois algarismos sem zero à esquerda) | `Número`  |
 
-**Category (`category`):** Same as `index` layout but add the following variables.
+**Categoria (`categoria`):** Igual ao layout `índice` , mas adiciona as seguintes variáveis.
 
-| Variable        | Description   | Type     |
-| --------------- | ------------- | -------- |
-| `page.category` | Category name | `string` |
+| Variável           | Descrição:        | tipo        |
+| ------------------ | ----------------- | ----------- |
+| `categoria-página` | Nome da categoria | `sequência` |
 
-**Tag (`tag`):** Same as `index` layout but add the following variables.
+**Tag (`tag`):** O mesmo que o layout `índice` , mas adicione as seguintes variáveis.
 
-| Variable   | Description | Type     |
-| ---------- | ----------- | -------- |
-| `page.tag` | Tag name    | `string` |
+| Variável   | Descrição:  | tipo        |
+| ---------- | ----------- | ----------- |
+| `page.tag` | Nome da Tag | `sequência` |
 
-[Moment.js]: http://momentjs.com/
-[Site Variables]: #Site-Variables
-[Page Variables]: #Page-Variables
+[objeto Moment.js]: http://momentjs.com/
+[Variáveis do site]: #Site-Variables
+[Variáveis de Página]: #Page-Variables
