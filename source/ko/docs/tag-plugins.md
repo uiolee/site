@@ -2,17 +2,17 @@
 title: Tag Plugins
 ---
 
-Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
+태그 플러그인은 포스트의 태그와는 다릅니다. Octopress로부터 가져온 것으로 특별한 컨텐츠를 당신의 포스트에 빠르게 추가할 수 있도록 도와주는 유용한 방법입니다.
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
 
-{% youtube I07XMi7MHd4 %}
+Vimeo video를 포함시킬 수 있습니다.
 
 _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
 
 ## Block Quote
 
-Perfect for adding quotes to your post, with optional author, source and title information.
+인용구를 post, 소스, 제목에 추가하기 위한 완벽한 방법입니다. 옵션으로 인용구의 원작자를 추가할 수도 있습니다.
 
 **Alias:** quote
 
@@ -36,7 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}
 
-**Quote from a book**
+**책 인용하기**
 
 ```
 {% blockquote David Levithan, Wide Awake %}
@@ -48,7 +48,7 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 
-**Quote from Twitter**
+**Twitter 인용하기**
 
 ```
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
@@ -60,7 +60,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 {% endblockquote %}
 
-**Quote from an article on the web**
+**웹 게시물 인용하기**
 
 ```
 {% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
@@ -74,7 +74,7 @@ Every interaction is both precious and an opportunity to delight.
 
 ## Code Block
 
-Useful feature for adding code snippets to your post.
+코드 조각(snippet)을 포스트에 추가할 수 있는 유용한 기능입니다.
 
 **Alias:** code
 
@@ -97,7 +97,7 @@ Specify additional options in `option:value` format, e.g. `line_number:false fir
 
 ### Examples
 
-**A plain code block**
+**일반 code block 사용하기**
 
 ```
 {% codeblock %}
@@ -109,7 +109,7 @@ alert('Hello World!');
 alert('Hello World!');
 {% endcodeblock %}
 
-**Specifying the language**
+**언어 지정하기**
 
 ```
 {% codeblock lang:objc %}
@@ -121,7 +121,7 @@ alert('Hello World!');
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
-**Adding a caption to the code block**
+**Code block에 제목 넣기**
 
 ```
 {% codeblock Array.map %}
@@ -133,7 +133,7 @@ array.map(callback[, thisArg])
 array.map(callback[, thisArg])
 {% endcodeblock %}
 
-**Adding a caption and a URL**
+**제목과 URL 넣기**
 
 ```
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
@@ -148,7 +148,7 @@ _.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 
 ## Backtick Code Block
 
-This is identical to using a code block, but instead uses three backticks to delimit the block.
+이 방법은 code block을 사용하는 것과 같습니다만 block을 구분하기 위해 세 개의 역 따옴표를 사용하는 점이 다릅니다.
 
 {% raw %}
 &#96`[language] [title] [url] [link text]
@@ -158,7 +158,7 @@ code snippet
 
 ## Pull Quote
 
-To add pull quotes to your posts:
+pull 인용을 추가하기 위한 방법은 다음과 같습니다.
 
 ```
 {% pullquote [class] %}
@@ -184,7 +184,7 @@ To embed a Gist snippet:
 
 ## iframe
 
-To embed an iframe:
+iframe을 포함시킬 수 있습니다.
 
 ```
 {% iframe url [width] [height] %}
@@ -192,7 +192,7 @@ To embed an iframe:
 
 ## Image
 
-Inserts an image with specified size.
+이미지의 사이즈를 지정하여 포함시킬 수 있습니다.
 
 ```
 {% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
@@ -200,7 +200,7 @@ Inserts an image with specified size.
 
 ## Link
 
-Inserts a link with `target="_blank"` attribute.
+`target="_blank"` 속성으로 링크를 포함시킬 수 있습니다.
 
 ```
 {% link text url [external] [title] %}
@@ -208,10 +208,10 @@ Inserts a link with `target="_blank"` attribute.
 
 ## Include Code
 
-Inserts code snippets in `source/downloads/code` folder. The folder location can be specified through the `code_dir` option in the config.
+`source/downloads/code` 폴더에 있는 코드를 포함시킬 수 있습니다. The folder location can be specified through the `code_dir` option in the config.
 
 ```
-{% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
+{% include_code [title] [lang:language] path/to/file %}
 ```
 
 ### Examples
@@ -248,7 +248,7 @@ Inserts code snippets in `source/downloads/code` folder. The folder location can
 
 ## YouTube
 
-Inserts a YouTube video.
+YouTube video를 포함시킬 수 있습니다.
 
 ```
 {% youtube video_id [type] [cookie] %}
@@ -273,7 +273,7 @@ Inserts a YouTube video.
 YouTube's cookie is not used in this mode.
 
 ```
-{% youtube lJIrF4YjHfQ false %}
+{% youtube lJIrF4YjHfQ 'video' false %}
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' false %}
 ```
 
@@ -282,12 +282,12 @@ YouTube's cookie is not used in this mode.
 Inserts a responsive or specified size Vimeo video.
 
 ```
-{% vimeo video_id [width] [height] %}
+{% vimeo video_id %}
 ```
 
 ## Include Posts
 
-Include links to other posts.
+다른 포스트의 링크를 포함시킬 수 있습니다.
 
 ```
 {% post_path filename %}
@@ -375,7 +375,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 **Title & Alt**
 
-`{% asset_img foo.jpg "lorem ipsum'dolor'" %}`
+`{% asset_img logo.svg "lorem ipsum'dolor'" %}`
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
@@ -383,7 +383,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 ## Raw
 
-If certain content is causing processing issues in your posts, wrap it with the `raw` tag to avoid rendering errors.
+특정 컨텐츠가 당신의 포스트 내에서 문제를 일으킨다면, `raw` 태그를 사용하여 감싸주세요. 그러면 렌더링 에러를 피할 수 있습니다.
 
 ```
 {% raw %}
