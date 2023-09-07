@@ -2,83 +2,83 @@
 title: Permalinks
 ---
 
-You can specify the permalinks for your site in `_config.yml` or in the front-matter for each post.
+Você pode especificar os permalinks do seu site em `_config.yml` ou no front-matter para cada post.
 
-### Variables
+### Variáveis
 
-Besides the following variables, you can use any attributes in the permalink.
+Além das seguintes variáveis, você pode usar qualquer atributo no permalink.
 
-| Variable      | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `:year`       | Published year of posts (4-digit)                                                   |
-| `:month`      | Published month of posts (2-digit)                                                  |
-| `:i_month`    | Published month of posts (Without leading zeros)                                    |
-| `:day`        | Published day of posts (2-digit)                                                    |
-| `:i_day`      | Published day of posts (Without leading zeros)                                      |
-| `:hour`       | Published hour of posts (2-digit)                                                   |
-| `:minute`     | Published minute of posts (2-digit)                                                 |
-| `:second`     | Published second of posts (2-digit)                                                 |
-| `:title`      | Filename (relative to "source/_posts/" folder)                                      |
-| `:name`       | Filename                                                                            |
-| `:post_title` | Post title                                                                          |
-| `:id`         | Post ID (_not persistent across [cache reset](/docs/commands#clean)_)               |
-| `:category`   | Categories. If the post is uncategorized, it will use the `default_category` value. |
-| `:hash`       | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)                  |
+| Variável       | Descrição:                                                                          |
+| -------------- | ----------------------------------------------------------------------------------- |
+| `:year`        | Ano de postagens publicado (4-dígito)                                               |
+| `:month`       | Mês das postagens publicadas (2-dígito)                                             |
+| `:i_mês`       | Mês publicado de publicações (sem zeros à esquerda)                                 |
+| `:day`         | Dia das postagens publicadas (2-dígito)                                             |
+| `:i_dia`       | Dia das postagens publicado (sem zeros à esquerda)                                  |
+| `:hora`        | Hora de publicação de postagens (2-dígito)                                          |
+| `:minuto`      | Minuto publicado das postagens (2-dígito)                                           |
+| `:segundo`     | Segunda postagem publicada (2-dígito)                                               |
+| `:title`       | Nome do arquivo (relativo à pasta "source/_posts/")                                 |
+| `:name`        | Nome                                                                                |
+| `:post_titulo` | Título da postagem                                                                  |
+| `:id`          | ID do post (_não persistente no cache de [reset](/docs/commands#clean)_)            |
+| `:categoria`   | Categorias. Se o post for descategorizado, ele usará o valor de `default_category`. |
+| `:hash`        | Hash SHA1 de nome de arquivo (o mesmo que `:title`) e data (12-hexadecimal)         |
 
-You can define the default value of each variable in the permalink through the `permalink_defaults` setting:
+Você pode definir o valor padrão de cada variável no permalink através da configuração `permalink_defaults`:
 
 ``` yaml
 permalink_defaults:
-  lang: en
+  lang: pt-BR
 ```
 
-### Examples
+### Exemplos
 
 ``` yaml source/_posts/hello-world.md
-title: Hello World
+title: Olá, World
 date: 2013-07-14 17:01:34
-categories:
+categorias:
 - foo
-- bar
+- barra
 ```
 
-| Setting                         | Result                      |
+| Configuração                    | Resultado                   |
 | ------------------------------- | --------------------------- |
-| `:year/:month/:day/:title/`     | 2013/07/14/hello-world/     |
+| `:ano/:mês/:day/:title/`        | 2013/07/14/hello-world/     |
 | `:year-:month-:day-:title.html` | 2013-07-14-hello-world.html |
-| `:category/:title/`             | foo/bar/hello-world/        |
+| `:category/:title/`             | foo/barra/hello-world/      |
 | `:title-:hash/`                 | hello-world-a2c8ac003b43/   |
 
 ``` yaml source/_posts/lorem/hello-world.md
-title: Hello World
+title: Olá, World
 date: 2013-07-14 17:01:34
-categories:
+categorias:
 - foo
-- bar
+- barra
 ```
 
-| Setting                     | Result                        |
-| --------------------------- | ----------------------------- |
-| `:year/:month/:day/:title/` | 2013/07/14/lorem/hello-world/ |
-| `:year/:month/:day/:name/`  | 2013/07/14/hello-world/       |
+| Configuração             | Resultado                     |
+| ------------------------ | ----------------------------- |
+| `:ano/:mês/:day/:title/` | 2013/07/14/lorem/hello-world/ |
+| `:ano/:mês/:day/:name/`  | 2013/07/14/hello-world/       |
 
-### Multi-language Support
+### Suporte a Multi-Idiomas
 
-To create a multi-language site, you can modify the `new_post_name` and `permalink` settings like this:
+Para criar um site com vários idiomas, você pode modificar as configurações `new_post_name` e `permalink` assim:
 
 ``` yaml
 new_post_name: :lang/:title.md
 permalink: :lang/:title/
 ```
 
-When you create a new post, the post will be saved to:
+Quando você criar uma nova publicação, a postagem será salva em:
 
 ``` bash
 $ hexo new "Hello World" --lang tw
 # => source/_posts/tw/Hello-World.md
 ```
 
-and the URL will be:
+e a URL será:
 
 ``` plain
 http://localhost:4000/tw/hello-world/
