@@ -2,9 +2,9 @@
 title: Filter
 ---
 
-A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+Filter는 특정한 데이터를 수정할 때 사용합니다. Hexo는 데이터를 filter로 순차적으로 전달하고 filter들은 교대로 데이터를 수정할 수 있습니다. 이 컨셉은 [WordPress](http://codex.wordpress.org/Plugin_API#Filters)에서 차용하였습니다.
 
-## Synopsis
+## 개요
 
 ``` js
 hexo.extend.filter.register(type, function() {
@@ -19,21 +19,21 @@ hexo.extend.filter.register(type, function() {
 }, priority);
 ```
 
-You can define the `priority`. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
+당신은 `priority`을 정의할 수 있습니다. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
 
-## Execute Filters
+## Filter의 실행
 
 ``` js
 hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-| Option    | Description                       |
-| --------- | --------------------------------- |
-| `context` | Context                           |
-| `args`    | Arguments. This must be an array. |
+| 옵션        | 설명                     |
+| --------- | ---------------------- |
+| `context` | Context                |
+| `args`    | 인자. 이 값은 배열(array)입니다. |
 
-The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
+Filter의 첫 번째 인자는 `data` 입니다. 다음 filter로 전달 된 `data`는 새 값으로 변경되어 반환될 수 있습니다. 아무런 값도 반환되지 않았다면 data의 값이 변경되지 않았다는 의미입니다. Filter의 다른 인자를 지정하기 위해 `args`를 사용할 수도 있습니다. 아래 예시를 봐주세요.
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
@@ -53,14 +53,14 @@ hexo.extend.filter.exec('test', 'some data', {
 });
 ```
 
-You can also use the following methods to execute filters:
+Filter를 실행하기 위해 아래 메소드들을 사용할 수도 있습니다.
 
 ``` js
 hexo.execFilter(type, data, options);
 hexo.execFilterSync(type, data, options);
 ```
 
-## Unregister Filters
+## Filter의 등록 해제
 
 ``` js
 hexo.extend.filter.unregister(type, filter);
@@ -88,15 +88,15 @@ hexo.extend.filter.register('example', require('path/to/filter'));
 hexo.extend.filter.unregister('example', require('path/to/filter'));
 ```
 
-## Filter List
+## Filter 목록
 
-Here is a list of filters used by Hexo.
+Hexo에서 사용하는 filter의 목록은 아래와 같습니다.
 
 ### before_post_render
 
-Executed before a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+Post가 생성되기 전에 실행됩니다. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
 
-For example, to transform the title to lower case:
+아래 예시는 title을 소문자로 변경하는 것을 보여줍니다.
 
 ``` js
 hexo.extend.filter.register('before_post_render', function(data){
@@ -107,9 +107,9 @@ hexo.extend.filter.register('before_post_render', function(data){
 
 ### after_post_render
 
-Executed after a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+렌더링이 완료된 후 실행됩니다. [Rendering](rendering.html#after_render_Filters)에서 더 많은 정보를 확인하실 수 있습니다.
 
-For example, to replace `@username` with a link to a Twitter profile:
+아래 예시는 `@username`을 Twitter link로 대체하는 것을 보여줍니다.
 
 ``` js
 hexo.extend.filter.register('after_post_render', function(data){
@@ -120,7 +120,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 ### before_exit
 
-Executed before Hexo is about to exit -- this will run right after `hexo.exit` is called.
+Hexo가 종료되기 전에 실행됩니다. -- `hexo.exit`가 호출되는 즉시 실행됩니다.
 
 ``` js
 hexo.extend.filter.register('before_exit', function(){
@@ -130,7 +130,7 @@ hexo.extend.filter.register('before_exit', function(){
 
 ### before_generate
 
-Executed before generation begins.
+생성(generation)이 시작되기 전에 실행됩니다.
 
 ``` js
 hexo.extend.filter.register('before_generate', function(){
@@ -140,7 +140,7 @@ hexo.extend.filter.register('before_generate', function(){
 
 ### after_generate
 
-Executed after generation finishes.
+생성(generation)이 끝난 후에 실행됩니다.
 
 ``` js
 hexo.extend.filter.register('after_generate', function(){
@@ -150,9 +150,9 @@ hexo.extend.filter.register('after_generate', function(){
 
 ### template_locals
 
-Modify [local variables](../docs/variables.html) in templates.
+템플릿에서 [지역 변수(Local variables)](../docs/variables.html)를 수정합니다.
 
-For example, to add the current time to the local variables of templates:
+아래 예시는 템플릿의 지역 변수에 현재 시간을 추가합니다.
 
 ``` js
 hexo.extend.filter.register('template_locals', function(locals){
@@ -163,7 +163,7 @@ hexo.extend.filter.register('template_locals', function(locals){
 
 ### after_init
 
-Executed after Hexo is initialized -- this will run right after `hexo.init` completes.
+Hexo가 초기화 작업이 완료된 후 실행됩니다. -- `hexo.init`이 완료되는 즉시 실행됩니다.
 
 ``` js
 hexo.extend.filter.register('after_init', function(){
@@ -173,7 +173,7 @@ hexo.extend.filter.register('after_init', function(){
 
 ### new_post_path
 
-Executed when creating a post to determine the path of new posts.
+새로운 포스트가 생성될 때 포스트의 경로를 결정하기 위해 실행됩니다.
 
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
@@ -183,7 +183,7 @@ hexo.extend.filter.register('new_post_path', function(data, replace){
 
 ### post_permalink
 
-Used to determine the permalink of posts.
+Post의 permalink를 결정하기 위해 사용합니다.
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -193,7 +193,7 @@ hexo.extend.filter.register('post_permalink', function(data){
 
 ### after_render
 
-Executed after rendering finishes. You can see [rendering](rendering.html#after_render_Filters) for more info.
+Executed after a post is rendered. 실행 단계에 대해 더 알아보시길 원한다면 [post rendering](posts.html#Render)를 참조해 주세요.
 
 ### after_clean
 
@@ -207,9 +207,9 @@ hexo.extend.filter.register('after_clean', function(){
 
 ### server_middleware
 
-Add middleware to the server. `app` is a [Connect][] instance.
+서버에 미들웨어를 추가합니다. `app`은 [Connect][] 인스턴스입니다.
 
-For example, to add `X-Powered-By: Hexo` to the response header:
+아래 예시는 response header에 `X-Powered-By: Hexo`를 추가합니다.
 
 ``` js
 hexo.extend.filter.register('server_middleware', function(app){
