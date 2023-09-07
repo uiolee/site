@@ -1,37 +1,38 @@
 ---
 title: Server
 ---
-## [hexo-server]
 
-Hexo 3 把伺服器獨立成個別模組，您必須先安裝 [hexo-server] 才能使用。
+## [hexo-server][]
+
+With the release of Hexo 3, the server has been separated from the main module. To start using the server, you will first have to install [hexo-server][].
 
 ``` bash
 $ npm install hexo-server --save
 ```
 
-安裝完畢後，輸入以下指令以啟動伺服器，您的網站預設會執行於 `http://localhost:4000`，在伺服器啟動期間，Hexo 會監看檔案變動並自動更新，您無須重啟伺服器。
+Once the server has been installed, run the following command to start the server. Your website will run at `http://localhost:4000` by default. When the server is running, Hexo will watch for file changes and update automatically so it's not necessary to manually restart the server.
 
 ``` bash
 $ hexo server
 ```
 
-如果您想要變更連接埠，或是在執行時遇到了 `EADDRINUSE` 錯誤，可以在執行時使用 `-p` 選項指定其他連接埠。
+If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
 
 ``` bash
 $ hexo server -p 5000
 ```
 
-### 靜態模式
+### Static Mode
 
-在靜態模式下，伺服器只會處理 `public` 資料夾內的檔案，而且不會處理檔案變動，在執行時，您應該先自行執行 `hexo generate`，此模式通常用於生產環境（production）下。
+In static mode, only files in the `public` folder will be served and file watching is disabled. You have to run `hexo generate` before starting the server. Usually used in production.
 
 ``` bash
 $ hexo server -s
 ```
 
-### 自定 IP
+### Custom IP
 
-伺服器預設運作在 `0.0.0.0`，您可以覆蓋預設的 IP 設定。
+Hexo runs the server at `0.0.0.0` by default. You can override the default IP setting.
 
 ``` bash
 $ hexo server -i 192.168.1.1
