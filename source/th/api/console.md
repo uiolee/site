@@ -1,7 +1,8 @@
 ---
 title: Console
 ---
-console เป็นสะพานระหว่าง Hexo และผู้ใช้ของมัน และ console บันทึกและอธิบายคำสั่ง console ที่มีอยู่
+
+The console forms the bridge between Hexo and its users. It registers and describes the available console commands.
 
 ## Synopsis
 
@@ -11,19 +12,19 @@ hexo.extend.console.register(name, desc, options, function(args){
 });
 ```
 
-Argument | Description
---- | ---
-`name` | Name
-`desc` | Description
-`options`| Options
+| Argument  | Description |
+| --------- | ----------- |
+| `name`    | Name        |
+| `desc`    | Description |
+| `options` | Options     |
 
- `args` เป็น argument ที่ส่งเข้า function  และเป็น argument ท่ีผู้ใช้พิมพ์ลงเข้า Terminal  มันจะถูกวิเคราะห์โดย [Minimist]
+An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
 ## Options
 
-### วิธีการใช้งาน
+### usage
 
-วิธีการใช้งานของคำสั่ง console ยกตัวอย่างเช่น
+The usage of a console command. For example:
 
 ``` js
 {usage: '[layout] <title>'}
@@ -32,7 +33,7 @@ Argument | Description
 
 ### arguments
 
-คำอธิบายทุก argument ของคำสั่ง console ยกตัวอย่างเช่น
+The description of each argument of a console command. For example:
 
 ``` js
 {
@@ -45,7 +46,7 @@ Argument | Description
 
 ### options
 
-คำอธิบายทุกตัวเลือกของคำสั่ง console ยกตัวอย่างเช่น
+The description of each option of a console command. For example:
 
 ``` js
 {
@@ -57,7 +58,7 @@ Argument | Description
 
 ### desc
 
-ข้อมูลเพิ่มเติมสำหรับคำสั่ง console
+More detailed information about a console command.
 
 ## Example
 
@@ -67,4 +68,4 @@ hexo.extend.console.register('config', 'Display configuration', function(args){
 });
 ```
 
-[Minimist]: https://github.com/substack/minimist
+[Minimist]: https://github.com/minimistjs/minimist
