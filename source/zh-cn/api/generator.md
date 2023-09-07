@@ -10,6 +10,7 @@ title: 生成器（Generator）
 hexo.extend.generator.register(name, function(locals){
 });
 });
+});
 ```
 
 在函数中会传入一个 `locals` 参数，等同于 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接存取资料库。 You should use this argument to get the website data, thereby avoiding having to access the database directly.
@@ -44,9 +45,9 @@ hexo.extend.generator.register('test', function(locals){
 
 ### 归档页面
 
-在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 We pass all posts as data to the templates. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Next, set the `layout` attribute to render with the theme templates. Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
