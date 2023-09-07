@@ -1,86 +1,124 @@
 ---
-title: Configuração
+title: Configuration
 ---
 
-Você pode modificar as configurações do site em `_config.yml` ou em um [arquivo de configuração alternativo](#Usando-uma-Configuracao-Alternativa).
+You can modify site settings in `_config.yml` or in an [alternate config file](#Using-an-Alternate-Config).
 
 ### Site
 
-Configuração | Descrição
---- | ---
-`title` | O título do seu site
-`subtitle` | O subtítulo do seu site
-`description` | A descrição do seu site
-`keywords` | The keywords of your website. Supports multiple values.
-`author` | Seu nome
-`language` | O idioma do seu site. Use a [2-lettter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). O padrão é `en`.
-`timezone` | O fuso horário do seu site. O Hexo usa a configuração do seu computador por padrão. Você pode encontrar a lista de fusos horários disponíveis [aqui](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Alguns exemplos são `America/New_York`, `Japan` e `UTC`.
+| Setting       | Description                                                                                                                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | The title of your website                                                                                                                                                                                                                                     |
+| `subtitle`    | The subtitle of your website                                                                                                                                                                                                                                  |
+| `description` | The description of your website                                                                                                                                                                                                                               |
+| `keywords`    | The keywords of your website. Supports multiple values.                                                                                                                                                                                                       |
+| `author`      | Your name                                                                                                                                                                                                                                                     |
+| `language`    | The language of your website. Use a [2-letter ISO-639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) or optionally [its variant](/docs/internationalization). Default is `en`.                                                                |
+| `timezone`    | The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Some examples are `America/New_York`, `Japan`, and `UTC`. |
 
 ### URL
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`url` | A URL do seu site, must starts with `http://` or `https://` |
-`root` | O diretório raiz do seu site | `url's pathname`
-`permalink` | O formato de [permalink](permalinks.html) dos artigos | `:year/:month/:day/:title/`
-`permalink_defaults` | Valores padrão de cada segmento no permalink |
-`pretty_urls` | Rewrite the [`permalink`](variables.html) variables to pretty URLs |
-`pretty_urls.trailing_index` | Trailing `index.html`, set to `false` to remove it  | `true`
-`pretty_urls.trailing_html` | Trailing `.html`, set to `false` to remove it (_does not apply to trailing `index.html`_)  | `true`
+| Setting                      | Description                                                                               | Default                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
+| `url`                        | The URL of your website, must starts with `http://` or `https://`                         |                             |
+| `root`                       | The root directory of your website                                                        | `url's pathname`            |
+| `permalink`                  | The [permalink](permalinks.html) format of articles                                       | `:year/:month/:day/:title/` |
+| `permalink_defaults`         | Default values of each segment in permalink                                               |                             |
+| `pretty_urls`                | Rewrite the [`permalink`](permalinks.html) variables to pretty URLs                       |                             |
+| `pretty_urls.trailing_index` | Trailing `index.html`, set to `false` to remove it                                        | `true`                      |
+| `pretty_urls.trailing_html`  | Trailing `.html`, set to `false` to remove it (_does not apply to trailing `index.html`_) | `true`                      |
 
-{% note info Site em subdiretório %}
-Se o seu site estiver em um subdiretório (como por exemplo `http://example.org/blog`) defina `url` para `http://example.org/blog` e defina `root` para `/blog/`.
+{% note info Website in subdirectory %}
+If your website is in a subdirectory (such as `http://example.org/blog`) set `url` to `http://example.org/blog` and set `root` to `/blog/`.
 {% endnote %}
 
-### Diretório
+Examples:
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`source_dir` | Diretório dos fonte. Onde seu conteúdo está armazenado | `source`
-`public_dir` | Diretório dos arquivos públicos. Onde o site estático será gerado | `public`
-`tag_dir` | Diretório de tags | `tags`
-`archive_dir` | Diretório de archives | `archives`
-`category_dir` | Diretório de categorias | `categories`
-`code_dir` | Diretório de código (subdiretório de `source_dir`) | `downloads/code`
-`i18n_dir` | Diretório de internacionalização (i18n) | `:lang`
-`skip_render` | Caminhos que não devem ser renderizados. Você pode usar [expressões globais](https://github.com/micromatch/micromatch#extended-globbing) para fazer correspondência de caminho |
+``` yaml
+# e.g. page.permalink is http://example.com/foo/bar/index.html
+pretty_urls:
+  trailing_index: false
+# becomes http://example.com/foo/bar/
+```
 
-### Escrita
+### Directory
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`new_post_name` | O formato do nome do arquivo para novas postagens | `:title.md`
-`default_layout` | Layout padrão | `post`
-`titlecase` | Transformar títulos em maiúsculo? | `false`
-`external_link` | Abrir links externos em uma nova aba?
-`external_link.enable` | Abrir links externos em uma nova aba? | `true`
-`external_link.field` | Applies to the whole `site` or `post` only | `site`
-`external_link.exclude` | Exclude hostname. Specify subdomain when applicable, including `www` | `[]`
-`filename_case` | Converter nomes de arquivos para minúsculos `1`; maiúsculos `2` | `0`
-`render_drafts` | Exibir rascunhos? | `false`
-`post_asset_folder` | Ativar o [diretório de Asset](asset-folders.html)? | `false`
-`relative_link` | Links para o diretório raiz? | `false`
-`future` | Exibir postagens futuras? | `true`
-`highlight` | Configurações de bloco de código, see [Highlight.js](/docs/syntax-highlight#Highlight-js) section for usage guide |
-`prismjs` | Configurações de bloco de código, see [PrismJS](/docs/syntax-highlight#PrismJS) section for usage guide |
+| Setting        | Description                                                                                                                                                                      | Default          |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `source_dir`   | Source folder. Where your content is stored                                                                                                                                      | `source`         |
+| `public_dir`   | Public folder. Where the static site will be generated                                                                                                                           | `public`         |
+| `tag_dir`      | Tag directory                                                                                                                                                                    | `tags`           |
+| `archive_dir`  | Archive directory                                                                                                                                                                | `archives`       |
+| `category_dir` | Category directory                                                                                                                                                               | `categories`     |
+| `code_dir`     | Include code directory (subdirectory of `source_dir`)                                                                                                                            | `downloads/code` |
+| `i18n_dir`     | i18n directory                                                                                                                                                                   | `:lang`          |
+| `skip_render`  | Paths that will be copied to `public` raw, without being rendered. You can use [glob expressions](https://github.com/micromatch/micromatch#extended-globbing) for path matching. |                  |
 
-### Categoria & Tag
+Examples:
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`default_category` | Categoria padrão | `uncategorized`
-`category_map` | Mapa de Categoria |
-`tag_map` | Mapa de Tag |
+``` yaml
+skip_render: "mypage/**/*"
+# will output `source/mypage/index.html` and `source/mypage/code.js` without altering them.
 
-### Formato de Data / Hora
+## This also can be used to exclude posts,
+skip_render: "_posts/test-post.md"
+# will ignore the `source/_posts/test-post.md`.
+```
 
-Hexo usa [Moment.js](http://momentjs.com/) para processar datas.
+### Writing
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`date_format` | Formato de data | `YYYY-MM-DD`
-`time_format` | Formado de hora | `HH:mm:ss`
-`updated_option` | The [`updated`](/pt-br/docs/variables#Variaveis-da-Pagina) value to used when not provided in the front-matter | `mtime`
+| Setting                 | Description                                                                                                           | Default     |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `new_post_name`         | The filename format for new posts                                                                                     | `:title.md` |
+| `default_layout`        | Default layout                                                                                                        | `post`      |
+| `titlecase`             | Transform titles into title case?                                                                                     | `false`     |
+| `external_link`         | Open external links in a new tab?                                                                                     |             |
+| `external_link.enable`  | Open external links in a new tab?                                                                                     | `true`      |
+| `external_link.field`   | Applies to the whole `site` or `post` only                                                                            | `site`      |
+| `external_link.exclude` | Exclude hostname. Specify subdomain when applicable, including `www`                                                  | `[]`        |
+| `filename_case`         | Transform filenames to `1` lower case; `2` upper case                                                                 | `0`         |
+| `render_drafts`         | Display drafts?                                                                                                       | `false`     |
+| `post_asset_folder`     | Enable the [Asset Folder](asset-folders.html)?                                                                        | `false`     |
+| `relative_link`         | Make links relative to the root folder?                                                                               | `false`     |
+| `future`                | Display future posts?                                                                                                 | `true`      |
+| `highlight`             | Code block syntax highlight settings, see [Highlight.js](/docs/syntax-highlight#Highlight-js) section for usage guide |             |
+| `prismjs`               | Code block syntax highlight settings, see [PrismJS](/docs/syntax-highlight#PrismJS) section for usage guide           |             |
+
+### Home page setting
+
+| Setting                          | Description                                                                                                     | Default |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------- |
+| `index_generator`                | Generate an archive of posts, powered by [hexo-generator-index](https://github.com/hexojs/hexo-generator-index) |         |
+| `index_generator.path`           | Root path for your blog's index page                                                                            | `''`    |
+| `index_generator.per_page`       | Posts displayed per page.                                                                                       | `10`    |
+| `index_generator.order_by`       | Posts order. Order by descending date (new to old) by default.                                                  | `-date` |
+| `index_generator.pagination_dir` | URL format, see [Pagination](#Pagination) setting below                                                         | `page`  |
+
+### Category & Tag
+
+| Setting            | Description             | Default         |
+| ------------------ | ----------------------- | --------------- |
+| `default_category` | Default category        | `uncategorized` |
+| `category_map`     | Override category slugs |                 |
+| `tag_map`          | Override tag slugs      |                 |
+
+Examples:
+
+``` yaml
+category_map:
+  "yesterday's thoughts": yesterdays-thoughts
+  "C++": c-plus-plus
+```
+
+### Date / Time format
+
+Hexo uses [Moment.js](http://momentjs.com/) to process dates.
+
+| Setting          | Description                                                                                         | Default      |
+| ---------------- | --------------------------------------------------------------------------------------------------- | ------------ |
+| `date_format`    | Date format                                                                                         | `YYYY-MM-DD` |
+| `time_format`    | Time format                                                                                         | `HH:mm:ss`   |
+| `updated_option` | The [`updated`](/docs/variables#Page-Variables) value to used when not provided in the front-matter | `mtime`      |
 
 {% note info updated_option %}
 `updated_option` controls the `updated` value when not provided in the front-matter:
@@ -92,38 +130,48 @@ Configuração | Descrição | Padrão
 `use_date_for_updated` is deprecated and will be removed in next major version. Please use `updated_option: 'date'` instead.
 {% endnote %}
 
-### Paginação
+### Pagination
 
-Configuração | Descrição | Padrão
---- | --- | ---
-`per_page` | A quantidade de postagens exibidas em uma única página. `0` desabilita paginação | `10`
-`pagination_dir` | Diretório de paginação | `page`
+| Setting          | Description                                                     | Default |
+| ---------------- | --------------------------------------------------------------- | ------- |
+| `per_page`       | Number of posts displayed on each page. `0` disables pagination | `10`    |
+| `pagination_dir` | URL format                                                      | `page`  |
 
-### Extensões
+Examples:
 
-Configuração | Descrição
---- | ---
-`theme` | Nome do tema. `false` desabilita o tema
-`theme_config` | Configuração do tema. Inclui quaisquer configurações de tema personalizado sob esta chave para substituir os padrões do tema.
-`deploy` | Configurações de implantação
-`meta_generator` | [Meta generator](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#Attributes) tag. `false` disables injection of the tag.
+``` yaml
+pagination_dir: 'page'
+# http://example.com/page/2
 
-### Incluir/Excluir Arquivos ou Diretórios
+pagination_dir: 'awesome-page'
+# http://example.com/awesome-page/2
+```
 
-No arquivo de configuração, defina a chave de include/exclude para que o hexo processe ou ignore, explicitamente, determinados arquivos/diretórios.
+### Extensions
+
+| Setting          | Description                                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `theme`          | Theme name. `false` disables theming                                                                                                    |
+| `theme_config`   | Theme configuration. Include any custom theme settings under this key to override theme defaults.                                       |
+| `deploy`         | Deployment settings                                                                                                                     |
+| `meta_generator` | [Meta generator](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#Attributes) tag. `false` disables injection of the tag. |
+
+### Include/Exclude Files or Folders
+
+Use the following options to explicitly process or ignore certain files/folders. Support [glob expressions](https://github.com/micromatch/micromatch#extended-globbing) for path matching.
 
 `include` and `exclude` options only apply to the `source/` folder, whereas `ignore` option applies to all folders.
 
-Configuração | Descrição
---- | ---
-`include` | Por padrão, o Hexo ignora os arquivos e diretórios ocultos, mas configurar este campo fará com que o Hexo os processe também
-`exclude` | O Hexo irá ignorar os arquivos e diretórios listados abaixo deste campo
-`ignore` | Ignore files/folders
+| Setting   | Description                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------ |
+| `include` | Include hidden files (including files/folders with a name that start with an underscore, with an exception*) |
+| `exclude` | Exclude files/folders                                                                                        |
+| `ignore`  | Ignore files/folders                                                                                         |
 
-Exemplo:
+Examples:
 
 ```yaml
-# Incluir/Excluir Arquivos/Diretórios
+# Include/Exclude Files/Folders
 include:
   - ".nojekyll"
   # Include 'source/css/_typing.css'.
@@ -163,13 +211,29 @@ Each value in the list must be enclosed with single/double quotes.
 
 \* Notable exception is the `source/_posts` folder, but any file or folder with a name that starts with an underscore under that folder would still be ignored. Using `include:` rule in that folder is not recommended.
 
+### Using an Alternate Config
+
+A custom config file path can be specified by adding the `--config` flag to your `hexo` commands with a path to an alternate YAML or JSON config file, or a comma-separated list (no spaces) of multiple YAML or JSON files.
+
+``` bash
+# use 'custom.yml' in place of '_config.yml'
+$ hexo server --config custom.yml
+
+# use 'custom.yml' & 'custom2.json', prioritizing 'custom2.json'
+$ hexo server --config custom.yml,custom2.json
+```
+
+Using multiple files combines all the config files and saves the merged settings to `_multiconfig.yml`. The later values take precedence. It works with any number of JSON and YAML files with arbitrarily deep objects. Note that **no spaces are allowed in the list**.
+
+For instance, in the above example if `foo: bar` is in `custom.yml`, but `"foo": "dinosaur"` is in `custom2.json`, `_multiconfig.yml` will contain `foo: dinosaur`.
+
 ### Alternate Theme Config
 
 Hexo themes are independent projects, with separate `_config.yml` files.
 
-Instead of forking a theme, and maintaining a custom branch with your settings, you can configure it from somewhere else.
+Instead of forking a theme, and maintaining a custom version with your settings, you can configure it from somewhere else:
 
-**`theme_config` in site's primary configuration file**
+**from `theme_config` in site's primary configuration file**
 
 > Supported since Hexo 2.8.2
 
@@ -203,7 +267,7 @@ Resulting in theme configuration:
 }
 ```
 
-**dedicated `_config.[theme].yml` file**
+**from a dedicated `_config.[theme].yml` file**
 
 > Supported since Hexo 5.0.0
 
@@ -243,5 +307,5 @@ Resulting in theme configuration:
 ```
 
 {% note %}
-We strongly recommends you to store your theme configuration in one place. But in case you have to store your theme configuration separately, those information is quite important: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file. the `_config.yml` file under the theme directory has the lowest priority.
+We strongly recommend you to store your theme configuration in one place. But in case you have to store your theme configuration separately, you need to know the priority of those configurations: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file. The `_config.yml` file under the theme directory has the lowest priority.
 {% endnote %}
