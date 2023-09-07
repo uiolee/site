@@ -24,7 +24,7 @@ content
 
 ### Examples
 
-**การอ้างอิงท่ีไม่มี argument Plain blockquote.**
+**การอ้างอิงท่ีไม่มี argument การอ้างอิงท่ีไม่มี argument Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -208,7 +208,7 @@ content
 
 ## Include Code
 
-เสียบ code snippet เข้าไปใน folder `source/downloads/code`: The folder location can be specified through the `code_dir` option in the config.
+เสียบ code snippet เข้าไปใน folder `source/downloads/code`: เสียบ code snippet เข้าไปใน folder `source/downloads/code`: The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] path/to/file %}
@@ -393,7 +393,7 @@ content
 
 ## Post Excerpt
 
-text ท่ีวางก่อนแท็ก `<!-- more -->` จะถือเป็นส่วนที่ตัดตอนมาจากโพสต์ `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
+text ท่ีวางก่อนแท็ก `<!-- more -->` จะถือเป็นส่วนที่ตัดตอนมาจากโพสต์ text ท่ีวางก่อนแท็ก `<!-- more -->` จะถือเป็นส่วนที่ตัดตอนมาจากโพสต์ `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **ยกตัวอย่างเช่น:**
 
