@@ -11,6 +11,7 @@ hexo.extend.migrator.register(name, function(args){
   // ...
 });
 });
+});
 ```
 
-An argument `args` will be passed into the function. This argument will contain the user's input into the terminal.
+An argument `args` will be passed into the function. This argument will contain the user's input into the terminal. This argument will contain the user's input into the terminal.
