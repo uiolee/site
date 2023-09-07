@@ -10,18 +10,19 @@ Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心
 
 ### 插件（Packages）
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
 文件夹内至少要包含 2 个文件：一个是主程序，另一个是 `package.json`，描述插件的用途和所依赖的插件。
 
 ```plain
 .
 .
+.
 ├── index.js
 └── package.json
 ```
 
-`package.json` 中至少要包含 `name`, `version`, `main` 属性，例如： For example:
+`package.json` 中至少要包含 `name`, `version`, `main` 属性，例如： For example: For example:
 
 ```json package.json
 {
@@ -57,10 +58,14 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 3. 编辑 `source/_data/plugins.yml`，在档案中新增您的插件，例如：
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example: For example:
 
    ```yaml
    description: Server module for Hexo.
+   name: hexo-server
+description: Server module for Hexo.
+link: https://github.com/hexojs/hexo-server
+tags:
    name: hexo-server
 description: Server module for Hexo.
 link: https://github.com/hexojs/hexo-server
