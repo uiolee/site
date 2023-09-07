@@ -34,7 +34,7 @@ highlight:
   line_threshold: 0
   tab_replace: ''
   exclude_languages:
-    - example
+  - example
   wrap: true
   hljs: false
 prismjs:
