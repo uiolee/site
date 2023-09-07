@@ -1,0 +1,9 @@
+files:
+  - source: /source/api/
+    translation: /source/%two_letters_code%/api/%original_file_name%
+  - source: /source/docs/
+    translation: /source/%two_letters_code%/docs/%original_file_name%
+  - source: /source/index.md
+    translation: /source/%two_letters_code%/%original_file_name%
+  - source: /source/about/
+    translation: /source/%two_letters_code%/about/%original_file_name%
