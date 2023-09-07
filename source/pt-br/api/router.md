@@ -1,23 +1,23 @@
 ---
-title: Router
+title: Roteador
 ---
 
-The router saves all paths used in the site.
+O roteador salva todos os caminhos usados no site.
 
-## Get a Path
+## Obter um caminho
 
-The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
+O método `recebe` retorna um [Stream][]. Por exemplo, para salvar os dados do caminho para um destino especificado:
 
 ``` js
-var data = hexo.route.get('index.html');
+var dados = hexo.route.get('index.html');
 var dest = fs.createWriteStream('somewhere');
 
 data.pipe(dest);
 ```
 
-## Set a Path
+## Definir um caminho
 
-The `set` method takes a string, a [Buffer][] or a function.
+O método `define` recebe uma string, um [Buffer][] ou uma função.
 
 ``` js
 // String
@@ -26,20 +26,20 @@ hexo.route.set('index.html', 'index')
 // Buffer
 hexo.route.set('index.html', new Buffer('index'));
 
-// Function (Promise)
-hexo.route.set('index.html', function(){
+// Função (Promise)
+hexo.route.set('index. tml', function(){
   return new Promise(function(resolve, reject){
     resolve('index');
   });
 });
 
-// Function (Callback)
-hexo.route.set('index.html', function(callback){
+// Função (Callback)
+hexo. oute.set('index.html', function(callback){
   callback(null, 'index');
 });
 ```
 
-You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
+Você também pode definir um booleano para se um caminho foi modificado ou não. Isso pode acelerar a geração de arquivo, pois permite ignorar os arquivos não modificados.
 
 ``` js
 hexo.route.set('index.html', {
@@ -50,21 +50,21 @@ hexo.route.set('index.html', {
 // hexo.route.isModified('index.html') => false
 ```
 
-## Remove a Path
+## Remover um caminho
 
 ``` js
 hexo.route.remove('index.html');
 ```
 
-## Get the List of Routes
+## Obter a lista de rotas
 
 ``` js
 hexo.route.list();
 ```
 
-## Format a Path
+## Formatar um caminho
 
-The `format` method transforms a string to a valid path.
+O método `formato` transforma uma string em um caminho válido.
 
 ``` js
 hexo.route.format('archives/');
