@@ -4,23 +4,23 @@ title: 资源文件夹
 
 ## 全局资源文件夹
 
-Assets are non-post files in the `source` folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a `source/images` directory. 然后你可以使用类似 `的东西访问他们！[](/image.jpg)`
+资源（Asset）代表 `source` 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。 比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 `source/images` 文件夹中。 然后通过类似于 `![](/images/image.jpg)` 的方法访问它们。
 
-## 发布资源文件夹
+## 文章资源文件夹
 
 {% youtube feIDVQ2tz0o %}
 
-对于期望定期为图像和/或其他资产服务的用户， 对于那些宁愿按每个员额分开资产的人，Hexo也提供了一种更有条理的管理资产的方式。 这略多一些。 但非常方便的资产管理方法可以通过在 `_config中设置 <code>post_asset_folder` 设置。 ml</code> 对。
+对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。 这个稍微有些复杂但是管理资源非常方便的功能可以通过将 `config.yml` 文件中的 `post_asset_folder` 选项设为 `true` 来打开。
 
 ``` yaml _config.yml
 post_asset_folder: true
 ```
 
-With asset folder management enabled, Hexo will create a folder every time you make a new post with the `hexo new [layout] <title>` command. 此资源文件夹的名称将与帖子关联的 markdown 文件相同。 将与您的帖子相关的所有资产放入关联的文件夹， 并且您将能够使用相对路径引用它们，从而更容易和更方便的工作流程。
+当资源文件管理功能打开后，Hexo将会在你每一次通过 `hexo new [layout] <title>` 命令创建新文章时自动创建一个文件夹。 这个资源文件夹将会有与这个文章文件一样的名字。 将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。
 
-## 用于相对路径引用的标签插件
+## 相对路径引用的标签插件
 
-使用普通Markdown 语法和相对路径引用图像或其他资产可能导致在存档或索引页面显示错误。 社区已经创建插件来解决这个问题在 Hexo 2 中。 然而，随着Hexo 3的发布，核心添加了几个新的 [标签插件](/docs/tag-plugins#Include-Assets)。 这使您能够更容易地在帖子中引用您的资产：
+通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。 在Hexo 2时代，社区创建了很多插件来解决这个问题。 但是，随着Hexo 3 的发布，许多新的[标签插件](/zh-cn/docs/tag-plugins#引用资源)被加入到了核心代码中。 这使得你可以更简单地在文章中引用你的资源。
 
 ```
 {% asset_path slug %}
@@ -28,22 +28,21 @@ With asset folder management enabled, Hexo will create a folder every time you m
 {% asset_link slug [title] %}
 ```
 
-For example, with post asset folders enabled, if you place an image `example.jpg` into your asset folder, it will *not* appear on the index page if you reference it using a relative path with regular `![](example.jpg)` markdown syntax (however, it will work as expected in the post itself).
+比如说：当你打开文章资源文件夹功能后，你把一个 `example.jpg` 图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 `![](example.jpg)` ，它将 *不会* 出现在首页上。
 
-因此引用图像的正确方式将是使用标签插件语法而不是标记：
+正确的引用图片方式是使用下列的标签插件而不是 markdown ：
 
 ```
 {% asset_img example.jpg This is an example image %}
-{% asset_img "spaced asset.jpg" "spaced title" %}
 ```
 
-这样，图像将出现在帖子以及索引和归档页面中。
+通过这种方式，图片将会同时出现在文章和主页以及归档页中。
 
-## 使用 markdown 嵌入图像
+## 使用 Markdown 嵌入图片
 
-[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked) 3.1.0 introduced a new option that allows you to embed an image in markdown without using `asset_img` tag plugin.
+[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked) 3.1.0 引入了一个新的选项，其允许你无需使用 `asset_img` 标签插件就可以在 markdown 中嵌入图片
 
-要启用：
+如需启用：
 
 ``` yml _config.yml
 post_asset_folder: true
@@ -52,4 +51,4 @@ marked:
   postAsset: true
 ```
 
-一旦启用，资产图像将自动解析到其相应的帖子路径。 例如，"image.jpg"位于"/2020/01/02/food/image.jpg"，意思是一个资产图像为 "/2020/01/02/food/" 帖子， `![](图像)。 pg)` 将以 `<img src="/2020/01/02/foo/image.jpg">` 格式呈现。
+启用后，资源图片将会被自动解析为其对应文章的路径。 例如： `image.jpg` 位置为 `/2020/01/02/foo/image.jpg` ，这表示它是 `/2020/01/02/foo/` 文章的一张资源图片， `![](image.jpg)` 将会被解析为 `<img src="/2020/01/02/foo/image.jpg">` 。
