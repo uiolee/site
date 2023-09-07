@@ -12,7 +12,7 @@ You could easily [write your own custom helper](https://hexo.io/api/helper.html)
 
 ### url_for
 
-Возвращает URL-адрес корневого пути с префиксом. Нужно использовать этот помощник вместо `config.root + path`, начиная с Hexo версии 2.7.
+Returns a url with the `config.url` prefixed. Нужно использовать этот помощник вместо `config.root + path`, начиная с Hexo версии 2.7.
 
 ``` js
 <%- url_for(path) %>
@@ -384,7 +384,7 @@ Check whether the current page is a page.
 **Examples:**
 
 ``` js
-<%- strip_html('It\'s not <b>important</b> anymore!') %>
+<%- strip_html('It\'s not <b>important</b> anymore!') %> // It's not important anymore! %>
 // It's not important anymore!
 ```
 
