@@ -1,31 +1,32 @@
 ---
 title: Events
 ---
-Hexo는 [EventEmitter]를 상속합니다. `on` 메소드를 사용하여 Hexo가 emit한 이벤트를 listen할 수 있습니다. 그리고 `emit`메소드를 사용하여 이벤트를 emit합니다. 더 자세한 정보는 Node.js API 문서를 참고해 주시기 바랍니다.
+
+Hexo inherits from [EventEmitter][]. Use the `on` method to listen for events emitted by Hexo, and use the `emit` method to emit events. For more information, refer to the Node.js API documentation.
 
 ### deployBefore
 
-Deployment가 시작되기 전에 emit합니다.
+Emitted before deployment begins.
 
 ### deployAfter
 
-Deployment가 끝난 후에 emit합니다.
+Emitted after deployment finishes.
 
 ### exit
 
-Hexo가 종료되기 전에 emit합니다.
+Emitted before Hexo exits.
 
 ### generateBefore
 
-생성(generation)이 시작되기 전에 emit합니다.
+Emitted before generation begins.
 
 ### generateAfter
 
-생성(generation)이 끝난 후에 emit합니다.
+Emitted after generation finishes.
 
 ### new
 
-새로운 포스트가 생성된 후에 emit합니다. 이 이벤트는 포스트 데이터를 반환합니다:
+Emitted after a new post has been created. This event returns the post data:
 
 ``` js
 hexo.on('new', function(post){
@@ -33,21 +34,21 @@ hexo.on('new', function(post){
 });
 ```
 
-데이터 | 설명
---- | ---
-`post.path` | 포스트 파일의 전체경로
-`post.content` | 포스트 파일의 컨텐츠
+| Data           | Description                |
+| -------------- | -------------------------- |
+| `post.path`    | Full path of the post file |
+| `post.content` | Content of the post file   |
 
 ### processBefore
 
-프로세싱을 시작하기 전에 emit합니다. 이 이벤트는 box의 루트 디렉토리의 경로를 반환합니다.
+Emitted before processing begins. This event returns a path representing the root directory of the box.
 
 ### processAfter
 
-프로세싱이 끝난 후에 emit합니다. 이 이벤트는 box의 루트 디렉토리의 경로를 반환합니다.
+Emitted after processing finishes. This event returns a path representing the root directory of the box.
 
 ### ready
 
-초기화 과정이 완료된 후 emit합니다.
+Emitted after initialization finishes.
 
 [EventEmitter]: https://nodejs.org/dist/latest/docs/api/events.html
