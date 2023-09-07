@@ -1,10 +1,10 @@
 ---
-title: Filter
+title: Фильтры
 ---
 
-A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+Фильтры используются для изменения указанных данных. Hexo передает данные для фильтров в определенной последовательности и фильтров изменения данных один за другим. Эта концепция была заимствована из [WordPress](http://codex.wordpress.org/Plugin_API#Filters)
 
-## Synopsis
+## Краткий обзор
 
 ``` js
 hexo.extend.filter.register(type, function() {
@@ -12,91 +12,91 @@ hexo.extend.filter.register(type, function() {
   const { config } = this;
   if (config.external_link.enable) // do something...
 
-  // Theme configuration
+  // Конфигурация темы
   const { config: themeCfg } = this.theme;
   if (themeCfg.fancybox) // do something...
 
-}, priority);
+}, приоритет);
 ```
 
-You can define the `priority`. Lower `priority` means that it will be executed first. The default `priority` is 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
+Вы можете определить приоритет. Низкий приоритет означает, что он будет выполняться в первую очередь. Приоритет по умолчанию равен 10. Рекомендуется использовать настраиваемое пользователем значение приоритета, которое возможно указать в конфигурации, например `hexo.config.your_plugin.priority`.
 
-## Execute Filters
+## Использование фильтров
 
 ``` js
-hexo.extend.filter.exec(type, data, options);
-hexo.extend.filter.execSync(type, data, options);
+hexo.extend.filter.exec(тип, данные, параметры);
+hexo.extend.filter.execSync(тип, данные, параметры);
 ```
 
-| Option    | Description                       |
-| --------- | --------------------------------- |
-| `context` | Context                           |
-| `args`    | Arguments. This must be an array. |
+| Опция      | Описание                               |
+| ---------- | -------------------------------------- |
+| `контекст` | Контекст                               |
+| `args`     | Аргументы. Должны быть в виде массива. |
 
-The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
+Первый аргумент, передаваемый в каждый фильтр, это `data`. Данные `data`, передаваемые в следующий фильтр, могут быть изменены путем возврата нового значения. Если же ничего не возвращается, данные остаются без изменений. Вы даже можете использовать аргументы, чтобы указать другие аргументы в фильтрах. Например:
 
 ``` js
-hexo.extend.filter.register('test', function(data, arg1, arg2){
-  // data === 'some data'
+hexo.extend.filter. egister('test', функция(данные, arg1, arg2){
+  // данные === 'some data'
   // arg1 === 'foo'
   // arg2 === 'bar'
 
   return 'something';
 });
 
-hexo.extend.filter.register('test', function(data, arg1, arg2){
+шестнадцатерично. xtend.filter.register('test', function(data, arg1, arg2){
   // data === 'something'
 });
 
-hexo.extend.filter.exec('test', 'some data', {
+hexo. xtend.filter.exec('test', 'some data', {
   args: ['foo', 'bar']
 });
 ```
 
-You can also use the following methods to execute filters:
+Также можно использовать следующие методы для выполнения фильтров:
 
 ``` js
-hexo.execFilter(type, data, options);
-hexo.execFilterSync(type, data, options);
+hexo.execFilter(тип, данные, параметры);
+hexo.execFilterSync(тип, данные, параметры);
 ```
 
-## Unregister Filters
+## Отмена фильтров
 
 ``` js
 hexo.extend.filter.unregister(type, filter);
 ```
 
-**Example**
+**Пример**
 
 ``` js
-// Unregister a filter which is registered with named function
+// Отменить фильтр, зарегистрированный с именованной функцией
 
 const filterFn = (data) => {
   data = 'something';
-  return data;
+  возврат данных;
 };
-hexo.extend.filter.register('example', filterFn);
+шестнадцатерично. xtend.filter.register('example', filterFn);
 
 hexo.extend.filter.unregister('example', filterFn);
 ```
 
 ``` js
-// Unregister a filter which is registered with commonjs module
+// Убрать фильтр, зарегистрированный с помощью модуля
 
 hexo.extend.filter.register('example', require('path/to/filter'));
 
 hexo.extend.filter.unregister('example', require('path/to/filter'));
 ```
 
-## Filter List
+## Список фильтров
 
-Here is a list of filters used by Hexo.
+Здесь находится список фильтров, используемых в Hexo.
 
 ### before_post_render
 
-Executed before a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+Выполняется перед началом обработки поста. См. [post rendering](posts.html#Render) для изучения этапов обработки.
 
-For example, to transform the title to lower case:
+Например, перевести название в нижний регистр:
 
 ``` js
 hexo.extend.filter.register('before_post_render', function(data){
@@ -105,11 +105,11 @@ hexo.extend.filter.register('before_post_render', function(data){
 });
 ```
 
-### after_post_render
+### после-пост-рендер
 
-Executed after a post is rendered. Refer to [post rendering](posts.html#Render) to learn the execution steps.
+Выполняется после завершения обработки поста. См. [post rendering](posts.html#Обработка) для изучения этапов выполнения.
 
-For example, to replace `@username` with a link to a Twitter profile:
+Например, чтобы заменить `@username` ссылкой на профиль в Twitter:
 
 ``` js
 hexo.extend.filter.register('after_post_render', function(data){
@@ -118,9 +118,9 @@ hexo.extend.filter.register('after_post_render', function(data){
 });
 ```
 
-### before_exit
+### перейти_выход
 
-Executed before Hexo is about to exit -- this will run right after `hexo.exit` is called.
+Выполняется перед выходом из Hexo. Срабатывает сразу после выполнения `hexo.exit`.
 
 ``` js
 hexo.extend.filter.register('before_exit', function(){
@@ -128,9 +128,9 @@ hexo.extend.filter.register('before_exit', function(){
 });
 ```
 
-### before_generate
+### пересгенерировать
 
-Executed before generation begins.
+Выполнится перед началом генерации.
 
 ``` js
 hexo.extend.filter.register('before_generate', function(){
@@ -138,9 +138,9 @@ hexo.extend.filter.register('before_generate', function(){
 });
 ```
 
-### after_generate
+### после генерации
 
-Executed after generation finishes.
+Выполнится после окончания генерации.
 
 ``` js
 hexo.extend.filter.register('after_generate', function(){
@@ -150,9 +150,9 @@ hexo.extend.filter.register('after_generate', function(){
 
 ### template_locals
 
-Modify [local variables](../docs/variables.html) in templates.
+Позволяет изменять [локальные переменные](../docs/variables.html) в шаблонах.
 
-For example, to add the current time to the local variables of templates:
+Например, чтобы добавить переменную текущего времени в шаблон:
 
 ``` js
 hexo.extend.filter.register('template_locals', function(locals){
@@ -161,9 +161,9 @@ hexo.extend.filter.register('template_locals', function(locals){
 });
 ```
 
-### after_init
+### _после инициализации
 
-Executed after Hexo is initialized -- this will run right after `hexo.init` completes.
+Выполнится после начала инициализации Hexo - запустится только после того, как полностью отработает команда `hexo.init`.
 
 ``` js
 hexo.extend.filter.register('after_init', function(){
@@ -171,9 +171,9 @@ hexo.extend.filter.register('after_init', function(){
 });
 ```
 
-### new_post_path
+### новый пост_путь
 
-Executed when creating a post to determine the path of new posts.
+Выполняется при создании поста для определения пути постоянной ссылки.
 
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
@@ -181,9 +181,9 @@ hexo.extend.filter.register('new_post_path', function(data, replace){
 });
 ```
 
-### post_permalink
+### Постоянная ссылка
 
-Used to determine the permalink of posts.
+Используется при создании поста для определения пути постоянной ссылки.
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -191,25 +191,25 @@ hexo.extend.filter.register('post_permalink', function(data){
 });
 ```
 
-### after_render
+### после рендеринга
 
-Executed after rendering finishes. You can see [rendering](rendering.html#after_render_Filters) for more info.
+Выполнится после завершения обработки. См. [рендеринг](rendering.html#after_render_Filters) для подробностей.
 
-### after_clean
+### очистить
 
-Executed after generated files and cache are removed with `hexo clean` command.
+Выполняется после того, как создаваемые файлы и кэш удаляются с помощью команды `hexo clean`.
 
 ``` js
 hexo.extend.filter.register('after_clean', function(){
-  // remove some other temporary files
+  // удаляем некоторые другие временные файлы
 });
 ```
 
 ### server_middleware
 
-Add middleware to the server. `app` is a [Connect][] instance.
+Добавляет промежуточные задачи для сервера. `app` является экземпляром [Connect][].
 
-For example, to add `X-Powered-By: Hexo` to the response header:
+Например, чтобы добавить `X-Powered-By: Hexo` в заголовке ответа:
 
 ``` js
 hexo.extend.filter.register('server_middleware', function(app){
