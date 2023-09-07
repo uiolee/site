@@ -283,7 +283,7 @@ Loads JavaScript files. `path` can be a string, an array, an object or an array 
 
 ### is_current
 
-ตรวจได้ว่า `path` นั้นเหมาะกับ URL ของเพจปัจจุบันหรือไม่  คุณใช้ตัวเลือก `strict` ไปเปิด strict matching ได้ Use `strict` options to enable strict matching.
+ตรวจได้ว่า `path` นั้นเหมาะกับ URL ของเพจปัจจุบันหรือไม่  คุณใช้ตัวเลือก `strict` ไปเปิด strict matching ได้ Use `strict` options to enable strict matching. Use `strict` options to enable strict matching.
 
 ``` js
 <%- is_current(path, [strict]) %>
@@ -521,7 +521,7 @@ Caches the contents in a fragment. cache เนื้อหาอยู่ใน
 
 ### date
 
-Inserts formatted date. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `date` นั้นเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `format` นั้นถูกตั้งค่าเป็น `time_format` อยู่แล้ว by default
+Inserts formatted time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `time_format` setting by default.
 
 ``` js
 <%- date(date, [format]) %>
@@ -554,7 +554,7 @@ Inserts date in XML format. `date` can be unix time, ISO string, date object, or
 
 ### time
 
-Inserts formatted time. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `format` is `time_format` setting by default.
+Inserts formatted date. `date` can be unix time, ISO string, date object, or [Moment.js][] object. `date` นั้นเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `format` นั้นถูกตั้งค่าเป็น `time_format` อยู่แล้ว by default
 
 ``` js
 <%- time(date, [format]) %>
@@ -572,7 +572,7 @@ Inserts formatted time. `date` can be unix time, ISO string, date object, or [Mo
 
 ### full_date
 
-Inserts formatted date and time. `date` นั้นจะเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `date` นั้นเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `format` นั้นถูกตั้งค่าเป็น `date_format + time_format` อยู่แล้ว by default
+Inserts formatted date and time. `date` นั้นจะเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `date` นั้นเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `format` นั้นถูกตั้งค่าเป็น `date_format + time_format` อยู่แล้ว by default `date` นั้นเป็น unix time, ISO string, date object, หรือ [Moment.js][] object ได้ `format` นั้นถูกตั้งค่าเป็น `date_format + time_format` อยู่แล้ว by default
 
 ``` js
 <%- full_date(date, [format]) %>
