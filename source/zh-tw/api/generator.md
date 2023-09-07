@@ -11,9 +11,10 @@ hexo.extend.generator.register(name, function(locals){
   // ...
 });
 });
+});
 ```
 
-A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly.
+A `locals` argument will get passed into the function, containing the [site variables](../docs/variables.html#Site-Variables). You should use this argument to get the website data, thereby avoiding having to access the database directly. You should use this argument to get the website data, thereby avoiding having to access the database directly.
 
 ## 更新路由
 
@@ -45,9 +46,9 @@ hexo.extend.generator.register('test', function(locals){
 
 ### Archive Page
 
-在 `archives/index.html` 建立一彙整頁面，把所有文章當作資料傳入模板內，這個資料也就等同於模板中的 `page` 變數。 We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+在 `archives/index.html` 建立一彙整頁面，把所有文章當作資料傳入模板內，這個資料也就等同於模板中的 `page` 變數。 We pass all posts as data to the templates. We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Next, set the `layout` attribute to render with the theme templates. Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
