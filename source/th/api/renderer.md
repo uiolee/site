@@ -1,7 +1,8 @@
 ---
 title: Renderer
 ---
-renderer ใช้มา render เนื้อหา
+
+A renderer is used to render content.
 
 ## Synopsis
 
@@ -11,22 +12,23 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-Argument | Description
---- | ---
-`name` | Input filename extension (lower case, without leading `.`)
-`output` | Output filename extension (lower case, without leading `.`)
-`sync` | Sync mode
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-argument สองตัวนั้นจะส่งเข้า render function:
+Three arguments will be passed into the render function:
 
-Argument | Description
---- | ---
-`data` | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist.
-`option` | Options
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## ตัวอย่าง
+## Example
 
-### โหมด async
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
@@ -44,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### โหมด sync
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
