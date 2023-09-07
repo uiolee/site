@@ -2,7 +2,7 @@
 title: One-Command Deployment
 ---
 
-Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
+Hexo provides a fast and easy deployment strategy. Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your server.
 
 ```bash
 $ hexo deploy
@@ -10,7 +10,7 @@ $ hexo deploy
 
 Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
 
-Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example:
+Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example: A valid configuration must have the `type` field. For example:
 
 ```yaml
 deploy:
@@ -47,12 +47,12 @@ deploy:
   message: [message]
 ```
 
-| Option    | 描述                                       | 默认                                                                                     |
-| --------- | ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| `repo`    | URL of the target repository             |                                                                                        |
-| `branch`  | 分支名称                                     | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others)    |
-| `message` | 自定义提交信息                                  | `<code>Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)</code> |
-| `token`   | 可选的令牌值，用于认证 repo。 用 `$` 作为前缀从而从环境变量中读取令牌 |                                                                                        |
+| Option    | 描述                                       | 默认                                                                                                 |
+| --------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `repo`    | URL of the target repository             |                                                                                                    |
+| `branch`  | 分支名称                                     | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others)                |
+| `message` | 自定义提交信息                                  | `<code><code>Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`)</code> |
+| `token`   | 可选的令牌值，用于认证 repo。 用 `$` 作为前缀从而从环境变量中读取令牌 |                                                                                                    |
 
 3. 执行 `hexo clean && hexo deploy`。
 
@@ -85,9 +85,9 @@ deploy:
 
 ## Netlify
 
-[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
+[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
 
-There are two different ways to deploy your sites on Netlify. 首先，也是最通用的方式，就是使用Netlify提供的网页端用户界面。 前往[新建一个网站页面](https://app.netlify.com/start)，选择需要关联的 Github/BitBucket/Gitlab 库，然后遵循网站提示。
+There are two different ways to deploy your sites on Netlify. 首先，也是最通用的方式，就是使用Netlify提供的网页端用户界面。 首先，也是最通用的方式，就是使用Netlify提供的网页端用户界面。 前往[新建一个网站页面](https://app.netlify.com/start)，选择需要关联的 Github/BitBucket/Gitlab 库，然后遵循网站提示。
 
 另一种方式是使用Netlify提供的命令行客户端工具 [Node based CLI](https://www.netlify.com/docs/cli/) 管理和部署您的站点。
 
