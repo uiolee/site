@@ -2,11 +2,11 @@
 title: Box
 ---
 
-Box is a container used for processing files in a specified folder. box เป็น container ที่ใช้มาจัดการไฟล์ภายใน folder เฉพาะ Hexo ใช้ box ที่แตกต่างกันสองตัว ซึ้งก็คือ `hexo.source` และ `hexo.theme` ตัวแรกใช้มาจัดการ folder `source` และตัวท่ีสองใช้มาจัดการ folder `theme` The former is used to process the `source` folder and the latter to process the `theme` folder.
+Box is a container used for processing files in a specified folder. box เป็น container ที่ใช้มาจัดการไฟล์ภายใน folder เฉพาะ Hexo ใช้ box ที่แตกต่างกันสองตัว ซึ้งก็คือ `hexo.source` และ `hexo.theme` ตัวแรกใช้มาจัดการ folder `source` และตัวท่ีสองใช้มาจัดการ folder `theme` The former is used to process the `source` folder and the latter to process the `theme` folder. The former is used to process the `source` folder and the latter to process the `theme` folder.
 
 ## Files Loading
 
-box สนับสนุนวิธีการโหลดไฟล์สองวิธี ซึ้งก็คือ `process` และ `watch`  วิธีตัว `process` จะโหลดไฟล์ทั้งหมดใน folder ส่วนวิธีตัว  `watch` นอกจากจะมีการกระทำที่เหมือนวิธีตัว `process` แล้วแถมยังเฝ้าดูการเปลี่ยนแปลงของไฟล์ที่อยู่ใน folder นั้นด้วย `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
+box สนับสนุนวิธีการโหลดไฟล์สองวิธี ซึ้งก็คือ `process` และ `watch`  วิธีตัว `process` จะโหลดไฟล์ทั้งหมดใน folder ส่วนวิธีตัว  `watch` นอกจากจะมีการกระทำที่เหมือนวิธีตัว `process` แล้วแถมยังเฝ้าดูการเปลี่ยนแปลงของไฟล์ที่อยู่ใน folder นั้นด้วย `process` loads all files in the folder. `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
 
 ``` js
 box.process().then(function(){
