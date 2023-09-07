@@ -746,7 +746,7 @@ Examples:
 
 ### paginator
 
-파비콘을 삽입합니다.
+Paginator를 삽입합니다.
 
 ``` js
 <%- paginator(options) %>
