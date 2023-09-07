@@ -1,37 +1,37 @@
 ---
-title: Themes
+title: 主题
 ---
 
-`hexo.theme` inherits from [Box](box.html), and also saves templates.
+`十六进制主题` 继承自 [Box](box.html)，同时保存模板。
 
-## Get a View
-
-``` js
-hexo.theme.getView(path);
-```
-
-## Set a View
+## 获取视图
 
 ``` js
-hexo.theme.setView(path, data);
+十六进制主题.getView(路径)；
 ```
 
-## Remove a View
+## 设置视图
 
 ``` js
-hexo.theme.removeView(path);
+hexo.theme.setView(路径，数据)；
 ```
 
-## View
+## 移除视图
 
-Views have two methods: `render` and `renderSync`. These two methods are identical, but the former is asynchronous and the latter is synchronous. So for the sake of simplicity, we will only discuss `render` here.
+``` js
+十六进制主题.移除视图(路径)；
+```
+
+## 查看
+
+视图有两种方法： `渲染` 和 `渲染`。 这两种方法是相同的，但前者是异步的，后者是同步的。 所以为了简洁起见，我们将只在这里讨论 `变成`。
 
 ``` js
 var view = hexo.theme.getView('layout.swig');
 
-view.render({foo: 1, bar: 2}).then(function(result){
+view.render({foo: 1, bar: 2}).then(函数(result))]
   // ...
 });
 ```
 
-You can pass options to the `render` method and it will try to process the template with the corresponding renderer and load the [helpers](helper.html). When rendering is complete, it will try to find whether a layout exists. If `layout` is `false` or if it doesn't exist, the result will be returned directly.
+您可以将选项传递到 `渲染到` 方法，它将尝试与相应渲染器一起处理模板并加载 [助手](helper.html)。 当渲染完成时，它会尝试找到布局是否存在。 如果 `布局` 为 `错误` 或者如果它不存在，结果将直接退回。
