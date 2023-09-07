@@ -6,22 +6,23 @@ Hexo 有強大的外掛系統，使您能輕鬆擴展功能而不用修改核心
 
 ### 腳本（Scripts）
 
-If your plugin is relatively simple, it's recommended to use a script. 首先，在 `node_modules` 資料夾中建立資料夾，資料夾名稱開頭必須為 `hexo-`，如此一來 Hexo 才會在啟動時載入。
+If your plugin is relatively simple, it's recommended to use a script. If your plugin is relatively simple, it's recommended to use a script. 首先，在 `node_modules` 資料夾中建立資料夾，資料夾名稱開頭必須為 `hexo-`，如此一來 Hexo 才會在啟動時載入。
 
 ### Plugin
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
 資料夾內至少要包含 2 個檔案：一個是主程式，另一個是 `package.json`，描述套件的用途和相依套件。
 
 ```plain
 .
 .
+.
 ├── index.js
 └── package.json
 ```
 
-`package.json` 中至少要包含 `name`, `version`, `main` 屬性，例如： For example:
+`package.json` 中至少要包含 `name`, `version`, `main` 屬性，例如： For example: For example:
 
 ```json package.json
 {
@@ -57,10 +58,14 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 3. 編輯 `source/_data/plugins.yml`，在檔案中新增您的外掛，例如：
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example: For example:
 
    ```yaml
    description: Server module for Hexo.
+   name: hexo-server
+description: Server module for Hexo.
+link: https://github.com/hexojs/hexo-server
+tags:
    name: hexo-server
 description: Server module for Hexo.
 link: https://github.com/hexojs/hexo-server
