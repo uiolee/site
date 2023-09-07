@@ -1,11 +1,12 @@
 ---
 title: Router
 ---
-router จะบันทึกและตั้งค่า path ทั้งหมดที่ใช้ในเว็บไซต์
+
+The router saves all paths used in the site.
 
 ## Get a Path
 
-วิธี `get` จะส่งกลับผลที่เป็น [Stream] code ต่อไปเป็นตัวอย่างการบ่งบอก path ไปถึงหน้งเว็บเฉพาะ
+The `get` method returns a [Stream][]. For example, to save the path data to a specified destination:
 
 ``` js
 var data = hexo.route.get('index.html');
@@ -16,7 +17,7 @@ data.pipe(dest);
 
 ## Set a Path
 
-ตัวเลือกท่ีส่งเข้าวิธี `set` ต้องเป็น string [Buffer] หรือ function
+The `set` method takes a string, a [Buffer][] or a function.
 
 ``` js
 // String
@@ -38,7 +39,7 @@ hexo.route.set('index.html', function(callback){
 });
 ```
 
-ผู้ใช้ส่ง boolean เข้าไปได้ว่า path นั้นจะถูกแก้ไขหรือเปล่า ดังนั้นการตั้งค่าท่ีเป็น  boolean นี้จะช่วยเพิ่มความเร็วใน file generation เพราะว่าจะเลือกการไม่รันไฟล์ที่ unmodified ได้
+You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
 
 ``` js
 hexo.route.set('index.html', {
@@ -63,7 +64,7 @@ hexo.route.list();
 
 ## Format a Path
 
-วิธี `format` จะเปลี่ยน string เป็น path ที่ถูกต้อง
+The `format` method transforms a string to a valid path.
 
 ``` js
 hexo.route.format('archives/');
