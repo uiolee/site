@@ -1,57 +1,57 @@
 ---
-title: Injector
+title: Инъектор
 ---
 
-An injector is used to add static code snippet to the `<head>` or/and `<body>` of generated HTML files. Hexo run injector **before** `after_render:html` filter is executed.
+Инъектор используется для добавления статического фрагмента кода в `<head>` и/или `<body>` генерируемых HTML-файлов. Hexo производит вставку **до того, как** будет выполнен фильтр `after_render:html`.
 
-## Synopsis
+## Краткий обзор
 
 ```js
-hexo.extend.injector.register(entry, value, to)
+hexo.extend.injector.register(entry, value, до)
 ```
 
-### entry `<string>`
+### ввод `<string>`
 
-Where the code will be injected inside the HTML.
+Используется там, где необходимо ввести код внутрь HTML напрямую.
 
-Support those values:
+Поддержите эти значения:
 
-- `head_begin`: Inject code snippet right after `<head>` (Default).
-- `head_end`: Inject code snippet right before `</head>`.
-- `body_begin`: Inject code snippet right after `<body>`.
-- `body_end`: Inject code snippet right before `</body>`.
+- `head_begin`: ввод фрагмента кода сразу после `<head>` (по умолчанию).
+- `head_end`: введите фрагмент кода прямо перед `</head>'.
+- `body_begin`: введите фрагмент кода сразу после `<body>`.
+- `body_end`: введите фрагмент кода прямо перед `
 
-### value `<string> | <Function>`
+### значение `<string> | <Function>`
 
-> A function that returns string is supported.
+> Поддерживаются функции, возвращающие строку.
 
-The code snippet to be injected.
+Фрагмент кода, который нужно ввести.
 
 ### to `<string>`
 
-Which page will code snippets being injected.
+На какой странице будут добавлены фрагменты кода.
 
-- `default`: Inject to every page (Default).
-- `home`: Only inject to home page (which has `is_home()` helper being `true`)
-- `post`: Only inject to post pages (which has `is_post()` helper being `true`)
-- `page`: Only inject to pages (which has `is_page()` helper being `true`)
-- `archive`: Only inject to archive pages (which has `is_archive()` helper being `true`)
-- `category`: Only inject to category pages (which has `is_category()` helper being `true`)
-- `tag`: Only inject to tag pages (which has `is_tag()` helper being `true`)
-- Custom layout name could be used as well, see [Writing - Layout](/docs/writing#Layout).
+- `default`: Ввод на каждой странице (по умолчанию).
+- `home`: Вставка произведётся только на домашнюю страницу (у которой переменная `is_home()` имеет значение `true`)
+- `post`: Вставка произведётся только на страницы публикаций (у которых переменная `is_post()` имеет значение `true`)
+- `page`: Вставка произведётся только на страницы (у которых переменная `is_page()` имеет значение `true`)
+- `archive`: Вставка произведётся только на страницы архива (у которых переменная`is_archive()` имеет значение `true`)
+- `category`: Вставка произведётся только на страницы категорий (у которых переменная `is_category()` имеет значение `true`)
+- `tag`: Вставка произведётся только на страницы тегов (у которых переменная `is_tag()` является `true`)
+- Также можно использовать пользовательское имя макета, см. [Запись - Макет](/docs/writing#Layout).
 
 ----
 
-There are other internal functions, see [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) for more details.
+Существуют и другие внутренние функции, см. [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) для получения более подробной информации.
 
-## Example
+## Пример
 
 ```js
 const css = hexo.extend.helper.get('css').bind(hexo);
 const js = hexo.extend.helper.get('js').bind(hexo);
 
 hexo.extend.injector.register('head_end', () => {
-  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css');
+  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10. /dist/APlayer.min.css');
 }, 'music');
 
 hexo.extend.injector.register('body_end', '<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js">', 'music');
@@ -61,11 +61,11 @@ hexo.extend.injector.register('body_end', () => {
 });
 ```
 
-Above setup will inject `APlayer.min.css` (`<link>` tag) to the `</head>` of any page which layout is `music`, and `APlayer.min.js` (`<script>` tag) to the `</body>` of those pages. Also, `jquery.js` (`<script>` tag) will be injected to `</body>` of every page generated.
+Вышеуказанная настройка добавит `APlayer.min.css` (с тегом `<link>`) в `</head>` любой страницы, макет которой установлен как `music`, и `APlayer.min.js` (тег `<script>`) в `</body>` этих страниц. Кроме того, `jquery.js` (с тегом `<script>`) будет вставлен в `</body>` каждой сгенерированной страницы.
 
-## Accessing user configuration
+## Доступ к пользовательской конфигурации
 
-Use any of the following options:
+Используйте любой из следующих вариантов:
 
 1.
 
@@ -74,14 +74,14 @@ const css = hexo.extend.helper.get('css').bind(hexo);
 
 hexo.extend.injector.register('head_end', () => {
   const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 });
 ```
 
 2.
 
 ``` js index.js
-/* global hexo */
+/* глобальный шестнадцатеричный */
 
 hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
 ```
@@ -90,7 +90,7 @@ hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
 module.exports = function () {
   const css = this.extend.helper.get('css');
   const { cssPath } = this.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 }
 ```
 
@@ -107,7 +107,7 @@ module.exports = injectFn;
 3.
 
 ``` js index.js
-/* global hexo */
+/* глобальный шестнадцатеричный */
 
 hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 ```
@@ -116,15 +116,15 @@ hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 module.exports = (hexo) => () => {
   const css = hexo.extend.helper.get('css').bind(hexo);
   const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 };
 ```
 
 ``` js lib/inject.js
 const injectFn = (hexo) => {
   const css = hexo.extend.helper.get('css').bind(hexo);
-  const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  const { cssPath } = hexo. onfig.fooPlugin;
+  return css(csPath);
 };
 
 module.exports = (hexo) => injectFn(hexo);
