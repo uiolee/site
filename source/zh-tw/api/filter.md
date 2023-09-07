@@ -2,7 +2,7 @@
 title: 過濾器（Filter）
 ---
 
-A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+A filter is used to modify some specified data. A filter is used to modify some specified data. Hexo passes data to filters in sequence and the filters then modify the data one after the other. This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters). This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
 
 ## 概要
 
@@ -23,9 +23,15 @@ hexo.extend.filter.register(type, function() {
   if (themeCfg.fancybox) // do something...
 
 }, priority);
+
+  // Theme configuration
+  const { config: themeCfg } = this.theme;
+  if (themeCfg.fancybox) // do something...
+
+}, priority);
 ```
 
-You can define the `priority`. Lower `priority` means that it will be executed first. 您可指定過濾器的優先度 `priority`，`priority` 值越低的過濾器會越先執行，預設的 `priority` 是 10。 We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
+You can define the `priority`. Lower `priority` means that it will be executed first. 您可指定過濾器的優先度 `priority`，`priority` 值越低的過濾器會越先執行，預設的 `priority` 是 10。 Lower `priority` means that it will be executed first. 您可指定過濾器的優先度 `priority`，`priority` 值越低的過濾器會越先執行，預設的 `priority` 是 10。 We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
 
 ## 執行過濾器
 
@@ -34,12 +40,12 @@ hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-| 選項        | 描述                                |
-| --------- | --------------------------------- |
-| `context` | Context                           |
-| `args`    | Arguments. This must be an array. |
+| 選項        | 描述                                           |
+| --------- | -------------------------------------------- |
+| `context` | Context                                      |
+| `args`    | Arguments. Arguments. This must be an array. |
 
-The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. 您還可使用 `args` 指定過濾器的其他參數。 舉例來說：
+The first argument passed into each filter is `data`. The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. 您還可使用 `args` 指定過濾器的其他參數。 The `data` passed into the next filter can be modified by returning a new value. If nothing is returned, the data remains unmodified. 您還可使用 `args` 指定過濾器的其他參數。 舉例來說：
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
@@ -133,6 +139,7 @@ hexo.extend.filter.register('before_exit', function(){
   // ...
 });
 });
+});
 ```
 
 ### before_generate
@@ -144,6 +151,7 @@ hexo.extend.filter.register('before_generate', function(){
   // ...
 });
 });
+});
 ```
 
 ### after_generate
@@ -153,6 +161,7 @@ Executed after generation finishes.
 ``` js
 hexo.extend.filter.register('after_generate', function(){
   // ...
+});
 });
 });
 ```
@@ -178,6 +187,7 @@ hexo.extend.filter.register('template_locals', function(locals){
 hexo.extend.filter.register('after_init', function(){
   // ...
 });
+});
 ```
 
 ### new_post_path
@@ -187,6 +197,7 @@ Executed when creating a post to determine the path of new posts.
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
   // ...
+});
 });
 });
 ```
@@ -200,11 +211,12 @@ hexo.extend.filter.register('post_permalink', function(data){
   // ...
 });
 });
+});
 ```
 
 ### after_render
 
-Executed after rendering finishes. 在渲染後執行，您可參考 [渲染](rendering.html#after_render_過濾器) 以瞭解更多資訊。
+Executed after rendering finishes. Executed after rendering finishes. 在渲染後執行，您可參考 [渲染](rendering.html#after_render_過濾器) 以瞭解更多資訊。
 
 ### after_clean
 
