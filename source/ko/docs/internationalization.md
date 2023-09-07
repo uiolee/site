@@ -2,7 +2,7 @@
 title: Internationalization (i18n)
 ---
 
-You can use internationalization to present your site in different languages. The default language is set by modifying the `language` setting in `_config.yml`. You can also set multiple languages and modify the order of default languages.
+당신의 웹 사이트를 서로 다른 언어로 표시하기 위해 internationalization을 사용할 수 있습니다. 기본 언어의 변경은 `_config.yml` 파일의 `language`를 수정하면 됩니다. 다중 언어를 설정할 수도 있고 기본 언어의 순서를 수정할 수도 있습니다.
 
 ``` yaml
 language: zh-tw
@@ -12,13 +12,13 @@ language:
 - en
 ```
 
-### Language Files
+### 언어 파일
 
-Language files can be YAML or JSON files. You should put them into the `languages` folder in the theme. There is support for the [printf format](https://github.com/alexei/sprintf.js) in language files.
+언어 파일로 YAML 또는 JSON 파일을 사용할 수 있습니다. 테마의 `languages` 폴더에 이 파일을 넣어두면 됩니다. 언어 파일의 [printf format](https://github.com/alexei/sprintf.js)을 지원합니다.
 
-### Templates
+### 템플릿
 
-Use `__` or `_p` helpers in templates to get the translated strings. The former is for normal usage and the latter is for plural strings. For example:
+또는 `_p`를 사용하면 템플릿에서의 문자열의 번역을 위한 helper를 사용할 수 있습니다. `__`는 일반적인 사용 방법이고 `_p`는 여러 개의 문자열을 위해 사용하는 방법입니다. 아래 예시를 보세요.
 
 ``` yaml en.yml
 index:
@@ -38,15 +38,15 @@ index:
 // 3 videos
 ```
 
-### Path
+### 경로
 
-You can set the language of pages in front-matter, or modify the `i18n_dir` setting in `_config.yml` to enable automatic detection by Hexo.
+페이지에서 사용할 언어는 front-matter에서도 설정이 가능합니다. `_config.yml` 파일의 `i18n_dir` 항목을 수정하면 Hexo가 자동으로 감지할 수 있습니다.
 
 ``` yaml
 i18n_dir: :lang
 ```
 
-The default value of `i18n_dir` setting is `:lang`, which means that Hexo will detect the language within the first segment of URL. For example:
+`i18n_dir` 설정의 기본 값은 `:lang` 이며, Hexo는 URL의 첫 번째 세그먼트에서 언어를 감지합니다. For example:
 
 ``` plain
 /index.html => en
@@ -54,4 +54,4 @@ The default value of `i18n_dir` setting is `:lang`, which means that Hexo will d
 /zh-tw/index.html => zh-tw
 ```
 
-The string will only be served as a language when the language file exists. So `archives` in `/archives/index.html` (example 2) will not get served as a language.
+언어 파일이 존재할 때에만 문자열이 서로 다른 언어로 제공됩니다. 따라서 위 예시에서 `/archives/index.html`의 `archives`는 다른 언어로 제공되지 않습니다.
