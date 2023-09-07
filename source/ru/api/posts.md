@@ -1,63 +1,63 @@
 ---
-title: Posts
+title: Должности
 ---
 
-## Create a Post
+## Создание поста
 
 ``` js
-hexo.post.create(data, replace);
+hexo.post.create(данные, замену);
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| Аргумент   | Описание                    |
+| ---------- | --------------------------- |
+| `данные`   | Данные                      |
+| `заменить` | Заменять существующие файлы |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+Атрибуты поста можно установить в переменной `data`. Таблица ниже не является полной. Дополнительные атрибуты могут быть добавлены в шапке поста.
 
-| Data     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| `title`  | Title                                                                            |
-| `slug`   | URL                                                                              |
-| `layout` | Layout. Defaults to the `default_layout` setting.                                |
-| `path`   | Path. Hexo builds the post path based on the `new_post_path` setting by default. |
-| `date`   | Date. Defaults to the current date.                                              |
+| Данные     | Описание                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `название` | Заголовок                                                                                         |
+| `слаг`     | Ссылка                                                                                            |
+| `макет`    | Шаблон. По умолчанию в настройках указано `default_layout`.                                       |
+| `путь`     | Путь. По умолчанию Hexo строит пути на основе переменной `new_post_path`, указанной в настройках. |
+| `дата`     | Дата. По умолчанию — текущая дата.                                                                |
 
-## Publish a Draft
+## Опубликовать черновик
 
 ``` js
-hexo.post.publish(data, replace);
+hexo.post.publish(данные, замена);
 ```
 
-| Argument  | Description            |
-| --------- | ---------------------- |
-| `data`    | Data                   |
-| `replace` | Replace existing files |
+| Аргумент   | Описание                    |
+| ---------- | --------------------------- |
+| `данные`   | Дата                        |
+| `заменить` | Заменять существующие файлы |
 
-The attributes of a post can be defined in `data`. The table below is not exhaustive. Additional attributes may be appended to the front-matter.
+Атрибуты поста можно установить в переменной `data`. Таблица ниже не является полной. Дополнительные атрибуты могут быть добавлены в шапке поста.
 
-| Data     | Description                                       |
-| -------- | ------------------------------------------------- |
-| `slug`   | File name (Required)                              |
-| `layout` | Layout. Defaults to the `default_layout` setting. |
+| Данные  | Описание                                                                             |
+| ------- | ------------------------------------------------------------------------------------ |
+| `слаг`  | Имя файла (Обязательно)                                                              |
+| `макет` | Шаблон. По умолчанию берется из переменной `default_layout`, указанной в настройках. |
 
-## Render
+## Рендер
 
 ``` js
-hexo.post.render(source, data);
+hexo.post.render(источник, данные);
 ```
 
-| Argument | Description                    |
-| -------- | ------------------------------ |
-| `source` | Full path of a file (Optional) |
-| `data`   | Data                           |
+| Аргумент   | Описание                            |
+| ---------- | ----------------------------------- |
+| `источник` | Полный путь к файлу (необязательно) |
+| `данные`   | Данные                              |
 
-The data must contain the `content` attribute. If not, Hexo will try to read the original file. The execution steps of this function are as follows:
+Данные должны содержать атрибут `content`. Если нет, Hexo постарается прочитать исходный файл. Этапы выполнения этой функции следующие:
 
-- Execute `before_post_render` filters
-- Render with Markdown or other renderers (depending on the extension name)
-- Render with [Nunjucks][]
-- Execute `after_post_render` filters
+- Предобработка фильтрами `before_post_render`
+- Обработка с помощью Markdown или другого обработчика (выбирается в зависимости от расширения)
+- Обработка [Nunjucks][]
+- Постобработка фильтрами `after_post_render`
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
 
