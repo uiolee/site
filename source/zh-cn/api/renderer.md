@@ -1,31 +1,34 @@
 ---
-title: 渲染引擎（Renderer）
+title: Renderer
 ---
-渲染引擎用于渲染内容。
 
-## 概要
+A renderer is used to render content.
+
+## Synopsis
 
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
+  // ...
 }, sync);
 ```
 
-参数 | 描述
---- | ---
-`name` | 输入的扩展名（小写，不含开头的 `.`）
-`output` | 输出的扩展名（小写，不含开头的 `.`）
-`sync` | 同步模式
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
-渲染函数中会传入两个参数：
+Three arguments will be passed into the render function:
 
-参数 | 描述
---- | ---
-`data` | 包含两个属性：文件路径 `path` 和文件内容 `text`。`path` 不一定存在。
-`option` | 选项
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
-## 范例
+## Example
 
-### 非同步模式
+### Async Mode
 
 ``` js
 var stylus = require('stylus');
@@ -43,7 +46,7 @@ hexo.extend.renderer.register('styl', 'css', function(data, options){
 });
 ```
 
-### 同步模式
+### Sync Mode
 
 ``` js
 var ejs = require('ejs');
@@ -54,9 +57,9 @@ hexo.extend.renderer.register('ejs', 'html', function(data, options){
 }, true);
 ```
 
-### 禁用 Nunjucks 标签
+### Disable Nunjucks tags
 
-Nunjucks 标签 `{{ }}` 或 `{% %}` (被 [标签插件](/zh-cn/docs/tag-plugins) 所使用) 默认会被处理，想要禁用：
+Nunjucks tags `{{ }}` or `{% %}` (utilized by [tag plugin](/docs/tag-plugins)) are processed by default, to disable:
 
 ``` js
 function lessFn(data, options) {
