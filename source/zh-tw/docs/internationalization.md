@@ -14,11 +14,11 @@ language:
 
 ### 語言檔案
 
-Language files can be YAML or JSON files. 語言檔案可以 YAML 或 JSON 呈現，並放在主題資料夾中的 `languages` 資料夾。 您可在語言檔案中使用 [printf 格式](https://github.com/alexei/sprintf.js)。
+Language files can be YAML or JSON files. 語言檔案可以 YAML 或 JSON 呈現，並放在主題資料夾中的 `languages` 資料夾。 語言檔案可以 YAML 或 JSON 呈現，並放在主題資料夾中的 `languages` 資料夾。 您可在語言檔案中使用 [printf 格式](https://github.com/alexei/sprintf.js)。
 
 ### 模板
 
-Use `__` or `_p` helpers in templates to get the translated strings. The former is for normal usage and the latter is for plural strings. For example:
+Use `__` or `_p` helpers in templates to get the translated strings. The former is for normal usage and the latter is for plural strings. For example: The former is for normal usage and the latter is for plural strings. For example:
 
 ``` yaml en.yml
 index:
@@ -54,4 +54,4 @@ i18n_dir: :lang
 /zh-tw/index.html => zh-tw
 ```
 
-The string will only be served as a language when the language file exists. 擷取到的字串唯有在語言檔存在的情況下，才會被當作是語言，因此例二 `/archives/index.html` 中的 `archives` 就不被當成是語言。
+The string will only be served as a language when the language file exists. 擷取到的字串唯有在語言檔存在的情況下，才會被當作是語言，因此例二 `/archives/index.html` 中的 `archives` 就不被當成是語言。 擷取到的字串唯有在語言檔存在的情況下，才會被當作是語言，因此例二 `/archives/index.html` 中的 `archives` 就不被當成是語言。
