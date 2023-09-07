@@ -2,7 +2,7 @@
 title: Rendering
 ---
 
-มีทั้งหมดสองวิธีสำหรับการ render ไฟล์หรือ string ใน hexo : `hexo.render.render`ท่ีเป็น asynchronous และวิธี `hexo.render.renderSync` ท่ีเป็น  synchronous เนื่องจากว่าสองวิธีนี้คล้ายกันมาก ก็เลยมีการอธิบายแต่ `hexo.render.render` ท่ีเป็นวิธี asynchronous เท่านั้นในย่อหน้าต่อไป Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs.
+มีทั้งหมดสองวิธีสำหรับการ render ไฟล์หรือ string ใน hexo : `hexo.render.render`ท่ีเป็น asynchronous และวิธี `hexo.render.renderSync` ท่ีเป็น  synchronous เนื่องจากว่าสองวิธีนี้คล้ายกันมาก ก็เลยมีการอธิบายแต่ `hexo.render.render` ท่ีเป็นวิธี asynchronous เท่านั้นในย่อหน้าต่อไป Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs. Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs.
 
 ## Render a String
 
@@ -16,7 +16,7 @@ hexo.render.render({text: 'example', engine: 'swig'}).then(function(result){
 
 ## Render a File
 
-เมื่อ render ไฟล์ จะไม่ต้องชี้ `engine` ให้ชั้ดเจน เพราะว่า hexo จะค้นหา rendering engine ท่ีเกี่ยวข้องตาม extension ของไฟล์โดยอัตโนมัติ แต่ถ้าชี้ `engine` ให้ชั้ดเจนก็ไม่มีปัญหา Of course, you are also allowed to explicitly define the `engine`.
+เมื่อ render ไฟล์ จะไม่ต้องชี้ `engine` ให้ชั้ดเจน เพราะว่า hexo จะค้นหา rendering engine ท่ีเกี่ยวข้องตาม extension ของไฟล์โดยอัตโนมัติ แต่ถ้าชี้ `engine` ให้ชั้ดเจนก็ไม่มีปัญหา Of course, you are also allowed to explicitly define the `engine`. Of course, you are also allowed to explicitly define the `engine`.
 
 ``` js
 hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
@@ -36,7 +36,7 @@ hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
 
 ## after_render Filters
 
-เมื่อเสร็จการ rendering hexo จะ execute filter `after_render` ยกตัวอย่างเช่น ผู้ใช้สามารถ implement a JavaScript minifier ด้วยลักษณะนี้ For example, we can use this feature to implement a JavaScript minifier.
+เมื่อเสร็จการ rendering hexo จะ execute filter `after_render` ยกตัวอย่างเช่น ผู้ใช้สามารถ implement a JavaScript minifier ด้วยลักษณะนี้ เมื่อเสร็จการ rendering hexo จะ execute filter `after_render` ยกตัวอย่างเช่น ผู้ใช้สามารถ implement a JavaScript minifier ด้วยลักษณะนี้ For example, we can use this feature to implement a JavaScript minifier.
 
 ``` js
 var UglifyJS = require('uglify-js');
@@ -49,7 +49,7 @@ hexo.extend.filter.register('after_render:js', function(str, data){
 
 ## Check Whether a File is Renderable
 
-ผู้ใช้สามารถใช้วิธี `isRenderable` หรือ  `isRenderableSync` ไปตรวจว่าไฟล์นั้น renderable  หรือไม่ เมื่อมี renderer ท่ีเกี่ยวข้อง ผลท่ีส่งกลับจะเป็น true Only when a corresponding renderer has been registered will this method return true.
+ผู้ใช้สามารถใช้วิธี `isRenderable` หรือ  `isRenderableSync` ไปตรวจว่าไฟล์นั้น renderable  หรือไม่ เมื่อมี renderer ท่ีเกี่ยวข้อง ผลท่ีส่งกลับจะเป็น true ผู้ใช้สามารถใช้วิธี `isRenderable` หรือ  `isRenderableSync` ไปตรวจว่าไฟล์นั้น renderable  หรือไม่ เมื่อมี renderer ท่ีเกี่ยวข้อง ผลท่ีส่งกลับจะเป็น true Only when a corresponding renderer has been registered will this method return true.
 
 ``` js
 hexo.render.isRenderable('layout.swig') // true
