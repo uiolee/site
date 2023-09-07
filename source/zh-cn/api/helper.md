@@ -1,16 +1,20 @@
 ---
-title: 辅助函数（Helper）
+title: Helper
 ---
-辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。
 
-## 概要
+A helper makes it easy to quickly add snippets to your templates. We recommend using helpers instead of templates when you're dealing with more complicated code.
+
+Helpers can not be accessed from `source` files.
+
+## Synopsis
 
 ``` js
 hexo.extend.helper.register(name, function(){
+  // ...
 });
 ```
 
-## 范例
+## Example
 
 ``` js
 hexo.extend.helper.register('js', function(path){
@@ -23,15 +27,15 @@ hexo.extend.helper.register('js', function(path){
 // <script src="script.js"></script>
 ```
 
-## 常见问题
+## FAQ
 
-### 定制 helper 应该放在哪里？
+### Where to place custom helper?
 
-放置在 `scripts/` 或 `themes/<yourtheme>/scripts/` 目录中。
+Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
 
-### 如何在我的定制 helper 中使用另外一个已经注册的 helper？
+### How do I use another registered helper in my custom helper?
 
-所有的辅助函数都在同一个上下文中执行。例如，在一个自定义的辅助函数中使用 [`url_for()`](/zh-cn/docs/helpers#url-for)：
+All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
@@ -39,9 +43,9 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### 如何在其他插件中使用已经注册的 helper?
+### How do I use a registered helper in another extension (e.g. Filter, Injector, etc)?
 
-`hexo.extend.helper.get` 会返回一个指定名字的 helper，但是你还需要一个 `bind(hexo)`，就像这样：
+`hexo.extend.helper.get` will return the helper function, but it needs to have hexo as its context, so:
 
 ``` js
 const url_for = hexo.extend.helper.get('url_for').bind(hexo);
