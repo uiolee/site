@@ -2,7 +2,7 @@
 title: Troubleshooting
 ---
 
-In case you're experiencing problems with using Hexo, here is a list of solutions to some frequently encountered issues. If this page doesn't help you solve your problem, try doing a search on [GitHub](https://github.com/hexojs/hexo/issues) or our [Google Group](https://groups.google.com/group/hexo).
+In case you're experiencing problems with using Hexo, here is a list of solutions to some frequently encountered issues. 자주 발생하는 문제에 대해 정리해 두었습니다. 만약 이 문서에서 해결 방안을 찾지 못하였다면 [GitHub](https://github.com/hexojs/hexo/issues) 또는 [Google Group](https://groups.google.com/group/hexo)을 검색해 보세요.
 
 ## YAML Parsing Error
 
@@ -11,16 +11,16 @@ JS-YAML: incomplete explicit mapping pair; a key node is missed at line 18, colu
       last_updated: Last updated: %s
 ```
 
-Wrap the string with quotations if it contains colons.
+문자열이 콜론(:)을 포함하고 있다면 따옴표(")로 감싸주세요.
 
 ``` plain
 JS-YAML: bad indentation of a mapping entry at line 18, column 31:
       last_updated:"Last updated: %s"
 ```
 
-Make sure you are using soft tabs and add a space after colons.
+Soft tab의 사용을 명확히 하고 콜론(:) 뒤에는 공백을 추가해 주세요.
 
-You can see [YAML Spec](http://www.yaml.org/spec/1.2/spec.html) for more info.
+[YAML Spec](http://www.yaml.org/spec/1.2/spec.html)에서 더 많은 정보를 확인하실 수 있습니다.
 
 ## EMFILE Error
 
@@ -28,7 +28,7 @@ You can see [YAML Spec](http://www.yaml.org/spec/1.2/spec.html) for more info.
 Error: EMFILE, too many open files
 ```
 
-Though Node.js has non-blocking I/O, the maximum number of synchronous I/O is still limited by the system. You may come across an EMFILE error when trying to generate a large number of files. You can try to run the following command to increase the number of allowed synchronous I/O operations.
+Node.js가 non-blocking I/O를 가지고 있음에도 불구하고, 동기적 I/O의 최대 개수는 아직도 시스템에 의해 제한됩니다. 많은 수의 파일을 생성하려 할 때 EMFILE error가 발생할 수 있습니다. 이 경우 동기적 I/O의 개술를 증가시키기 위해 아래의 명령어를 수행해 보세요.
 
 ``` bash
 $ ulimit -n 10000
@@ -69,15 +69,15 @@ To override the limit:
 
 3. Reboot
 
-## Process Out of Memory
+## process out of memory
 
-When you encounter this error during generation:
+생성(generation)중에 이 error가 발생할 수 있습니다.:
 
 ```
 FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - process out of memory
 ```
 
-Increase Node.js heap memory size by changing the first line of `hexo-cli` (`which hexo` to look for the file).
+`hexo-cli`의 첫 줄에 있는 Node.js heap memory size를 증가시키세요(파일을 찾기 위해 `which hexo` 명령을 사용해 보세요).
 
 ```
 #!/usr/bin/env node --max_old_space_size=8192
@@ -95,7 +95,7 @@ error: RPC failed; result=22, HTTP code = 403
 fatal: 'username.github.io' does not appear to be a git repository
 ```
 
-Make sure you have [set up git](https://help.github.com/articles/set-up-git) on your computer properly or try to use HTTPS repository URL instead.
+당신의 컴퓨터에 [GIT 설정](https://help.github.com/articles/set-up-git)이 제대로 되어있는지 확인하거나 HTTPS 저장소 URL을 사용해 보세요.
 
 ### Error: ENOENT: no such file or directory
 
@@ -118,7 +118,7 @@ To fix this, try
 Error: listen EADDRINUSE
 ```
 
-You may have started two Hexo servers at the same time or there might be another application using the same port. Try to modify the `port` setting or start the Hexo server with the `-p` flag.
+동시에 두 개의 Hexo server를 실행시키려 하거나 다른 어플리케이션이 같은 포트를 사용하려고 할 때 발생합니다. `port` 설정을 수정하거나 Hexo server를 `-p` 플래그와 함께 시작해 보세요.
 
 ``` bash
 $ hexo server -p 5000
@@ -130,7 +130,7 @@ $ hexo server -p 5000
 npm ERR! node-waf configure build
 ```
 
-This error may occur when trying to install a plugin written in C, C++ or other non-JavaScript languages. Make sure you have installed the right compiler on your computer.
+이 에러는 JavaScript가 아닌 C, C++ 등으로 작성된 플러그인을 설치하려 할 때 발생합니다. 컴퓨터에 맞는 올바른 컴파일러를 설치해 보세요.
 
 ## Error with DTrace (Mac OS X)
 
@@ -140,17 +140,17 @@ This error may occur when trying to install a plugin written in C, C++ or other 
 { [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
 ```
 
-DTrace install may have issue, use this:
+DTrace의 설치가 문제를 일으킬 수 있습니다. 아래 명령을 사용해 보세요.
 
 ```sh
 $ npm install hexo --no-optional
 ```
 
-See [#1326](https://github.com/hexojs/hexo/issues/1326#issuecomment-113871796)
+[#1326](https://github.com/hexojs/hexo/issues/1326#issuecomment-113871796) 이슈를 확인해 보세요.
 
 ## Iterate Data Model on Jade or Swig
 
-Hexo uses [Warehouse][] for its data model. It's not an array so you may have to transform objects into iterables.
+Hexo는 데이터 모델로 [Warehouse][]을 사용합니다. 이는 배열(array)이 아니기 때문에 iterable하게 object를 변환해야 합니다.
 
 ```
 {% for post in site.posts.toArray() %}
@@ -159,7 +159,7 @@ Hexo uses [Warehouse][] for its data model. It's not an array so you may have to
 
 ## Data Not Updated
 
-Some data cannot be updated, or the newly generated files are identical to those of the last version. Clean the cache and try again.
+몇몇 데이터가 갱신되지 않거나 새로 생성되는 파일들이 마지막 버전과 동일할 경우입니다. 캐시를 정리하고 다시 시도해 보세요.
 
 ``` bash
 $ hexo clean
@@ -179,7 +179,7 @@ When you can't get any command except `help`, `init` and `version` to work and y
 
 ## Escape Contents
 
-Hexo uses [Nunjucks][] to render posts ([Swig][] was used in older version, which share a similar syntax). Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
+Hexo는 포스트를 렌더링하는데 [Nunjucks][]를 사용합니다([Swig][]은 이전 버전에서 사용했었습니다. `{{ }}` 또는 `{% %}`로 감싼 컨텐츠는 파싱된 후에 문제를 발생시킵니다. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
 
 ```
 {% raw %}
@@ -195,19 +195,19 @@ Hello {{ world }}
 
 ## ENOSPC Error (Linux)
 
-Sometimes when running the command `$ hexo server` it returns an error:
+`$ hexo server`명령어가 가끔 error를 반환할 때가 있습니다.
 
 ```
 Error: watch ENOSPC ...
 ```
 
-It can be fixed by running `$ npm dedupe` or, if that doesn't help, try the following in the Linux console:
+`$ npm dedupe`를 실행하여도 해결되지 않는다면 Linux console에서 아래 명령을 수행해 보세요.
 
 ```
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-This will increase the limit for the number of files you can watch.
+이 명령어는 감시(watch)할 수 있는 파일의 개수 제한을 증가시킵니다.
 
 ## EMPERM Error (Windows Subsystem for Linux)
 
@@ -282,5 +282,5 @@ $ yarn add js-yaml@latest
 if you use `yarn`.
 
 [Warehouse]: https://github.com/hexojs/warehouse
-[Swig]: https://node-swig.github.io/swig-templates/
+[Swig]: http://paularmstrong.github.io/swig/
 [Nunjucks]: https://mozilla.github.io/nunjucks/
