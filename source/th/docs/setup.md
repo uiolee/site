@@ -27,11 +27,11 @@ $ npm install
 
 ### _config.yml
 
-ไฟล์ของไซต์ [configuration](configuration.html)  คุณสามารถตั้งค่ามากขึ้น ณ ท่ีนี้ You can configure most settings here.
+ไฟล์ของไซต์ [configuration](configuration.html)  คุณสามารถตั้งค่ามากขึ้น ณ ท่ีนี้ ไฟล์ของไซต์ [configuration](configuration.html)  คุณสามารถตั้งค่ามากขึ้น ณ ท่ีนี้ You can configure most settings here.
 
 ### package.json
 
-ข้อมูลของแอป. renderer ของ [EJS](https://ejs.co/)  [Stylus](http://learnboost.github.io/stylus/) และ  [Markdown](http://daringfireball.net/projects/markdown/) จะติดตั้ง by default คุณสามารถลยออก renderer พวกนี้ได้ในเวลาภายหลัง If you want, you can uninstall them later.
+ข้อมูลของแอป. renderer ของ [EJS](https://ejs.co/)  [Stylus](http://learnboost.github.io/stylus/) และ  [Markdown](http://daringfireball.net/projects/markdown/) จะติดตั้ง by default คุณสามารถลยออก renderer พวกนี้ได้ในเวลาภายหลัง If you want, you can uninstall them later. If you want, you can uninstall them later.
 
 ``` json package.json
 {
