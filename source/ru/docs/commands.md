@@ -1,194 +1,194 @@
 ---
-title: Commands
+title: Команды
 ---
 
 ## init
 
 ``` bash
-$ hexo init [folder]
+$ гексора [folder]
 ```
 
-Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
+Инициализирует сайт. Если переменная `folder` не указана, Hexo создаёт сайт в текущей папке.
 
-This command is a shortcut that runs the following steps:
+Эта команда представляет собой ярлык, который выполняет следующие действия:
 
-1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) including [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) into the current directory or a target folder if specified.
-2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
+1. Создаёт слон Git репозитория [hexo-starter](https://github.com/hexojs/hexo-starter) включая [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) в текущий каталог или,если указана, в целевую папку.
+2. Установите зависимости с помощью менеджера пакетов: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) или [npm](https://docs.npmjs.com/cli/install), в зависимости от того, что установлено; если установлено более одного, приоритет указан в списке. npm поставляется в комплекте с [Node.js](/docs/#Install-Node-js) by default.
 
-## new
+## новый
 
 ``` bash
-$ hexo new [layout] <title>
+$ шестисот новый [layout] <title>
 ```
 
-Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+Будет создана новая статья. Если макет не был указан, Hexo будет использовать значение `default_layout`, указанное в [_config.yml](configuration.html). Используйте макет `черновик` для создания черновика. Если название содержит пробелы, заключите его в кавычки.
 
-| Option            | Description                                |
-| ----------------- | ------------------------------------------ |
-| `-p`, `--path`    | Post path. Customize the path of the post. |
-| `-r`, `--replace` | Replace the current post if existed.       |
-| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+| Параметр          | Описание                                         |
+| ----------------- | ------------------------------------------------ |
+| `-p`, `--path`    | Пост путь. Настройте путь к сообщению.           |
+| `-r`, `--replace` | Заменить текущее сообщение, если оно существует. |
+| `-s`, `--slug`    | Пост слаг. Настроить URL сообщения.              |
 
-By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+По умолчанию, Hexo будет использовать заголовок для определения пути к файлу. Для страниц он создаст каталог с таким именем и в нём файл `index.md`. Используйте опцию `--path` для переопределения этого поведения и задания пути к файлу:
 
 ```bash
 hexo new page --path about/me "About me"
 ```
 
-will create `source/about/me.md` file with the title "About me" set in the front matter.
+создаст файл `source/about/me.md` с названием "About me" в передней части вопроса.
 
-Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+Пожалуйста, обратите внимание, что название является обязательным. Например, это не приведет к поведению, которое вы можете ожидать:
 
 ```bash
-hexo new page --path about/me
+hexo новая страница --path about/me
 ```
 
-will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
+создаст пост `source/_posts/about/me.md` с заголовком "page" на передней странице. Это потому, что существует только один аргумент (`page`) и макет по умолчанию `пост`.
 
-## generate
+## генерировать
 
 ``` bash
-$ hexo generate
+Сгенерировать $ шестиугольника
 ```
 
-Generates static files.
+Генерирует файлы.
 
-| Option                | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| `-d`, `--deploy`      | Deploy after generation finishes                                         |
-| `-w`, `--watch`       | Watch file changes                                                       |
-| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
-| `-f`, `--force`       | Force regenerate                                                         |
-| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
+| Параметр              | Описание                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| `-d`, `--deploy`      | Развертывание после завершения генерации                                                   |
+| `-w`, `--watch`       | Отслеживать изменения файлов                                                               |
+| `-b`, `--bail`        | Вызвать ошибку, если во время генерации выбрасывается какое-либо необработанное исключение |
+| `-f`, `--force`       | Принудительная регенерация                                                                 |
+| `-c`, `--concurrency` | Максимальное количество файлов для создания параллельно. По умолчанию бесконечность        |
 
-## publish
+## опубликовать
 
 ``` bash
 $ hexo publish [layout] <filename>
 ```
 
-Publishes a draft.
+Публикует черновик.
 
-## server
-
-``` bash
-$ hexo server
-```
-
-Starts a local server. By default, this is at `http://localhost:4000/`.
-
-| Option           | Description                            |
-| ---------------- | -------------------------------------- |
-| `-p`, `--port`   | Override default port                  |
-| `-s`, `--static` | Only serve static files                |
-| `-l`, `--log`    | Enable logger. Override logger format. |
-
-## deploy
+## сервер
 
 ``` bash
-$ hexo deploy
+$ hexo сервер
 ```
 
-Deploys your website.
+Запускает локальный сервер. По умолчанию адрес: `http://localhost:4000/`.
 
-| Option             | Description                |
-| ------------------ | -------------------------- |
-| `-g`, `--generate` | Generate before deployment |
+| Параметр         | Описание                                                |
+| ---------------- | ------------------------------------------------------- |
+| `-p`, `--port`   | Переназначает стандартный порт                          |
+| `-s`, `--static` | Обрабатывать только статичные файлы                     |
+| `-l`, `--log`    | Включить журналирование. Переопределяет формат журнала. |
 
-## render
+## развернуть
 
 ``` bash
-$ hexo render <file1> [file2] ...
+$ hexo развертывание
 ```
 
-Renders files.
+Публикует сайт.
 
-| Option           | Description        |
-| ---------------- | ------------------ |
-| `-o`, `--output` | Output destination |
+| Параметр           | Описание                       |
+| ------------------ | ------------------------------ |
+| `-g`, `--generate` | Генерировать перед публикацией |
 
-## migrate
+## рендер
 
 ``` bash
-$ hexo migrate <type>
+$ hexo рендер <file1> [file2]...
 ```
 
-[Migrates](migration.html) content from other blog systems.
+Рендеры файлов.
 
-## clean
+| Вариант          | Описание    |
+| ---------------- | ----------- |
+| `-o`, `--output` | Путь вывода |
+
+## мигрировать
 
 ``` bash
-$ hexo clean
+$ шестнадцатого мигрировать <type>
 ```
 
-Cleans the cache file (`db.json`) and generated files (`public`).
+[Миграция](migration.html) контента из других систем.
 
-## list
+## очистить
 
 ``` bash
-$ hexo list <type>
+$ hexo чистый
 ```
 
-Lists all routes.
+Очищает кэш (`db.json`) и генерирует файлы для опубликования (`public`).
 
-## version
+## список
 
 ``` bash
-$ hexo version
+$ шестнадцатеричный список <type>
 ```
 
-Displays version information.
+Список всех путей.
 
-## Options
+## версия
 
-### Safe mode
+``` bash
+$ hexo версия
+```
+
+Отображает информацию о версии Hexo.
+
+## Опции
+
+### Безопасный режим
 
 ``` bash
 $ hexo --safe
 ```
 
-Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
+Отключает загрузку плагинов и скриптов. Применяется при возникновении проблем после установки нового плагина.
 
-### Debug mode
+### Режим отладки
 
 ``` bash
 $ hexo --debug
 ```
 
-Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
+Журнал подробных сообщений в терминале и `debug.log`. Применяется при возникновении проблем с Hexo. Если выдаются ошибки, пожалуйста, задайте вопрос на [GitHub](https://github.com/hexojs/hexo/issues/new).
 
-### Silent mode
+### Тихий режим
 
 ``` bash
 $ hexo --silent
 ```
 
-Silences output to the terminal.
+Заглушает выход в терминал.
 
-### Customize config file path
+### Настроить путь к файлу конфигурации
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
+Использует другой конфигурационный файл (вместо `_config.yml`). Также принимает разделенный запятыми список (без пробелов) конфигурационных файлов JSON или YAML, которые объединяют файлы в один файл `_multiconfig.yml`.
 
 ``` bash
 $ hexo --config custom.yml,custom2.json
 ```
 
-### Display drafts
+### Показать черновики
 
 ``` bash
 $ hexo --draft
 ```
 
-Displays draft posts (stored in the `source/_drafts` folder).
+Отображает черновики (хранящиеся в папке `source/_drafts`).
 
-### Customize CWD
+### Настройка CWD
 
 ``` bash
-$ hexo --cwd /path/to/cwd
+$ hexo --cwd /путь/к/свд
 ```
 
-Customizes the path of current working directory.
+Изменяет путь к текущей рабочей папке.
