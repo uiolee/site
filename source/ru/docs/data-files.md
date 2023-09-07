@@ -1,9 +1,12 @@
 ---
-title: Файлы с данными
+title: Data Files
 ---
-Иногда вам может понадобиться использовать данные в шаблонах, которых непосредственно нет в ваших сообщениях, или захотите использовать данные в других местах. Для таких случаев в Hexo 3 введены новые файлы данных. Эта утилита загружает YAML или JSON файлы из исходной папки `source/_data`, поэтому можно использовать их на вашем сайте.
 
-Например, добавить `menu.yml` в папку `source/_data`.
+Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new **Data files**. This feature loads YAML or JSON files in `source/_data` folder so you can use them in your site.
+
+{% youtube CN31plHbI-w %}
+
+For example, add `menu.yml` in `source/_data` folder.
 
 ``` yaml
 Home: /
@@ -11,7 +14,7 @@ Gallery: /gallery/
 Archives: /archives/
 ```
 
-Можно использовать их и в шаблонах:
+And you can use them in templates:
 
 ```
 <% for (var link in site.data.menu) { %>
@@ -19,7 +22,7 @@ Archives: /archives/
 <% } %>
 ```
 
-будет преобразовано в:
+render like this :
 
 ```
 <a href="/"> Home </a>
