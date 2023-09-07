@@ -4,7 +4,7 @@ title: Front-matter
 
 {% youtube pfD6FCZdW4Q %}
 
-front-matter เป็น block ของ YAML หรือ JSON ท่ีอยู่ข้างต้นของไฟล์ และใช้มาตั้งค่าโพสต์ของคุณ Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
+front-matter เป็น block ของ YAML หรือ JSON ท่ีอยู่ข้างต้นของไฟล์ และใช้มาตั้งค่าโพสต์ของคุณ front-matter เป็น block ของ YAML หรือ JSON ท่ีอยู่ข้างต้นของไฟล์ และใช้มาตั้งค่าโพสต์ของคุณ Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
 
 **YAML**
 
@@ -25,19 +25,19 @@ date: 2013/7/13 20:46:25
 
 ### Settings & Their Default Values
 
-| Setting           | Description                                                                                         | Default                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `layout`          | Layout                                                                                              | [`config.default_layout`](/docs/configuration#Writing) |
-| `title`           | Title                                                                                               | Filename (posts only)                                  |
-| `date`            | Published date                                                                                      | File created date                                      |
-| `updated`         | Updated date                                                                                        | File updated date                                      |
-| `comments`        | Enables comment feature for the post                                                                | true                                                   |
-| `tags`            | Tags (Not available for pages)                                                                      |                                                        |
-| `categories`      | Categories (Not available for pages)                                                                |                                                        |
-| `permalink`       | Overrides the default permalink of the post Permalink should end with `/` or `.html`                | `null`                                                 |
-| `excerpt`         | Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text    |                                                        |
-| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled | false                                                  |
-| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                      | Inherited from `_config.yml`                           |
+| Setting           | Description                                                                                                                      | Default                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `layout`          | Layout                                                                                                                           | [`config.default_layout`](/docs/configuration#Writing) |
+| `title`           | Title                                                                                                                            | Filename (posts only)                                  |
+| `date`            | Published date                                                                                                                   | File created date                                      |
+| `updated`         | Updated date                                                                                                                     | File updated date                                      |
+| `comments`        | Enables comment feature for the post                                                                                             | true                                                   |
+| `tags`            | Tags (Not available for pages)                                                                                                   |                                                        |
+| `categories`      | Categories (Not available for pages)                                                                                             |                                                        |
+| `permalink`       | Overrides the default permalink of the post Overrides the default permalink of the post Permalink should end with `/` or `.html` | `null`                                                 |
+| `excerpt`         | Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text                                 |                                                        |
+| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled                              | false                                                  |
+| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                                                   | Inherited from `_config.yml`                           |
 
 #### Layout
 
