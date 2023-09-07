@@ -2,7 +2,7 @@
 title: Filter
 ---
 
-A filter is used to modify some specified data. filter ใช้มาเป็นการแก้ไขข้อมูลเฉพาะ hexo ส่งข้อมูลเข้า filter ตามลำดับและ filter จะแก้ไขข้อมูลตามลำดับ ความคิดนี้มาจาก [WordPress](http://codex.wordpress.org/Plugin_API#Filters) This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
+A filter is used to modify some specified data. filter ใช้มาเป็นการแก้ไขข้อมูลเฉพาะ hexo ส่งข้อมูลเข้า filter ตามลำดับและ filter จะแก้ไขข้อมูลตามลำดับ ความคิดนี้มาจาก [WordPress](http://codex.wordpress.org/Plugin_API#Filters) filter ใช้มาเป็นการแก้ไขข้อมูลเฉพาะ hexo ส่งข้อมูลเข้า filter ตามลำดับและ filter จะแก้ไขข้อมูลตามลำดับ ความคิดนี้มาจาก [WordPress](http://codex.wordpress.org/Plugin_API#Filters) This concept was borrowed from [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
 
 ## Synopsis
 
@@ -33,7 +33,7 @@ hexo.extend.filter.execSync(type, data, options);
 | `context` | Context                           |
 | `args`    | Arguments. This must be an array. |
 
-The first argument passed into each filter is `data`. argument ตัวแรกคือ `data`   การแก้ไขค่าของ`data` จะเป็นการส่ง `data` เข้า filter และส่งค่าใหม่กลับมา ถ้าไม่มีข้อมูลส่งกลับมา ค่าของ `data` จะคงอยู่เหมือนเดิม ผู้ใช้สามารถใช้ `args` มาชี้ถึง argument อื่นๆใน filter ยกตัวอย่างเช่น: If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
+The first argument passed into each filter is `data`. argument ตัวแรกคือ `data`   การแก้ไขค่าของ`data` จะเป็นการส่ง `data` เข้า filter และส่งค่าใหม่กลับมา ถ้าไม่มีข้อมูลส่งกลับมา ค่าของ `data` จะคงอยู่เหมือนเดิม ผู้ใช้สามารถใช้ `args` มาชี้ถึง argument อื่นๆใน filter ยกตัวอย่างเช่น: If nothing is returned, the data remains unmodified. If nothing is returned, the data remains unmodified. You can even use `args` to specify other arguments in filters. For example:
 
 ``` js
 hexo.extend.filter.register('test', function(data, arg1, arg2){
