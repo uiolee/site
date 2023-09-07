@@ -12,6 +12,7 @@ Helpers can not be accessed from `source` files.
 hexo.extend.helper.register(name, function(){
 });
 });
+});
 ```
 
 ## 范例
