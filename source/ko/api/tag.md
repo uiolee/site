@@ -1,9 +1,10 @@
 ---
 title: Tag
 ---
-태그는 사용자가 포스트 내부에 정보(snippet)을 쉽고 빠르게 삽입할 수 있게 도와줍니다.
 
-## 개요
+A tag allows users to quickly and easily insert snippets into their posts.
+
+## Synopsis
 
 ``` js
 hexo.extend.tag.register(name, function(args, content){
@@ -11,9 +12,9 @@ hexo.extend.tag.register(name, function(args, content){
 }, options);
 ```
 
-`args`, `content` 두 개의 인자가 함수를 통해 전달됩니다. `args`는 태그 플러그인으로 전달되는 인자들을 포함하고 `content`는 태그 플러그인에서 사용할 포장된 내용(wrapped content)을 나타냅니다.
+Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
 
-Hexo 3에서 비동기 렌더링을 도입한 이후, 우리는 렌더링을 위해 [Nunjucks]를 사용합니다. 이 동작은 [Swig]과는 조금 다를 수 있습니다.
+Since the introduction of asynchronous rendering in Hexo 3, we are using [Nunjucks][] for rendering. The behavior may be somewhat different from that in [Swig][].
 
 ## Unregister Tags
 
@@ -37,21 +38,21 @@ hexo.extend.tag.unregister('youtube');
 hexo.extend.tag.register('youtube', tagFn);
 ```
 
-## 옵션
+## Options
 
 ### ends
 
-end 태그를 사용합니다. 기본값은 `false`입니다.
+Use end tags. This option is `false` by default.
 
 ### async
 
-비동기(async) 모드를 활성화 합니다. 기본값은 `false`입니다.
+Enable async mode. This option is `false` by default.
 
-## 예시
+## Examples
 
-### End 태그를 사용하지 않을 때
+### Without End Tags
 
-Youtube video를 삽입하는 예시입니다.
+Insert a Youtube video.
 
 ``` js
 hexo.extend.tag.register('youtube', function(args){
@@ -60,9 +61,9 @@ hexo.extend.tag.register('youtube', function(args){
 });
 ```
 
-### End 태그를 사용했을 때
+### With End Tags
 
-Pull quote를 삽입하는 예시입니다.
+Insert a pull quote.
 
 ``` js
 hexo.extend.tag.register('pullquote', function(args, content){
@@ -71,9 +72,9 @@ hexo.extend.tag.register('pullquote', function(args, content){
 }, {ends: true});
 ```
 
-### 비동기 렌더링
+### Async Rendering
 
-파일을 삽입하는 예시입니다.
+Insert a file.
 
 ``` js
 var fs = require('hexo-fs');
@@ -143,4 +144,4 @@ module.exports = hexo => {
 ```
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
-[Swig]: http://paularmstrong.github.io/swig/
+[Swig]: https://node-swig.github.io/swig-templates/
