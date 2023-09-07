@@ -1,10 +1,10 @@
 ---
-title: Deployer
+title: Implantador
 ---
 
-A deployer helps users quickly deploy their site to a remote server without complicated commands.
+Um deployer ajuda os usuários a publicarem rapidamente seu site em um servidor remoto sem comandos complicados.
 
-## Synopsis
+## Sinopse
 
 ``` js
 hexo.extend.deployer.register(name, function(args){
@@ -12,4 +12,4 @@ hexo.extend.deployer.register(name, function(args){
 });
 ```
 
-An argument `args` will be passed into the function. It contains the `deploy` value set in `_config.yml`, as well as the exact input users typed into their terminal.
+Um argumento `args` será passado para a função. Contém o valor `deploy` definido em `_config.yml`, bem como os usuários de entrada exatos digitados em seu terminal.
