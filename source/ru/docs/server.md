@@ -1,41 +1,43 @@
 ---
-title: Server
+title: Сервер
 ---
 
-## [hexo-server][]
+## [шестнадцатеричный сервер][]
 
-With the release of Hexo 3, the server has been separated from the main module. To start using the server, you will first have to install [hexo-server][].
-
-``` bash
-$ npm install hexo-server --save
-```
-
-Once the server has been installed, run the following command to start the server. Your website will run at `http://localhost:4000` by default. When the server is running, Hexo will watch for file changes and update automatically so it's not necessary to manually restart the server.
+С релизом Hexo 3 сервер был отделен от основного модуля. Чтобы начать использовать сервер, нужно установить [hexo-server][].
 
 ``` bash
-$ hexo server
+$ npm установить hexo-server --save
 ```
 
-If you want to change the port or if you're encountering `EADDRINUSE` errors, use the `-p` option to set a different port.
+После установки сервера, выполните эту команду для запуска сервера. Ваш сайт будет доступен по адресу `http://localhost:4000` по умолчанию. Когда сервер запущен, Hexo будет отслеживать изменения файлов и автоматически обновлять содержание сайта, поэтому нет нужды вручную перезапускать сервер.
 
 ``` bash
-$ hexo server -p 5000
+$ hexo сервер
 ```
 
-### Static Mode
-
-In static mode, only files in the `public` folder will be served and file watching is disabled. You have to run `hexo generate` before starting the server. Usually used in production.
+Если вы хотите изменить порт или появляется ошибка `EADDRINUSE`, используйте опцию `-p` для задания другого порта.
 
 ``` bash
-$ hexo server -s
+$ hexo сервер -p 5000
 ```
 
-### Custom IP
+### Статичный режим
 
-Hexo runs the server at `0.0.0.0` by default. You can override the default IP setting.
+В статичном режиме, будут обработаны файлы только в общей папке `public`, отслеживание файлов будет отключено. Нужно запустить `hexo generate` перед запуском сервера. Обычно используется перед публикацией.
 
 ``` bash
-$ hexo server -i 192.168.1.1
+$ hexo сервер -s
 ```
+
+### Другой IP
+
+Hexo запускает сервер с IP `127.0.0.1` по умолчанию. Это можно изменить в настройках IP по умолчанию.
+
+``` bash
+$ hexo сервер -i 192.168.1.1
+```
+
+[шестнадцатеричный сервер]: https://github.com/hexojs/hexo-server
 
 [hexo-server]: https://github.com/hexojs/hexo-server
