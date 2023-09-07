@@ -10,6 +10,7 @@ title: 标签插件（Tag）
 hexo.extend.tag.register(name, function(args, content){
 }, options);
 }, options);
+}, options);
 ```
 
 标签函数会传入两个参数：`args` 和 `content`，前者代表开发者在使用标签插件时传入的参数，而后者则是标签插件所覆盖的内容。 `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
@@ -46,7 +47,7 @@ Use end tags. 使用结束标签，此选项默认为 `false`。
 
 ### async
 
-Enable async mode. This option is `false` by default.
+Enable async mode. Enable async mode. This option is `false` by default.
 
 ## 范例
 
@@ -127,6 +128,16 @@ hexo.extend.tag.register('foo', function (args) {
 
   return 'foo';
 });
+
+  // Front-matter
+  const { title } = this; // article's (post/page) title
+
+  // Article's content
+  const { _content } = this; // original content
+  const { content } = this; // HTML-rendered content
+
+  return 'foo';
+});
 ```
 
 2.
@@ -145,6 +156,12 @@ module.exports = hexo => {
 
     const { config: themeCfg } = hexo.theme;
     if (themeCfg.fancybox) // do something...
+
+    const { title, _content, content } = this;
+
+    return 'foo';
+  };
+};
 
     const { title, _content, content } = this;
 
