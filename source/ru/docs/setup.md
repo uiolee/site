@@ -1,7 +1,10 @@
 ---
-title: Установка
+title: Setup
 ---
-После установки Hexo, запустите следующие команды в консоли для инициализации Hexo в папке `<folder>`.
+
+{% youtube 0m2HnATkHOk %}
+
+Once Hexo is installed, run the following commands to initialize Hexo in the target `<folder>`.
 
 ``` bash
 $ hexo init <folder>
@@ -9,7 +12,7 @@ $ cd <folder>
 $ npm install
 ```
 
-После инициализации папка будет выглядеть так:
+Once initialized, here's what your project folder will look like:
 
 ``` plain
 .
@@ -24,11 +27,11 @@ $ npm install
 
 ### _config.yml
 
-Файл [конфигурации](configuration.html) сайта. В нём возможно настроить большинство параметров.
+Site [configuration](configuration.html) file. You can configure most settings here.
 
 ### package.json
 
-Данные приложений. [EJS](https://ejs.co/)-, [Stylus](http://learnboost.github.io/stylus/)- и [Markdown](http://daringfireball.net/projects/markdown/)-обработчики устанавливаются по умолчанию. При желании можно удалить их позже.
+Application data. The [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) and [Markdown](http://daringfireball.net/projects/markdown/) renderers are installed by default. If you want, you can uninstall them later.
 
 ``` json package.json
 {
@@ -54,12 +57,12 @@ $ npm install
 
 ### scaffolds
 
-Папка с [заготовками](writing.html#Заготовки). При создании нового поста Hexo формирует файл в папке scaffold.
+[Scaffold](writing.html#Scaffolds) folder. When you create a new post, Hexo bases the new file on the scaffold.
 
 ### source
 
-Папка с исходниками. Это содержащая сайт папка. Hexo игнорирует скрытые файлы и файлы или папки, имена которых начинаются с `_` (подчеркивания). Исключением является папка `_posts`. Обрабатываемые файлы (напр., markdown, HTML) будут вставлены в общую папку, остальные файлы просто копируются.
+Source folder. This is where you put your site's content. Hexo ignores hidden files and files or folders whose names are prefixed with `_` (underscore) - except the `_posts` folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the `public` folder, while other files will simply be copied.
 
 ### themes
 
-Папка с [темами](themes.html). Hexo генерирует статический сайт, комбинируя содержимое сайта с темой.
+[Theme](themes.html) folder. Hexo generates a static website by combining the site contents with the theme.
