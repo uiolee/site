@@ -1,5 +1,5 @@
 ---
-title: Команды
+title: Commands
 ---
 
 ## init
@@ -8,12 +8,12 @@ title: Команды
 $ hexo init [folder]
 ```
 
-Инициализирует сайт. Если переменная `folder` не указана, Hexo создаёт сайт в текущей папке.
+Initializes a website. If no `folder` is provided, Hexo will set up a website in the current directory.
 
-Эта команда представляет собой ярлык, который выполняет следующие действия:
+This command is a shortcut that runs the following steps:
 
-1. Создаёт слон Git репозитория [hexo-starter](https://github.com/hexojs/hexo-starter) включая [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) в текущий каталог или,если указана, в целевую папку.
-2. Установите зависимости с помощью менеджера пакетов: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) или [npm](https://docs.npmjs.com/cli/install), в зависимости от того, что установлено; если установлено более одного, приоритет указан в списке. npm поставляется в комплекте с [Node.js](/docs/#Install-Node-js) by default.
+1. Git clone [hexo-starter](https://github.com/hexojs/hexo-starter) including [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) into the current directory or a target folder if specified.
+2. Install dependencies using a package manager: [Yarn 1](https://classic.yarnpkg.com/lang/en/), [pnpm](https://pnpm.js.org) or [npm](https://docs.npmjs.com/cli/install), whichever is installed; if there are more than one installed, the priority is as listed. npm is bundled with [Node.js](/docs/#Install-Node-js) by default.
 
 ## new
 
@@ -21,7 +21,29 @@ $ hexo init [folder]
 $ hexo new [layout] <title>
 ```
 
-Будет создана новая статья. Если макет не был указан, Hexo будет использовать значение `default_layout`, указанное в [_config.yml](configuration.html). Если название содержит пробелы, заключите его в кавычки.
+Creates a new article. If no `layout` is provided, Hexo will use the `default_layout` from [_config.yml](configuration.html). Use the layout `draft` to create a draft. If the `title` contains spaces, surround it with quotation marks.
+
+| Option            | Description                                |
+| ----------------- | ------------------------------------------ |
+| `-p`, `--path`    | Post path. Customize the path of the post. |
+| `-r`, `--replace` | Replace the current post if existed.       |
+| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+
+By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+
+```bash
+hexo new page --path about/me "About me"
+```
+
+will create `source/about/me.md` file with the title "About me" set in the front matter.
+
+Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+
+```bash
+hexo new page --path about/me
+```
+
+will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
 
 ## generate
 
@@ -29,12 +51,15 @@ $ hexo new [layout] <title>
 $ hexo generate
 ```
 
-Генерирует статичные файлы.
+Generates static files.
 
-Параметр | Описание
---- | ---
-`-d`, `--deploy` | Опубликовать после генерации
-`-w`, `--watch` | Отслеживать изменения файлов
+| Option                | Description                                                              |
+| --------------------- | ------------------------------------------------------------------------ |
+| `-d`, `--deploy`      | Deploy after generation finishes                                         |
+| `-w`, `--watch`       | Watch file changes                                                       |
+| `-b`, `--bail`        | Raise an error if any unhandled exception is thrown during generation    |
+| `-f`, `--force`       | Force regenerate                                                         |
+| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity |
 
 ## publish
 
@@ -42,7 +67,7 @@ $ hexo generate
 $ hexo publish [layout] <filename>
 ```
 
-Переносит черновик в публикуемую папку.
+Publishes a draft.
 
 ## server
 
@@ -50,13 +75,13 @@ $ hexo publish [layout] <filename>
 $ hexo server
 ```
 
-Запускает локальный сервер. По умолчанию адрес: `http://localhost:4000/`.
+Starts a local server. By default, this is at `http://localhost:4000/`.
 
-Параметр | Описание
---- | ---
-`-p`, `--port` | Переназначает стандартный порт
-`-s`, `--static` | Обрабатывать только статичные файлы
-`-l`, `--log` | Включить журналирование. Переопределяет формат журнала.
+| Option           | Description                            |
+| ---------------- | -------------------------------------- |
+| `-p`, `--port`   | Override default port                  |
+| `-s`, `--static` | Only serve static files                |
+| `-l`, `--log`    | Enable logger. Override logger format. |
 
 ## deploy
 
@@ -64,11 +89,11 @@ $ hexo server
 $ hexo deploy
 ```
 
-Публикует сайт.
+Deploys your website.
 
-Параметр | Описание
---- | ---
-`-g`, `--generate` | Генерировать перед публикацией
+| Option             | Description                |
+| ------------------ | -------------------------- |
+| `-g`, `--generate` | Generate before deployment |
 
 ## render
 
@@ -76,11 +101,11 @@ $ hexo deploy
 $ hexo render <file1> [file2] ...
 ```
 
-Генерирует файлы.
+Renders files.
 
-Параметр | Описание
---- | ---
-`-o`, `--output` | Путь вывода
+| Option           | Description        |
+| ---------------- | ------------------ |
+| `-o`, `--output` | Output destination |
 
 ## migrate
 
@@ -88,7 +113,7 @@ $ hexo render <file1> [file2] ...
 $ hexo migrate <type>
 ```
 
-[Миграция](migration.html) контента из других систем.
+[Migrates](migration.html) content from other blog systems.
 
 ## clean
 
@@ -96,7 +121,7 @@ $ hexo migrate <type>
 $ hexo clean
 ```
 
-Очищает кэш (`db.json`) и генерирует файлы для опубликования (`public`).
+Cleans the cache file (`db.json`) and generated files (`public`).
 
 ## list
 
@@ -104,7 +129,7 @@ $ hexo clean
 $ hexo list <type>
 ```
 
-Список всех путей.
+Lists all routes.
 
 ## version
 
@@ -112,54 +137,58 @@ $ hexo list <type>
 $ hexo version
 ```
 
-Отображает информацию о версии Hexo.
+Displays version information.
 
-## Опции
+## Options
 
-### Безопасный режим
+### Safe mode
 
 ``` bash
 $ hexo --safe
 ```
 
-Отключает загрузку плагинов и скриптов. Применяется при возникновении проблем после установки нового плагина.
+Disables loading plugins and scripts. Try this if you encounter problems after installing a new plugin.
 
-### Режим отладки
+### Debug mode
 
 ``` bash
 $ hexo --debug
 ```
 
-Журнал подробных сообщений в терминале и `debug.log`. Применяется при возникновении проблем с Hexo. Если выдаются ошибки, пожалуйста, задайте вопрос на [GitHub](https://github.com/hexojs/hexo/issues/new).
+Logs verbose messages to the terminal and to `debug.log`. Try this if you encounter any problems with Hexo. If you see errors, please [raise a GitHub issue](https://github.com/hexojs/hexo/issues/new).
 
-### Тихий режим
+### Silent mode
 
 ``` bash
 $ hexo --silent
 ```
 
-Отключает показ сообщений в консоли.
+Silences output to the terminal.
 
-### Альтернативная конфигурация
+### Customize config file path
 
 ``` bash
 $ hexo --config custom.yml
 ```
 
-Использует другой конфигурационный файл (вместо `_config.yml`).
+Uses a custom config file (instead of `_config.yml`). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single `_multiconfig.yml`.
 
-### Показать черновики
+``` bash
+$ hexo --config custom.yml,custom2.json
+```
+
+### Display drafts
 
 ``` bash
 $ hexo --draft
 ```
 
-Отображает черновики (хранящиеся в папке `source/_drafts`).
+Displays draft posts (stored in the `source/_drafts` folder).
 
-### Изменить рабочую папку
+### Customize CWD
 
 ``` bash
 $ hexo --cwd /path/to/cwd
 ```
 
-Изменяет путь к текущей рабочей папке.
+Customizes the path of current working directory.
