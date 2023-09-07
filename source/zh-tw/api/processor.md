@@ -1,14 +1,15 @@
 ---
-title: 處理器（Processor）
+title: Processor
 ---
-處理器用於處理 `source` 資料夾內的原始檔案。
 
-## 概要
+A processor is used to process source files in the `source` folder.
+
+## Synopsis
 
 ``` js
 hexo.extend.processor.register(rule, function(file){
-  // ...
+ // ...
 });
 ```
 
-完整說明請參照 [箱子](box.html)。
+For more info, see [box](box.html).
