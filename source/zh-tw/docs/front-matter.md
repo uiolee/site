@@ -4,7 +4,7 @@ title: Front-matter
 
 {% youtube Rl48Yk4A_V8 %}
 
-Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
+Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
 
 **YAML**
 
@@ -25,29 +25,29 @@ date: 2013/7/13 20:46:25
 
 ### Settings & Their Default Values
 
-| 設定                | 描述                                                                                                                           | Default                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `layout`          | Layout                                                                                                                       | [`config.default_layout`](/docs/configuration#Writing) |
-| `title`           | 標題                                                                                                                           | 文章的檔案名                                                 |
-| `date`            | 建立日期                                                                                                                         | 檔案建立日期                                                 |
-| `updated`         | 更新日期                                                                                                                         | 檔案更新日期                                                 |
-| `comments`        | 開啟文章的留言功能                                                                                                                    | true                                                   |
-| `tags`            | 標籤（不適用於分頁）                                                                                                                   |                                                        |
-| `categories`      | 分類（不適用於分頁）                                                                                                                   |                                                        |
-| `permalink`       | Overrides the default permalink of the post. Permalink should end with `/` or `.html`                                        | `null`                                                 |
-| `excerpt`         | Page excerpt in plain text. Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text |                                                        |
-| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled                          | false                                                  |
-| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                                               | Inherited from `_config.yml`                           |
+| 設定                | 描述                                                                                                                                                       | Default                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `layout`          | Layout                                                                                                                                                   | [`config.default_layout`](/docs/configuration#Writing) |
+| `title`           | 標題                                                                                                                                                       | 文章的檔案名                                                 |
+| `date`            | 建立日期                                                                                                                                                     | 檔案建立日期                                                 |
+| `updated`         | 更新日期                                                                                                                                                     | 檔案更新日期                                                 |
+| `comments`        | 開啟文章的留言功能                                                                                                                                                | true                                                   |
+| `tags`            | 標籤（不適用於分頁）                                                                                                                                               |                                                        |
+| `categories`      | 分類（不適用於分頁）                                                                                                                                               |                                                        |
+| `permalink`       | Overrides the default permalink of the post. Overrides the default permalink of the post. Permalink should end with `/` or `.html`                       | `null`                                                 |
+| `excerpt`         | Page excerpt in plain text. Page excerpt in plain text. Page excerpt in plain text. Use [this plugin](/docs/tag-plugins#Post-Excerpt) to format the text |                                                        |
+| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](/docs/tag-plugins) when enabled                                                      | false                                                  |
+| `lang`            | Set the language to override [auto-detection](/docs/internationalization#Path)                                                                           | Inherited from `_config.yml`                           |
 
 #### Layout
 
-The default layout is `post`, in accordance to the value of [`default_layout`](/docs/configuration#Writing) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. The default layout is `post`, in accordance to the value of [`default_layout`]((/docs/configuration#Writing)) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML.
+The default layout is `post`, in accordance to the value of [`default_layout`](/docs/configuration#Writing) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. The default layout is `post`, in accordance to the value of [`default_layout`]((/docs/configuration#Writing)) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. The default layout is `post`, in accordance to the value of [`default_layout`]((/docs/configuration#Writing)) setting in `_config.yml`. When the layout is disabled (`layout: false`) in an article, it will not be processed with a theme. However, it will still be rendered by any available renderer: if an article is written in Markdown and a Markdown renderer (like the default [hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)) is installed, it will be rendered to HTML.
 
 [Tag plugins](/docs/tag-plugins) are always processed regardless of layout, unless disabled by the `disableNunjucks` setting or [renderer](/api/renderer#Disable-Nunjucks-tags).
 
 #### 分類和標籤
 
-Only posts support the use of categories and tags. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important.
+Only posts support the use of categories and tags. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important. Categories apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. Tags are all defined on the same hierarchical level so the order in which they appear is not important.
 
 **Example**
 
@@ -59,7 +59,7 @@ tags:
 - Games
 ```
 
-If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.
+If you want to apply multiple category hierarchies, use a list of names instead of a single name. If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.
 
 **Example**
 
