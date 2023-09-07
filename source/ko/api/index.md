@@ -2,13 +2,13 @@
 title: API
 ---
 
-This documentation provides more detailed information about the API and will be particularly helpful for people who want to modify the Hexo source code or write new plugins. If you are interested in more basic usage of Hexo, please refer to the [docs](../docs) instead.
+이 문서는 API에 대해 더 자세한 정보를 담고 있습니다. Hexo 소스 코드를 수정하길 원하는 사용자나 새로운 플러그인을 작성하고자 하는 사용자에게 많은 도움이 될 것입니다. 당신이 Hexo의 기본 사용법에 대해 흥미가 있다면 [docs](../docs)를 확인해보세요.
 
-Please note that this documentation is only valid for Hexo 3 and above.
+이 문서는 Hexo 3 이상의 버전에 맞추어 작성되었습니다.
 
-## Initialize
+## 초기화
 
-First, we have to create a Hexo instance. A new instance takes two arguments: the root directory of the website, `base_dir`, and an object containing the initialization options. Next, we initialize this instance by calling the `init` method on it, which will then cause Hexo to load its configuration and plugins.
+우선, 우리는 Hexo 인스턴스를 생성할 필요가 있습니다. 새로운 인스턴스는 두 개의 인자를 갖게 됩니다. 웹 사이트의 루트 디렉토리를 의미하는 `base_dir`와 초기화 옵션을 가지고 있는 객체입니다. 다음으로, `init` 메소드를 호출함으로써 이 인스턴스를 초기화 합니다. 초기화 시 Hexo는 설정값과 플러그인을 불러옵니다.
 
 ``` js
 var Hexo = require('hexo');
@@ -19,19 +19,19 @@ hexo.init().then(function(){
 });
 ```
 
-| Option             | Description                                                                                           | Default                        |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `debug`            | Enable debug mode. Display debug messages in the terminal and save `debug.log` in the root directory. | `false`                        |
-| `safe`             | Enable safe mode. Don't load any plugins.                                                             | `false`                        |
-| `silent`           | Enable silent mode. Don't display any messages in the terminal.                                       | `false`                        |
-| `config`           | Specify the path of the configuration file.                                                           | `_config.yml`                  |
-| `draft` / `drafts` | Enable to add drafts to the posts list.<br> example: when you use `hexo.locals.get('posts')`    | `render_drafts` of _config.yml |
+| 옵션                 | 설명                                                                                                 | 기본값                            |
+| ------------------ | -------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `debug`            | 디버그 모드를 활성화 합니다. 디버그 메시지는 터미널에 출력되고 루트 디렉토리의 `debug.log`파일에 저장됩니다.                                 | `false`                        |
+| `safe`             | 보호 모드를 활성화 합니다. 플러그인을 불러오지 않습니다.                                                                   | `false`                        |
+| `silent`           | 조용한 모드를 활성화 합니다. 어떠한 메시지도 터미널에 표시하지 않습니다.                                                          | `false`                        |
+| `config`           | 환경 설정 파일의 경로를 지정합니다.                                                                               | `_config.yml`                  |
+| `draft` / `drafts` | Enable to add drafts to the posts list.<br> example: when you use `hexo.locals.get('posts')` | `render_drafts` of _config.yml |
 
-## Load Files
+## 파일 불러오기
 
-Hexo provides two methods for loading files: `load` and `watch`. `load` is used for loading all files in the `source` folder as well as the theme data. `watch` does the same things `load` does, but will also start watching for file changes continuously.
+Hexo는 파일을 불러오기 위해 두 가지의 메소드를 지원합니다. `load`와 `watch` 입니다. `load`는 `source` 테마 데이터를 포함하여 폴더 안의 모든 파일을 불러옵니다. `watch`도 동일한 동작을 수행하지만 파일이 수정되는 것을 감지(watching)합니다.
 
-Both methods will load the list of files and pass them to the corresponding processors. After all files have been processed, they will call upon the generators to create the routes.
+두 메소드 모드 파일의 목록을 불러와서 적절한 프로세서로 전달합니다. 모든 파일들이 처리된 후, 경로(route)를 생성하기 위해 generator들을 호출합니다.
 
 ``` js
 hexo.load().then(function(){
@@ -43,9 +43,9 @@ hexo.watch().then(function(){
 });
 ```
 
-## Execute Commands
+## 명령어의 실행
 
-Any console command can be called explicitly using the `call` method on the Hexo instance. Such a call takes two arguments: the name of the console command, and an options argument. Different options are available for the different console commands.
+Hexo 인스턴스의 `call` 메소드를 통해 모든 콘솔 명령어를 호출할 수 있습니다. 호출할 때는 콘솔 명령어와 옵션 두 개의 인자를 포함합니다. 각각의 콘솔 명령어마다 서로 다른 옵션을 가지고 있습니다.
 
 ``` js
 hexo.call('generate', {}).then(function(){
@@ -59,9 +59,9 @@ hexo.call('list', { _: ['post'] }).then(function() {
 })
 ```
 
-## Exit
+## 종료
 
-You should call the `exit` method upon successful or unsuccessful completion of a console command. This allows Hexo to exit gracefully and finish up important things such as saving the database.
+`exit`를 호출하여 콘솔 명령어의 성공적/비성공적 종료를 할 수 있습니다. 이 명령어를 통해 Hexo를 정상적으로 종료하고 데이터베이스를 저장한다거나 하는 중요한 동작들을 마무리할 수 있습니다.
 
 ``` js
 hexo.call('generate').then(function(){
