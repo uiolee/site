@@ -28,10 +28,11 @@ jobs:
           upload_sources: false
           upload_translations: false
           download_translations: true
-          #   commit_message: "l10n(${{ matrix.lc }}): New Crowdin translations"
+          commit_message: "l10n(${{ matrix.lc }}): New Crowdin translations"
           localization_branch_name: l10n_master_${{ matrix.lc }}
           pull_request_base_branch_name: master
           pull_request_title: "l10n(${{ matrix.lc }}): New Crowdin translations"
+          create_pull_request: true
           download_language: ${{ matrix.lc }}
           crowdin_branch_name: master
         env:
