@@ -1,0 +1,127 @@
+#
+# Your Crowdin credentials
+#
+"project_id": "612879"
+"api_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjIzYTZlNjE4MzljZjRhOTViYzhlODQ0OTc2YjllNTkzYzlmMjc0ZjM0NDg5MDUxNjc0MmVjZGM2MmEzZWM4Y2NiMDU0ZDI4NDdkMThiNWYzIiwiaWF0IjoxNjk0MTA0OTg5LjAwNjAxLCJuYmYiOjE2OTQxMDQ5ODkuMDA2MDEzLCJleHAiOjE3MjU2NDA5ODguOTIzMTY5LCJzdWIiOiIxNTk5ODc0NSIsInNjb3BlcyI6WyJwcm9qZWN0Il0sImRvbWFpbiI6bnVsbCwiYXNzb2NpYXRpb25zIjpbIioiXSwic2Vzc2lvbiI6MH0.PJmyULYKOq_ahhSZWAiIPAo7AsxalyTg1UpBegO7bP6CszcU8ck1Y8g33p4FXu6atCdCezLg3fHjIFNi4fcQz1sWgzUH1NoVyZL40pkJyBulWbf_3jjO-UGemd7s2LrW35nFh81LTnLqRBrCyC2KKG8FojOIsdjlMwf09FDU3EBujn-V2VfhikKuBlnRi_vi1H-tbiYCMp1wnfwbsjJmGStMGfsWOMS4SqfHdXREuUch5-dZ7YJpTcbvFS1aB-neKuv_ys4_WAMNEb2tQnaHxkPTFPKBAU7W7sXkiqcKspkRGVz-cjgWgldzv7VYnYN5mhnmnsL4NEK1Gj7KMByRqb5jf5AjJDcwc1JVvDMCGY8C0mgnk_6Gd5Jtz-EquiWsj7sRQCWFXgug2rW_Tb0sCuOZHdC22NOLC93zj3iMyvGhul8GTBvTmXK4687e4K0e_DL4QAwyQ1SyNW7egC89d0J3SuYiq48WCvskVjrgyQ1L3ih771syjyJLSJl8-i36lsmUxbP0NqNBNY9mZhzGX7uKW6pMfHa4nJL60R9mKZps0pvvQMwTcQrbicPgULBC2ToTCIhcL9zHL0_lV-sgRgb2JyDnetooivguIim6yAnsOYLFXLsP_vfyo2MR8W9i_FfbqD5O-yDT_mDksq6cV9fS5kiTGN_QFEfiPNb2Q4s"
+"base_path": "."
+"base_url": "https://api.crowdin.com"
+
+#
+# Choose file structure in Crowdin
+# e.g. true or false
+#
+"preserve_hierarchy": true
+
+#
+# Files configuration
+#
+files: [
+  {
+    #
+    # Source files filter
+    # e.g. "/resources/en/*.json"
+    #
+    "source": "",
+
+    #
+    # Where translations will be placed
+    # e.g. "/resources/%two_letters_code%/%original_file_name%"
+    #
+    "translation": "",
+
+    #
+    # Files or directories for ignore
+    # e.g. ["/**/?.txt", "/**/[0-9].txt", "/**/*\?*.txt"]
+    #
+    # "ignore": [],
+
+    #
+    # The dest allows you to specify a file name in Crowdin
+    # e.g. "/messages.json"
+    #
+    # "dest": "",
+
+    #
+    # File type
+    # e.g. "json"
+    #
+    # "type": "",
+
+    #
+    # The parameter "update_option" is optional. If it is not set, after the files update the translations for changed strings will be removed. Use to fix typos and for minor changes in the source strings
+    # e.g. "update_as_unapproved" or "update_without_changes"
+    #
+    # "update_option": "",
+
+    #
+    # Start block (for XML only)
+    #
+
+    #
+    # Defines whether to translate tags attributes.
+    # e.g. 0 or 1  (Default is 1)
+    #
+    # "translate_attributes": 1,
+
+    #
+    # Defines whether to translate texts placed inside the tags.
+    # e.g. 0 or 1 (Default is 1)
+    #
+    # "translate_content": 1,
+
+    #
+    # This is an array of strings, where each item is the XPaths to DOM element that should be imported
+    # e.g. ["/content/text", "/content/text[@value]"]
+    #
+    # "translatable_elements": [],
+
+    #
+    # Defines whether to split long texts into smaller text segments
+    # e.g. 0 or 1 (Default is 1)
+    #
+    # "content_segmentation": 1,
+
+    #
+    # End block (for XML only)
+    #
+
+    #
+    # Start .properties block
+    #
+
+    #
+    # Defines whether single quote should be escaped by another single quote or backslash in exported translations
+    # e.g. 0 or 1 or 2 or 3 (Default is 3)
+    # 0 - do not escape single quote;
+    # 1 - escape single quote by another single quote;
+    # 2 - escape single quote by backslash;
+    # 3 - escape single quote by another single quote only in strings containing variables ( {0} ).
+    #
+    # "escape_quotes": 3,
+
+    #
+    # Defines whether any special characters (=, :, ! and #) should be escaped by backslash in exported translations.
+    # e.g. 0 or 1 (Default is 0)
+    # 0 - do not escape special characters
+    # 1 - escape special characters by a backslash
+    #
+    # "escape_special_characters": 0
+    #
+
+    #
+    # End .properties block
+    #
+
+    #
+    # Does the first line contain header?
+    # e.g. true or false
+    #
+    # "first_line_contains_header": true,
+
+    #
+    # for spreadsheets
+    # e.g. "identifier,source_phrase,context,uk,ru,fr"
+    #
+    # "scheme": "",
+  }
+]

@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: "0 0 * * *" # Every day 0 o'clock
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   pull:
     name: Synchronize with Crowdin
@@ -14,12 +18,12 @@ jobs:
       fail-fast: false
       max-parallel: 1 # Should be 1 to avoid parallel builds
       matrix:
-        lc: [ko, pt-BR, ru, th, zh-CN, zh-TW] # Target languages https://developer.crowdin.com/language-codes/
+        lc: [zh-CN] # Target languages https://developer.crowdin.com/language-codes/
+        # lc: [ko, pt-BR, ru, th, zh-CN, zh-TW] # Target languages https://developer.crowdin.com/language-codes/
     steps:
       - uses: actions/checkout@v3
 
       - uses: crowdin/github-action@v1
-        name: crowdin - ${{ matrix.lc }}
         with:
           upload_sources: false
           upload_translations: false
@@ -29,6 +33,7 @@ jobs:
           pull_request_base_branch_name: master
           pull_request_title: "l10n(${{ matrix.lc }}): New Crowdin translations"
           download_language: ${{ matrix.lc }}
+          crowdin_branch_name: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
