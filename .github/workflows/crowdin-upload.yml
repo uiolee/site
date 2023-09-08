@@ -1,4 +1,4 @@
-name: Crowdin Action
+name: Crowdin Upload
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
           download_translations: false
           upload_sources: true
           config: "crowdin.yml"
-          crowdin_branch_name: ${{github.ref_name}}
+          crowdin_branch_name: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
