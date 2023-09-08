@@ -26,6 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: |
+          git config user.name HexoOrgBot
+          git config user.email 27251540+HexoOrgBot@users.noreply.github.com
+
       - uses: crowdin/github-action@v1
         with:
           upload_sources: false
@@ -38,6 +42,8 @@ jobs:
           create_pull_request: true
           download_language: ${{ matrix.lc }}
           crowdin_branch_name: ${{ github.ref_name }}
+          github_user_name: HexoOrgBot
+          github_user_email: 27251540+HexoOrgBot@users.noreply.github.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
