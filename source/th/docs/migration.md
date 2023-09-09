@@ -1,6 +1,7 @@
 ---
 title: Migration
 ---
+
 ## RSS
 
 ขั้นแรก ติดตั้งปลั๊กอิน `hexo-migrator-rss`
@@ -10,7 +11,7 @@ $ npm install hexo-migrator-rss --save
 ```
 
 เมื่อเสร็จการติดตั้งปลั๊กอินแล้วรันคำสั่งต่อไปเพื่อย้ายโพสต์ทั้งหมดจาก RSS   
- `source` นั้นเป็น path ของไฟล์หรือ URL ได้
+`source` นั้นเป็น path ของไฟล์หรือ URL ได้ `source` can be a file path or URL.
 
 ``` bash
 $ hexo migrate rss <source>
@@ -18,8 +19,9 @@ $ hexo migrate rss <source>
 
 ## Jekyll
 
-ย้ายไฟล์ทั้งหมดใน folder Jekyll  `_posts` ไป folder  `source/_posts`
-แก้ไขการตั้งค่า `new_post_name` ใน `_config.yml`:
+ย้ายไฟล์ทั้งหมดใน folder Jekyll  `_posts` ไป folder  `source/_posts` แก้ไขการตั้งค่า `new_post_name` ใน `_config.yml`:
+
+ย้ายไฟล์ทั้งหมดใน folder `source/_posts` ของ Octopress ไปถึง  `source/_posts` แก้ไขการตั้งค่า `new_post_name` ใน `_config.yml`:
 
 ``` yaml
 new_post_name: :year-:month-:day-:title.md
@@ -27,8 +29,9 @@ new_post_name: :year-:month-:day-:title.md
 
 ## Octopress
 
-ย้ายไฟล์ทั้งหมดใน folder `source/_posts` ของ Octopress ไปถึง  `source/_posts`
-แก้ไขการตั้งค่า `new_post_name` ใน `_config.yml`:
+Move all files in the Octopress `source/_posts` folder to `source/_posts`
+
+Modify the `new_post_name` setting in `_config.yml`:
 
 ``` yaml
 new_post_name: :year-:month-:day-:title.md
@@ -42,8 +45,7 @@ new_post_name: :year-:month-:day-:title.md
 $ npm install hexo-migrator-wordpress --save
 ```
 
-นำไซตื WordPress ของคุณออกไปได้ด้วยการตั้งค่า "Tools" → "Export" →
-"WordPress"  ใน dashboard ของ WordPress (สำหรับข้อมูลเพิ่มเติมไปดูที่ [WordPress support page](http://en.support.wordpress.com/export/))
+นำไซตื WordPress ของคุณออกไปได้ด้วยการตั้งค่า "Tools" → "Export" → "WordPress"  ใน dashboard ของ WordPress (สำหรับข้อมูลเพิ่มเติมไปดูที่ [WordPress support page](http://en.support.wordpress.com/export/))
 
 แล้วรัน:
 
