@@ -19,7 +19,7 @@ hexo.extend.filter.register(type, function() {
 }, priority);
 ```
 
-Você pode definir uma prioridade específica para cada filtro (parâmetro `priority` no exemplo acima). Uma prioridade mais baixa significa que o filtro será executado primeiro. A prioridade padrão é 10.
+Você pode definir uma prioridade específica para cada filtro (parâmetro `priority` no exemplo acima). Lower `priority` means that it will be executed first. A prioridade padrão é 10. We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
 
 ## Executar Filtros
 
@@ -28,10 +28,10 @@ hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-Opção | Descrição
---- | ---
-`context` | Contexto
-`args` | Argumentos. Deve ser um array.
+| Opção     | Descrição                      |
+| --------- | ------------------------------ |
+| `context` | Contexto                       |
+| `args`    | Argumentos. Deve ser um array. |
 
 O primeiro argumento passado para cada filtro é `data`. O próximo filtro da sequência pode receber o argumento `data` modificado ao se retornar um novo valor. Se nada for retornado, `data` continua intacto. Você ainda pode utilizar `args` para especificar outros argumentos dentro dos filtros. Por exemplo:
 
@@ -207,7 +207,7 @@ hexo.extend.filter.register('after_clean', function(){
 
 ### server_middleware
 
-Adiciona um middleware ao servidor. `app` é uma instância de [Connect].
+Adiciona um middleware ao servidor. `app` é uma instância de [Connect][].
 
 Por exemplo, para adicionar `X-Powered-By: Hexo` ao cabeçalho de resposta:
 
