@@ -1,9 +1,12 @@
 ---
 title: Плагины тегов
 ---
+
 Плагины тегов отличаются от тегов в посте. Они портированы с Octopress и обеспечивают удобный способ, чтобы быстро добавить контент для ваших постов.
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+
+Вставка видео с Vimeo.
 
 _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
 
@@ -19,7 +22,7 @@ content
 {% endblockquote %}
 ```
 
-### Примеры
+### Examples
 
 **Без аргументов. Обычная цитата.**
 
@@ -83,16 +86,16 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Extra Options    | Description                                                                                                                                                            | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                       | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
 
-### Примеры
+### Examples
 
 **Простой блок кода**
 
@@ -118,7 +121,7 @@ alert('Hello World!');
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
-**С добавление заголовка**
+**Adding a caption to the code block**
 
 ```
 {% codeblock Array.map %}
@@ -140,8 +143,7 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Блок кода в кавычках
@@ -149,12 +151,12 @@ _.compact([0, 1, false, 2, '', 3]);
 Тот же блок кода, но использует три обратные кавычки для отделения блока.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
-## Цитата
+## Pull Quote
 
 Добавляет цитату в пост:
 
@@ -206,10 +208,42 @@ content
 
 ## Include Code
 
-Вставляет фрагменты кода из папки `source/downloads/code`.
+Вставляет фрагменты кода из папки `source/downloads/code`. The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] path/to/file %}
+```
+
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
 ```
 
 ## YouTube
@@ -245,13 +279,13 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Вставка видео с Vimeo.
+Inserts a responsive or specified size Vimeo video.
 
 ```
 {% vimeo video_id %}
 ```
 
-## Включения из постов
+## Include Posts
 
 Содержит ссылку на другой пост.
 
@@ -289,7 +323,6 @@ For instance:
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
 **Do not escape title.**
@@ -300,9 +333,9 @@ For instance:
 
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
-## Вставка материала
+## Include Assets
 
-Содержит содержимое материала.
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -348,7 +381,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
-## Сырцы
+## Raw
 
 Если определённый контент вызывает ошибки обработки в ваших постах, оберните его тегом `raw`, чтобы избежать ошибок обработки.
 
@@ -358,9 +391,9 @@ content
 {% endraw %}
 ```
 
-## Отрывок поста
+## Post Excerpt
 
-Используйте текст до тега `<!-- more -->` в качестве отрывка поста.
+Используйте текст до тега `<!-- more -->` в качестве отрывка поста. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **Примеры:**
 
