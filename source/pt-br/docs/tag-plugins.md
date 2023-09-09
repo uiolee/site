@@ -22,13 +22,12 @@ conteúdo
 {% endblockquote %}
 ```
 
-### Exemplos
+### Examples
 
 **Sem argumentos. Bloco de citação simples.**
 
 ```
-{% blockquote %}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
+{% blockquote %} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}
 ```
 
@@ -39,8 +38,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 **Citação de um livro**
 
 ```
-{% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+{% blockquote David Levithan, Wide Awake %} Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}
 ```
 
@@ -51,9 +49,7 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 **Citação de um twitter**
 
 ```
-{% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
-{% endblockquote %}
 ```
 
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
@@ -63,8 +59,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 **Citação de um artigo da web**
 
 ```
-{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
-Every interaction is both precious and an opportunity to delight.
+{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %} Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 ```
 
@@ -86,16 +81,16 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Extra Options    | Description                                                                                                                                                            | Default |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `line_number`    | Show line number                                                                                                                                                       | `true`  |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`     |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true`  |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`     |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true`  |
 
-### Exemplos
+### Examples
 
 **Um bloco de código simples**
 
@@ -143,8 +138,7 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Bloco de Código com Backtick
@@ -152,9 +146,9 @@ _.compact([0, 1, false, 2, '', 3]);
 Isso é idêntico ao usar um bloco de código, mas usa três backticks (acentos grave) para delimitar o bloco.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
 ## Pull Quote
@@ -209,15 +203,47 @@ Insere um link com o atributo `target="_blank"`.
 
 ## Incluir Código
 
-Insere trechos de código no diretório `source/downloads/code`.
+Insere trechos de código no diretório `source/downloads/code`. The folder location can be specified through the `code_dir` option in the config.
 
 ```
 {% include_code [title] [lang:language] path/to/file %}
 ```
 
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
+```
+
 ## YouTube
 
-Insere um vídeo do YouTube.
+Insere um vídeo do Vimeo.
 
 ```
 {% youtube video_id [type] [cookie] %}
@@ -248,7 +274,7 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Insere um vídeo do Vimeo.
+Inserts a responsive or specified size Vimeo video.
 
 ```
 {% vimeo video_id %}
@@ -292,7 +318,6 @@ For instance:
 ```
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
 **Do not escape title.**
@@ -305,7 +330,7 @@ For instance:
 
 ## Incluir Assets
 
-Incluir assets de postagem.
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -363,12 +388,11 @@ content
 
 ## Trecho de Postagem
 
-Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação.
+Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **Exemplo:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-<!-- more -->
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<!-- more --> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```

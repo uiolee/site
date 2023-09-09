@@ -6,14 +6,14 @@ Os templates definem a apresentação do seu site, descrevendo o que cada págin
 
 {% youtube mb65bQ4iUc4 %}
 
-Template | Página | Fallback
---- | --- | ---
-`index` | Página Home |
-`post` | Postagens | `index`
-`page` | Páginas | `index`
-`archive` | Arquivos (archives) | `index`
-`category` | Categorias | `archive`
-`tag` | Tags | `archive`
+| Template   | Página              | Fallback  |
+| ---------- | ------------------- | --------- |
+| `index`    | Página Home         |           |
+| `post`     | Postagens           | `index`   |
+| `page`     | Páginas             | `index`   |
+| `archive`  | Arquivos (archives) | `index`   |
+| `category` | Categorias          | `archive` |
+| `tag`      | Tags                | `archive` |
 
 ## Layouts
 
@@ -61,7 +61,7 @@ yields:
 <div id="content">Home page</div>
 ```
 
-## Variáveis Locais
+## Local Variables
 
 Você pode definir variáveis locais em um template e usá-las em outros templates.
 
@@ -102,6 +102,5 @@ Embora seja mais fácil usar partials:
 ```
 
 {% note warn %}
-`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled.
-For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
+`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled. For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
 {% endnote %}
