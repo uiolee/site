@@ -6,7 +6,7 @@ Box is a container used for processing files in a specified folder. 「Box」是
 
 ## 载入文件
 
-Box 提供了两种方法来载入文件：`process`, `watch`，前者用于载入文件夹内的所有文件；而后者除了执行 `process` 以外，还会继续监视文件变动。 `process` loads all files in the folder. `watch` does the same, but also starts watching for file changes.
+Box 提供了两种方法来载入文件：`process`, `watch`，`process`用于载入文件夹内的所有文件。`watch`了执行 `process` 以外，还会继续监视文件变动。  `watch` does the same, but also starts watching for file changes.
 
 ``` js
 box.process().then(function(){
