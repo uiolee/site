@@ -7,7 +7,6 @@ In this tutorial, we use [GitHub Actions](https://docs.github.com/en/actions) to
 1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
 2. Push the files of your Hexo folder to the default branch of your repository. The default branch is usually **main**, older repository may use **master** branch.
   - To push `main` branch to GitHub:
-
     ```
     $ git push -u origin main
     ```
