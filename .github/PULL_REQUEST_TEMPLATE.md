@@ -1,7 +1,6 @@
 ## Check List
 
 **Please read and check followings before submitting a PR.**
-
 - [ ] I want to publish my theme on Hexo official website.
   - [ ] I have read the [theme publishing doc](https://hexo.io/docs/themes#Publishing).
   - [ ] `name` is unique.
