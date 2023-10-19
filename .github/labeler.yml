@@ -13,6 +13,7 @@ News:
 en:
   - "source/docs/**"
   - "source/api/**"
+  - "source/api/index.md"
 ko:
   - "source/ko/**"
 pt-br:
@@ -32,4 +33,3 @@ infra:
   - "scripts/**"
   - "*"
   - ".*"
-  - "*.*"
