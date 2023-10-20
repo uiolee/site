@@ -14,7 +14,7 @@ jobs:
       - uses: actions/labeler@v4
         id: label-the-PR
 
-      - name: set the output
+      - name: print the labels
         env:
           all_labels: ${{steps.label-the-PR.outputs.all-labels}}
           new_labels: ${{steps.label-the-PR.outputs.new-labels}}
@@ -22,16 +22,16 @@ jobs:
           echo "all_labels, $all_labels"
           echo "new_labels, $new_labels"
 
-      - name: set the output
+      - name: set the SUMMARY
         env:
           all_labels: ${{steps.label-the-PR.outputs.all-labels}}
           new_labels: ${{steps.label-the-PR.outputs.new-labels}}
         run: |
-          echo "::::$all_labels"
-
-      - name: set the output
-        env:
-          all_labels: ${{steps.label-the-PR.outputs.all-labels}}
-          new_labels: ${{steps.label-the-PR.outputs.new-labels}}
-        run: |
-          echo "::::$new_labels"
+          echo "### All labels" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+          echo "$all_labels" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### New labels" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "$new_labels" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
