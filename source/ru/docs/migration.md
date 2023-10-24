@@ -1,6 +1,7 @@
 ---
 title: Миграция
 ---
+
 ## RSS
 
 Прежде нужно установить плагин `hexo-migrator-rss`.
@@ -45,7 +46,7 @@ $ npm install hexo-migrator-wordpress --save
 
 Экспортируйте WordPress сайт, зайдя в “Инструменты” → “Экспорт” → “Wordpress” в панели WordPress (см. страницу [поддержки WordPress](https://wordpress.com/ru/support/export/) для более подробной информации.
 
-Выполните:
+Now run:
 
 ``` bash
 $ hexo migrate wordpress <source>
@@ -63,7 +64,7 @@ $ npm install hexo-migrator-joomla --save
 
 Экспортируйте статьи Joomla с помощью компонента [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D)
 
-Выполните:
+Now run:
 
 ```bash
 $ hexo migrate joomla <source>
