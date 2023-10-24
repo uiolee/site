@@ -1,5 +1,5 @@
 ---
-title: Generator
+title: Gerador
 ---
 
 Um `generator` constrói rotas a partir de arquivos processados.
@@ -32,11 +32,11 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-Atributo | Descrição
---- | ---
-`path` | Caminho, sem incluir o prefixo `/`.
-`data` | Dados
-`layout` | Layout. Especifica os layouts para renderização. O valor pode ser uma string ou um array. Se ignorado, a rota retornará `data` diretamente.
+| Atributo  | Descrição                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `caminho` | Caminho, sem incluir o prefixo `/`.                                                                                                         |
+| `Dados`   | Dados                                                                                                                                       |
+| `layout`  | Leiaute Especifica os layouts para renderização. O valor pode ser uma string ou um array. Se ignorado, a rota retornará `data` diretamente. |
 
 Quando os arquivos fonte são atualizados, o Hexo executará todos os geradores e recriará as rotas. **Atenção: Retornar os dados em vez de acessar o roteador diretamente!**
 
@@ -52,7 +52,7 @@ Após isso, defina o atributo `layout` para renderizar a página com os template
 hexo.extend.generator.register('archive', function(locals){
   return {
     path: 'archives/index.html',
-    data: locals,
+    data: locais,
     layout: ['archive', 'index']
   }
 });
@@ -60,15 +60,15 @@ hexo.extend.generator.register('archive', function(locals){
 
 ### Páginas de Arquivo com Paginação
 
-Você pode utilizar uma ótima ferramenta oficial chamada [hexo-pagination] para criar facilmente uma página de arquivos com paginação.
+Você pode utilizar uma ótima ferramenta oficial chamada [hexo-pagination][] para criar facilmente uma página de arquivos com paginação.
 
 ``` js
 var pagination = require('hexo-pagination');
 
 hexo.extend.generator.register('archive', function(locals){
-  // hexo-pagination makes an index.html for the /archives route
-  return pagination('archives', locals.posts, {
-    perPage: 10,
+  // hexo-paginação faz um índice. tml para a rota /archives
+  return pagination('archives', locais. ostos, {
+    perpágina: 10,
     layout: ['archive', 'index'],
     data: {}
   });
@@ -93,7 +93,7 @@ hexo.extend.generator.register('post', function(locals){
 
 ### Copiar Arquivos
 
-Dessa vez não iremos retornar `data` explicitamente, mas atribuir uma função para que a rota construa `fs.ReadStream` apenas quando necessário.
+Dessa vez não iremos retornar `data` explicitamente, mas atribuir uma função para que a rota construa `fs. ReadStream` apenas quando necessário.
 
 ``` js
 var fs = require('hexo-fs');

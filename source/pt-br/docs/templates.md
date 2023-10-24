@@ -1,36 +1,36 @@
 ---
-title: Templates
+title: Modelos
 ---
 
 Os templates definem a apresentação do seu site, descrevendo o que cada página deve ter de semelhante. A tabela abaixo mostra o modelo correspondente para cada página disponível. No mínimo, um tema deve conter um template de `index`.
 
 {% youtube mb65bQ4iUc4 %}
 
-Template | Página | Fallback
---- | --- | ---
-`index` | Página Home |
-`post` | Postagens | `index`
-`page` | Páginas | `index`
-`archive` | Arquivos (archives) | `index`
-`category` | Categorias | `archive`
-`tag` | Tags | `archive`
+| Modelo       | Página              | Fallback  |
+| ------------ | ------------------- | --------- |
+| `Índice`     | Página Home         |           |
+| `publicação` | Postagens           | `Índice`  |
+| `Página`     | Páginas             | `Índice`  |
+| `arquivo`    | Arquivos (archives) | `Índice`  |
+| `Categoria`  | Categorias          | `arquivo` |
+| `Etiqueta`   | Tags                | `arquivo` |
 
 ## Layouts
 
 Quando as páginas compartilham uma estrutura semelhante - por exemplo, quando dois templates possuem um cabeçalho e um rodapé - você pode considerar usar um `layout` para declarar essas semelhanças estruturais. Todo arquivo de layout deve conter uma variável `body` para exibir o conteúdo do template em questão. Por exemplo:
 
 ``` html index.ejs
-index
+Índice
 ```
 
 ``` html layout.ejs
 <!DOCTYPE html>
 <html>
-  <body><%- body %></body>
+  <body><%- corpo %></body>
 </html>
 ```
 
-yields:
+rendimentos:
 
 ``` html
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ yields:
 
 Por padrão, o template de `layout` é usado por todos os outros templates. Você pode especificar layouts adicionais no [front-matter](front-matter.html) ou configurá-lo como `false` para desativá-lo. É até possível criar uma estrutura aninhada complexa ao incluir mais templates de layout no seu layout principal.
 
-## Partials
+## Parciais
 
 Os partials são úteis para compartilhar componentes entre seus templates. Um exemplo típico inclui cabeçalhos (header), rodapés (footer) ou barras laterais (sidebar). Você pode querer colocar seus partials em arquivos separados para tornar a manutenção do seu site significativamente mais conveniente. Por exemplo:
 
@@ -51,14 +51,14 @@ Os partials são úteis para compartilhar componentes entre seus templates. Um e
 
 ``` html index.ejs
 <%- partial('partial/header') %>
-<div id="content">Home page</div>
+<div id="content">Página inicial</div>
 ```
 
-yields:
+rendimentos:
 
 ``` html
-<h1 id="logo">My Site</h1>
-<div id="content">Home page</div>
+<h1 id="logo">Meu Site</h1>
+<div id="content">Página Inicial</div>
 ```
 
 ## Variáveis Locais
@@ -66,19 +66,19 @@ yields:
 Você pode definir variáveis locais em um template e usá-las em outros templates.
 
 ``` html partial/header.ejs
-<h1 id="logo"><%= title %></h1>
+<h1 id="logo"><%= título %></h1>
 ```
 
 ``` html index.ejs
 <%- partial('partial/header', {title: 'Hello World'}) %>
-<div id="content">Home page</div>
+<div id="content">Página Inicial</div>
 ```
 
-yields:
+rendimentos:
 
 ``` html
-<h1 id="logo">Hello World</h1>
-<div id="content">Home page</div>
+<h1 id="logo">Olá Mundo</h1>
+<div id="content">Página Inicial</div>
 ```
 
 ## Otimização
@@ -90,7 +90,7 @@ Este recurso foi emprestado do [Ruby on Rails](http://guides.rubyonrails.org/cac
 O recurso de `Fragment Caching` é melhor aproveitado em cabeçalhos, rodapés, barras laterais e outros conteúdos estáticos, onde sejam feitas pouquíssimas mudanças de um template para outro. Por exemplo:
 
 ``` js
-<%- fragment_cache('header', function(){
+<%- fragment_cache('cabeçalho', function(){
   return '<header></header>';
 });
 ```
@@ -98,10 +98,9 @@ O recurso de `Fragment Caching` é melhor aproveitado em cabeçalhos, rodapés, 
 Embora seja mais fácil usar partials:
 
 ``` js
-<%- partial('header', {}, {cache: true});
+<%- partial('cabeçalho', {}, {cache: true});
 ```
 
 {% note warn %}
-`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled.
-For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
+`fragment_cache()` irá armazenar em cache o resultado renderizado e a saída em cache para outras páginas. Isso só deve ser usado em partes que são esperadas **não** para mudar em diferentes páginas. Otherwise, it should **not** be enabled. Por exemplo, ele deve ser desativado quando o `relative_link` é ativado na configuração. Isso porque links relativos podem aparecer de forma diferente nas páginas.
 {% endnote %}

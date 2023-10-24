@@ -1,14 +1,14 @@
 ---
-title: Tag Plugins
+title: Plugins de Tags
 ---
 
 As Tag Plugins são diferentes das tags de postagem. Elas são portadas pela Octopress e fornecem uma maneira útil para você adicionar rapidamente conteúdo específico às suas postagens.
 
-Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+Embora você possa escrever suas postagens em qualquer formato, mas os plugins de tags sempre estarão disponíveis e a sintaxe permanece a mesma.
 
 {% youtube I07XMi7MHd4 %}
 
-_Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
+_Plugins de tags não devem ser envolvidos dentro da sintaxe Markdown, por exemplo, `[]({% post_path lorem-ipsum %})` não é suportado._
 
 ## Bloco de Citação
 
@@ -27,8 +27,7 @@ conteúdo
 **Sem argumentos. Bloco de citação simples.**
 
 ```
-{% blockquote %}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
+{% blockquote %} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}
 ```
 
@@ -39,13 +38,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 **Citação de um livro**
 
 ```
-{% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+{% blockquote David Levithan, Wide Awake %} Do not just seek happiness for yourself. Procure felicidade por todos. Pela bondade. Através da piedade.
 {% endblockquote %}
 ```
 
 {% blockquote David Levithan, Wide Awake %}
-Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+Não apenas busque felicidade para si mesmo. Procure felicidade por todos. Pela bondade. Através da piedade.
 {% endblockquote %}
 
 **Citação de um twitter**
@@ -57,19 +55,18 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 ```
 
 {% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
-NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
+NOVO: DevDocs agora vem com destaque de sintaxe. http://devdocs.io
 {% endblockquote %}
 
 **Citação de um artigo da web**
 
 ```
-{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
-Every interaction is both precious and an opportunity to delight.
+{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %} Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 ```
 
-{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
-Every interaction is both precious and an opportunity to delight.
+{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Bem-vindo ao Marketing de Ilha %}
+Toda a interacção é simultaneamente preciosa e uma oportunidade para se regozijar.
 {% endblockquote %}
 
 ## Bloco de Código
@@ -84,16 +81,16 @@ code snippet
 {% endcodeblock %}
 ```
 
-Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
+Especificar opções adicionais no formato `option:value` , ex.: `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Opções adicionais | Descrição                                                                                                                                                                                     | Padrão       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `número_linha`    | Mostrar número de linha                                                                                                                                                                       | `verdadeiro` |
+| `limite_linha`    | Mostrar apenas números de linha contanto que os números de linhas do bloco de código excedam esse limite.                                                                                     | `0`          |
+| `Destaque`        | Ativar destaque de código                                                                                                                                                                     | `verdadeiro` |
+| `primeira_linha`  | Especifique o número da primeira linha                                                                                                                                                        | `1`          |
+| `marcar`          | Destaque de linha linha específica, cada valor separado por uma vírgula. Especifique o intervalo de números usando um traço<br>Exemplo: `marca:1,4-7,10` marcará a linha 1, 4 a 7 e 10. |              |
+| `embrulhar`       | Envolva o bloco de código em [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                                               | `verdadeiro` |
 
 ### Exemplos
 
@@ -101,12 +98,12 @@ Extra Options | Description | Default
 
 ```
 {% codeblock %}
-alert('Hello World!');
+alert('Olá Mundo!');
 {% endcodeblock %}
 ```
 
 {% codeblock %}
-alert('Hello World!');
+alert('Olá Mundo!');
 {% endcodeblock %}
 
 **Em uma linguagem específica**
@@ -118,7 +115,7 @@ alert('Hello World!');
 ```
 
 {% codeblock lang:objc %}
-[rectangle setX: 10 y: 10 width: 20 height: 20];
+[retângulo setX: 10: 10 largura: 20 altura: 20];
 {% endcodeblock %}
 
 **Adicionando uma legenda ao código**
@@ -143,8 +140,7 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Bloco de Código com Backtick
@@ -152,12 +148,12 @@ _.compact([0, 1, false, 2, '', 3]);
 Isso é idêntico ao usar um bloco de código, mas usa três backticks (acentos grave) para delimitar o bloco.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
-code snippet
-&#96;``
+&#96`[language] [title] [url] [texto do link]
+código snippet
+&#96;`
 {% endraw %}
 
-## Pull Quote
+## Puxar Cotação
 
 Para adicionar pull quotes (citações destacadas) em sua postagem:
 
@@ -172,15 +168,15 @@ content
 Para incorporar um snippet (trecho de código) do jsFiddle:
 
 ```
-{% jsfiddle shorttag [tabs] [skin] [width] [height] %}
+{% jsfiddle shorttag [tabs] [skin] [width] [height]%}
 ```
 
-## Gist
+## Neblina
 
 Para incorporar um snippet (trecho de código) do Gist:
 
 ```
-{% gist gist_id [filename] %}
+{% gist gist_id [filename]%}
 ```
 
 ## iframe
@@ -199,47 +195,79 @@ Insere uma imagem com tamanho especificado.
 {% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
 ```
 
-## Link
+## Vincular
 
 Insere um link com o atributo `target="_blank"`.
 
 ```
-{% link text url [external] [title] %}
+{% link texto url [external] [title]%}
 ```
 
 ## Incluir Código
 
-Insere trechos de código no diretório `source/downloads/code`.
+Insere trechos de código no diretório `source/downloads/code`. O local da pasta pode ser especificado através da opção `code_dir` na configuração.
 
 ```
-{% include_code [title] [lang:language] path/to/file %}
+{% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
 ```
 
-## YouTube
+### Exemplos
 
-Insere um vídeo do YouTube.
+**Incorporar todo o conteúdo dos test.js**
 
 ```
-{% youtube video_id [type] [cookie] %}
+{% include_code lang:javascript test.js %}
 ```
 
-### Examples
+**Inserir linha somente 3**
 
-**Embed a video**
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Inserir linha 5 a 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Inserir linha 5 no final do arquivo**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Inserir linha de 1 a 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
+```
+
+## Youtube
+
+Insere um vídeo do Vimeo.
+
+```
+{% youtube video_id [type] [cookie]%}
+```
+
+### Exemplos
+
+**Incorporar um vídeo**
 
 ```
 {% youtube lJIrF4YjHfQ %}
 ```
 
-**Embed a playlist**
+**Incorporar uma playlist**
 
 ```
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' %}
 ```
 
-**Enable privacy-enhanced mode**
+**Ativar modo privado aprimorado**
 
-YouTube's cookie is not used in this mode.
+Cookie do YouTube não é usado neste modo.
 
 ```
 {% youtube lJIrF4YjHfQ false %}
@@ -248,10 +276,10 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Insere um vídeo do Vimeo.
+Insere um vídeo de tamanho responsivo ou específico Vimeo.
 
 ```
-{% vimeo video_id %}
+{% vimeo video_id [width] [height] %}
 ```
 
 ## Incluir Postagens
@@ -263,39 +291,38 @@ Incluir links para outras postagens.
 {% post_link filename [title] [escape] %}
 ```
 
-You can ignore permalink and folder information, like languages and dates, when using this tag.
+Você pode ignorar as informações de permalink e pasta, como idiomas e datas, ao usar esta tag.
 
-For instance: `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`.
+Por exemplo: `{% raw %}{% post_link how-to-bake-a-cake %}{% endraw %}`.
 
-This will work as long as the filename of the post is `how-to-bake-a-cake.md`, even if the post is located at `source/posts/2015-02-my-family-holiday` and has permalink `2018/en/how-to-bake-a-cake`.
+Isso funcionará contanto que o nome de arquivo do post seja `como fazer para fazer bolo. d`, mesmo que a publicação esteja localizada em `fonte/posts/2015-02-meu-feriado-` e tenha permalink `2018/en/how-to-bake-a-cake`.
 
-You can customize the text to display, instead of displaying the post's title.
+É possível personalizar o texto para exibir, ao invés de exibir o título do post.
 
-Post's title and custom text are escaped by default. You can use the `escape` option to disable escaping.
+O título do post e o texto personalizado são escapados por padrão. Você pode usar a opção `escape` para desativar fuga.
 
-For instance:
+Por exemplo:
 
-**Display title of the post.**
+**Exibe o título da mensagem.**
 
 `{% raw %}{% post_link hexo-3-8-released %}{% endraw %}`
 
 {% post_link hexo-3-8-released %}
 
-**Display custom text.**
+**Exibir texto personalizado.**
 
 `{% raw %}{% post_link hexo-3-8-released 'Link to a post' %}{% endraw %}`
 
 {% post_link hexo-3-8-released 'Link to a post' %}
 
-**Escape title.**
+**Título da fuga.**
 
 ```
-{% post_link hexo-4-released 'How to use <b> tag in title' %}
+{% post_link hexo-4-released 'Como usar a tag <b> no título' %}
 ```
-
 {% post_link hexo-4-released 'How to use <b> tag in title' %}
 
-**Do not escape title.**
+**Não escape do título.**
 
 ```
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
@@ -305,21 +332,21 @@ For instance:
 
 ## Incluir Assets
 
-Incluir assets de postagem.
+Inclua conteúdos publicados, para ser usado em conjunto com [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
-{% asset_img [class names] slug [width] [height] [title text [alt text]] %}
-{% asset_link filename [title] [escape] %}
+{% asset_img [nome de classe] slug [width] [height] [título texto [alt text]] %}
+{% asset_link filename [title] [escape]%}
 ```
 
-### Embed image
+### Incorporar imagem
 
 _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an image automatically, refer to [this section](/docs/asset-folders#Embedding-an-image-using-markdown) on how to enable it._
 
-"foo.jpg" is located at `http://example.com/2020/01/02/hello/foo.jpg`.
+"foo.jpg" está localizado em `http://example.com/2020/01/02/hello/foo.jpg`.
 
-**Default (no option)**
+**Padrão (sem opção)**
 
 `{% asset_img foo.jpg %}`
 
@@ -327,7 +354,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg">
 ```
 
-**Custom class**
+**Classe personalizada**
 
 `{% asset_img post-image foo.jpg %}`
 
@@ -335,7 +362,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" class="post-image">
 ```
 
-**Display size**
+**Tamanho da exibição**
 
 `{% asset_img foo.jpg 500 400 %}`
 
@@ -343,32 +370,31 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" width="500" height="400">
 ```
 
-**Title & Alt**
+**Título & Alt**
 
-`{% asset_img logo.svg "lorem ipsum'dolor'" %}`
+`{% asset_img foo.jpg "lorem ipsum'dolor'" %}`
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
-## Raw
+## RAW
 
 Se determinado conteúdo estiver causando problemas de processamento em suas postagens, envolva-o com a tag `raw` para evitar erros de renderização.
 
 ```
 {% raw %}
-content
+conteúdo
 {% endraw %}
 ```
 
 ## Trecho de Postagem
 
-Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação.
+Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
 **Exemplo:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-<!-- more -->
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<!-- more --> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```

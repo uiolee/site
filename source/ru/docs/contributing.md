@@ -20,9 +20,9 @@ title: Содействие
 
 Кроме того, у Hexo есть своя собственная конфигурация [ESLint config](https://github.com/hexojs/eslint-config-hexo), поэтому, пожалуйста, убедитесь, что ваш вклад пройдёт ESLint проверку.
 
-### Рабочее пространство
+### Рабочий процесс
 
-1. Создайте форк [hexojs/site]
+1. Создайте форк [hexojs/site][]
 2. Клонируйте репозиторий на компьютер и установите все зависимости.
 
 ``` bash
@@ -38,11 +38,11 @@ $ git submodule update --init
 $ git checkout -b new_feature
 ```
 
-4. Вносите изменения.
-5. Выгрузите ветку:
+4. Начать взлом.
+5. Отправить ветку:
 
 ```
-$ git push origin new_feature
+$ git push new_feature
 ```
 
 6. Запросите принятие изменений с их описанием.
@@ -53,7 +53,7 @@ $ git push origin new_feature
 - Ваш запрос могут только принять, когда все тесты пройдут. Не забудьте провести испытания перед отправкой.
 
 ``` bash
-$ npm test
+Тест на $ npm
 ```
 
 ## Обновление официальных плагинов
@@ -64,14 +64,14 @@ $ npm test
 
 Документация Hexo имеет открытый исходный код, его можно найти по адресу [hexojs/site](https://github.com/hexojs/site).
 
-### Рабочее пространство
+### Рабочий процесс
 
-1. Создайте форк [hexojs/site]
+1. Создайте форк [hexojs/site][]
 2. Клонируйте репозиторий на компьютер и установите все зависимости.
 
 ``` bash
-$ npm install hexo-cli -g # If you don't have hexo-cli installed
-$ git clone https://github.com/<username>/site.git
+$ npm установить hexo-cli -g # Если у вас не установлен hexo-cli
+$ git clone https://github. om/<username>/site.git
 $ cd site
 $ npm install
 ```
@@ -79,7 +79,7 @@ $ npm install
 3. Начать редактировать документацию. Вы можете запустить сервер для просмотра изменений.
 
 ``` bash
-$ hexo server
+$ hexo сервер
 ```
 
 4. Выгрузите ветку.
@@ -99,5 +99,4 @@ $ hexo server
 1. Воспроизведите проблему в режиме отладки [debug mode](commands.html#Режим-отладки).
 2. Следуйте инструкциям из шаблона issue, чтобы предоставить сообщение об отладке и версию при создании нового issue на GitHub.
 
-[hexojs/hexo]: https://github.com/hexojs/hexo
 [hexojs/site]: https://github.com/hexojs/site

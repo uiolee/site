@@ -1,6 +1,7 @@
 ---
 title: Tag
 ---
+
 tag ช่วยให้ผู้ใช้เสียบ snippet เข้าไปในโพสต์ของตนอย่างง่ายดายและรวดเร็ว
 
 ## Synopsis
@@ -11,7 +12,9 @@ hexo.extend.tag.register(name, function(args, content){
 }, options);
 ```
 
-argument ทั้งหมดสองตัวจะส่งเข้า function แท็ก: `args` และ `content`     `args` เป็น argument ท่ีส่งเข้าปลั๊กอินแท็กและ `content` เป็นเนื้อหาท่ีอยู่ในปลั๊กอินแท็ก จากคำแนะนำของ asynchronous rendering ใน hexo 3 รู้ได้ว่า hexo ใช้  [Nunjucks] เพื่อ rendering ซึ่งแตกต่างจาก rendering ใน [Swig]
+Two arguments will be passed into the tag function: `args` and `content`. `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
+
+Since the introduction of asynchronous rendering in Hexo 3, we are using [Nunjucks][] for rendering. The behavior may be somewhat different from that in [Swig][].
 
 ## Unregister Tags
 
@@ -39,11 +42,11 @@ hexo.extend.tag.register('youtube', tagFn);
 
 ### ends
 
-ใช้แท็ก end ตัวเลือก default คือ `false`
+Use end tags. This option is `false` by default.
 
 ### async
 
-เปิดโหมด async ตัวเลือก default คือ `false`
+Enable async mode. ใช้แท็ก end ตัวเลือก default คือ `false`
 
 ## Examples
 
@@ -141,4 +144,4 @@ module.exports = hexo => {
 ```
 
 [Nunjucks]: https://mozilla.github.io/nunjucks/
-[Swig]: http://paularmstrong.github.io/swig/
+[Swig]: https://node-swig.github.io/swig-templates/

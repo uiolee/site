@@ -8,59 +8,59 @@ Você pode especificar os links permanentes (permalinks) para o seu site em `_co
 
 Além das seguintes variáveis, você pode usar quaisquer atributos no permalink.
 
-Variável | Descrição
---- | ---
-`:year` | Ano da publicação da postagem (4 dígitos)
-`:month` | Mês da publicação da postagem (2 dígitos)
-`:i_month` | Mês da publicação da postagem (sem zero à esquerda)
-`:day` | Dia da publicação da postagem (2 dígitos)
-`:i_day` | Dia da publicação da postagem (sem zero à esquerda)
-`:hour` | Published hour of posts (2-digit)
-`:minute` | Published minute of posts (2-digit)
-`:second` | Published second of posts (2-digit)
-`:title` | Filename (relative to "source/_posts/" folder)
-`:name` | Filename
-`:post_title` | Título da postagem
-`:id` | ID da postagem (_not persistent across [cache reset](/pt-br/docs/commands#clean)_)
-`:category` | Categorias. Se a postagem não possuir uma categoria, será usado o valor de `default_category`.
-`:hash` | SHA1 hash of filename (same as `:title`) and date (12-hexadecimal)
+| Variável       | Descrição                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------- |
+| `:year`        | Ano da publicação da postagem (4 dígitos)                                                      |
+| `:month`       | Mês da publicação da postagem (2 dígitos)                                                      |
+| `:i_mês`       | Mês da publicação da postagem (sem zero à esquerda)                                            |
+| `:day`         | Dia da publicação da postagem (2 dígitos)                                                      |
+| `:i_dia`       | Dia da publicação da postagem (sem zero à esquerda)                                            |
+| `:hora`        | Hora de publicação de postagens (2-dígito)                                                     |
+| `:minuto`      | Minuto publicado das postagens (2-dígito)                                                      |
+| `:segundo`     | Segunda postagem publicada (2-dígito)                                                          |
+| `:title`       | Nome do arquivo (relativo à pasta "source/_posts/")                                            |
+| `:name`        | Nome                                                                                           |
+| `:post_titulo` | Título da postagem                                                                             |
+| `:id`          | ID da postagem (_not persistent across [cache reset](/pt-br/docs/commands#clean)_)             |
+| `:categoria`   | Categorias. Se a postagem não possuir uma categoria, será usado o valor de `default_category`. |
+| `:hash`        | Hash SHA1 de nome de arquivo (o mesmo que `:title`) e data (12-hexadecimal)                    |
 
 Você pode definir o valor padrão de cada variável do permalink através da definição `permalink_defaults`:
 
 ``` yaml
 permalink_defaults:
-  lang: en
+  lang: pt-BR
 ```
 
 ### Exemplos
 
 ``` yaml source/_posts/hello-world.md
-title: Hello World
+title: Olá, World
 date: 2013-07-14 17:01:34
-categories:
+categorias:
 - foo
-- bar
+- barra
 ```
 
-Definição | Resultado
---- | ---
-`:year/:month/:day/:title/` | 2013/07/14/hello-world/
-`:year-:month-:day-:title.html` | 2013-07-14-hello-world.html
-`:category/:title/` | foo/bar/hello-world/
-`:title-:hash/` | hello-world-a2c8ac003b43/
+| Configuração                    | Resultado                   |
+| ------------------------------- | --------------------------- |
+| `:ano/:mês/:day/:title/`        | 2013/07/14/hello-world/     |
+| `:year-:month-:day-:title.html` | 2013-07-14-hello-world.html |
+| `:category/:title/`             | foo/barra/hello-world/      |
+| `:title-:hash/`                 | hello-world-a2c8ac003b43/   |
 
 ``` yaml source/_posts/lorem/hello-world.md
-title: Hello World
+title: Olá, World
 date: 2013-07-14 17:01:34
-categories:
+categorias:
 - foo
-- bar
+- barra
 ```
 
-Definição | Resultado
---- | ---
-`:year/:month/:day/:title/` | 2013/07/14/lorem/hello-world/
-`:year/:month/:day/:name/` | 2013/07/14/hello-world/
+| Configuração             | Resultado                     |
+| ------------------------ | ----------------------------- |
+| `:ano/:mês/:day/:title/` | 2013/07/14/lorem/hello-world/ |
+| `:ano/:mês/:day/:name/`  | 2013/07/14/hello-world/       |
 
 ### Suporte Multi-idioma
 

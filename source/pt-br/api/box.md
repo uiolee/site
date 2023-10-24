@@ -1,5 +1,5 @@
 ---
-title: Box
+title: Cx
 ---
 
 Box é um container usado para processar arquivos em um diretório específico. O Hexo usa dois Boxes diferentes: `hexo.source` e `hexo.theme`. O primeiro é usado para processar o diretório `source` e o segundo para processar o diretório `theme`.
@@ -14,7 +14,7 @@ box.process().then(function(){
 });
 
 box.watch().then(function(){
-  // You can call box.unwatch() later to stop watching.
+  // Você pode chamar box.unwatch() mais tarde para parar de assistir.
 });
 ```
 
@@ -24,12 +24,12 @@ O Box fornece muitas maneiras para a correspondência de caminho. Você pode usa
 
 ``` plain
 posts/:id => posts/89
-posts/*path => posts/2015/title
+posts/*caminho => posts/2015/title
 ```
 
-Veja [util.Pattern] para mais informações.
+Veja [util. Pattern][] para mais informações.
 
-## Processors
+## Processadores
 
 Um `processor` é um elemento essencial do Box e é usado para processar arquivos. Você pode usar o path matching conforme descrito acima para restringir o que exatamente o `processor` deve processar. Registre um novo `processor` com o método `addProcessor`.
 
@@ -41,22 +41,22 @@ box.addProcessor('posts/:id', function(file){
 
 O Box passa o conteúdo dos arquivos correspondentes aos processadores. Esta informação pode então ser lida diretamente do argumento `file` no retorno do callback:
 
-Atributo | Descrição
---- | ---
-`source` | Caminho completo do arquivo.
-`path` | Caminho relativo para o Box do arquivo.
-`type` | Tipo de arquivo. O valor pode ser `create`, `update`, `skip` ou `delete`.
-`params` | A informação do caminho correspondente.
+| Atributo  | Descrição                                                                 |
+| --------- | ------------------------------------------------------------------------- |
+| `Fonte`   | Caminho completo do arquivo.                                              |
+| `caminho` | Caminho relativo para o Box do arquivo.                                   |
+| `Tipo`    | Tipo de arquivo. O valor pode ser `create`, `update`, `skip` ou `delete`. |
+| `params`  | A informação do caminho correspondente.                                   |
 
 O Box também fornece alguns métodos para que você não precise fazer o IO (entrada e saída) de arquivo por conta própria.
 
-Método | Descrição
---- | ---
-`read` | Ler um arquivo.
-`readSync` | Ler um arquivo de forma síncrona.
-`stat` | Ler o status de um arquivo.
-`statSync` | Ler o status de um arquivo de forma síncrona.
-`render` | Renderizar um arquivo.
-`renderSync` | Renderizar um arquivo de forma síncrona.
+| Método           | Descrição                                     |
+| ---------------- | --------------------------------------------- |
+| `lidos`          | Ler um arquivo.                               |
+| `readSync`       | Ler um arquivo de forma síncrona.             |
+| `estatística`    | Ler o status de um arquivo.                   |
+| `sincronizaçãod` | Ler o status de um arquivo de forma síncrona. |
+| `renderizar`     | Renderizar um arquivo.                        |
+| `renderSync`     | Renderizar um arquivo de forma síncrona.      |
 
-[util.Pattern]: https://github.com/hexojs/hexo-util#patternrule
+[util. Pattern]: https://github.com/hexojs/hexo-util#patternrule

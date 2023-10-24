@@ -4,7 +4,7 @@ title: Injector
 
 An injector is used to add static code snippet to the `<head>` or/and `<body>` of generated HTML files. Hexo run injector **before** `after_render:html` filter is executed.
 
-## Synopsis
+## 개요
 
 ```js
 hexo.extend.injector.register(entry, value, to)
@@ -44,7 +44,7 @@ Which page will code snippets being injected.
 
 There are other internal functions, see [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) for more details.
 
-## Example
+## 예시
 
 ```js
 const css = hexo.extend.helper.get('css').bind(hexo);

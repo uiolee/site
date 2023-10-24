@@ -1,23 +1,26 @@
 ---
 title: Шаблоны
 ---
+
 Шаблон определяет, как страница определённого вида будет выглядеть на вашем сайте. В таблице ниже приведены соответствующие шаблоны для любой страницы. Как минимум, тема должна содержать шаблон `index`.
 
-Шаблон | Страница | Резерв
---- | --- | ---
-`index` | Домашняя страница |
-`post` | Посты | `index`
-`page` | Страницы | `index`
-`archive` | Архив | `index`
-`category` | Категории архивов | `archive`
-`tag` | Архив тегов | `archive`
+{% youtube mb65bQ4iUc4 %}
+
+| Шаблон      | Страница          | Fallback |
+| ----------- | ----------------- | -------- |
+| `индекс`    | Домашняя страница |          |
+| `пост`      | Должности         | `индекс` |
+| `страница`  | Страницы          | `индекс` |
+| `архив`     | Архив             | `индекс` |
+| `категория` | Категории архивов | `архив`  |
+| `тег`       | Архив тегов       | `архив`  |
 
 ## Макеты
 
 Если страницы имеют схожую структуру, например, когда два шаблона имеют как верхний, так и нижний колонтитулы, тогда можно рассмотреть возможность использования макета `layout` для вынесения этих структурных сходств. Каждый файл разметки должен содержать переменную `body`, для отображения содержимого шаблона. Например:
 
 ``` html index.ejs
-index
+индекс
 ```
 
 ``` html layout.ejs
@@ -27,17 +30,16 @@ index
 </html>
 ```
 
-сформируется в:
+урожай:
 
 ``` html
 <!DOCTYPE html>
 <html>
-  <body>index</body>
+  <body>индекс</body>
 </html>
 ```
 
 По умолчанию макет `layout` используется всеми другими шаблонами. Вы можете указать дополнительные макеты в шапке файла или установить его значение в `false`, чтобы отключить. Также можно построить сложную вложенную структуру включив в верхней части макета другие макеты.
-<!-- TODO: Добавить примеры использования -->
 
 ## Части
 
@@ -48,11 +50,11 @@ index
 ```
 
 ``` html index.ejs
-<%- partial('partial/header') %>
-<div id="content">Home page</div>
+<%- частично('частичный/заголовок') %>
+<div id="content">Домашняя страница</div>
 ```
 
-сформируется в:
+урожай:
 
 ``` html
 <h1 id="logo">My Site</h1>
@@ -68,15 +70,15 @@ index
 ```
 
 ``` html index.ejs
-<%- partial('partial/header', {title: 'Hello World'}) %>
-<div id="content">Home page</div>
+<%- частично('частичный/заголовок', {title: 'Hello World'}) %>
+<div id="content">Главная страница</div>
 ```
 
-сформируется в:
+урожай:
 
 ``` html
 <h1 id="logo">Hello World</h1>
-<div id="content">Home page</div>
+<div id="content">Главная страница</div>
 ```
 
 ## Оптимизация
@@ -96,10 +98,9 @@ index
 Хотя это можно сделать проще, используя части:
 
 ``` js
-<%- partial('header', {}, {cache: true});
+<%- частично('заголовок', {}, {cache: true});
 ```
 
 {% note warn %}
-`fragment_cache()` will cache the rendered result and output the cached result to other pages. This should only be used on partials that are expected **not** to change across different pages. Otherwise, it should **not** be enabled.
-For example, it should be disabled when `relative_link` is enabled in the config. This is because relative links may appear differently across pages.
+`fragment_cache()` кэширует отображаемый результат и выводит кэшированный результат на другие страницы. Это должно быть использовано только для частей, которые, как ожидается, **не** изменится на разные страницы. Otherwise, it should **not** be enabled. For example, it should be disabled when `relative_link` is enabled in the config. Это объясняется тем, что относительные ссылки могут выглядеть по-разному между страницами.
 {% endnote %}

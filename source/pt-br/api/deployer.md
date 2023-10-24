@@ -1,5 +1,5 @@
 ---
-title: Deployer
+title: Implantador
 ---
 
 Um `deployer` ajuda os usuários a implantar o seu site rapidamente em um servidor remoto sem comandos complicados.

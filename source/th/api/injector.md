@@ -44,7 +44,7 @@ Which page will code snippets being injected.
 
 There are other internal functions, see [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) for more details.
 
-## Example
+## ตัวอย่าง
 
 ```js
 const css = hexo.extend.helper.get('css').bind(hexo);

@@ -1,6 +1,7 @@
 ---
 title: 生成器（Generator）
 ---
+
 生成器根据处理后的原始文件建立路由。
 
 ## 概要
@@ -8,21 +9,22 @@ title: 生成器（Generator）
 ``` js
 hexo.extend.generator.register(name, function(locals){
 });
+});
 ```
 
-`locals` 参数会被传递到此函数，其中包含 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接访问数据库。
+在函数中会传入一个 `locals` 参数，等同于 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接存取资料库。 您应该使用此参数获取网站数据，从而避免直接访问数据库。
 
 ## 更新路由
 
 ``` js
-hexo.extend.generator.register('test', function(locals){
+hexo.extend.generator.register('test', function(locals)}.
   // Object
   return {
     path: 'foo',
     data: 'foo'
   };
-  
-  // Array
+
+  // 数组
   return [
     {path: 'foo', data: 'foo'},
     {path: 'bar', data: 'bar'}
@@ -30,21 +32,21 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-属性 | 描述
---- | ---
-`path` | 路径。不可包含开头的 `/`。
-`data` | 数据
-`layout` | 布局。指定用于渲染的模板，可为字符串或数组，如果省略此属性的话则会直接输出 `data`。
+| 属性   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `路径` | 路径。 不可包含开头的 `/`。                              |
+| `数据` | 数据                                            |
+| `布局` | 布局。 指定渲染的布局。 值可以是字符串或数组。 如果它被忽略，路由将直接返回 `数据`。 |
 
-在原始文件更新时，Hexo 会执行所有生成器并重建路由，**请直接回传数据，不要直接操作路由**。
+在原始文件更新时，Hexo 会执行所有生成器并重建路由，**请直接回传资料，不要直接操作路由**。 **Please return the data and do not access the router directly.**
 
-## 示例
+## 范例
 
 ### 归档页面
 
-在 `archives/index.html` 建立一归档页面，把所有文章当作数据传入模板内，这个数据也就等同于模板中的 `page` 变量。
+在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 我们将所有帖子作为数据传递到模板中。 此数据等于模板中的 `页面` 变量。
 
-然后，设置 `layout` 属性好让 Hexo 使用主题模板来渲染，在此例中同时设定了两个布局，当 `archive` 布局不存在时，会继续尝试 `index` 布局。
+Next, set the `layout` attribute to render with the theme templates. 我们在此示例中设置两个布局：如果 `存档` 布局不存在，则将使用 `索引` 布局。
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
@@ -58,7 +60,7 @@ hexo.extend.generator.register('archive', function(locals){
 
 ### 有分页的归档页面
 
-您可以通过 [hexo-pagination] 这个方便的官方工具来轻松建立分页归档。
+您可以通过 [hexo-pagination][] 这个方便的官方工具来轻松建立分页归档。
 
 ``` js
 var pagination = require('hexo-pagination');
@@ -90,15 +92,15 @@ hexo.extend.generator.register('post', function(locals){
 
 ### 复制文件
 
-这次我们不明确返回数据，而是将 `data` 设置为一个函数，这样路由只会在需要时才会构建 `fs.ReadStream`。
+这次不直接在 `data` 中返回数据而是返回一个函数，如此一来这个路由唯有在使用时才会建立 `fs.ReadStream`。
 
 ``` js
 var fs = require('hexo-fs');
 
-hexo.extend.generator.register('asset', function(locals){
-  return {
+hexo.extend.generator.register('asset', funcult(locals))_
+  return
     path: 'file.txt',
-    data: function(){
+    data: function()_
       return fs.createReadStream('path/to/file.txt')
     }
   };

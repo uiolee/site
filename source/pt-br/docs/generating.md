@@ -5,7 +5,7 @@ title: Gerando
 Gerar arquivos estáticos com o Hexo é bastante fácil e rápido.
 
 ``` bash
-$ hexo generate
+Geração de $ hexos
 ```
 
 {% youtube viEJQPVCoLU %}
