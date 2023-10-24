@@ -1,7 +1,10 @@
 ---
 title: Helper
 ---
+
 Helper는 템플릿에 쉽고 빠르게 정보(snippet)을 추가할 수 있게 도와줍니다. 우리는 당신이 복잡한 코드를 다룰 때 템플릿 대신 helper를 사용하는 것을 추천합니다.
+
+Helpers can not be accessed from `source` files.
 
 ## 개요
 
@@ -40,7 +43,7 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### How do I use a registered helper in another extension (e.g. Filter, Injector, etc)?
+### How do I use a registered helper in another extension (e.g. Filter, Injector)?
 
 `hexo.extend.helper.get` will return the helper function, but it needs to have hexo as its context, so:
 
