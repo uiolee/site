@@ -1,7 +1,8 @@
 ---
 title: 控制台（Console）
 ---
-控制台是 Hexo 与开发者之间沟通的桥梁。它注册并描述了可用的控制台命令。
+
+控制台是 Hexo 与开发者之间沟通的桥梁。 It registers and describes the available console commands.
 
 ## 概要
 
@@ -9,30 +10,31 @@ title: 控制台（Console）
 hexo.extend.console.register(name, desc, options, function(args){
   // ...
 });
+});
 ```
 
-参数 | 描述
---- | ---
-`name` | 名称
-`desc` | 描述
-`options`| 选项
+| Argument  | 描述 |
+| --------- | -- |
+| `name`    | 名称 |
+| `desc`    | 描述 |
+| `options` | 选项 |
 
-在函数中会传入 `args` 参数，此参数是使用者在终端中所传入的参数，是一个经 [Minimist] 解析的对象。
+An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
 ## 选项
 
 ### 用法
 
-控制台的操作方法，例如：
+The usage of a console command. For example:
 
 ``` js
 {usage: '[layout] <title>'}
 // hexo new [layout] <title>
 ```
 
-### 参数
+### arguments
 
-控制台各个参数的说明，例如：
+控制台各个参数的说明，例如： For example:
 
 ``` js
 {
@@ -43,9 +45,9 @@ hexo.extend.console.register(name, desc, options, function(args){
 }
 ```
 
-### 选项
+### options
 
-控制台的各个选项的说明，例如：
+The description of each option of a console command. For example:
 
 ``` js
 {
@@ -55,11 +57,11 @@ hexo.extend.console.register(name, desc, options, function(args){
 }
 ```
 
-### 描述
+### desc
 
 关于控制台命令的更详细的信息。
 
-## 示例
+## 范例
 
 ``` js
 hexo.extend.console.register('config', 'Display configuration', function(args){
