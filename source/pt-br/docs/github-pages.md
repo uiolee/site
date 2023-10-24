@@ -5,38 +5,72 @@ title: GitHub Pages
 In this tutorial, we use [Travis CI](https://travis-ci.com/) to deploy Github Pages. It is free for open source repository, meaning your repository's `master` branch has to be public. Please skip to the [Private repository](#Private-repository) section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
 
 1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the repository. The `public/` folder is not (and should not be) uploaded by default, make sure the `.gitignore` file contains `public/` line. The folder structure should be roughly similar to [this repo](https://github.com/hexojs/hexo-starter), without the `.gitmodules` file.
-3. Add [Travis CI](https://github.com/marketplace/travis-ci) to your account.
-4. Go to [Applications settings](https://github.com/settings/installations), configure Travis CI to have access to the repo.
-5. You'll be redirected to Travis page.
-6. On a new tab, generate a [new token](https://github.com/settings/tokens) with **repo** scopes. Note down the token value.
-7. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Click Add to save it.
-8. Add `.travis.yml` file to your repo (alongside _config.yml & package.json) with the following content:
+2. Push the files of your Hexo folder to the repository. The default branch is usually **main**, older repository may use **master** branch.
+  - To push `main` branch to GitHub:
 
-```yml
-sudo: false
-language: node_js
-node_js:
-  - 10 # use nodejs v10 LTS
-cache: npm
-branches:
-  only:
-    - master # build master branch only
-script:
-  - hexo generate # generate static files
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  on:
-    branch: master
-  local-dir: public
+    ```
+    $ git push -u origin main
+    ```
+  - The `public/` folder is not (and should not be) uploaded by default, make sure the `.gitignore` file contains `public/` line. The folder structure should be roughly similar to [this repo](https://github.com/hexojs/hexo-starter).
+
+3. Check what version of Node.js you are using on your local machine with `node --version`. Make a note of the major version (e.g., `v16.y.z`)
+4. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the source to **GitHub Actions** and save.
+5. Create `.github/workflows/pages.yml` in your repo with the following contents (substituting `16` to the major version of Node.js that you noted in previous step):
+
+```yml .github/workflows/pages.yml
+name: Pages
+
+on:
+  push:
+    branches:
+      - main  # default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: recursive
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 ```
 
-9. Once Travis CI finish the deployment, the generated pages can be found in the `gh-pages` branch of your repository
-10. In your GitHub repo's setting, navigate to "GitHub Pages" section and change Source to **gh-pages branch**.
-11. Check the webpage at *username*.github.io.
+6. Once the deployment is finished, check the webpage at *username*.github.io.
+
+Note - if you specify a custom domain name with a `CNAME`, you need to add the `CNAME` file to the `source/` folder. [More info](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 ## Project page
 
@@ -44,9 +78,11 @@ If you prefer to have a project page on GitHub:
 
 1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
 2. Edit your **_config.yml**, change the `root:` value to the `/<repository>/` (must starts and ends with a slash, without the brackets).
-3. Commit and push.
+3. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Change the source to **GitHub Actions** and save.
+4. Commit and push to the default branch.
+4. Once the deployment is finished, check the webpage at *username*.github.io/*repository*.
 
-## Private repository
+## One-command deployment
 
 The following instruction is adapted from [one-command deployment](/docs/one-command-deployment) page.
 
@@ -66,5 +102,6 @@ The following instruction is adapted from [one-command deployment](/docs/one-com
 
 ## Useful links
 
-- [GitHub Pages](https://help.github.com/categories/github-pages-basics/)
-- [Travis CI Docs](https://docs.travis-ci.com/user/tutorial/)
+- [GitHub Pages](https://docs.github.com/en/pages)
+- [Publishing with a custom GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
+- [actions/deploy-github-pages-site](https://github.com/marketplace/actions/deploy-github-pages-site)

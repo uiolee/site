@@ -21,7 +21,29 @@ This command is a shortcut that runs the following steps:
 $ hexo new [layout] <title>
 ```
 
-Cria um novo artigo. Se nenhum `layout` for fornecido, o Hexo usará o `default_layout` de [_config.yml](configuration.html). Se o `title` contiver espaços, rode-o com aspas.
+Cria um novo artigo. Se nenhum `layout` for fornecido, o Hexo usará o `default_layout` de [_config.yml](configuration.html). Use the layout `draft` to create a draft. Se o `title` contiver espaços, rode-o com aspas.
+
+| Opção             | Descrição                                  |
+| ----------------- | ------------------------------------------ |
+| `-p`, `--path`    | Post path. Customize the path of the post. |
+| `-r`, `--replace` | Replace the current post if existed.       |
+| `-s`, `--slug`    | Post slug. Customize the URL of the post.  |
+
+By default, Hexo will use the title to define the path of the file. For pages, it will create a directory of that name and an `index.md` file in it. Use the `--path` option to override that behaviour and define the file path:
+
+```bash
+hexo new page --path about/me "About me"
+```
+
+will create `source/about/me.md` file with the title "About me" set in the front matter.
+
+Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:
+
+```bash
+hexo new page --path about/me
+```
+
+will create the post `source/_posts/about/me.md` with the title "page" in the front matter. This is because there is only one argument (`page`) and the default layout is `post`.
 
 ## generate
 
@@ -31,12 +53,13 @@ $ hexo generate
 
 Gera os arquivos estáticos.
 
-Opção | Descrição
---- | ---
-`-d`, `--deploy` | Faz o deploy após os arquivos estáticos serem gerados
-`-w`, `--watch` | Assiste alterações no aquivo
-`-b`, `--bail` | Levanta um erro se qualquer exceção não tratada for lançada durante o processo de geração dos arquivos
-`-f`, `--force` | Regeneração forçada
+| Opção                 | Descrição                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| `-d`, `--deploy`      | Deploy after generation finishes                                                                       |
+| `-w`, `--watch`       | Watch file changes                                                                                     |
+| `-b`, `--bail`        | Levanta um erro se qualquer exceção não tratada for lançada durante o processo de geração dos arquivos |
+| `-f`, `--force`       | Regeneração forçada                                                                                    |
+| `-c`, `--concurrency` | Maximum number of files to be generated in parallel. Default is infinity                               |
 
 ## publish
 
@@ -44,7 +67,7 @@ Opção | Descrição
 $ hexo publish [layout] <filename>
 ```
 
-Publica um rascunho.
+Publishes a draft.
 
 ## server
 
@@ -54,11 +77,11 @@ $ hexo server
 
 Inicia um servidor local. Por padrão, o local é `http://localhost:4000/`.
 
-Opção | Descrição
---- | ---
-`-p`, `--port` | Substituir a porta padrão
-`-s`, `--static` | Somente serve arquivos estáticos
-`-l`, `--log` | Ativar o logger. Substitui o formato do logger.
+| Opção            | Descrição                                       |
+| ---------------- | ----------------------------------------------- |
+| `-p`, `--port`   | Substituir a porta padrão                       |
+| `-s`, `--static` | Somente serve arquivos estáticos                |
+| `-l`, `--log`    | Ativar o logger. Substitui o formato do logger. |
 
 ## deploy
 
@@ -66,11 +89,11 @@ Opção | Descrição
 $ hexo deploy
 ```
 
-Implanta o site.
+Deploys your website.
 
-Opção | Descrição
---- | ---
-`-g`, `--generate` | Gerar os arquivos estáticos antes do deploy
+| Opção              | Descrição                                   |
+| ------------------ | ------------------------------------------- |
+| `-g`, `--generate` | Gerar os arquivos estáticos antes do deploy |
 
 ## render
 
@@ -80,9 +103,9 @@ $ hexo render <file1> [file2] ...
 
 Renderiza arquivos.
 
-Opção | Descrição
---- | ---
-`-o`, `--output` | Destino de saída
+| Option           | Description      |
+| ---------------- | ---------------- |
+| `-o`, `--output` | Destino de saída |
 
 ## migrate
 
