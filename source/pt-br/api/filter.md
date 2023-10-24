@@ -1,5 +1,5 @@
 ---
-title: Filter
+title: filtro
 ---
 
 Um `filter` (filtro) pode ser utilizado para modificar alguns dados. O Hexo passa os dados para filtros em sequência e os filtros, então, modificam esses dados um após o outro. Este é o mesmo conceito utilizado pelo [WordPress](http://codex.wordpress.org/Plugin_API#Filters).
@@ -8,48 +8,48 @@ Um `filter` (filtro) pode ser utilizado para modificar alguns dados. O Hexo pass
 
 ``` js
 hexo.extend.filter.register(type, function() {
-  // User configuration
+  // Configuração do usuário
   const { config } = this;
-  if (config.external_link.enable) // do something...
+  if (config.external_link.enable) // fazer algo...
 
-  // Theme configuration
+  // Configuração do tema
   const { config: themeCfg } = this.theme;
-  if (themeCfg.fancybox) // do something...
+  if (themeCfg.fancybox) // fazer algo...
 
-}, priority);
+}, prioridade);
 ```
 
-Você pode definir uma prioridade específica para cada filtro (parâmetro `priority` no exemplo acima). Uma prioridade mais baixa significa que o filtro será executado primeiro. A prioridade padrão é 10.
+Você pode definir uma prioridade específica para cada filtro (parâmetro `priority` no exemplo acima). Baixa `prioridade` significa que ela será executada primeiro. A prioridade padrão é 10. Recomendamos usar um valor de prioridade de usuário configurável que o usuário pode especificar na configuração, por exemplo, `hexo.config.your_plugin.priority`.
 
 ## Executar Filtros
 
 ``` js
-hexo.extend.filter.exec(type, data, options);
-hexo.extend.filter.execSync(type, data, options);
+hexo.extend.filter.exec(type, data, opções);
+hexo.extend.filter.execSync(type, data, opções);
 ```
 
-Opção | Descrição
---- | ---
-`context` | Contexto
-`args` | Argumentos. Deve ser um array.
+| Opção      | Descrição                      |
+| ---------- | ------------------------------ |
+| `contexto` | Contexto                       |
+| `args`     | Argumentos. Deve ser um array. |
 
 O primeiro argumento passado para cada filtro é `data`. O próximo filtro da sequência pode receber o argumento `data` modificado ao se retornar um novo valor. Se nada for retornado, `data` continua intacto. Você ainda pode utilizar `args` para especificar outros argumentos dentro dos filtros. Por exemplo:
 
 ``` js
-hexo.extend.filter.register('test', function(data, arg1, arg2){
-  // data === 'some data'
+filtro hexo.extend.filter. egister('teste', função(dado, arg1, arg2){
+  // dados === 'alguns dados'
   // arg1 === 'foo'
   // arg2 === 'bar'
 
-  return 'something';
+  return 'algo';
 });
 
-hexo.extend.filter.register('test', function(data, arg1, arg2){
-  // data === 'something'
+hexo. xtend.filter.register('test', function(data, arg1, arg2){
+  // dados === 'algo'
 });
 
-hexo.extend.filter.exec('test', 'some data', {
-  args: ['foo', 'bar']
+hexo. xtend.filter.exec('test', 'alguns dados', {
+  arges: ['foo', 'bar']
 });
 ```
 
@@ -63,25 +63,25 @@ hexo.execFilterSync(type, data, options);
 ## Remover Filtros
 
 ``` js
-hexo.extend.filter.unregister(type, filter);
+hexo.extend.filter.unregister(tipo, filtro);
 ```
 
-**Example**
+**Exemplo**
 
 ``` js
-// Unregister a filter which is registered with named function
+// Desregistra um filtro que é registrado com a função nomeada
 
 const filterFn = (data) => {
-  data = 'something';
-  return data;
+  data = 'algo';
+  retorna dados;
 };
-hexo.extend.filter.register('example', filterFn);
+hexo. xtend.filter.register('exemplo', filterFn);
 
-hexo.extend.filter.unregister('example', filterFn);
+hexo.extend.filter.unregister('exemplo', filterFn);
 ```
 
 ``` js
-// Unregister a filter which is registered with commonjs module
+// Desregistra um filtro registrado com o módulo commonjs
 
 hexo.extend.filter.register('example', require('path/to/filter'));
 
@@ -92,7 +92,7 @@ hexo.extend.filter.unregister('example', require('path/to/filter'));
 
 Abaixo são listados os filtros utilizados pelo Hexo.
 
-### before_post_render
+### renderização_de_postagem_anterior
 
 Executado antes de uma postagem ser renderizada. Verificar a seção [Renderizar](posts.html#Renderizar) para saber mais sobre as etapas de execução.
 
@@ -105,7 +105,7 @@ hexo.extend.filter.register('before_post_render', function(data){
 });
 ```
 
-### after_post_render
+### renderizar_post_depois
 
 Executado após a postagem ser renderizado. Verificar a seção [Renderizar](posts.html#Renderizar) para saber mais sobre as etapas de execução.
 
@@ -118,7 +118,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 });
 ```
 
-### before_exit
+### saída_anterior
 
 Executado quando o Hexo está prestes a ser terminado -- isso será executado logo após `hexo.exit` ser chamado.
 
@@ -128,7 +128,7 @@ hexo.extend.filter.register('before_exit', function(){
 });
 ```
 
-### before_generate
+### gerar_antes
 
 Executado antes do processo de geração ser iniciado.
 
@@ -138,7 +138,7 @@ hexo.extend.filter.register('before_generate', function(){
 });
 ```
 
-### after_generate
+### gerar_depois
 
 Executado após o processo de geração ser concluído.
 
@@ -161,7 +161,7 @@ hexo.extend.filter.register('template_locals', function(locals){
 });
 ```
 
-### after_init
+### Entrar_depois
 
 Executado após a inicialização do Hexo -- este será executado logo após `hexo.init` ser concluído.
 
@@ -171,7 +171,7 @@ hexo.extend.filter.register('after_init', function(){
 });
 ```
 
-### new_post_path
+### novo_caminho_post
 
 Executado ao criar uma postagem para determinar o caminho das novas postagens.
 
@@ -191,23 +191,23 @@ hexo.extend.filter.register('post_permalink', function(data){
 });
 ```
 
-### after_render
+### depois_renderização
 
 Executado após a renderização ser terminada. Mais informações podem ser encontradas na seção de [renderização](rendering.html#Filtros-after-render).
 
-### after_clean
+### após_limpeza
 
 Executados após os arquivos serem gerados e o cache ser removido com o comando `hexo clean`.
 
 ``` js
 hexo.extend.filter.register('after_clean', function(){
-  // remove some other temporary files
+  // remove alguns outros arquivos temporários
 });
 ```
 
-### server_middleware
+### middleware
 
-Adiciona um middleware ao servidor. `app` é uma instância de [Connect].
+Adiciona um middleware ao servidor. `app` é uma instância de [Connect][].
 
 Por exemplo, para adicionar `X-Powered-By: Hexo` ao cabeçalho de resposta:
 

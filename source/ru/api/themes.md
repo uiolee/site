@@ -1,29 +1,30 @@
 ---
 title: Темы
 ---
+
 `hexo.theme` является наследником [модулей](box.html) и сохраняет шаблоны.
 
 ## Получить визуализацию
 
 ``` js
-hexo.theme.getView(path);
+hexo.theme.getView(путь);
 ```
 
 ## Установить визуализацию
 
 ``` js
-hexo.theme.setView(path, data);
+hexo.theme.setView(путь, данные);
 ```
 
 ## Удалить визуализацию
 
 ``` js
-hexo.theme.removeView(path);
+hexo.theme.removeView(путь);
 ```
 
 ## Визуализация
 
-Визуализация использует два метода: `render` и `renderSync`. Они идентичны. Асинхронный `renderSync` является устаревшим, а `render` более новым. Для простоты будет рассмотрен только метод `render`.
+Визуализация использует два метода: `render` и `renderSync`. Эти два метода идентичны, но первый асинхронный, а последний синхронный. Для простоты будет рассмотрен только метод `render`.
 
 ``` js
 var view = hexo.theme.getView('layout.swig');

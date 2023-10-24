@@ -1,20 +1,21 @@
 ---
-title: Scaffolds
+title: Строительные леса
 ---
+
 ## Получить Scaffold
 
 ``` js
-hexo.scaffold.get(name);
+hexo.scaffold.get(имя);
 ```
 
 ## Установить Scaffold
 
 ``` js
-hexo.scaffold.set(name, content);
+hexo.scaffold.set(имя, содержание);
 ```
 
 ## Удалить Scaffold
 
 ``` js
-hexo.scaffold.remove(name);
+hexo.scaffold.remove(имя);
 ```

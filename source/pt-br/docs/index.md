@@ -14,24 +14,16 @@ Demora apenas alguns minutos para configurar o Hexo. Se você encontrar um probl
 
 {% youtube ARted4RniaU %}
 
-### Requerimentos
+### Requisitos
 
 Instalar o Hexo é bastante fácil. No entanto, você precisa ter algumas outras coisas instaladas primeiro:
 
-- [Node.js](http://nodejs.org/) (Should be at least Node.js 10.13, recommends 12.0 or higher)
+- [Node.js](http://nodejs.org/) (Deve ser pelo menos Node.js 10.13 recomenda 12.0 ou superior)
 - [Git](http://git-scm.com/)
 
 Se o seu computador já possui estes, parabéns! Basta instalar o Hexo com o npm:
 
-``` bash
-$ npm install -g hexo-cli
-```
-
 Caso contrário, siga as instruções a seguir para instalar todos os requisitos.
-
-{% note warn Para usuários Mac %}
-Você pode encontrar alguns problemas ao compilar. Instale o Xcode da App Store primeiro. Depois que o Xcode estiver instalado, abra o Xcode e vá para **Preferences -> Download -> Command Line Tools -> Install** para instalar as ferramentas de linhas de comandos.
-{% endnote %}
 
 ### Instalando o Git
 
@@ -40,25 +32,29 @@ Você pode encontrar alguns problemas ao compilar. Instale o Xcode da App Store 
 - Linux (Ubuntu, Debian): `sudo apt-get install git-core`
 - Linux (Fedora, Red Hat, CentOS): `sudo yum install git-core`
 
+{% note warn Para usuários Mac %}
+Você pode encontrar alguns problemas ao compilar. Instale o Xcode da App Store primeiro. Depois que o Xcode estiver instalado, abra o Xcode e vá para **Preferences -> Download -> Command Line Tools -> Install** para instalar as ferramentas de linhas de comandos.
+{% endnote %}
+
 ### Instalando o Node.js
 
-Node.js provides [official installer](https://nodejs.org/en/download/) for most platforms.
+Node.js fornece [instalador oficial](https://nodejs.org/en/download/) para a maioria das plataformas.
 
-Alternative installation methods:
+Métodos de instalação alternativos:
 
-- Windows: Install it with [nvs](https://github.com/jasongin/nvs/) (recommended) or [nvm](https://github.com/nvm-sh/nvm).
-- Mac: Install it with [Homebrew](https://brew.sh/) or [MacPorts](http://www.macports.org/).
-- Linux (DEB/RPM-based): Install it with [NodeSource](https://github.com/nodesource/distributions).
-- Others: Install it through respective package manager. Refer to [the guide](https://nodejs.org/en/download/package-manager/) provided by Node.js.
+- Windows: Instale-o com [nvs](https://github.com/jasongin/nvs/) (recomendado) ou [nvm](https://github.com/nvm-sh/nvm).
+- Mac: Instale-o com [Homebrew](https://brew.sh/) ou [MacPorts](http://www.macports.org/).
+- Linux (DEB/RPM-based): Instale com [NodeSource](https://github.com/nodesource/distributions).
+- Outros: instale-o através do respectivo gerenciador de pacotes. Consulte [o guia](https://nodejs.org/en/download/package-manager/) fornecido pelo Node.js.
 
-nvs is also recommended for Mac and Linux to avoid possible permission issue.
+nvs também é recomendado para Mac e Linux para evitar possíveis problemas de permissão.
 
 {% note info Windows %}
-If you use the official installer, make sure **Add to PATH** is checked (it's checked by default).
+Se você usar o instalador oficial, certifique-se que **Adicionar ao PATH** está verificado (é marcado por padrão).
 {% endnote %}
 
 {% note warn Mac / Linux %}
-If you encounter `EACCES` permission error when trying to install Hexo, please follow [the workaround](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) provided by npmjs; overriding with root/sudo is highly discouraged.
+Se você encontrar o erro de permissão `EACCES` ao tentar instalar o Hexo, por favor, siga [a solução alternativa](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) fornecida pelo npmjs; Sobrescrever com root/sudo é altamente desencorajado.
 {% endnote %}
 
 {% note info Linux %}
@@ -73,22 +69,41 @@ Uma vez que todos os requisitos estão instalados, você pode instalar o Hexo co
 $ npm install -g hexo-cli
 ```
 
-### Required Node.js version
+### Instalação avançada e uso
 
-If you are stuck with older Node.js, you can consider installing a past version of Hexo.
+Usuários avançados podem preferir instalar e usar o pacote `hexo`.
 
-Please note we do not provide bugfixes to past versions of Hexo.
+``` bash
+$ npm install hexo
+```
 
-We highly recommend to always install the [latest version](https://www.npmjs.com/package/hexo?activeTab=versions) of Hexo and the [recommended version](#Requirements) of Node.js, whenever possible.
+Uma vez instalado, você pode executar o Hexo de duas maneiras:
 
-Hexo version | Minimum (Node.js version) | Less than (Node.js version)
---- | --- | ---
-6.2+ | 12.13.0 | latest
-6.0+ | 12.13.0 | 18.5.0
-5.0+ | 10.13.0 | 12.0.0
-4.1 - 4.2 | 8.10 | 10.0.0
-4.0 | 8.6 | 8.10.0
-3.3 - 3.9 | 6.9 | 8.0.0
-3.2 - 3.3 | 0.12 | unknown
-3.0 - 3.1 | 0.10 or iojs | unknown
-0.0.1 - 2.8 | 0.10 | unknown
+1. `npx hexo <command>`
+2. Usuários de Linux podem definir o caminho relativo da pasta `node_modules/`:
+
+  ``` bash
+  echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
+  ```
+
+  então execute o Hexo usando `hexo <command>`
+
+### Versão necessária do Node.js
+
+Se você estiver preso com o Node.js mais antigo, você pode considerar instalar uma versão anterior do Hexo.
+
+Por favor, note que não fornecemos correções de bugs para versões anteriores do Hexo.
+
+Recomendamos sempre instalar a versão [mais recente](https://www.npmjs.com/package/hexo?activeTab=versions) do Hexo e a versão [recomendada](#Requirements) do Node.js, sempre que possível.
+
+| Versão do Hexo | Mínimo (versão do Node.js) | Menos de (versão do Node.js) |
+| -------------- | -------------------------- | ---------------------------- |
+| 6.2+           | 12.13.0                    | último                       |
+| 6.0+           | 12.13.0                    | 18.5.0                       |
+| 5.0+           | 10.13.0                    | 12.0.0                       |
+| 4.1 - 4.2      | 8.10                       | 10.0.0                       |
+| 4.0            | 8.6                        | 8.10.0                       |
+| 3.3 - 3.9      | 6.9                        | 8.0.0                        |
+| 3.2 - 3.3      | 0.12                       | desconhecido                 |
+| 3.0 - 3.1      | 0.10 ou iojs               | desconhecido                 |
+| 0.0.1 - 2.8    | 0.10                       | desconhecido                 |

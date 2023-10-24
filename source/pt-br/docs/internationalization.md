@@ -1,32 +1,33 @@
 ---
 title: Internacionalização (i18n)
 ---
+
 Você pode usar a internacionalização para apresentar seu site em diferentes idiomas. O idioma padrão é definido modificando a configuração `language` em `_config.yml`. Você também pode definir vários idiomas e modificar a ordem dos idiomas padrão.
 
 ``` yaml
-language: zh-tw
+idioma: zh-tw
 
-language:
+idioma:
 - zh-tw
-- en
+- pt
 ```
 
 ### Arquivo de Idiomas
 
 Os arquivos de idioma podem ser arquivos YAML ou JSON. Você deve inseri-los no diretório `languages` de `theme`. Há suporte para o [printf format](https://github.com/alexei/sprintf.js) nos arquivos de idioma.
 
-### Templates
+### Modelos
 
 Use os helpers `__` ou `_p` nos templates para traduzir as strings. O primeiro é para uso normal e o segundo é para strings no plural. Por exemplo:
 
 ``` yaml en.yml
-index:
-  title: Home
-  add: Add
-  video:
-    zero: No videos
-    one: One video
-    other: %d videos
+índice:
+  title: Casa
+  adicionar: Adicionar
+  vídeo:
+    zero: Sem vídeos
+    um: Um vídeo
+    outro: vídeos %d
 ```
 
 ``` js
@@ -34,7 +35,7 @@ index:
 // Home
 
 <%= _p('index.video', 3) %>
-// 3 videos
+// 3 vídeos
 ```
 
 ### Caminhos

@@ -1,6 +1,7 @@
 ---
 title: Rendering
 ---
+
 Hexo에서 파일 또는 문자열을 렌더링 하기위해 두 가지의 메소드를 사용할 수 있습니다. 비동기 메소드인 `hexo.render.render`와 동기 메소드인 `hexo.render.renderSync`입니다. 두 가지의 메소드는 매우 유사하기 때문에 이 문서에서는 비동기 메소드인 `hexo.render.render` 에 대해 알아보겠습니다.
 
 ## 문자열의 렌더링
@@ -25,7 +26,7 @@ hexo.render.render({path: 'path/to/file.swig'}).then(function(result){
 
 ## 렌더링 옵션
 
-두 번째 인자인 옵션은 꼭 넣지 않아도 됩니다.
+You can pass in an options object as the second argument.
 
 ``` js
 hexo.render.render({text: ''}, {foo: 'foo'}).then(function(result){
@@ -70,7 +71,7 @@ If you are not using a [tag plugin](/docs/tag-plugins) and want to use `{{ }}` o
 
 ``` js
 // following example only applies to '.md' file extension
-// you may need to cover other extensions, e.g. '.markdown', '.mkd', etc
+// you may need to cover other extensions, e.g. '.markdown', '.mkd'
 const renderer = hexo.render.renderer.get('md')
 if (renderer) {
   renderer.disableNunjucks = true

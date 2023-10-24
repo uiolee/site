@@ -6,12 +6,12 @@ local variable จะใช้มาเป็น template rendering ซึ่ง
 
 ## Default Variables
 
-Variable | Description
---- | ---
-`posts` | All posts
-`pages` | All pages
-`categories` | All categories
-`tags` | All tags
+| Variable     | Description    |
+| ------------ | -------------- |
+| `posts`      | All posts      |
+| `pages`      | All pages      |
+| `categories` | All categories |
+| `tags`       | All tags       |
 
 ## Get a Variable
 

@@ -1,9 +1,12 @@
 ---
 title: Tag Plugins
 ---
+
 태그 플러그인은 포스트의 태그와는 다릅니다. Octopress로부터 가져온 것으로 특별한 컨텐츠를 당신의 포스트에 빠르게 추가할 수 있도록 도와주는 유용한 방법입니다.
 
 Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+
+{% youtube I07XMi7MHd4 %}
 
 _Tag plugins should not be wrapped inside Markdown syntax, e.g. `[]({% post_path lorem-ipsum %})` is not supported._
 
@@ -19,9 +22,9 @@ content
 {% endblockquote %}
 ```
 
-### 예시
+### Examples
 
-**인자가 없는 일반 인용**
+**No arguments. Plain blockquote.**
 
 ```
 {% blockquote %}
@@ -83,16 +86,16 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-Extra Options | Description | Default
---- | --- | ---
-`line_number` | Show line number | `true`
-`line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold. | `0` |
-`highlight` | Enable code highlighting | `true`
-`first_line` | Specify the first line number | `1`
-`mark` | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |
-`wrap` | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) | `true`
+| Extra Options    | 설명                                                                                                                                                                     | 기본 값   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| `line_number`    | Show line number                                                                                                                                                       | `true` |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`    |
+| `highlight`      | Enable code highlighting                                                                                                                                               | `true` |
+| `first_line`     | Specify the first line number                                                                                                                                          | `1`    |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |        |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true` |
 
-### 예시
+### Examples
 
 **일반 code block 사용하기**
 
@@ -140,8 +143,7 @@ _.compact([0, 1, false, 2, '', 3]);
 ```
 
 {% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
-_.compact([0, 1, false, 2, '', 3]);
-=> [1, 2, 3]
+_.compact([0, 1, false, 2, '', 3]); => [1, 2, 3]
 {% endcodeblock %}
 
 ## Backtick Code Block
@@ -149,9 +151,9 @@ _.compact([0, 1, false, 2, '', 3]);
 이 방법은 code block을 사용하는 것과 같습니다만 block을 구분하기 위해 세 개의 역 따옴표를 사용하는 점이 다릅니다.
 
 {% raw %}
-&#96`` [language] [title] [url] [link text]
+&#96`[language] [title] [url] [link text]
 code snippet
-&#96;``
+&#96;`
 {% endraw %}
 
 ## Pull Quote
@@ -166,7 +168,7 @@ content
 
 ## jsFiddle
 
-jsFiddle을 포함시킬 수 있습니다.
+To embed a jsFiddle snippet:
 
 ```
 {% jsfiddle shorttag [tabs] [skin] [width] [height] %}
@@ -174,7 +176,7 @@ jsFiddle을 포함시킬 수 있습니다.
 
 ## Gist
 
-Gist를 포함시킬 수 있습니다.
+To embed a Gist snippet:
 
 ```
 {% gist gist_id [filename] %}
@@ -206,10 +208,42 @@ iframe을 포함시킬 수 있습니다.
 
 ## Include Code
 
-`source/downloads/code` 폴더에 있는 코드를 포함시킬 수 있습니다.
+`source/downloads/code` 폴더에 있는 코드를 포함시킬 수 있습니다. The folder location can be specified through the `code_dir` option in the config.
 
 ```
-{% include_code [title] [lang:language] path/to/file %}
+{% include_code [title] [lang:language] [from:line] [to:line] path/to/file %}
+```
+
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
 ```
 
 ## YouTube
@@ -245,10 +279,10 @@ YouTube's cookie is not used in this mode.
 
 ## Vimeo
 
-Vimeo video를 포함시킬 수 있습니다.
+Inserts a responsive or specified size Vimeo video.
 
 ```
-{% vimeo video_id %}
+{% vimeo video_id [width] [height] %}
 ```
 
 ## Include Posts
@@ -296,11 +330,12 @@ For instance:
 ```
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 ```
+
 {% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
 ## Include Assets
 
-포스트의 asset을 포함시킬 수 있습니다.
+Include post assets, to be used in conjunction with [`post_asset_folder`](/docs/asset-folders).
 
 ```
 {% asset_path filename %}
@@ -340,7 +375,7 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 **Title & Alt**
 
-`{% asset_img logo.svg "lorem ipsum'dolor'" %}`
+`{% asset_img foo.jpg "lorem ipsum'dolor'" %}`
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
@@ -354,4 +389,16 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 {% raw %}
 content
 {% endraw %}
+```
+
+## Post Excerpt
+
+Use text placed before the `<!-- more -->` tag as an excerpt for the post. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
+
+**Examples:**
+
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<!-- more -->
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```

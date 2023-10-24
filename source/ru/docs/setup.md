@@ -1,12 +1,15 @@
 ---
 title: Установка
 ---
+
+{% youtube 0m2HnATkHOk %}
+
 После установки Hexo, запустите следующие команды в консоли для инициализации Hexo в папке `<folder>`.
 
 ``` bash
 $ hexo init <folder>
 $ cd <folder>
-$ npm install
+$ npm установки
 ```
 
 После инициализации папка будет выглядеть так:
@@ -33,33 +36,33 @@ $ npm install
 ``` json package.json
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "0.0. ",
   "private": true,
   "hexo": {
     "version": ""
   },
   "dependencies": {
-    "hexo": "^3.8.0",
+    "hexo": "^3. .0",
     "hexo-generator-archive": "^0.1.5",
-    "hexo-generator-category": "^0.1.3",
+    "hexo-generator-category": "^0. .3",
     "hexo-generator-index": "^0.2.1",
     "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.3.1",
+    "hexo-renderer-ejs": "^0.3. ",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-renderer-marked": "^0.3.2",
+    "hexo-renderer-marked": "^0. .2",
     "hexo-server": "^0.3.3"
   }
 }
 ```
 
-### scaffolds
+### леса
 
 Папка с [заготовками](writing.html#Заготовки). При создании нового поста Hexo формирует файл в папке scaffold.
 
-### source
+### источник
 
 Папка с исходниками. Это содержащая сайт папка. Hexo игнорирует скрытые файлы и файлы или папки, имена которых начинаются с `_` (подчеркивания). Исключением является папка `_posts`. Обрабатываемые файлы (напр., markdown, HTML) будут вставлены в общую папку, остальные файлы просто копируются.
 
-### themes
+### темы
 
 Папка с [темами](themes.html). Hexo генерирует статический сайт, комбинируя содержимое сайта с темой.
