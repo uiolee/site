@@ -2,6 +2,15 @@ name: Crowdin Upload Translations
 
 on:
   workflow_dispatch:
+    inputs:
+      auto_approve_imported:
+        description: "Automatically approves uploaded translations"
+        default: "false"
+        required: false
+      import_eq_suggestions:
+        description: "Defines whether to add translation if it is equal to source string in Crowdin project"
+        default: "false"
+        required: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
@@ -20,13 +29,20 @@ jobs:
 
       - uses: crowdin/github-action@v1
         with:
-          upload_translations: true
-          upload_language: ${{ matrix.lc }}
-          auto_approve_imported: true
-          download_translations: false
           upload_sources: false
-          config: "crowdin.yml"
+          push_sources: false
+
+          upload_translations: true
+          push_translations: false
+          download_translations: false
+          create_pull_request: false
+
+          upload_language: ${{ matrix.lc }}
+          auto_approve_imported: ${{ inputs.auto_approve_imported }}
+          import_eq_suggestions: ${{ inputs.import_eq_suggestions }}
+
           crowdin_branch_name: ${{ github.ref_name }}
+          config: "crowdin.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

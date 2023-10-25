@@ -1,9 +1,11 @@
-name: Crowdin Upload
+name: Crowdin Upload Sources
 
 on:
   workflow_dispatch:
+
   push:
-    branches: [master]
+    branches:
+      - "master"
     paths:
       - "source/about/*.md"
       - "source/api/*.md"
@@ -27,11 +29,16 @@ jobs:
 
       - uses: crowdin/github-action@v1
         with:
-          upload_translations: false
-          download_translations: false
           upload_sources: true
-          config: "crowdin.yml"
+          push_sources: false
+
+          upload_translations: false
+          push_translations: false
+          download_translations: false
+          create_pull_request: false
+
           crowdin_branch_name: ${{ github.ref_name }}
+          config: "crowdin.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
