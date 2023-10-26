@@ -1,5 +1,5 @@
 ---
-title: Processor
+title: Processador
 ---
 
 Um `processor` é utilizado para processar os arquivos fontes contidos no diretório `source`.

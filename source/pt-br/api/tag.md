@@ -1,5 +1,5 @@
 ---
-title: Tag
+title: Etiqueta
 ---
 
 Uma tag permite que os usuários insiram, de forma rápida e fácil, snippets (trechos de código) dentro de suas postagens.
@@ -9,26 +9,26 @@ Uma tag permite que os usuários insiram, de forma rápida e fácil, snippets (t
 ``` js
 hexo.extend.tag.register(name, function(args, content){
   // ...
-}, options);
+}, opções);
 ```
 
 Dois argumentos serão passados para dentro da função: `args` e `content`. `args` contém os argumentos passados para o tag plugin e `content` é o conteúdo envolvido do tag plugin.
 
 Desde a introdução da renderização assíncrona, na versão 3 do Hexo, estamos usando o [Nunjucks][] para renderização. O comportamento pode ser um pouco diferente do [Swig][].
 
-## Unregister Tags
+## Desregistrar tags
 
-Use `unregister()` to replace existing [tag plugins](/docs/tag-plugins) with custom functions.
+Use `unregister()` para substituir plugins de tags [existentes](/docs/tag-plugins) por funções personalizadas.
 
 ``` js
-hexo.extend.tag.unregister(name);
+hexo.extend.tag.unregister(nome);
 ```
 
-**Example**
+**Exemplo**
 
 ``` js
 const tagFn = (args, content) => {
-  content = 'something';
+  content = 'algo';
   return content;
 };
 
@@ -40,11 +40,11 @@ hexo.extend.tag.register('youtube', tagFn);
 
 ## Opções
 
-### ends
+### Termina
 
 Use as tags end. Esta opção é `false` por padrão.
 
-### async
+### assíncrono
 
 Habilite o modo assíncrono. Esta opção é `false` por padrão.
 
@@ -67,7 +67,7 @@ Insira uma citação.
 
 ``` js
 hexo.extend.tag.register('pullquote', function(args, content){
-  var className =  args.join(' ');
+  var className = args.join(' ');
   return '<blockquote class="pullquote' + className + '">' + content + '</blockquote>';
 }, {ends: true});
 ```
@@ -80,33 +80,33 @@ Insira um arquivo.
 var fs = require('hexo-fs');
 var pathFn = require('path');
 
-hexo.extend.tag.register('include_code', function(args){
+hexo.extend.tag. egister('include_code', function(args){
   var filename = args[0];
-  var path = pathFn.join(hexo.source_dir, filename);
+  var path = pathFn.join(hexo. ource_dir, filename);
 
-  return fs.readFile(path).then(function(content){
+  return fs.readFile(path). hen(function(content){
     return '<pre><code>' + content + '</code></pre>';
   });
 }, {async: true});
 ```
 
-## Front-matter and user configuration
+## Configuração Front-matter e do usuário
 
-Any of the following options is valid:
+Qualquer uma das seguintes opções é válida:
 
 1.
 
 ``` js
-hexo.extend.tag.register('foo', function (args) {
+tag.hex.extend. egister('foo', function (args) {
   const [firstArg] = args;
 
-  // User config
+  // Configuração do usuário
   const { config } = hexo;
-  const editor = config.author + firstArg;
+  const editor = config. uthor + firstArg;
 
-  // Theme config
-  const { config: themeCfg } = hexo.theme;
-  if (themeCfg.fancybox) // do something...
+  // Configuração do tema
+  const { config: themeCfg } = hexo. hemo;
+  if (themeCfg.fancybox) // fazer algo...
 
   // Front-matter
   const { title } = this; // article's (post/page) title
@@ -126,15 +126,15 @@ hexo.extend.tag.register('foo', require('./lib/foo')(hexo));
 ```
 
 ``` js lib/foo.js
-module.exports = hexo => {
-  return function fooFn(args) {
+Módulo xports = hexo => {
+  retorna a função fooFn(args) {
     const [firstArg] = args;
 
     const { config } = hexo;
-    const editor = config.author + firstArg;
+    const editor = config. uthor + primeiro;
 
     const { config: themeCfg } = hexo.theme;
-    if (themeCfg.fancybox) // do something...
+    if (themeCfg.fancybox) // fazer algo...
 
     const { title, _content, content } = this;
 

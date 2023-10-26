@@ -1,19 +1,19 @@
 ---
-title: Asset Folders
+title: Pastas de ativos
 ---
 
 ## Diretório Global de Recursos
 
 Os recursos, ou assets, são arquivos (imagens, CSS, JavaScript e etc) usados para compor as páginas do site. No Hexo, os recursos ficam dentro do diretório `source`. Por exemplo, se você só vai ter algumas imagens no projeto Hexo, então a maneira mais fácil é mantê-las em um diretório como `source/images`. Então, você pode acessá-las usando algo como `![](images/image.jpg)`.
 
-## Post Asset Folder
+## Postar pasta do conteúdo
 
 {% youtube feIDVQ2tz0o %}
 
 Para os usuários que esperam exibir imagens e/ou outros recursos regularmente, e para aqueles que preferem separar seus recursos por publicação, o Hexo também fornece uma maneira mais organizada de fazer este gerenciamento. Para ativar o gerenciamento de recursos por publicação, defina a configuração `post_asset_folder` no arquivo `_config.yml` como o valor `true`.
 
 ``` yaml _config.yml
-post_asset_folder: true
+pasta_de_post_asset: verdadeiro
 ```
 
 Com o gerenciamento de recursos habilitado, o Hexo criará um diretório sempre que você fizer uma nova postagem com o comando `hexo new [layout] <title>`. Este diretório de recursos terá o mesmo nome que o arquivo markdown associado à postagem. Coloque todos os recursos relacionados à sua postagem no diretório associado, e você poderá fazer referência a eles usando um caminho relativo, tornando mais fácil e conveniente o fluxo de trabalho.
@@ -39,17 +39,17 @@ A maneira correta de fazer referência à imagem será usando a sintaxe de tag p
 
 Desta forma, a imagem aparecerá dentro da publicação e nas páginas de índice e arquivo.
 
-## Embedding an image using markdown
+## Incorporando uma imagem usando markdown
 
-[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked) 3.1.0 introduced a new option that allows you to embed an image in markdown without using `asset_img` tag plugin.
+[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked) 3.1.0 introduziu uma nova opção que permite incorporar uma imagem em markdown sem usar o plugin de tag `asset_img`.
 
-To enable:
+Para ativar:
 
 ``` yml _config.yml
-post_asset_folder: true
-marked:
-  prependRoot: true
-  postAsset: true
+post_asset_folder: verdadeiro
+marcado:
+  prependRoot: verdadeiro
+  postAsset: verdadeiro
 ```
 
-Once enabled, an asset image will be automatically resolved to its corresponding post's path. For example, "image.jpg" is located at "/2020/01/02/foo/image.jpg", meaning it is an asset image of "/2020/01/02/foo/" post, `![](image.jpg)` will be rendered as `<img src="/2020/01/02/foo/image.jpg">`.
+Uma vez ativado, uma imagem do asset será automaticamente resolvida para o caminho do post correspondente. Por exemplo, "image.jpg" está localizado em "/2020/01/02/foo/image.jpg", ou seja, é uma imagem de ativo de "/2020/01/02/foo/", `![](image pg)` será renderizado como `<img src="/2020/01/02/foo/image.jpg">`.

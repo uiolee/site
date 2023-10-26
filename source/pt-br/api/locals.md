@@ -1,17 +1,17 @@
 ---
-title: Local Variables
+title: Variáveis Locais
 ---
 
 As variáveis locais são usadas para renderização de template, que é a variável `site` em templates.
 
 ## Variáveis Padrão
 
-| Variável     | Descrição           |
-| ------------ | ------------------- |
-| `posts`      | Todas as postagens  |
-| `pages`      | Todas as páginas    |
-| `categories` | Todas as categorias |
-| `tags`       | Todas as tags       |
+| Variável      | Descrição           |
+| ------------- | ------------------- |
+| `publicações` | Todas as postagens  |
+| `páginas`     | Todas as páginas    |
+| `Categorias`  | Todas as categorias |
+| `Etiquetas`   | Todas as tags       |
 
 ## Obter uma Variável
 

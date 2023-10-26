@@ -1,5 +1,5 @@
 ---
-title: Renderer
+title: Renderizador
 ---
 
 Um `renderer` é utilizado para renderizar conteúdos.
@@ -9,22 +9,22 @@ Um `renderer` é utilizado para renderizar conteúdos.
 ``` js
 hexo.extend.renderer.register(name, output, function(data, options){
   // ...
-}, sync);
+}, sincronizar);
 ```
 
-| Argumento | Descrição                                                       |
-| --------- | --------------------------------------------------------------- |
-| `name`    | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial) |
-| `output`  | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)   |
-| `sync`    | Modo de sincronização                                           |
+| Argumento     | Descrição                                                       |
+| ------------- | --------------------------------------------------------------- |
+| `Nome`        | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial) |
+| `saída`       | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)   |
+| `sincronizar` | Modo de sincronização                                           |
 
 Dois argumentos devem ser passados para a função renderer:
 
 | Argumento  | Descrição                                                                                                                |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `data`     | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista. |
-| `option`   | Opções                                                                                                                   |
-| `callback` | Callback function of two parameters `err`, `value`.                                                                      |
+| `Dados`    | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista. |
+| `opção`    | Opções                                                                                                                   |
+| `callback` | Função de retorno de chamada de dois parâmetros `err`, `valor`.                                                          |
 
 ## Exemplo
 
@@ -34,12 +34,12 @@ Dois argumentos devem ser passados para a função renderer:
 var stylus = require('stylus');
 
 // Callback
-hexo.extend.renderer.register('styl', 'css', function(data, options, callback){
-  stylus(data.text).set('filename', data.path).render(callback);
+hexo.extend.renderer.register('styl', 'css', function(dados, opções, callback){
+  stylus(data.text).set('filename', data.path). ender(callback);
 });
 
-// Promise
-hexo.extend.renderer.register('styl', 'css', function(data, options){
+// Promessa
+hexo.extend.renderer. egister('styl', 'css', function(data, options){
   return new Promise(function(resolve, reject){
     resolve('test');
   });
@@ -57,13 +57,13 @@ hexo.extend.renderer.register('ejs', 'html', function(data, options){
 }, true);
 ```
 
-### Disable Nunjucks tags
+### Desativar Nunjucks tags
 
-Nunjucks tags `{{ }}` or `{% %}` (utilized by [tag plugin](/docs/tag-plugins)) are processed by default, to disable:
+Nunjucks tags `{{ }}` ou `{% %}` (utilizado por [tag plugin](/docs/tag-plugins)) são processados por padrão, para desativar:
 
 ``` js
 function lessFn(data, options) {
-  // do something
+  // faz algo
 }
 
 lessFn.disableNunjucks = true

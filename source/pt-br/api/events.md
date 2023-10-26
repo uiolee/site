@@ -1,30 +1,30 @@
 ---
-title: Events
+title: Eventos
 ---
 
 O Hexo herda de [EventEmitter][]. Use o método `on` para ouvir os eventos emitidos pelo Hexo, e use o método `emit` para emitir eventos. Para obter mais informações, consulte a documentação da API do Node.js.
 
-### deployBefore
+### implantaçãoAntes
 
 Emitido antes do deployment começar.
 
-### deployAfter
+### implantaçãoApós
 
 Emitido depois do deployment finalizado.
 
-### exit
+### saindo
 
 Emitido antes de Hexo sair.
 
-### generateBefore
+### gerarAntes
 
 Emitido antes da geração começar.
 
-### generateAfter
+### gerarDepois
 
 Emitido depois da geração finalizada.
 
-### new
+### Novo
 
 Emitido depois de uma nova postagem ter sido criada. Este evento retorna os dados da postagem:
 
@@ -34,12 +34,12 @@ hexo.on('new', function(post){
 });
 ```
 
-| Dados          | Descrição                               |
-| -------------- | --------------------------------------- |
-| `post.path`    | Caminho completo do arquivo da postagem |
-| `post.content` | Conteúdo do arquivo da postagem         |
+| Dados                 | Descrição                               |
+| --------------------- | --------------------------------------- |
+| `caminho.post`        | Caminho completo do arquivo da postagem |
+| `publicação.conteúdo` | Conteúdo do arquivo da postagem         |
 
-### processBefore
+### processarAntes
 
 Emitido antes do início do processamento. Este evento retorna um caminho que representa o diretório raiz do box.
 
@@ -47,7 +47,7 @@ Emitido antes do início do processamento. Este evento retorna um caminho que re
 
 Emitido depois do processamento finalizado. Este evento retorna um caminho que representa o diretório raiz do `box`.
 
-### ready
+### Pronto
 
 Emitido depois da inicialização terminar.
 

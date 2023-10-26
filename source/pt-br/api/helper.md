@@ -1,5 +1,5 @@
 ---
-title: Helper
+title: Ajudante
 ---
 
 Um helper facilita a adição de snippets (trechos de código) aos seus templates. Recomendamos usar helpers em vez de templates quando estiver lidando com código mais complicado.
@@ -27,15 +27,15 @@ hexo.extend.helper.register('js', function(path){
 // <script src="script.js"></script>
 ```
 
-## FAQ
+## Perguntas Frequentes
 
 ### Onde pôr um helper personalizado?
 
-Place it under `scripts/` or `themes/<yourtheme>/scripts/` folder.
+Coloque-o na pasta `scripts/` ou `temas/<yourtheme>/scripts/`.
 
-### How do I use another registered helper in my custom helper?
+### Como faço para usar outro auxiliar registrado no meu ajudante personalizado?
 
-All helpers are executed in the same context. For example, to use [`url_for()`](/docs/helpers#url-for) inside a custom helper:
+Todos os auxiliares são executados no mesmo contexto. Por exemplo, para usar [`url_for()`](/docs/helpers#url-for) dentro de um auxiliar personalizado:
 
 ``` js
 hexo.extend.helper.register('lorem', function(path) {
@@ -43,9 +43,9 @@ hexo.extend.helper.register('lorem', function(path) {
 });
 ```
 
-### How do I use a registered helper in another extension (e.g. Filter, Injector)?
+### Como usar um auxiliar registrado em outra extensão (por exemplo, Filtro, Injetor)?
 
-`hexo.extend.helper.get` will return the helper function, but it needs to have hexo as its context, so:
+`hexo.extend.helper.get` retornará a função auxiliar, mas ela precisa ter o hexo como seu contexto, a:
 
 ``` js
 const url_for = hexo.extend.helper.get('url_for').bind(hexo);

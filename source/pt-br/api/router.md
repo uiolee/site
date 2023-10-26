@@ -1,5 +1,5 @@
 ---
-title: Router
+title: Roteador
 ---
 
 O `router` salva todos os caminhos usados no site.
@@ -9,7 +9,7 @@ O `router` salva todos os caminhos usados no site.
 O método `get` retorna uma [Stream][]. Por exemplo, para salvar os dados do caminho para um destino especificado:
 
 ``` js
-var data = hexo.route.get('index.html');
+var dados = hexo.route.get('index.html');
 var dest = fs.createWriteStream('somewhere');
 
 data.pipe(dest);
@@ -26,15 +26,15 @@ hexo.route.set('index.html', 'index')
 // Buffer
 hexo.route.set('index.html', new Buffer('index'));
 
-// Function (Promise)
-hexo.route.set('index.html', function(){
+// Função (Promise)
+hexo.route.set('index. tml', function(){
   return new Promise(function(resolve, reject){
     resolve('index');
   });
 });
 
-// Function (Callback)
-hexo.route.set('index.html', function(callback){
+// Função (Callback)
+hexo. oute.set('index.html', function(callback){
   callback(null, 'index');
 });
 ```

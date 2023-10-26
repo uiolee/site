@@ -8,18 +8,18 @@ title: Temas
 
 ```plain
 .
-├── _config.yml
-├── languages
-├── layout
-├── scripts
-└── source
+── _config.yml
+── linguagens
+── layout
+── scripts
+── fonte
 ```
 
 ### _config.yml
 
 Arquivo de configuração do tema. Unlike the site's primary configuration file, modificações neste arquivo não requerem uma reinicialização do servidor.
 
-### languages
+### Idiomas
 
 Diretório de idiomas. Veja [internacionalização (i18n)](internationalization.html) para obter mais informações.
 
@@ -28,8 +28,8 @@ Diretório de idiomas. Veja [internacionalização (i18n)](internationalization.
 Diretório de layouts. Este diretório contém os arquivos de template do tema, que definem a aparência do seu site. O Hexo fornece o mecanismo de template [Nunjucks][] por padrão, mas você pode instalar plugins adicionais para suportar mecanismos alternativos, como [EJS][], [Haml][], [Jade][] ou [Pug][]. O Hexo escolhe o mecanismo de template com base na extensão do arquivo deste. Por exemplo:
 
 ```plain
-layout.ejs   - uses EJS
-layout.njk   - uses Nunjucks
+layout.ejs - usa o layout EJS
+layout.njk - usa Nunjucks
 ```
 
 Veja [templates](templates.html) para obter mais informações.
@@ -38,7 +38,7 @@ Veja [templates](templates.html) para obter mais informações.
 
 Diretório de scripts. O Hexo carregará automaticamente todos os arquivos JavaScript deste diretório durante a inicialização. Para mais informações, veja [plugins](plugins.html).
 
-### source
+### Fonte
 
 Diretório com os fontes do tema. Os assets (arquivos CSS e JavaScript por exemplo) ficam aqui. O Hexo ignora arquivos ocultos e arquivos ou diretórios com prefixo `_` (sublinhado).
 
@@ -57,7 +57,7 @@ Quando você terminar de criar seu tema, você pode publicá-lo na [lista de tem
     $ npm install
    ```
 
-3. Create a new yaml file in `source/_data/themes/`, use your theme name as the file name
+3. Crie um novo arquivo yaml em `source/_data/themes/`, use o nome do seu tema como o nome do arquivo
 
 4. Edite o arquivo `source/_data/themes.yml` e adicione seu tema. Por exemplo:
 
@@ -75,7 +75,7 @@ Quando você terminar de criar seu tema, você pode publicá-lo na [lista de tem
    ```
 
 5. Adicione um print de tela (com o mesmo nome do tema) no diretório `source/themes/screenshots`. Deve ser um arquivo PNG com resolução de 800x500 pixels.
-6. Push the branch.
+6. Empurre o branch.
 7. Crie um pull request e descreva as mudanças.
 
 [EJS]: https://github.com/hexojs/hexo-renderer-ejs

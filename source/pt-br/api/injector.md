@@ -1,57 +1,57 @@
 ---
-title: Injector
+title: Injetor
 ---
 
-An injector is used to add static code snippet to the `<head>` or/and `<body>` of generated HTML files. Hexo run injector **before** `after_render:html` filter is executed.
+Um injetor é usado para adicionar trecho de código estático ao `<head>` ou/and `<body>` dos arquivos HTML gerados. Hexo executar injetor **antes do filtro** `after_render:html` ser executado.
 
-## Synopsis
+## Resumo
 
 ```js
-hexo.extend.injector.register(entry, value, to)
+hexo.extend.injector.register(entrada, valor, to)
 ```
 
-### entry `<string>`
+### entrada `<string>`
 
-Where the code will be injected inside the HTML.
+Onde o código será injetado dentro do HTML.
 
-Support those values:
+Apoie esses valores:
 
-- `head_begin`: Inject code snippet right after `<head>` (Default).
-- `head_end`: Inject code snippet right before `</head>`.
-- `body_begin`: Inject code snippet right after `<body>`.
-- `body_end`: Inject code snippet right before `</body>`.
+- `head_start`: Código de injeta logo após `<head>` (Padrão).
+- `head_end`: Código de injeta antes de `</head>`.
+- `body_begin`: Código de injeta logo após `<body>`.
+- `body_end`: Código de injeção antes de `</body>`.
 
-### value `<string> | <Function>`
+### valor `<string> ├ <Function>`
 
-> A function that returns string is supported.
+> Uma função que retorna string é suportada.
 
-The code snippet to be injected.
+O trecho de código a ser injetado.
 
-### to `<string>`
+### para `<string>`
 
-Which page will code snippets being injected.
+Qual página irá codificar snippets sendo injetados.
 
-- `default`: Inject to every page (Default).
-- `home`: Only inject to home page (which has `is_home()` helper being `true`)
-- `post`: Only inject to post pages (which has `is_post()` helper being `true`)
-- `page`: Only inject to pages (which has `is_page()` helper being `true`)
-- `archive`: Only inject to archive pages (which has `is_archive()` helper being `true`)
-- `category`: Only inject to category pages (which has `is_category()` helper being `true`)
-- `tag`: Only inject to tag pages (which has `is_tag()` helper being `true`)
+- `padrão`: Injetar para cada página (Padrão).
+- `home`: Apenas injetar na página inicial (que possui `is_home()` helper sendo `true`)
+- `post`: Apenas injetar nas páginas do post (que tem `is_post()` ajudante sendo `true`)
+- `página`: Apenas injetar nas páginas (que tem `is_page()` ajudante sendo `true`)
+- `archive`: Apenas injeta para as páginas de arquivos (que possuem `is_archive()` helper sendo `true`)
+- `Categoria`: Apenas injetar em páginas de categoria (que tem `is_category()` ajudante sendo `verdadeiro`)
+- `tag`: Apenas injetar nas páginas de tags (que tem `is_tag()` ajuda sendo `true`)
 - Custom layout name could be used as well, see [Writing - Layout](writing#Layout).
 
 ----
 
-There are other internal functions, see [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) for more details.
+Existem outras funções internas, consulte [hexojs/hexo#4049](https://github.com/hexojs/hexo/pull/4049) para obter mais detalhes.
 
-## Example
+## Exemplo
 
 ```js
 const css = hexo.extend.helper.get('css').bind(hexo);
 const js = hexo.extend.helper.get('js').bind(hexo);
 
 hexo.extend.injector.register('head_end', () => {
-  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css');
+  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10. /dist/APlayer.min.css');
 }, 'music');
 
 hexo.extend.injector.register('body_end', '<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js">', 'music');
@@ -61,11 +61,11 @@ hexo.extend.injector.register('body_end', () => {
 });
 ```
 
-Above setup will inject `APlayer.min.css` (`<link>` tag) to the `</head>` of any page which layout is `music`, and `APlayer.min.js` (`<script>` tag) to the `</body>` of those pages. Also, `jquery.js` (`<script>` tag) will be injected to `</body>` of every page generated.
+Acima da configuração injetará `APlayer.min. ss` (`<link>` tag) para o `</head>` de qualquer página que o layout seja `música`, e `APlayer. in.js` (`<script>` tag) ao `</body>` dessas páginas. Além disso, o `jquery.js` (`<script>` tag) será injetado para `</body>` de cada página gerada.
 
-## Accessing user configuration
+## Acessando configuração do usuário
 
-Use any of the following options:
+Use qualquer uma das seguintes opções:
 
 1.
 
@@ -81,7 +81,7 @@ hexo.extend.injector.register('head_end', () => {
 2.
 
 ``` js index.js
-/* global hexo */
+/* hexo global */
 
 hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
 ```
@@ -107,7 +107,7 @@ module.exports = injectFn;
 3.
 
 ``` js index.js
-/* global hexo */
+/* hexo global */
 
 hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 ```
@@ -123,7 +123,7 @@ module.exports = (hexo) => () => {
 ``` js lib/inject.js
 const injectFn = (hexo) => {
   const css = hexo.extend.helper.get('css').bind(hexo);
-  const { cssPath } = hexo.config.fooPlugin;
+  const { cssPath } = hexo. onfig.fooPlugin;
   return css(cssPath);
 };
 

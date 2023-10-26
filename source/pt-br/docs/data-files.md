@@ -23,7 +23,7 @@ E você pode usá-los nos templates:
 Renderizado assim:
 
 ```
-<a href="/"> Home </a>
-<a href="/gallery/"> Gallery </a>
-<a href="/archives/"> Archives </a>
+<a href="/"> Casa </a>
+<a href="/gallery/"> Galeria </a>
+<a href="/archives/"> Arquiva </a>
 ```
