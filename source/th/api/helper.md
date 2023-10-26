@@ -14,7 +14,7 @@ hexo.extend.helper.register(name, function(){
 });
 ```
 
-## Example
+## ตัวอย่าง
 
 ``` js
 hexo.extend.helper.register('js', function(path){
