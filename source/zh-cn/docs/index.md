@@ -10,11 +10,11 @@ Hexo 是一个快速、简洁且高效的博客框架。 Hexo 使用 [Markdown](
 
 ## 安装
 
-It only takes a few minutes to set up Hexo. If you encounter a problem and can't find the solution here, please [submit a GitHub issue](https://github.com/hexojs/hexo/issues) and we'll help.
+设置十六进制只需要几分钟时间。 If you encounter a problem and can't find the solution here, please [submit a GitHub issue](https://github.com/hexojs/hexo/issues) and we'll help.
 
 {% youtube PsXWbI2Mqu0 %}
 
-### Requirements
+### B. 所需经费
 
 安装 Hexo 相当简单，只需要先安装下列应用程序即可：
 
@@ -33,7 +33,7 @@ It only takes a few minutes to set up Hexo. If you encounter a problem and can't
 - Linux (Fedora, Red Hat, CentOS)：`sudo yum install git-core`
 
 {% note warn Mac 用户 %}
-You may encounter some problems when compiling. Please install Xcode from App Store first. 如果在编译时可能会遇到问题，请先到 App Store 安装 Xcode，Xcode 完成后，启动并进入 **Preferences -> Download -> Command Line Tools -> Install** 安装命令行工具。
+编译时可能遇到一些问题。 请先从 App Store 安装 Xcode。 如果在编译时可能会遇到问题，请先到 App Store 安装 Xcode，Xcode 完成后，启动并进入 **Preferences -> Download -> Command Line Tools -> Install** 安装命令行工具。
 {% endnote %}
 
 ### 安装 Node.js
@@ -45,7 +45,7 @@ Node.js 为大多数平台提供了官方的 [安装程序](https://nodejs.org/z
 - Windows：通过 [nvs](https://github.com/jasongin/nvs/)（推荐）或者 [nvm](https://github.com/nvm-sh/nvm) 安装。
 - Mac：使用 [Homebrew](https://brew.sh/) 或 [MacPorts](http://www.macports.org/) 安装。
 - Linux（DEB/RPM-based）：从 [NodeSource](https://github.com/nodesource/distributions) 安装。
-- Others: Install it through respective package manager. 其它：使用相应的软件包管理器进行安装，可以参考由 Node.js 提供的 [指导](https://nodejs.org/zh-cn/download/package-manager/)。
+- 其它: 通过各自的软件包管理器安装它。 其它：使用相应的软件包管理器进行安装，可以参考由 Node.js 提供的 [指导](https://nodejs.org/zh-cn/download/package-manager/)。
 
 对于 Mac 和 Linux 同样建议使用 nvs 或者 nvm，以避免可能会出现的权限问题。
 
@@ -98,7 +98,7 @@ $ npm install hexo
 
 | Hexo 版本     | 最低版本 (Node.js 版本) | 最高版本 (Node.js 版本) |
 | ----------- | ----------------- | ----------------- |
-| 6.2+        | 12.13.0           | latest            |
+| 6.2+        | 12.13.0           | 最新的               |
 | 6.0+        | 12.13.0           | 18.5.0            |
 | 5.0+        | 10.13.0           | 12.0.0            |
 | 4.1 - 4.2   | 8.10              | 10.0.0            |

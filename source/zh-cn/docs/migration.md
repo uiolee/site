@@ -13,27 +13,27 @@ $ npm install hexo-migrator-rss --save
 插件安装完成后，执行下列命令，从 RSS 迁移所有文章。 `source` 可以是文件路径或网址。
 
 ``` bash
-$ hexo migrate rss <source>
+美元十六进制迁移rss <source>
 ```
 
-## Jekyll
+## 杰基尔
 
 把 `_posts` 文件夹内的所有文件复制到 `source/_posts` 文件夹，并在 `_config.yml` 中修改 `new_post_name` 参数。
 
 把 Octopress `source/_posts` 文件夹内的所有文件转移到 Hexo 的 `source/_posts` 文件夹，并修改 `_config.yml` 中的 `new_post_name` 参数。
 
 ``` yaml
-new_post_name: :year-:month-:day-:title.md
+new_post_name: :ye:month-:day:title.md
 ```
 
-## Octopress
+## 偶像
 
 Move all files in the Octopress `source/_posts` folder to `source/_posts`
 
-Modify the `new_post_name` setting in `_config.yml`:
+修改 `_config.yml` 中的 `新的 post_name` 设置：
 
 ``` yaml
-new_post_name: :year-:month-:day-:title.md
+new_post_name: :ye:month-:day:title.md
 ```
 
 ## WordPress
@@ -46,10 +46,10 @@ $ npm install hexo-migrator-wordpress --save
 
 在 WordPress 仪表盘中导出数据("Tools" → "Export" → "WordPress")（详情参考[WP支持页面](https://wordpress.com/zh-cn/support/export/)）。
 
-Now run:
+正在运行：
 
 ``` bash
-$ hexo migrate wordpress <source>
+美元十六进制迁移wordpress <source>
 ```
 
 `source` 可以是 WordPress 导出的文件路径或网址。
@@ -64,7 +64,7 @@ $ npm install hexo-migrator-joomla --save
 
 使用 [J2XML](http://extensions.joomla.org/extensions/migration-a-conversion/data-import-a-export/12816?qh=YToxOntpOjA7czo1OiJqMnhtbCI7fQ%3D%3D) 组件导出 Joomla 文章。
 
-Now run:
+正在运行：
 
 ```bash
 $ hexo migrate joomla <source>

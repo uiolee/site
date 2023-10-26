@@ -12,19 +12,19 @@ hexo.extend.generator.register(name, function(locals){
 });
 ```
 
-在函数中会传入一个 `locals` 参数，等同于 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接存取资料库。 You should use this argument to get the website data, thereby avoiding having to access the database directly.
+在函数中会传入一个 `locals` 参数，等同于 [网站变量](../docs/variables.html#网站变量)，请尽量利用此参数取得网站数据，避免直接存取资料库。 您应该使用此参数获取网站数据，从而避免直接访问数据库。
 
 ## 更新路由
 
 ``` js
-hexo.extend.generator.register('test', function(locals){
+hexo.extend.generator.register('test', function(locals)}.
   // Object
   return {
     path: 'foo',
     data: 'foo'
   };
 
-  // Array
+  // 数组
   return [
     {path: 'foo', data: 'foo'},
     {path: 'bar', data: 'bar'}
@@ -32,11 +32,11 @@ hexo.extend.generator.register('test', function(locals){
 });
 ```
 
-| 属性       | 描述                                                                                                                                        |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`   | 路径。 不可包含开头的 `/`。                                                                                                                          |
-| `data`   | 数据                                                                                                                                        |
-| `layout` | 布局。 Specify the layouts for rendering. The value can be a string or an array. If it's ignored then the route will return `data` directly. |
+| 属性   | 描述                                            |
+| ---- | --------------------------------------------- |
+| `路径` | 路径。 不可包含开头的 `/`。                              |
+| `数据` | 数据                                            |
+| `布局` | 布局。 指定渲染的布局。 值可以是字符串或数组。 如果它被忽略，路由将直接返回 `数据`。 |
 
 在原始文件更新时，Hexo 会执行所有生成器并重建路由，**请直接回传资料，不要直接操作路由**。 **Please return the data and do not access the router directly.**
 
@@ -44,9 +44,9 @@ hexo.extend.generator.register('test', function(locals){
 
 ### 归档页面
 
-在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 We pass all posts as data to the templates. This data is equivalent to the `page` variable in templates.
+在 `archives/index.html` 建立一归档页面，把所有文章当作资料传入模板内，这个资料也就等同于模板中的 `page` 变量。 我们将所有帖子作为数据传递到模板中。 此数据等于模板中的 `页面` 变量。
 
-Next, set the `layout` attribute to render with the theme templates. We're setting two layouts in this example: if the `archive` layout doesn't exist, the `index` layout will be used instead.
+Next, set the `layout` attribute to render with the theme templates. 我们在此示例中设置两个布局：如果 `存档` 布局不存在，则将使用 `索引` 布局。
 
 ``` js
 hexo.extend.generator.register('archive', function(locals){
@@ -97,10 +97,10 @@ hexo.extend.generator.register('post', function(locals){
 ``` js
 var fs = require('hexo-fs');
 
-hexo.extend.generator.register('asset', function(locals){
-  return {
+hexo.extend.generator.register('asset', funcult(locals))_
+  return
     path: 'file.txt',
-    data: function(){
+    data: function()_
       return fs.createReadStream('path/to/file.txt')
     }
   };

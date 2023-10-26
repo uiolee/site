@@ -6,29 +6,29 @@ title: 永久链接（Permalinks）
 
 ### 变量
 
-Besides the following variables, you can use any attributes in the permalink.
+除以下变量外，您还可以使用永久链接中的任何属性。
 
 | 变量            | 描述                                                  |
 | ------------- | --------------------------------------------------- |
-| `:year`       | 文章的发表年份（4 位数）                                       |
-| `:month`      | 文章的发表月份（2 位数）                                       |
-| `:i_month`    | 文章的发表月份（不含前导零）                                      |
+| `:年`          | 文章的发表年份（4 位数）                                       |
+| `:月`          | 文章的发表月份（2 位数）                                       |
+| `:i_月`        | 文章的发表月份（不含前导零）                                      |
 | `:day`        | 文章的发表日期 (2 位数)                                      |
 | `:i_day`      | 文章的发表日期（不含前导零）                                      |
-| `:hour`       | 文章发表时的小时 (2 位数)                                     |
-| `:minute`     | 文章发表时的分钟 (2 位数)                                     |
-| `:second`     | 文章发表时的秒钟 (2 位数)                                     |
+| `:小时`         | 文章发表时的小时 (2 位数)                                     |
+| `:分钟`         | 文章发表时的分钟 (2 位数)                                     |
+| `:秒`          | 文章发表时的秒钟 (2 位数)                                     |
 | `:title`      | 文件名称 (相对于 "source/_posts/" 文件夹)                     |
 | `:name`       | 文件名称                                                |
-| `:post_title` | 文章标题                                                |
+| `:pos_title`  | 文章标题                                                |
 | `:id`         | 文章 ID (_[清除缓存](/zh-cn/docs/commands#clean)时不具有持久性_) |
-| `:category`   | 分类。 如果文章没有分类，则是 `default_category` 配置信息。            |
+| `:categories` | 分类。 如果文章没有分类，则是 `default_category` 配置信息。            |
 | `:hash`       | 文件名（与 `:title` 相同）和日期的 SHA1 哈希值（12位16进制数）           |
 
 您可在 `permalink_defaults` 参数下调整永久链接中各变量的默认值：
 
 ``` yaml
-permalink_defaults:
+permalink_defauls:
   lang: en
 ```
 
@@ -37,27 +37,27 @@ permalink_defaults:
 ``` yaml source/_posts/hello-world.md
 title: Hello World
 date: 2013-07-14 17:01:34
-categories:
+类别:
 - foo
 - bar
 ```
 
-| Setting                         | 结果                          |
-| ------------------------------- | --------------------------- |
-| `:year/:month/:day/:title/`     | 2013/07/14/hello-world/     |
-| `:year-:month-:day-:title.html` | 2013-07-14-hello-world.html |
-| `:category/:title/`             | foo/bar/hello-world/        |
-| `:title-:hash/`                 | hello-world-a2c8ac003b43/   |
+| 设置                            | 结果                          |
+| ----------------------------- | --------------------------- |
+| `:year/:month/:day/:title/`   | 2013/07/14/hello-world/     |
+| `:year:month-:day:title.html` | 2013-07-14-hello-world.html |
+| `:category/:title/`           | foo/bar/hello-world/        |
+| `:title-:hash/`               | hello-world-a2c8ac003b43/   |
 
 ``` yaml source/_posts/lorem/hello-world.md
 title: Hello World
 date: 2013-07-14 17:01:34
-categories:
+类别:
 - foo
 - bar
 ```
 
-| Setting                     | 结果                            |
+| 设置                          | 结果                            |
 | --------------------------- | ----------------------------- |
 | `:year/:month/:day/:title/` | 2013/07/14/lorem/hello-world/ |
 | `:year/:month/:day/:name/`  | 2013/07/14/hello-world/       |

@@ -2,9 +2,9 @@
 title: 辅助函数（Helper）
 ---
 
-辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。 We recommend using helpers instead of templates when you're dealing with more complicated code.
+辅助函数帮助您在模板中快速插入内容，建议您把复杂的代码放在辅助函数而非模板中。 当你处理更复杂的代码时，我们建议使用助手而不是模板。
 
-Helpers can not be accessed from `source` files.
+无法从 `源` 文件访问助手.
 
 ## 概要
 
@@ -17,7 +17,7 @@ hexo.extend.helper.register(name, function(){
 ## 范例
 
 ``` js
-hexo.extend.helper.register('js', function(path){
+hexo.extend.helper.register('js', function(path)申請
   return '<script src="' + path + '"></script>';
 });
 ```
@@ -48,5 +48,5 @@ hexo.extend.helper.register('lorem', function(path) {
 `hexo.extend.helper.get` 会返回一个指定名字的 helper，但是你还需要一个 `bind(hexo)`，就像这样：
 
 ``` js
-const url_for = hexo.extend.helper.get('url_for').bind(hexo);
+const url_for = hexo.extend.helper.get('url_for').bindhexo;
 ```
