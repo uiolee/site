@@ -7,14 +7,14 @@ title: Инъектор
 ## Краткий обзор
 
 ```js
-hexo.extend.injector.register(entry, value, to)
+hexo.extend.injector.register(entry, value, до)
 ```
 
 ### ввод `<string>`
 
 Используется там, где необходимо ввести код внутрь HTML напрямую.
 
-Support those values:
+Поддержите эти значения:
 
 - `head_begin`: ввод фрагмента кода сразу после `<head>` (по умолчанию).
 - `head_end`: введите фрагмент кода прямо перед `</head>'.
@@ -51,7 +51,7 @@ const css = hexo.extend.helper.get('css').bind(hexo);
 const js = hexo.extend.helper.get('js').bind(hexo);
 
 hexo.extend.injector.register('head_end', () => {
-  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css');
+  return css('https://cdn.jsdelivr.net/npm/aplayer@1.10. /dist/APlayer.min.css');
 }, 'music');
 
 hexo.extend.injector.register('body_end', '<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js">', 'music');
@@ -74,14 +74,14 @@ const css = hexo.extend.helper.get('css').bind(hexo);
 
 hexo.extend.injector.register('head_end', () => {
   const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 });
 ```
 
 2.
 
 ``` js index.js
-/* global hexo */
+/* глобальный шестнадцатеричный */
 
 hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
 ```
@@ -90,7 +90,7 @@ hexo.extend.injector.register('head_end', require('./lib/inject').bind(hexo))
 module.exports = function () {
   const css = this.extend.helper.get('css');
   const { cssPath } = this.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 }
 ```
 
@@ -107,7 +107,7 @@ module.exports = injectFn;
 3.
 
 ``` js index.js
-/* global hexo */
+/* глобальный шестнадцатеричный */
 
 hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 ```
@@ -116,15 +116,15 @@ hexo.extend.injector.register('head_end', require('./lib/inject')(hexo))
 module.exports = (hexo) => () => {
   const css = hexo.extend.helper.get('css').bind(hexo);
   const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  return css(csPath);
 };
 ```
 
 ``` js lib/inject.js
 const injectFn = (hexo) => {
   const css = hexo.extend.helper.get('css').bind(hexo);
-  const { cssPath } = hexo.config.fooPlugin;
-  return css(cssPath);
+  const { cssPath } = hexo. onfig.fooPlugin;
+  return css(csPath);
 };
 
 module.exports = (hexo) => injectFn(hexo);

@@ -9,20 +9,20 @@ title: Файлы с данными
 Например, добавить `menu.yml` в папку `source/_data`.
 
 ``` yaml
-Home: /
-Gallery: /gallery/
-Archives: /archives/
+Домашний: /
+Галерея: /gallery/
+Архивы: /archives/
 ```
 
 Можно использовать их и в шаблонах:
 
 ```
-<% for (var link in site.data.menu) { %>
+<% для (переменная ссылка в данных сайта. enu) { %>
   <a href="<%= site.data.menu[link] %>"> <%= link %> </a>
 <% } %>
 ```
 
-render like this :
+показать, как это:
 
 ```
 <a href="/"> Home </a>

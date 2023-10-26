@@ -1,11 +1,11 @@
 ---
-title: GitLab Pages
+title: Страницы GitLab
 ---
 
 1. Создайте новый репозиторий под названием <b>*username*.gitlab.io</b>, где `username` — ваше имя пользователя GitLab. Если вы уже загрузили файлы в репозиторий с другим названием, просто переименуйте его.
 2. Включите возможность Shared Runners через настройки `Settings -> CI / CD -> Shared Runners`.
 3. Запушьте файлы вашей папки Hexo в этот репозиторий. Папка `public/` не должна загружаться по умолчанию, проверьте, что файл `.gitignore` содержит строку `public/`. Структура папки должна быть такой же, как в [этом репозитории](https://gitlab.com/pages/hexo).
-4. Check what version of Node.js you are using on your local machine with `node --version`. Make a note of the major version (e.g., `v16.y.z`)
+4. Проверьте, какая версия Node.js используется на локальной машине с `узлом --version`. Запомните основную версию (например, `v16.y.z`)
 5. Добавьте файл `.gitlab-ci.yml` в ваш репозиторий (рядом с _config.yml & package.json) со следующий контентом:
 
 ``` yml
@@ -41,5 +41,5 @@ pages:
 
 ## Полезные ссылки
 
-- [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
+- [Страницы GitLab](https://docs.gitlab.com/ee/user/project/pages/)
 - [Документация GitLab CI](https://docs.gitlab.com/ee/ci/yaml/)

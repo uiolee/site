@@ -2,7 +2,7 @@
 title: Рендеринг
 ---
 
-Существует два метода обработки файлов или строк для рендеринга: асинхронный `hexo.render.render` и синхронный `hexo.render.renderSync`. Unsurprisingly, the two methods are very similar so only the asynchronous `hexo.render.render` will be further discussed in the below paragraphs.
+Существует два метода обработки файлов или строк для рендеринга: асинхронный `hexo.render.render` и синхронный `hexo.render.renderSync`. Неудивительно, что эти два метода очень похожи, поэтому только асинхронный `hexo.render.render` будет далее обсуждаться в нижеследующих пунктах.
 
 ## Обработка строки
 
@@ -65,14 +65,14 @@ hexo.render.getOutput('layout.swig') // html
 hexo.render.getOutput('image.png') // '''
 ```
 
-## Disable Nunjucks tags
+## Отключить теги Nunjucks
 
-If you are not using a [tag plugin](/docs/tag-plugins) and want to use `{{ }}` or `{% %}` in your post without using content [escaping](/docs/troubleshooting#Escape-Contents), you can disable processing of Nunjucks tag in existing renderer by:
+Если вы не используете [плагин](/docs/tag-plugins) и хотите использовать `{{ }}` или `{% %}` в вашем сообщении без использования содержания [экранируя](/docs/troubleshooting#Escape-Contents), вы можете отключить обработку тега Nunjucks в существующем рендерере:
 
 ``` js
-// following example only applies to '.md' file extension
-// you may need to cover other extensions, e.g. '.markdown', '.mkd'
-const renderer = hexo.render.renderer.get('md')
+// следующий пример применим только к '.md' файлу расширения
+// может потребоваться покрыть другие расширения, e. . '.markdown', '.mkd'
+const renderer = hexo.render. enderer.get('md')
 if (renderer) {
   renderer.disableNunjucks = true
   hexo.extend.renderer.register('md', 'html', renderer)

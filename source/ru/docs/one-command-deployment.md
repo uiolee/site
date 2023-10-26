@@ -1,29 +1,29 @@
 ---
-title: One-Command Deployment
+title: Распределение по одному командному делу
 ---
 
 Hexo обеспечивает быстрый и простой способ размещения. Нужна только одна команда, чтобы развернуть свой сайт на сервере.
 
 ```bash
-$ hexo deploy
+$ hexo развертывание
 ```
 
-Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
+Установите необходимый плагин(ы), совместимый с методом установки, предоставленным вашим сервером/репозиторием.
 
 Перед первой публикацией сайта нужно изменить некоторые настройки в `_config.yml`. Правильные параметры развёртывания должны иметь поле `type`. Например:
 
 ```yaml
-deploy:
-  type: git
+развертывание:
+  тип: git
 ```
 
 Вы можете использовать несколько сервисов размещения. Hexo будет выполнять все в том порядке, какой указан в файле.
 
 ```yaml
-deploy:
-- type: git
+развертывание:
+- тип: git
   repo:
-- type: heroku
+- тип: heroku
   repo:
 ```
 
@@ -34,7 +34,7 @@ deploy:
 1. Установка [hexo-deployer-git][].
 
 ```bash
-$ npm install hexo-deployer-git --save
+$ npm установить hexo-deployer-git --save
 ```
 
 2. Отредактируйте **\_config.yml** (примеры значений, показаны ниже в качестве комментариев):
@@ -47,12 +47,12 @@ deploy:
   message: [message]
 ```
 
-| Опция     | Описание                                                                                                              | По умолчанию                                                                        |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `repo`    | URL-адрес целевого репозитория                                                                                        |                                                                                     |
-| `branch`  | Название ветки.                                                                                                       | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (другое) |
-| `message` | Конфигурирация сообщения о коммите.                                                                                   | `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`               |
-| `token`   | Необязательное значение токена для аутентификации в репозитории. Префикс с `$` для чтения, взятый из переменной среды |                                                                                     |
+| Опция       | Описание                                                                                                              | По умолчанию                                                                        |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `репо`      | URL-адрес целевого репозитория                                                                                        |                                                                                     |
+| `филиал`    | Название ветки.                                                                                                       | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (другое) |
+| `сообщение` | Конфигурирация сообщения о коммите.                                                                                   | `Сайт обновлена: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`             |
+| `токен`     | Необязательное значение токена для аутентификации в репозитории. Префикс с `$` для чтения, взятый из переменной среды |                                                                                     |
 
 3. Разместите свой сайт  `hexo clean && hexo deploy`.
 
@@ -66,39 +66,39 @@ deploy:
 Установите [hexo-deployer-heroku][].
 
 ```bash
-$ npm install hexo-deployer-heroku --save
+$ npm установить hexo-deployer-heroku --save
 ```
 
 Изменение параметров.
 
 ```yaml
-deploy:
-  type: heroku
+развертывание:
+  тип: heroku
   repo: <repository url>
-  message: [message]
+  сообщение: [message]
 ```
 
-| Опция                | Описание                                                                                                         |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `repo`, `repository` | Адрес Heroku репозитория                                                                                         |
-| `message`            | Изменение описания коммита (По умолчанию: `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
+| Опция                        | Описание                                                                                                         |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `репозиторий`, `репозиторий` | Адрес Heroku репозитория                                                                                         |
+| `сообщение`                  | Изменение описания коммита (По умолчанию: `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
 
 ## Netlify
 
-[Netlify](https://www.netlify.com/) provides continuous deployment (Git-triggered builds), an intelligent global CDN, full DNS (including custom domains), automated HTTPS, asset acceleration, and a lot more. It is a unified platform that automates your code to create high-performance, easily maintainable sites and web apps.
+[Netlify](https://www.netlify.com/) обеспечивает непрерывное развертывание (сборки, созданные на основе Gittrigge), интеллектуальный глобальный CDN, полный DNS (включая пользовательские домены), автоматизированный HTTPS, ускорение активов и многое другое. Это единая платформа, которая автоматизирует ваш код для создания высокой производительности, легко управляемых сайтов и веб-приложений.
 
-There are two different ways to deploy your sites on Netlify. The most common way is to use the web UI. Go to the [create a new site page](https://app.netlify.com/start), select your project repo from GitHub, GitLab, or Bitbucket, and follow the prompts.
+Есть два различных способа развернуть ваши сайты на Netlify. Наиболее распространенным способом является использование веб-интерфейса. Перейдите на [создать новую страницу сайта](https://app.netlify.com/start), выберите ваш репозиторий проекта из GitHub, GitLab, или Bitbucket, и следуйте инструкциям.
 
-Alternatively, you can use Netlify's [Node based CLI](https://www.netlify.com/docs/cli/) tool to manage and deploy sites on Netlify without leaving your terminal.
+В качестве альтернативы, вы можете использовать инструмент Netlify's [на основе узла CLI](https://www.netlify.com/docs/cli/) для управления и развертывания сайтов на Netlify не покидая терминал.
 
-You can also add a [Deploy to Netlify Button](https://www.netlify.com/docs/deploy-button/) in your README.file to allow others to create a copy of your repository and be deployed to Netlify via one click.
+Вы также можете добавить [развёртывание в кнопку Netlify](https://www.netlify.com/docs/deploy-button/) в ваш README. ile чтобы позволить другим создать копию вашего репозитория и быть развернутым в Netlify одним щелчком.
 
 ## Rsync
 
 Установите [hexo-deployer-rsync][].
 
 ```bash
-$ npm install hexo-deployer-rsync --save
+$ npm установить hexo-deployer-rsync --save
 ```
 
 Изменение параметров.
@@ -115,51 +115,51 @@ deploy:
   ignore_errors: [true|false]
 ```
 
-| Опция           | Описание                                  | Default |
-| --------------- | ----------------------------------------- | ------- |
-| `host`          | Адрес удалённого хоста                    |         |
-| `user`          | Имя пользователя                          |         |
-| `root`          | Корневой каталог на удалённом хосте       |         |
-| `port`          | Порт                                      | 22      |
-| `delete`        | Удаление старых файлов на удаленном хосте | true    |
-| `verbose`       | Выводить подробные сообщения              | true    |
-| `ignore_errors` | Игнорировать ошибки                       | false   |
+| Опция                 | Описание                                  | Значение по умолчанию |
+| --------------------- | ----------------------------------------- | --------------------- |
+| `хост`                | Адрес удалённого хоста                    |                       |
+| `пользователь`        | Имя пользователя                          |                       |
+| `корень`              | Корневой каталог на удалённом хосте       |                       |
+| `порт`                | Порт                                      | 22                    |
+| `удалять`             | Удаление старых файлов на удаленном хосте | истина                |
+| `verbose`             | Выводить подробные сообщения              | истина                |
+| `игнорировать_ошибки` | Игнорировать ошибки                       | ложь                  |
 
 ## OpenShift
 
 Установите [hexo-deployer-openshift][].
 
 ```bash
-$ npm install hexo-deployer-openshift --save
+$ npm установить hexo-deployer-openshift --save
 ```
 
 Изменение параметров.
 
 ```yaml
-deploy:
-  type: openshift
+развертывание:
+  тип: openshift
   repo: <repository url>
   message: [message]
 ```
 
-| Опция     | Описание                                                                                                         |
-| --------- | ---------------------------------------------------------------------------------------------------------------- |
-| `repo`    | Адрес OpenShift репозитория                                                                                      |
-| `message` | Изменение описания коммита (По умолчанию: `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
+| Опция       | Описание                                                                                                         |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| `репо`      | Адрес OpenShift репозитория                                                                                      |
+| `сообщение` | Изменение описания коммита (По умолчанию: `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
 
 ## FTPSync
 
 Установите [hexo-deployer-ftpsync][].
 
 ```bash
-$ npm install hexo-deployer-ftpsync --save
+$ npm установить hexo-deployer-ftpsync --save
 ```
 
 Изменение параметров.
 
 ```yaml
-deploy:
-  type: ftpsync
+развертывание:
+  тип: ftpsync
   host: <host>
   user: <user>
   pass: <password>
@@ -170,23 +170,23 @@ deploy:
   verbose: [true|false]
 ```
 
-| Опция         | Описание                              | Значение по умолчанию |
-| ------------- | ------------------------------------- | --------------------- |
-| `host`        | Адрес удалённого хоста                |                       |
-| `user`        | Имя пользователя                      |                       |
-| `pass`        | Пароль                                |                       |
-| `remote`      | Корневой каталог на удалённом хосте   | `/`                   |
-| `port`        | Порт                                  | 21                    |
-| `ignore`      | Игнорировать файлы на удалённом хосте |                       |
-| `connections` | Количество подключений                | 1                     |
-| `verbose`     | Выводить подробные сообщения          | false                 |
+| Опция          | Описание                              | Значение по умолчанию |
+| -------------- | ------------------------------------- | --------------------- |
+| `хост`         | Адрес удалённого хоста                |                       |
+| `пользователь` | Имя пользователя                      |                       |
+| `проход`       | Пароль                                |                       |
+| `удаленный`    | Корневой каталог на удалённом хосте   | `/`                   |
+| `порт`         | Порт                                  | 21                    |
+| `игнорировать` | Игнорировать файлы на удалённом хосте |                       |
+| `соединения`   | Количество подключений                | 1                     |
+| `verbose`      | Выводить подробные сообщения          | ложь                  |
 
 ## SFTP
 
-Install [hexo-deployer-sftp][]. Deploys the site via SFTP, allowing for passwordless connections using ssh-agent.
+Установите [hexo-deployer-sftp][]. Разворачивает сайт через SFTP, позволяя безпарольные соединения с помощью ssh-agent.
 
 ```bash
-$ npm install hexo-deployer-sftp --save
+$ npm установить hexo-deployer-sftp --save
 ```
 
 Публикация
@@ -201,23 +201,23 @@ deploy:
   port: [port]
   privateKey: [path/to/privateKey]
   passphrase: [passphrase]
-  agent: [path/to/agent/socket]
+  Agent: [path/to/agent/socket]
 ```
 
-| Параметры     | Описание                                        | Default          |
-| ------------- | ----------------------------------------------- | ---------------- |
-| `host`        | Address of remote host                          |                  |
-| `port`        | Port                                            | 22               |
-| `user`        | Username                                        |                  |
-| `pass`        | Password                                        |                  |
-| `privateKey`  | Path to a ssh private key                       |                  |
-| `passphrase`  | Optional passphrase for the private key         |                  |
-| `agent`       | Path to the ssh-agent socket                    | `$SSH_AUTH_SOCK` |
-| `remotePath`  | Root directory of remote host                   | `/`              |
-| `forceUpload` | Override existing files                         | false            |
-| `concurrency` | Max number of SFTP tasks processed concurrently | 100              |
+| Параметры         | Описание                                                       | Значение по умолчанию |
+| ----------------- | -------------------------------------------------------------- | --------------------- |
+| `хост`            | Адрес удаленного хоста                                         |                       |
+| `порт`            | Порт                                                           | 22                    |
+| `пользователь`    | Имя пользователя                                               |                       |
+| `проход`          | Пароль                                                         |                       |
+| `приватный ключ`  | Путь к закрытому ключу ssh                                     |                       |
+| `парольная фраза` | Необязательный пароль для приватного ключа                     |                       |
+| `агент`           | Путь к сокету ssh-agent                                        | `$SSH_AUTH_SOCK`      |
+| `удаленный путь`  | Корневая директория удаленного узла                            | `/`                   |
+| `выгрузить`       | Переопределить существующие файлы                              | ложь                  |
+| `совпадать`       | Максимальное количество обрабатываемых SFTP задач одновременно | 100                   |
 
-## Vercel
+## Версель
 
 [Vercel](https://vercel.com) это облачная платформа, которая позволяет разработчикам размещать веб-сайты и веб-службы Jamstackкоторые мгновенно развертываются, автоматически масштабируются и не требуют контроля, все с нулевой конфигурацией. Они обеспечивают глобальную пограничную сеть, шифрование SSL, сжатие ресурсов, аннулирование кэша и многое другое.
 
@@ -241,9 +241,9 @@ deploy:
 
 Разместить в Vercel
 
-[![Deploy Vercel](https://vercel.com/button)](https://vercel.com/new/hexo)
+[![Развернуть версель](https://vercel.com/button)](https://vercel.com/new/hexo)
 
-## Bip
+## Бип
 
 [Bip](https://bip.sh) - это коммерческая услуга хостинга, которая обеспечивает развертывание с нулевым временем простоя, глобальную CDN, SSL, неограниченную пропускную способность и многое другое для статических веб-сайтов. Планы доступны с оплатой по факту (pay as you go), в зависимости от домена.
 
@@ -252,7 +252,7 @@ deploy:
 1: Инициализируйте каталог вашего проекта
 
 ```bash
-$ bip init
+$ бип init
 ```
 
 Следуйте инструкциям, где вас спросят, в каком домене вы хотите выполнить развертывание. Bip обнаружит, что вы используете Hexo, и автоматически установит параметры проекта, такие как каталог исходных файлов.
@@ -260,7 +260,7 @@ $ bip init
 2: Разместите свой веб-сайт
 
 ```bash
-$ hexo generate —deploy && bip deploy
+$ hexo генерируется — развертывание && бип-развёртывание
 ```
 
 Через несколько мгновений ваш веб-сайт будет размещён.
@@ -286,13 +286,13 @@ $ hexo generate —deploy && bip deploy
         secret: ee8b74626f12b61c1a4bde3b8c331ad390567c86ba779c9b18561ee92c1cbff0
   ```
 
-| Умолчание         | Description                                   |
+| Умолчание         | Описание                                      |
 | ----------------- | --------------------------------------------- |
 | `endpoint`        | Ссылка на RSS3 Hub                            |
-| `privateKey`      | Ваш закрытый ключ, 64 байта                   |
+| `приватный ключ`  | Ваш закрытый ключ, 64 байта                   |
 | `ipfs/deploy`     | Следует ли развертывать в IPFS                |
 | `ipfs/gateway`    | IPFS API Gateway                              |
-| `ipfs/api/key`    | Проверочный контент, связанный со шлюзом IPFS |
+| `ipfs/api/ключ`   | Проверочный контент, связанный со шлюзом IPFS |
 | `ipfs/api/secret` | Проверочный контент, связанный со шлюзом IPFS |
 
 3. Создавайте статические файлы.
@@ -301,31 +301,31 @@ $ hexo generate —deploy && bip deploy
 
 Меры предосторожности, связанные с конкретным развертыванием, можно найти в [нашей документации](https://github.com/NaturalSelectionLabs/hexo-deployer-rss3/tree/develop/docs/en/start.md).
 
-## Edgio (formerly Layer0)
+## Edgio (прежний слой)
 
-[Edgio (formerly Layer0)](https://docs.edg.io) is an Internet-scale platform that makes it easy for teams to build, release, protect, and accelerate their web apps and APIs.
+[Edgio (прежний Layer0)](https://docs.edg.io) является платформой для интернет-масштаба, которая позволяет командам легко создавать, , защищайте и ускоряйте свои веб-приложения и API.
 
-1. In your hexo project directory, install the Edgio CLI:
+1. В вашем каталоге проекта шестнадцатеричного кода, установите код Edgio CLI:
 
 ```bash
 npm i -g @edgio/cli
 ```
 
-2. Install Hexo connector by Edgio:
+2. Установить Hexo коннектор от Edgio:
 
 ```bash
 edgio init --connector=@edgio/hexo
 ```
 
-3. Deploy
+3. Развертывание
 
 ```bash
-edgio deploy
+Развертывание edgio
 ```
 
 Кроме того, вы можете нажать кнопку разместить ниже, чтобы создать новый проект:
 
-[![Deploy To Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgio-docs%2Fedgio-hexo-example)
+[![Развертывать в Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https%3A%2F%2Fgithub.com%2Fedgio-docs%2Fedgio-hexo-example)
 
 ## Другие способы
 
