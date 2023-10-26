@@ -1,5 +1,5 @@
 ---
-title: Setup
+title: 设置
 ---
 
 {% youtube xvIRGmKWpFM %}
@@ -12,7 +12,7 @@ $ cd <folder>
 $ npm install
 ```
 
-Once initialized, here's what your project folder will look like:
+一旦启动，您的项目文件夹将是什么样子：
 
 ``` plain
 .
@@ -26,13 +26,13 @@ Once initialized, here's what your project folder will look like:
 └── themes
 ```
 
-### _config.yml
+### yml
 
-网站的 [配置](configuration.html) 信息，您可以在此配置大部分的参数。 You can configure most settings here.
+网站的 [配置](configuration.html) 信息，您可以在此配置大部分的参数。 您可以在这里配置大部分设置。
 
-### package.json
+### json
 
-应用程序的信息。 [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) 渲染引擎 已默认安装，您可以自由移除。 If you want, you can uninstall them later.
+应用程序的信息。 [EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) 渲染引擎 已默认安装，您可以自由移除。 如果你想要，你可以稍后卸载它们。
 
 ``` json package.json
 {
@@ -56,14 +56,14 @@ Once initialized, here's what your project folder will look like:
 }
 ```
 
-### scaffolds
+### 卡福尔德
 
 [模版](writing#模版（Scaffold）) 文件夹。 当您新建文章时，Hexo 会根据 scaffold 来创建文件。
 
-### source
+### 来源
 
-资源文件夹是存放用户资源的地方。 This is where you put your site's content. 除 `_posts` 文件夹之外，开头命名为 `_` (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。 Markdown 和 HTML 文件会被解析并放到 `public` 文件夹，而其他文件会被拷贝过去。
+资源文件夹是存放用户资源的地方。 这是您放置网站内容的地方。 除 `_posts` 文件夹之外，开头命名为 `_` (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。 Markdown 和 HTML 文件会被解析并放到 `public` 文件夹，而其他文件会被拷贝过去。
 
-### themes
+### 主题
 
 [主题](themes.html) 文件夹。 Hexo 会根据主题来生成静态页面。

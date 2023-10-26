@@ -6,11 +6,11 @@ title: 路由
 
 ## 获取路径
 
-`get` 方法会传回一个 [Stream][]，例如把该路径的资料存储到某个指定位置。 For example, to save the path data to a specified destination:
+`get` 方法会传回一个 [Stream][]，例如把该路径的资料存储到某个指定位置。 例如，要将路径数据保存到指定目的地：
 
 ``` js
 var data = hexo.route.get('index.html');
-var dest = fs.createWriteStream('somewhere');
+var test = fs.createWriteStream('somwhere');
 
 data.pipe(dest);
 ```
@@ -24,22 +24,22 @@ data.pipe(dest);
 hexo.route.set('index.html', 'index')
 
 // Buffer
-hexo.route.set('index.html', new Buffer('index'));
+hexo.route.set('index.html', new Buffer('index');
 
-// Function (Promise)
-hexo.route.set('index.html', function(){
-  return new Promise(function(resolve, reject){
+// 函数(Promise)
+hexo.route.set('index. tml', function()pension()post.
+  return new Promise(function(resolve, reject))por
     resolve('index');
   });
 });
 
-// Function (Callback)
-hexo.route.set('index.html', function(callback){
+// 函数 (Callback)
+hexo. oute.set('index.html', function(callback)@un.org,
   callback(null, 'index');
 });
 ```
 
-You can also set a boolean for whether a path has been modified or not. This can speed up file generation as it allows for ignoring the unmodified files.
+您还可以设置一个是否修改路径的布尔值。 这可以加速文件生成，因为它允许忽略未修改的文件。
 
 ``` js
 hexo.route.set('index.html', {
@@ -56,10 +56,10 @@ hexo.route.set('index.html', {
 hexo.route.remove('index.html');
 ```
 
-## Get the List of Routes
+## 获取路由列表
 
 ``` js
-hexo.route.list();
+十六进制列表();
 ```
 
 ## 格式化路径
@@ -67,7 +67,7 @@ hexo.route.list();
 `format` 方法可将字符串转为合法的路径。
 
 ``` js
-hexo.route.format('archives/');
+十六进制格式('archives/');
 // archives/index.html
 ```
 

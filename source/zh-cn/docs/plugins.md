@@ -10,7 +10,7 @@ Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心
 
 ### 插件（Packages）
 
-If your code is complicated or if you want to publish it to the NPM registry, we recommend using a plugin. First, create a folder in the `node_modules` folder. The name of this folder must begin with `hexo-` or Hexo will ignore it.
+如果你的代码是复杂的，或者如果你想要将它发布到NPM注册表，我们建议使用一个插件。 首先，在 `node_modules` 文件夹中创建一个文件夹。 The name of this folder must begin with `hexo-` or Hexo will ignore it.
 
 文件夹内至少要包含 2 个文件：一个是主程序，另一个是 `package.json`，描述插件的用途和所依赖的插件。
 
@@ -24,14 +24,14 @@ If your code is complicated or if you want to publish it to the NPM registry, we
 编辑 `source/_data/plugins/<your-plugin-name>.yml` 并添加您的插件。 例如：
 
 ```json package.json
-{
+●
   "name": "hexo-my-plugin",
   "version": "0.0.1",
   "main": "index"
 }
 ```
 
-You'll also need to list your plugin as a dependency in the root `package.json` of your hexo instance in order for Hexo to detect and load it.
+你还需要将你的插件列为根 `软件包中的依赖项。 你的十六进制实例的son` 以便让十六进制探测和加载它。
 
 ### 工具
 
@@ -46,7 +46,7 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 当您完成插件后，可以考虑将它发布到 [插件列表](/plugins)，让更多人能够使用您的插件。 发布插件的步骤和 [更新文档](contributing.html#更新文档) 非常类似。
 
-1. Fork [hexojs/site][]
+1. Fork [十六进制/站点][]
 2. 把库（repository）复制到电脑上，并安装所依赖的插件。
 
    ```shell
@@ -57,10 +57,10 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 
 3. 在 `source/_data/plugins/` 中创建一个新的 yaml 文件，使用您的插件名称作为文件名。
 
-4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. For example:
+4. Edit `source/_data/plugins/<your-plugin-name>.yml` and add your plugin. 例如：
 
    ```yaml
-   description: Server module for Hexo.
+   描述：十六进制服务器模块。
    description: Server module for Hexo.
    link: https://github.com/hexojs/hexo-server
    tags:
@@ -76,4 +76,4 @@ You'll also need to list your plugin as a dependency in the root `package.json` 
 [hexo-util]: https://github.com/hexojs/hexo-util
 [hexo-i18n]: https://github.com/hexojs/hexo-i18n
 [hexo-pagination]: https://github.com/hexojs/hexo-pagination
-[hexojs/site]: https://github.com/hexojs/site
+[十六进制/站点]: https://github.com/hexojs/site

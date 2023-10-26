@@ -9,25 +9,25 @@ title: 标签插件（Tag）
 ``` js
 hexo.extend.tag.register(name, function(args, content){
 }, options);
-}, options);
+}，选项；
 ```
 
-标签函数会传入两个参数：`args` 和 `content`，前者代表开发者在使用标签插件时传入的参数，而后者则是标签插件所覆盖的内容。 `args` contains the arguments passed into the tag plugin and `content` is the wrapped content from the tag plugin.
+标签函数会传入两个参数：`args` 和 `content`，前者代表开发者在使用标签插件时传入的参数，而后者则是标签插件所覆盖的内容。 `args` 包含传入标签插件的参数， `内容` 是从标签插件包裹的内容。
 
-从 Hexo 3 开始，因为新增了非同步渲染功能，而改用 [Nunjucks][] 作为渲染引擎，其行为可能会与过去使用的 [Swig][] 有些许差异。 The behavior may be somewhat different from that in [Swig][].
+从 Hexo 3 开始，因为新增了非同步渲染功能，而改用 [Nunjucks][] 作为渲染引擎，其行为可能会与过去使用的 [Swig][] 有些许差异。 该行为可能与 [Swig][] 的行为有些不同。
 
 ## 移除标签插件
 
 使用 `unregister()` 来用自定义函数替换现有的 [标签插件](/zh-cn/docs/tag-plugins)。
 
 ``` js
-hexo.extend.tag.unregister(name);
+hexo.extend.tag.unregister(名称)；
 ```
 
 **示例**
 
 ``` js
-const tagFn = (args, content) => {
+const tagFn = (args, content) => *
   content = 'something';
   return content;
 };
@@ -40,13 +40,13 @@ hexo.extend.tag.register('youtube', tagFn);
 
 ## 选项
 
-### ends
+### 结束
 
-Use end tags. 使用结束标签，此选项默认为 `false`。
+使用终端标签。 使用结束标签，此选项默认为 `false`。
 
-### async
+### 异步模式
 
-Enable async mode. 使用结束标签，此选项默认为 `false`。
+启用异步模式。 使用结束标签，此选项默认为 `false`。
 
 ## 范例
 
@@ -55,7 +55,7 @@ Enable async mode. 使用结束标签，此选项默认为 `false`。
 插入 Youtube 影片。
 
 ``` js
-hexo.extend.tag.register('youtube', function(args){
+hexo.extend.tag.register('youtube', function(args))@un.org.
   var id = args[0];
   return '<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe></div>';
 });
@@ -66,9 +66,9 @@ hexo.extend.tag.register('youtube', function(args){
 插入 pull quote。
 
 ``` js
-hexo.extend.tag.register('pullquote', function(args, content){
-  var className =  args.join(' ');
-  return '<blockquote class="pullquote' + className + '">' + content + '</blockquote>';
+hexo.extend.tag.register('pullquote', funcultural(args, content))申請
+  var classname = args.joint(' ');
+  return '<blockquote class="pullquote' + className + '">' + content +</blockquote>';
 }, {ends: true});
 ```
 
@@ -80,14 +80,14 @@ hexo.extend.tag.register('pullquote', function(args, content){
 var fs = require('hexo-fs');
 var pathFn = require('path');
 
-hexo.extend.tag.register('include_code', function(args){
+hexo.extend.tag egister('include_code', function(args)申請
   var filename = args[0];
-  var path = pathFn.join(hexo.source_dir, filename);
+  var path = pathFn.join(hexo). ource_dir, filename);
 
-  return fs.readFile(path).then(function(content){
-    return '<pre><code>' + content + '</code></pre>';
+  返回 fs.readFile(路径)。 hen(function(content)@un.org.
+    return '<pre><code>' + content +</code></pre>';
   });
-}, {async: true});
+}, {async: true};
 ```
 
 ## Front-matter 和用户配置
@@ -132,7 +132,7 @@ hexo.extend.tag.register('foo', function (args) {
 2.
 
 ``` js index.js
-hexo.extend.tag.register('foo', require('./lib/foo')(hexo));
+hexo.extend.tag.register('foo', require('./lib/foo')(hexo);
 ```
 
 ``` js lib/foo.js
@@ -152,7 +152,7 @@ module.exports = hexo => {
   };
 };
 
-    const { title, _content, content } = this;
+    const { title, _content, content } = 这;
 
     return 'foo';
   };
