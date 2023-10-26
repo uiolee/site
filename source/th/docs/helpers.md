@@ -879,24 +879,25 @@ Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 <%- open_graph([options]) %>
 ```
 
-| Option         | Description                                          | Default                                             |
-| -------------- | ---------------------------------------------------- | --------------------------------------------------- |
-| `title`        | Page title (`og:title`)                              | `page.title`                                        |
-| `type`         | Page type (`og:type`)                                | blog                                                |
-| `url`          | Page URL (`og:url`)                                  | `url`                                               |
-| `image`        | Page images (`og:image`)                             | All images in the content                           |
-| `author`       | Article author (`og:article:author`)                 | `config.author`                                     |
-| `date`         | Article published time (`og:article:published_time`) | Page published time                                 |
-| `updated`      | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
-| `language`     | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
-| `site_name`    | Site name (`og:site_name`)                           | `config.title`                                      |
-| `description`  | Page description (`og:description`)                  | Page excerpt or first 200 characters of the content |
-| `twitter_card` | Twitter card type (`twitter:card`)                   | summary                                             |
-| `twitter_id`   | Twitter ID (`twitter:creator`)                       |                                                     |
-| `twitter_site` | Twitter Site (`twitter:site`)                        |                                                     |
-| `google_plus`  | Google+ profile link                                 |                                                     |
-| `fb_admins`    | Facebook admin ID                                    |                                                     |
-| `fb_app_id`    | Facebook App ID                                      |                                                     |
+| Option          | Description                                          | Default                                             |
+| --------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| `title`         | Page title (`og:title`)                              | `page.title`                                        |
+| `type`          | Page type (`og:type`)                                | blog                                                |
+| `url`           | Page URL (`og:url`)                                  | `url`                                               |
+| `image`         | Page images (`og:image`)                             | All images in the content                           |
+| `author`        | Article author (`og:article:author`)                 | `config.author`                                     |
+| `date`          | Article published time (`og:article:published_time`) | Page published time                                 |
+| `updated`       | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
+| `language`      | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
+| `site_name`     | Site name (`og:site_name`)                           | `config.title`                                      |
+| `description`   | Page description (`og:description`)                  | Page excerpt or first 200 characters of the content |
+| `twitter_card`  | Twitter card type (`twitter:card`)                   | summary                                             |
+| `twitter_id`    | Twitter ID (`twitter:creator`)                       |                                                     |
+| `twitter_site`  | Twitter Site (`twitter:site`)                        |                                                     |
+| `twitter_image` | Twitter Image (`twitter:image`)                      |                                                     |
+| `google_plus`   | Google+ profile link                                 |                                                     |
+| `fb_admins`     | Facebook admin ID                                    |                                                     |
+| `fb_app_id`     | Facebook App ID                                      |                                                     |
 
 ### toc
 

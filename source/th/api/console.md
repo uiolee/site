@@ -18,7 +18,7 @@ hexo.extend.console.register(name, desc, options, function(args){
 | `desc`    | Description |
 | `options` | Options     |
 
-An argument `args` will be passed into the function. This is the argument that users type into the terminal. It's parsed by [Minimist][].
+argument `args` จะเข้า function และ argument นี้จะส่ง input ของผู้ใช้เข้า terminal This is the argument that users type into the terminal. It's parsed by [Minimist][].
 
 ## Options
 
