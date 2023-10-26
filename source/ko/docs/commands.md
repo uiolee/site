@@ -103,7 +103,7 @@ $ hexo render <file1> [file2] ...
 
 파일을 렌더링합니다.
 
-| Option           | Description        |
+| Option           | 설명                 |
 | ---------------- | ------------------ |
 | `-o`, `--output` | Output destination |
 

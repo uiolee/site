@@ -24,7 +24,7 @@ hexo.extend.console.register(name, desc, options, function(args){
 
 ### 사용법
 
-Console 명령어의 사용법의 예시입니다: For example:
+Console 명령어의 사용법의 예시입니다: 아래 예시를 보세요.
 
 ``` js
 {usage: '[layout] <title>'}
@@ -46,7 +46,7 @@ Console 명령어의 각 인자에 대한 예시입니다: For example:
 
 ### options
 
-Console 명령어의 각 옵션에 대한 예시입니다: For example:
+Console 명령어의 각 옵션에 대한 예시입니다: Hexo는 템플릿의 파일 확장자를 기반으로 템플릿 엔진을 선택합니다.
 
 ``` js
 {

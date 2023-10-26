@@ -6,7 +6,7 @@ title: Configuration
 
 ### Site
 
-| Setting       | Description                                                                                                                                                                                  |
+| Setting       | 설명                                                                                                                                                                                           |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `title`       | 웹 사이트의 제목                                                                                                                                                                                    |
 | `subtitle`    | The subtitle of your website                                                                                                                                                                 |
@@ -18,7 +18,7 @@ title: Configuration
 
 ### URL
 
-| Setting                      | Description                                                                               | 기본값                         |
+| 설정                           | 설명                                                                                        | 기본값                         |
 | ---------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
 | `url`                        | 웹 사이트의 URL, must starts with `http://` or `https://`                                      |                             |
 | `root`                       | 웹 사이트의 루트 디렉토리                                                                            | `url's pathname`            |
@@ -43,7 +43,7 @@ pretty_urls:
 
 ### Directory
 
-| Setting        | Description                                                                                                        | 기본값              |
+| 설정             | 설명                                                                                                                 | 기본값              |
 | -------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | `source_dir`   | 컨텐츠들이 저장되어 있는 소스 폴더 Where your content is stored                                                                   | `source`         |
 | `public_dir`   | Public folder. 생성된 정적 사이트들이 저장될 공용 폴더                                                                              | `public`         |
@@ -67,7 +67,7 @@ skip_render: "_posts/test-post.md"
 
 ### Writing
 
-| Setting                 | Description                                                                                     | 기본값         |
+| Setting                 | 설명                                                                                              | 기본값         |
 | ----------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
 | `new_post_name`         | 새 포스트의 파일명 형식                                                                                   | `:title.md` |
 | `default_layout`        | 기본 레이아웃                                                                                         | `post`      |
@@ -86,7 +86,7 @@ skip_render: "_posts/test-post.md"
 
 ### Home page setting
 
-| Setting                          | Description                                                                                                     | 기본값     |
+| Setting                          | 설명                                                                                                              | 기본값     |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------- |
 | `index_generator`                | Generate an archive of posts, powered by [hexo-generator-index](https://github.com/hexojs/hexo-generator-index) |         |
 | `index_generator.path`           | Root path for your blog's index page                                                                            | `''`    |
@@ -96,7 +96,7 @@ skip_render: "_posts/test-post.md"
 
 ### Category & Tag
 
-| Setting            | Description             | 기본값             |
+| Setting            | 설명                      | 기본값             |
 | ------------------ | ----------------------- | --------------- |
 | `default_category` | 기본 분류                   | `uncategorized` |
 | `category_map`     | Override category slugs |                 |
@@ -114,7 +114,7 @@ category_map:
 
 Hexo는 날짜 처리 시 [Moment.js](http://momentjs.com/)를 사용합니다.
 
-| Setting          | Description                                                                                    | 기본값          |
+| Setting          | 설명                                                                                             | 기본값          |
 | ---------------- | ---------------------------------------------------------------------------------------------- | ------------ |
 | `date_format`    | 날짜 형식                                                                                          | `YYYY-MM-DD` |
 | `time_format`    | 시간 형식                                                                                          | `HH:mm:ss`   |
@@ -132,7 +132,7 @@ Hexo는 날짜 처리 시 [Moment.js](http://momentjs.com/)를 사용합니다.
 
 ### Pagination
 
-| Setting          | Description                                        | 설정     |
+| Setting          | 설명                                                 | 설정     |
 | ---------------- | -------------------------------------------------- | ------ |
 | `per_page`       | 하나의 페이지에 표시할 포스트의 개수. `0`이면 pagination을 표시하지 않습니다. | `10`   |
 | `pagination_dir` | URL format                                         | `page` |

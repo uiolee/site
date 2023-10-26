@@ -10,7 +10,7 @@ $ hexo deploy
 
 Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
 
-Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example:
+Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. 아래 예시를 보세요.
 
 ```yaml
 deploy:
@@ -47,7 +47,7 @@ deploy:
   message: [message]
 ```
 
-| Option    | Description                                                                                                 | Default                                                                             |
+| 옵션        | 설명                                                                                                          | Default                                                                             |
 | --------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `repo`    | URL of the target repository                                                                                |                                                                                     |
 | `branch`  | Branch name.                                                                                                | `gh-pages` (GitHub)<br>`coding-pages` (Coding.net)<br>`master` (others) |
@@ -78,7 +78,7 @@ deploy:
   message: [message]
 ```
 
-| Option               | Description                                                                                          |
+| 옵션                   | 설명                                                                                                   |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
 | `repo`, `repository` | Heroku 저장소 URL                                                                                       |
 | `message`            | Commit message를 수정합니다. (기본값 - `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
@@ -115,15 +115,15 @@ deploy:
   ignore_errors: [true|false]
 ```
 
-| Option          | Description            | Default |
-| --------------- | ---------------------- | ------- |
-| `host`          | 원격 호스트의 주소             |         |
-| `user`          | 사용자명                   |         |
-| `root`          | 원격 호스트의 루트 디렉토리        |         |
-| `port`          | 포트                     | 22      |
-| `delete`        | 원격 호스트의 오래된 파일을 삭제합니다. | true    |
-| `verbose`       | Verbose 메시지를 표시합니다.    | true    |
-| `ignore_errors` | 에러를 무시합니다.             | false   |
+| 옵션              | 설명                     | 기본값   |
+| --------------- | ---------------------- | ----- |
+| `host`          | 원격 호스트의 주소             |       |
+| `user`          | 사용자명                   |       |
+| `root`          | 원격 호스트의 루트 디렉토리        |       |
+| `port`          | 포트                     | 22    |
+| `delete`        | 원격 호스트의 오래된 파일을 삭제합니다. | true  |
+| `verbose`       | Verbose 메시지를 표시합니다.    | true  |
+| `ignore_errors` | 에러를 무시합니다.             | false |
 
 ## OpenShift
 
@@ -142,7 +142,7 @@ deploy:
   message: [message]
 ```
 
-| Option    | Description                                                                                          |
+| 옵션        | 설명                                                                                                   |
 | --------- | ---------------------------------------------------------------------------------------------------- |
 | `repo`    | OpenShift 저장소 URL                                                                                    |
 | `message` | Commit message를 수정합니다. (기본값 - `Site updated: {% raw %}{{ now('YYYY-MM-DD HH:mm:ss') }}{% endraw %}`) |
@@ -170,16 +170,16 @@ deploy:
   verbose: [true|false]
 ```
 
-| Option        | Description             | Default |
-| ------------- | ----------------------- | ------- |
-| `host`        | 원격 호스트의 주소              |         |
-| `user`        | 사용자명                    |         |
-| `pass`        | 비밀번호                    |         |
-| `remote`      | 원격 호스트의 루트 디렉토리         | `/`     |
-| `port`        | 포트                      | 21      |
-| `ignore`      | 호스트 파일들과 원격 파일들을 무시합니다. |         |
-| `connections` | 연결 번호                   | 1       |
-| `verbose`     | Verbose 메시지를 표시합니다.     | false   |
+| Option        | 설명                      | 기본값   |
+| ------------- | ----------------------- | ----- |
+| `host`        | 원격 호스트의 주소              |       |
+| `user`        | 사용자명                    |       |
+| `pass`        | 비밀번호                    |       |
+| `remote`      | 원격 호스트의 루트 디렉토리         | `/`   |
+| `port`        | 포트                      | 21    |
+| `ignore`      | 호스트 파일들과 원격 파일들을 무시합니다. |       |
+| `connections` | 연결 번호                   | 1     |
+| `verbose`     | Verbose 메시지를 표시합니다.     | false |
 
 ## SFTP
 
@@ -204,7 +204,7 @@ deploy:
   agent: [path/to/agent/socket]
 ```
 
-| Option        | Description                                     | Default          |
+| Option        | 설명                                              | 기본값              |
 | ------------- | ----------------------------------------------- | ---------------- |
 | `host`        | Address of remote host                          |                  |
 | `port`        | Port                                            | 22               |
@@ -286,7 +286,7 @@ After a few moments, your website will be deployed.
         secret: ee8b74626f12b61c1a4bde3b8c331ad390567c86ba779c9b18561ee92c1cbff0
   ```
 
-| 매개변수              | Description         |
+| 매개변수              | 설명                  |
 | ----------------- | ------------------- |
 | `endpoint`        | RSS3 Hub에 대한 링크     |
 | `privateKey`      | 개인 키, 64바이트         |
