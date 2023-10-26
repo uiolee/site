@@ -7,22 +7,22 @@ O `console` forma a ponte entre o Hexo e os usuários. Ele registra e descreve o
 ## Resumo
 
 ``` js
-hexo.extend.console.register(name, desc, options, function(args){
+hexo.extend.console.register(name, desc, opções, function(args){
   // ...
 });
 ```
 
 | Argumento | Descrição |
 | --------- | --------- |
-| `name`    | Nome      |
+| `Nome`    | Nome      |
 | `desc`    | Descrição |
-| `options` | Opções    |
+| `Opções`  | Opções    |
 
 Um argumento `args` será passado para a função. Este é o argumento que os usuários digitam no terminal. Ele é analisado pelo [Minimist][].
 
 ## Opções
 
-### usage
+### Uso
 
 O uso de um comando de terminal. Por exemplo:
 
@@ -31,20 +31,20 @@ O uso de um comando de terminal. Por exemplo:
 // hexo new [layout] <title>
 ```
 
-### arguments
+### argumentos
 
 A descrição de cada argumento de um comando de terminal. Por exemplo:
 
 ``` js
 {
-  arguments: [
+  argumentos: [
     {name: 'layout', desc: 'Post layout'},
     {name: 'title', desc: 'Post title'}
   ]
 }
 ```
 
-### options
+### Opções
 
 A descrição de cada opção de um comando de terminal. Por exemplo:
 
@@ -63,7 +63,7 @@ Informações mais detalhadas sobre um comando de terminal.
 ## Exemplo
 
 ``` js
-hexo.extend.console.register('config', 'Display configuration', function(args){
+hexo.extend.console.register('config', 'Exibir configuração', function(args){
   console.log(hexo.config);
 });
 ```

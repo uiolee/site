@@ -1,8 +1,8 @@
 ---
-layout: index
+layout: Índice
 description: O Hexo é um rápido, simples & poderoso framework para blogs em Node.js.
 subtitle: Um rápido, simples e poderoso framework para blogs
-comments: false
+comments: Falso
 ---
 
 <ul id="intro-feature-list">
@@ -35,7 +35,7 @@ comments: false
         <i class="fa fa-cog"></i>
       </div>
       <h3 class="intro-feature-title">Vários Plugins</h3>
-      <p class="intro-feature-desc">Features powerful APIs for limitless extensibility. Various plugins are available to support most template engines (EJS, Pug, Nunjucks, and many others). Easily integrate with existing NPM packages (Babel, PostCSS, Less/Sass, etc).</p>
+      <p class="intro-feature-desc">Apresenta APIs poderosas para extensibilidade ilimitada. Vários plugins estão disponíveis para suportar a maioria dos motores de templates (EJS, Pug, Nunjucks, e muitos outros). Integre facilmente com os pacotes NPM existentes (Babel, PostCSS, Menos/Sass, etc).</p>
     </div>
   </li>
 </ul>

@@ -4,18 +4,18 @@ title: GitHub Pages
 
 In this tutorial, we use [Travis CI](https://travis-ci.com/) to deploy Github Pages. It is free for open source repository, meaning your repository's `master` branch has to be public. Please skip to the [Private repository](#Private-repository) section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
 
-1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the repository. The default branch is usually **main**, older repository may use **master** branch.
-  - To push `main` branch to GitHub:
+1. Crie um repositório chamado <b>*username*.github.io</b>, onde o nome de usuário é seu nome de usuário no GitHub. Se você já enviou para outro repositório, renomeie o repositório em vez disso.
+2. Push the files of your Hexo folder to the repository. O branch padrão é geralmente o **principal**, o repositório mais antigo pode usar o branch **master**.
+  - Para enviar `principal` branch para o GitHub:
 
     ```
-    $ git push -u origin main
+    $ git push -u origem principal
     ```
-  - The `public/` folder is not (and should not be) uploaded by default, make sure the `.gitignore` file contains `public/` line. The folder structure should be roughly similar to [this repo](https://github.com/hexojs/hexo-starter).
+  - A pasta `pública/` não é (e não deve ser) enviada por padrão, certifique-se do `. itignore` arquivo contém a linha `pública/` A estrutura da pasta deve ser aproximadamente similar a [este repositório](https://github.com/hexojs/hexo-starter).
 
-3. Check what version of Node.js you are using on your local machine with `node --version`. Make a note of the major version (e.g., `v16.y.z`)
-4. In your GitHub repo's setting, navigate to **Settings** > **Pages** > **Source**. Change the source to **GitHub Actions** and save.
-5. Create `.github/workflows/pages.yml` in your repo with the following contents (substituting `16` to the major version of Node.js that you noted in previous step):
+3. Verifique qual versão do Node.js você está usando na sua máquina local com o nó `--version`. Anote a versão principal (por exemplo, `v16.y.z`)
+4. Na configuração do seu repositório do GitHub, navegue para **Configurações** > **Pages** > **Source**. Mude o código fonte para **GitHub Actions** e salve.
+5. Criar `.github/workflows/páginas. ml` em seu repositório com o seguinte conteúdo (substituição de `16` para a versão principal do nó. s que você notou na etapa anterior):
 
 ```yml .github/workflows/pages.yml
 name: Pages
@@ -68,25 +68,25 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
-6. Once the deployment is finished, check the webpage at *username*.github.io.
+6. Uma vez que o deploy terminar, verifique a página da Web no nome **.github.io.
 
-Note - if you specify a custom domain name with a `CNAME`, you need to add the `CNAME` file to the `source/` folder. [More info](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Nota - se você especificar um nome de domínio personalizado com `CNAME`, você precisa adicionar o arquivo `CNAME` à pasta `fonte/`. [Mais informações](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-## Project page
+## Página do projeto
 
-If you prefer to have a project page on GitHub:
+Se você prefere ter uma página do projeto no GitHub:
 
-1. Navigate to your repo on GitHub. Go to the **Settings** tab. Change the **Repository name** so your blog is available at <b>username.github.io/*repository*</b>,  **repository** can be any name, like *blog* or *hexo*.
+1. Navegue até seu repositório no GitHub. Vá para aba **Configurações**. Altere o nome **do repositório** para que o seu blog esteja disponível em <b>username.github. o/*repositório*</b>,  **repositório** pode ser qualquer nome, como o *blog* ou *hexo*.
 2. Edit your **_config.yml**, change the `root:` value to the `/<repository>/` (must starts and ends with a slash, without the brackets).
-3. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Change the source to **GitHub Actions** and save.
-4. Commit and push to the default branch.
-4. Once the deployment is finished, check the webpage at *username*.github.io/*repository*.
+3. On the Travis page, go to your repo's setting. Under **Environment Variables**, put **GH_TOKEN** as name and paste the token onto value. Mude o código fonte para **GitHub Actions** e salve.
+4. Enviar e fazer push no branch padrão.
+4. Uma vez que o deploy terminar, verifique a página da Web no nome *username*.github.io/*repository*.
 
-## One-command deployment
+## Implementação de um comando
 
-The following instruction is adapted from [one-command deployment](/docs/one-command-deployment) page.
+A seguinte instrução é adaptada da página [implantação de um comando](/docs/one-command-deployment).
 
-1. Install [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
+1. Instale o [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git).
 2. Add the following configurations to **_config.yml**, (remove existing lines if any)
 
   ``` yml
@@ -98,10 +98,10 @@ The following instruction is adapted from [one-command deployment](/docs/one-com
   ```
 
 3. Run `hexo clean && hexo deploy`.
-4. Check the webpage at *username*.github.io.
+4. Verifique a página da Web no nome *nome de usuário*.github.io.
 
-## Useful links
+## Links úteis
 
 - [GitHub Pages](https://docs.github.com/en/pages)
-- [Publishing with a custom GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
-- [actions/deploy-github-pages-site](https://github.com/marketplace/actions/deploy-github-pages-site)
+- [Publicação com um fluxo de trabalho personalizado do GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
+- [ações/deploy-github-pages-site](https://github.com/marketplace/actions/deploy-github-pages-site)

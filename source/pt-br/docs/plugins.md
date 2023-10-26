@@ -1,10 +1,10 @@
 ---
-title: Plugins
+title: Complementos
 ---
 
 O Hexo possui um poderoso sistema de plugins, o que facilita a extensão das funcionalidades sem modificar o código-fonte do módulo central. Existem dois tipos de plugins no Hexo:
 
-### Script
+### Roteiro
 
 Se o seu plugin for relativamente simples, recomenda-se usar um script. Tudo o que você precisa fazer é colocar seus arquivos JavaScript no diretório `scripts` e o Hexo irá carregá-los durante a inicialização.
 
@@ -16,15 +16,15 @@ Seu novo diretório deve conter pelo menos dois arquivos: um contendo o código 
 
 ```plain
 .
-├── index.js
-└── package.json
+── index.js
+── package.json
 ```
 
 No mínimo, você deve definir as entradas `name`, `version` e `main` no `package.json`. Por exemplo:
 
 ```json package.json
 {
-  "name": "hexo-my-plugin",
+  "name": "hexo-meu-plugin",
   "version": "0.0.1",
   "main": "index"
 }
@@ -45,7 +45,7 @@ Você pode usar as ferramentas oficiais fornecidas pelo Hexo para acelerar o des
 
 Quando o seu plug-in estiver pronto, você pode considerar publicá-lo na [lista de plugins](/plugins) para que outras pessoas possam conhecê-lo e usá-lo. Publicar seus próprios plugins é bastante parecido com [atualizar a documentação](contributing.html#Updating_Documentation).
 
-1. Fork [hexojs/site][]
+1. Faça um fork [hexojs/site][]
 2. Clone o repositório no seu computador e instale as dependências.
 
    ```shell
@@ -54,7 +54,7 @@ Quando o seu plug-in estiver pronto, você pode considerar publicá-lo na [lista
  $ npm install
    ```
 
-3. Create a new yaml file in `source/_data/plugins/`, use your plugin name as the file name
+3. Crie um novo arquivo yaml em `source/_data/plugins/`, use o nome do seu plugin como o nome do arquivo
 
 4. Edite `source/_data/plugins.yml` e adicione seu plugin. Por exemplo:
 

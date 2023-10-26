@@ -13,7 +13,7 @@ hexo.theme.getView(path);
 ## Definir uma View
 
 ``` js
-hexo.theme.setView(path, data);
+hexo.theme.setView(caminho, dados);
 ```
 
 ## Remover uma View
@@ -22,7 +22,7 @@ hexo.theme.setView(path, data);
 hexo.theme.removeView(path);
 ```
 
-## View
+## Visualizar
 
 As Views têm dois métodos: `render` e `renderSync`. Esses dois métodos são idênticos, mas o primeiro é assíncrono e o segundo é síncrono. Por uma questão de simplicidade, só discutiremos `render` aqui.
 
