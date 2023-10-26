@@ -21,7 +21,7 @@ If your code is complicated or if you want to publish it to the NPM registry, we
 └── package.json
 ```
 
-`package.json` 中至少要包含 `name`, `version`, `main` 屬性，例如： For example:
+`package.json` 中至少要包含 `name`, `version`, `main` 屬性，例如： 例如：
 
 ```json package.json
 {
@@ -73,5 +73,5 @@ tags:
 [hexo-fs]: https://github.com/hexojs/hexo-fs
 [hexo-util]: https://github.com/hexojs/hexo-util
 [hexo-i18n]: https://github.com/hexojs/hexo-i18n
-[hexo-pagination]: https://github.com/hexojs/hexo-pagination
 [hexojs/site]: https://github.com/hexojs/site
+[hexo-pagination]: https://github.com/hexojs/hexo-pagination

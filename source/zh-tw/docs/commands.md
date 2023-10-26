@@ -103,7 +103,7 @@ $ hexo render <file> [file2] ...
 
 渲染檔案。
 
-| Option           | Description        |
+| 選項               | 描述                 |
 | ---------------- | ------------------ |
 | `-o`, `--output` | Output destination |
 

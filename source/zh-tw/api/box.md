@@ -23,7 +23,7 @@ box.watch().then(function(){
 
 ## 路徑比對
 
-Box provides many ways for path matching. You can use a regular expression, a function or an Express-style pattern string. For example:
+Box provides many ways for path matching. You can use a regular expression, a function or an Express-style pattern string. 舉例來說：
 
 ``` plain
 posts/:id => posts/89

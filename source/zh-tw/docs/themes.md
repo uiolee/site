@@ -26,7 +26,7 @@ title: 主題
 
 ### layout
 
-佈局資料夾。 This folder contains the theme's template files, which define the appearance of your website. 用於放置主題的模板檔案，決定了網站內容的呈現方式，Hexo 內建 [Nunjucks][] 模板引擎，您可另外安裝外掛來獲得 [EJS][]、或 [Pug][] 支援，Hexo 根據模板檔案的副檔名來決定所使用的模板引擎，例如： Hexo chooses the template engine based on the file extension of the template (just like the posts). For example:
+佈局資料夾。 This folder contains the theme's template files, which define the appearance of your website. 用於放置主題的模板檔案，決定了網站內容的呈現方式，Hexo 內建 [Nunjucks][] 模板引擎，您可另外安裝外掛來獲得 [EJS][]、或 [Pug][] 支援，Hexo 根據模板檔案的副檔名來決定所使用的模板引擎，例如： Hexo chooses the template engine based on the file extension of the template (just like the posts). 例如：
 
 ```plain
 layout.ejs   - uses EJS

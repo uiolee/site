@@ -10,7 +10,7 @@ $ hexo deploy
 
 Install the necessary plugin(s) that is compatible with the deployment method provided by your server/repository.
 
-Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. For example:
+Deployment is usually configured through **\_config.yml**. A valid configuration must have the `type` field. 舉例來說：
 
 ```yaml
 deploy:
@@ -286,7 +286,7 @@ After a few moments, your website will be deployed.
         secret: ee8b74626f12b61c1a4bde3b8c331ad390567c86ba779c9b18561ee92c1cbff0
   ```
 
-| 參數                | Description     |
+| 參數                | 描述              |
 | ----------------- | --------------- |
 | `endpoint`        | 一個 RSS3 Hub 的鏈接 |
 | `privateKey`      | 您的私鑰， 64 字節     |
