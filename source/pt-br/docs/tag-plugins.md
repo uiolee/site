@@ -323,10 +323,10 @@ Por exemplo:
 **Não escape do título.**
 
 ```
-{% post_link hexo-4 lançado '<b>bold</b> título personalizado falso %}
+{% post_link hexo-4-released '<b>bold</b> custom title' false %}
 ```
 
-{% post_link hexo-4 lançado '<b>bold</b> título personalizado falso %}
+{% post_link hexo-4-released '<b>bold</b> custom title' false %}
 
 ## Incluir Assets
 
