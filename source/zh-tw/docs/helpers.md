@@ -18,7 +18,7 @@ Returns a url with the root path prefixed. Output is encoded automatically.
 <%- url_for(path) %>
 ```
 
-| Option     | Description          | Default                         |
+| 選項         | 描述                   | Default                         |
 | ---------- | -------------------- | ------------------------------- |
 | `relative` | Output relative link | Value of `config.relative_link` |
 
@@ -98,12 +98,12 @@ If you didn't specify the [options] parameter, the default options will apply. O
 <%- gravatar(email, [size]) %>
 ```
 
-| Option | Description       | Default |
-| ------ | ----------------- | ------- |
-| `s`    | Output image size | 40      |
-| `d`    | Default image     |         |
-| `f`    | Force default     |         |
-| `r`    | Rating            |         |
+| 選項  | 描述                | Default |
+| --- | ----------------- | ------- |
+| `s` | Output image size | 40      |
+| `d` | Default image     |         |
+| `f` | Force default     |         |
+| `r` | Rating            |         |
 
 More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
@@ -182,11 +182,11 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- link_to(path, [text], [options]) %>
 ```
 
-| Option     | Description | Default |
-| ---------- | ----------- | ------- |
-| `external` | 在新視窗開啟連結    | false   |
-| `class`    | Class 名稱    |         |
-| `id`       | ID          |         |
+| 選項         | 描述       | Default |
+| ---------- | -------- | ------- |
+| `external` | 在新視窗開啟連結 | false   |
+| `class`    | Class 名稱 |         |
+| `id`       | ID       |         |
 
 **Examples:**
 
@@ -209,7 +209,7 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- mail_to(path, [text], [options]) %>
 ```
 
-| Option    | Description  |
+| 選項        | 描述           |
 | --------- | ------------ |
 | `class`   | Class 名稱     |
 | `id`      | ID           |
@@ -236,13 +236,13 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- image_tag(path, [options]) %>
 ```
 
-| Option   | Description |
-| -------- | ----------- |
-| `alt`    | 圖片的替代文字     |
-| `class`  | Class 名稱    |
-| `id`     | ID          |
-| `width`  | 圖片寬度        |
-| `height` | 圖片高度        |
+| 選項       | 描述       |
+| -------- | -------- |
+| `alt`    | 圖片的替代文字  |
+| `class`  | Class 名稱 |
+| `id`     | ID       |
+| `width`  | 圖片寬度     |
+| `height` | 圖片高度     |
 
 ### favicon_tag
 
@@ -260,10 +260,10 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- feed_tag(path, [options]) %>
 ```
 
-| Option  | Description | Default        |
-| ------- | ----------- | -------------- |
-| `title` | Feed 標題     | `config.title` |
-| `type`  | Feed 類型     |                |
+| Option  | 描述      | Default        |
+| ------- | ------- | -------------- |
+| `title` | Feed 標題 | `config.title` |
+| `type`  | Feed 類型 |                |
 
 **Examples:**
 
@@ -495,7 +495,7 @@ Loads other template files. You can define local variables in `locals`.
 <%- partial(layout, [locals], [options]) %>
 ```
 
-| Option  | Description                       | Default |
+| Option  | 描述                                | Default |
 | ------- | --------------------------------- | ------- |
 | `cache` | 儲存快取（使用 Fragment cache）           | `false` |
 | `only`  | 限制區域變數。 在模板中只能使用 `locals` 中設定的變數。 | `false` |
@@ -601,7 +601,7 @@ Caches the contents in a fragment. It saves the contents within a fragment and s
 <%- list_categories([categories], [options]) %>
 ```
 
-| Option       | Description                                                                                                                       | Default  |
+| Option       | 文章摘要                                                                                                                              | Default  |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `orderby`    | 分類排列方式                                                                                                                            | name     |
 | `order`      | 排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                                              | 1        |
@@ -627,7 +627,7 @@ Inserts a list of all tags.
 <%- list_tags([tags], [options]) %>
 ```
 
-| Option       | Description                                                                                                       | Default |
+| Option       | 描述                                                                                                                | Default |
 | ------------ | ----------------------------------------------------------------------------------------------------------------- | ------- |
 | `orderby`    | 標籤排列方式                                                                                                            | name    |
 | `order`      | 分類排列順序。 `1`, `asc` 升冪；`-1`, `desc` 降冪。                                                                            | 1       |
@@ -866,24 +866,25 @@ Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 <%- open_graph([options]) %>
 ```
 
-| Option         | Description                                          | Default                                             |
-| -------------- | ---------------------------------------------------- | --------------------------------------------------- |
-| `title`        | 頁面標題 (`og:title`)                                    | `page.title`                                        |
-| `type`         | 頁面類型 (`og:type`)                                     | blog                                                |
-| `url`          | 頁面網址 (`og:url`)                                      | `url`                                               |
-| `image`        | 頁面圖片 (`og:image`)                                    | All images in the content                           |
-| `author`       | Article author (`og:article:author`)                 | `config.author`                                     |
-| `date`         | Article published time (`og:article:published_time`) | Page published time                                 |
-| `updated`      | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
-| `language`     | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
-| `site_name`    | 網站名稱 (`og:site_name`)                                | `config.title`                                      |
-| `description`  | 頁面描述 (`og:description`)                              | Page excerpt or first 200 characters of the content |
-| `twitter_card` | Twitter 卡片類型 (`twitter:card`)                        | summary                                             |
-| `twitter_id`   | Twitter ID (`twitter:creator`)                       |                                                     |
-| `twitter_site` | Twitter 網站 (`twitter:site`)                          |                                                     |
-| `google_plus`  | Google+ 個人資料連結                                       |                                                     |
-| `fb_admins`    | Facebook 管理者 ID                                      |                                                     |
-| `fb_app_id`    | Facebook 應用程式 ID                                     |                                                     |
+| Option          | Description                                          | Default                                             |
+| --------------- | ---------------------------------------------------- | --------------------------------------------------- |
+| `title`         | 頁面標題 (`og:title`)                                    | `page.title`                                        |
+| `type`          | 頁面類型 (`og:type`)                                     | blog                                                |
+| `url`           | 頁面網址 (`og:url`)                                      | `url`                                               |
+| `image`         | 頁面圖片 (`og:image`)                                    | All images in the content                           |
+| `author`        | Article author (`og:article:author`)                 | `config.author`                                     |
+| `date`          | Article published time (`og:article:published_time`) | Page published time                                 |
+| `updated`       | Article modified time (`og:article:modified_time`)   | Page modified time                                  |
+| `language`      | Article language (`og:locale`)                       | `page.lang || page.language || config.language`     |
+| `site_name`     | 網站名稱 (`og:site_name`)                                | `config.title`                                      |
+| `description`   | 頁面描述 (`og:description`)                              | Page excerpt or first 200 characters of the content |
+| `twitter_card`  | Twitter 卡片類型 (`twitter:card`)                        | summary                                             |
+| `twitter_id`    | Twitter ID (`twitter:creator`)                       |                                                     |
+| `twitter_site`  | Twitter 網站 (`twitter:site`)                          |                                                     |
+| `twitter_image` | Twitter Image (`twitter:image`)                      |                                                     |
+| `google_plus`   | Google+ 個人資料連結                                       |                                                     |
+| `fb_admins`     | Facebook 管理者 ID                                      |                                                     |
+| `fb_app_id`     | Facebook 應用程式 ID                                     |                                                     |
 
 ### toc
 

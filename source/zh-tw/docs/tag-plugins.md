@@ -89,7 +89,7 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-| Extra Options    | Description                                                                                                                                                                                                                              | Default |
+| Extra Options    | 描述                                                                                                                                                                                                                                       | Default |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | `line_number`    | Show line number                                                                                                                                                                                                                         | `true`  |
 | `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                                                                                          | `0`     |
@@ -98,7 +98,7 @@ Specify additional options in `option:value` format, e.g. `line_number:false fir
 | `mark`           | Line highlight specific line(s), each value separated by a comma. Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |         |
 | `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                                                                                                | `true`  |
 
-### Examples
+### 範例
 
 **A plain code block**
 

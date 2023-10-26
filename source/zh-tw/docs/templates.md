@@ -17,7 +17,7 @@ Templates define the presentation of your website by describing what each page s
 
 ## 佈局（Layout）
 
-如果頁面結構類似，例如兩個模板都有頁首（Header）和頁尾（Footer），您可考慮透過「佈局」讓兩個模板共享相同的結構。 Every layout file should contain a `body` variable to display the contents of the template in question. For example:
+如果頁面結構類似，例如兩個模板都有頁首（Header）和頁尾（Footer），您可考慮透過「佈局」讓兩個模板共享相同的結構。 Every layout file should contain a `body` variable to display the contents of the template in question. 舉例來說：
 
 ``` html index.ejs
 index

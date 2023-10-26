@@ -25,7 +25,7 @@ An argument `args` will be passed into the function. This is the argument that u
 
 ### 用法
 
-The usage of a console command. For example:
+The usage of a console command. 舉例來說：
 
 ``` js
 {usage: '[layout] <title>'}
@@ -47,7 +47,7 @@ The description of each argument of a console command. For example:
 
 ### options
 
-The description of each option of a console command. For example:
+The description of each option of a console command. 例如：
 
 ``` js
 {

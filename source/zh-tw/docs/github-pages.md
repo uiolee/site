@@ -4,7 +4,7 @@ title: 在 GitHub Pages 上部署 Hexo
 
 本文將使用 [GitHub Actions](https://docs.github.com/en/actions) 部屬至 GitHub Pages，此方法適用於公開或私人儲存庫。 It works in both public and private repository. 若你不希望將整個資料夾推上 GitHub，請參閱 [一鍵部屬](#一鍵部屬)。
 
-1. 建立名為 <b>*username*.github.io</b> 的儲存庫，username 是你在 GitHub 上的使用者名稱，若之前已將 Hexo 上傳至其他儲存庫，將該儲存庫重命名即可。 If you have already uploaded to other repo, rename the repo instead.
+1. 建立名為 <b>*username*.github.io</b> 的儲存庫，username 是你在 GitHub 上的使用者名稱，若之前已將 Hexo 上傳至其他儲存庫，將該儲存庫重命名即可。 如果你之前上載了 Hexo 到其他資料庫，那麼只需將該資料庫重新命名為 `<GitLab 用戶名>.gitlab.io` 。
 2. Push the files of your Hexo folder to the default branch of your repository. 在儲存庫中前往 **Settings** > **Pages** > **Source**，並將 branch 改為 `gh-pages`。
   - 將 `main` 分支 push 到 GitHub：
 
