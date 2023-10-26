@@ -9,7 +9,7 @@ Hexo has two built-in syntax highlight libraries, [highlight.js](https://github.
 Hexo поддерживает два способа записи блока кода: [Модуль Тега - Кодовый блок](tag-plugins#Code-Block) и [Плагин Тега - Блок Backtick Code](https://hexo.io/docs/tag-plugins#Backtick-Code-Block):
 
 ````markdown
-{% codeblock [title] [lang:language] [url] [text] [link text] [additional options] %}
+{% codeblock [title] [lang:language] [url] [link text] [additional options] %}
 code snippet
 {% endcodeblock %}
 

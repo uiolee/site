@@ -6,7 +6,7 @@ title: Плагины тегов
 
 Хотя вы можете писать свои сообщения в любых форматах, но плагины тегов всегда будут доступны и синтаксис остается прежним.
 
-Вставка видео с Vimeo.
+{% youtube I07XMi7MHd4 %}
 
 _Плагины тегов не должны быть завернуты в синтаксис Markdown, например, `[]({% post_path lorem-ipsum %})` не поддерживается._
 
@@ -101,7 +101,7 @@ code snippet
 
 ```
 {% codeblock %}
-оповещение('Привет мир!');
+alert('Hello World!');
 {% endcodeblock %}
 ```
 
@@ -195,7 +195,7 @@ content
 Вставляет картинку с заданными размерами.
 
 ```
-{% img [имена классов] /path/to/image [width] [height] '"текст заголовка" "alt text"' %}
+{% img [class names] /path/to/image [width] [height] '"title text" "alt text"' %}
 ```
 
 ## Ссылка
@@ -282,7 +282,7 @@ content
 Вставляет видео отзывчивого или заданного размера.
 
 ```
-{% vimeo video_id %}
+{% vimeo video_id [width] [height] %}
 ```
 
 ## Включить сообщения
@@ -339,8 +339,8 @@ content
 
 ```
 {% asset_path filename %}
-{% asset_img [имена классов] слаг [width] [height] [текст заголовка [alt text]] %}
-{% asset_link имя файла [title] [escape]%}
+{% asset_img [class names] slug [width] [height] [title text [alt text]] %}
+{% asset_link filename [title] [escape] %}
 ```
 
 ### Вставить изображение
