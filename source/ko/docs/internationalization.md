@@ -46,7 +46,7 @@ index:
 i18n_dir: :lang
 ```
 
-`i18n_dir` 설정의 기본 값은 `:lang` 이며, Hexo는 URL의 첫 번째 세그먼트에서 언어를 감지합니다. For example:
+`i18n_dir` 설정의 기본 값은 `:lang` 이며, Hexo는 URL의 첫 번째 세그먼트에서 언어를 감지합니다. Hexo는 템플릿의 파일 확장자를 기반으로 템플릿 엔진을 선택합니다.
 
 ``` plain
 /index.html => en
