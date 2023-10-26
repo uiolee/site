@@ -47,8 +47,7 @@ jobs:
           pull_request_title: "l10n(${{ matrix.lc }}): New translations from Crowdin"
           pull_request_labels: "crowdin"
           download_language: ${{ matrix.lc }}
-          skip_ref_checkout: true
-
+          skip_ref_checkout: false
           github_user_name: HexoOrgBot
           github_user_email: 27251540+HexoOrgBot@users.noreply.github.com
 
