@@ -7,24 +7,24 @@ title: Темы
 ## Получить визуализацию
 
 ``` js
-hexo.theme.getView(path);
+hexo.theme.getView(путь);
 ```
 
 ## Установить визуализацию
 
 ``` js
-hexo.theme.setView(path, data);
+hexo.theme.setView(путь, данные);
 ```
 
 ## Удалить визуализацию
 
 ``` js
-hexo.theme.removeView(path);
+hexo.theme.removeView(путь);
 ```
 
 ## Визуализация
 
-Визуализация использует два метода: `render` и `renderSync`. These two methods are identical, but the former is asynchronous and the latter is synchronous. Для простоты будет рассмотрен только метод `render`.
+Визуализация использует два метода: `render` и `renderSync`. Эти два метода идентичны, но первый асинхронный, а последний синхронный. Для простоты будет рассмотрен только метод `render`.
 
 ``` js
 var view = hexo.theme.getView('layout.swig');

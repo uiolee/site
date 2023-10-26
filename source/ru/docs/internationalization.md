@@ -33,10 +33,10 @@ index:
 
 ``` js
 <%= __('index.title') %>
-// Home
+// Главная
 
 <%= _p('index.video', 3) %>
-// 3 videos
+// 3 видео
 ```
 
 ### Путь
@@ -50,7 +50,7 @@ i18n_dir: :lang
 Значение по умолчанию `i18n_dir` параметр `:lang` означает, что Hexo будет определять язык в первом сегменте URL-адреса. Например:
 
 ``` plain
-/index.html => en
+/index.html => ru
 /archives/index.html => en
 /zh-tw/index.html => zh-tw
 ```

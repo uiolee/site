@@ -69,24 +69,24 @@ nvs также рекомендуется для Mac и Linux, чтобы изб
 $ npm install -g hexo-cli
 ```
 
-### Advanced installation and usage
+### Расширенная установка и использование
 
-Advanced users may prefer to install and use `hexo` package instead.
+Продвинутые пользователи могут предпочитать установку и использование пакета `hexo`.
 
 ``` bash
 $ npm install hexo
 ```
 
-Once installed, you can run Hexo in two ways:
+После установки вы можете запустить Hexo двумя способами:
 
 1. `npx hexo <command>`
-2. Linux users can set relative path of `node_modules/` folder:
+2. Пользователи Linux могут задать относительный путь к папке `node_modules/`:
 
   ``` bash
   echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
   ```
 
-  then run Hexo using `hexo <command>`
+  затем запустить Hexo с помощью `hexo <command>`
 
 ### необходимая версия Node.js
 
@@ -96,14 +96,14 @@ Once installed, you can run Hexo in two ways:
 
 Мы настоятельно рекомендуем всегда устанавливать [последнюю версию](https://www.npmjs.com/package/hexo?activeTab=версии) Hexo и [рекомендуемую версию](#Requirements) Node.js , когда это возможно.
 
-| Hexo version | Minimum (Node.js version) | Less than (Node.js version) |
-| ------------ | ------------------------- | --------------------------- |
-| 6.2+         | 12.13.0                   | latest                      |
-| 6.0+         | 12.13.0                   | 18.5.0                      |
-| 5.0+         | 10.13.0                   | 12.0.0                      |
-| 4.1 - 4.2    | 8.10                      | 10.0.0                      |
-| 4.0          | 8.6                       | 8.10.0                      |
-| 3.3 - 3.9    | 6.9                       | 8.0.0                       |
-| 3.2 - 3.3    | 0.12                      | unknown                     |
-| 3.0 - 3.1    | 0.10 or iojs              | unknown                     |
-| 0.0.1 - 2.8  | 0.10                      | unknown                     |
+| Версия Hexo | Минимум (версия Node.js) | Менее чем (версия Node.js) |
+| ----------- | ------------------------ | -------------------------- |
+| 6.2+        | 12.13.0                  | последний                  |
+| 6.0+        | 12.13.0                  | 18.5.0                     |
+| 5.0+        | 10.13.0                  | 12.0.0                     |
+| 4.1 - 4.2   | 8.10                     | 10.0.0                     |
+| 4.0         | 8.6                      | 8.10.0                     |
+| 3.3 - 3.9   | 6.9                      | 8.0.0                      |
+| 3.2 - 3.3   | 0.12                     | неизвестно                 |
+| 3.0 - 3.1   | 0.10 или iojs            | неизвестно                 |
+| 0.0.1 - 2.8 | 0.10                     | неизвестно                 |

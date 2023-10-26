@@ -10,7 +10,7 @@ You could easily [write your own custom helper](https://hexo.io/api/helper.html)
 
 ## URL
 
-### url_for
+### _urlза
 
 Возвращает URL-адрес корневого пути с префиксом. Нужно использовать этот помощник вместо `config.root + path`, начиная с Hexo версии 2.7.
 
@@ -18,15 +18,15 @@ You could easily [write your own custom helper](https://hexo.io/api/helper.html)
 <%- url_for(path) %>
 ```
 
-| Опции      | Описание             | Значение по умолчанию           |
-| ---------- | -------------------- | ------------------------------- |
-| `relative` | Output relative link | Value of `config.relative_link` |
+| Опции         | Описание                      | Значение по умолчанию           |
+| ------------- | ----------------------------- | ------------------------------- |
+| `родственник` | Выходная относительная ссылка | Значение `config.relative_link` |
 
-**Examples:**
+**Примеры:**
 
 ``` yml
 _config.yml
-root: /blog/ # example
+root: /blog/ # пример
 ```
 
 ``` js
@@ -34,7 +34,7 @@ root: /blog/ # example
 // /blog/a/path
 ```
 
-Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
+Относительная ссылка, следует за опцией `relative_link` по умолчанию например '/foo/bar/index.html'
 
 ``` yml
 _config.yml
@@ -43,11 +43,11 @@ relative_link: true
 
 ``` js
 <%- url_for('/css/style.css') %>
-// ../../css/style.css
+// ../../css/style. ss
 
-/* Override option
- * you could also disable it to output a non-relative link,
- * even when `relative_link` is enabled and vice versa.
+/* Переопределить опцию
+ * также можно отключить её для вывода неотносительной ссылки,
+ * даже когда включена `relative_link` и наоборот.
  */
 <%- url_for('/css/style.css', {relative: false}) %>
 // /css/style.css
@@ -58,29 +58,29 @@ relative_link: true
 Возвращает относительный URL путь от `from` до `to`.
 
 ``` js
-<%- relative_url(from, to) %>
+<%- relative_url(от, до) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- relative_url('foo/bar/', 'css/style.css') %>
 // ../../css/style.css
 ```
 
-### full_url_for
+### полный url_за
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Returns a url with the `config.url` prefixed. Вывод кодируется автоматически.
 
 ``` js
 <%- full_url_for(path) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` yml
 _config.yml
-url: https://example.com/blog # example
+url: https://example.com/blog # пример
 ```
 
 ``` js
@@ -88,9 +88,9 @@ url: https://example.com/blog # example
 // https://example.com/blog/a/path
 ```
 
-### gravatar
+### граватар
 
-Returns the gravatar image url from an email.
+Возвращает url изображения Gravatar из электронной почты.
 
 Если не указать в параметрах, будет применена опция по умолчанию. Иначе можно установить число, которое будет передаваться в качестве параметра размера изображения, получаемого с Gravatar. Наконец, если установить его ссылкой на объект, он будет преобразован в строку запроса параметров для Gravatar.
 
@@ -100,23 +100,23 @@ Returns the gravatar image url from an email.
 
 | Опция | Описание | Значение по умолчанию |
 | ----- | -------- | --------------------- |
-| `s`   | Примеры: | 40                    |
-| `d`   | Примеры: |                       |
-| `f`   | Примеры: |                       |
-| `r`   | Rating   |                       |
+| `с`   | Примеры: | 40                    |
+| `д`   | Примеры: |                       |
+| `п`   | Примеры: |                       |
+| `п`   | Рейтинг  |                       |
 
-More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
+Подробнее: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- gravatar('a@abc.com') %>
 // https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787
 
-<%- gravatar('a@abc.com', 40) %>
+<%- gravatar('a@abc. om', 40) %>
 // https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40
 
-<%- gravatar('a@abc.com' {s: 40, d: 'https://via.placeholder.com/150'}) %>
+<%- gravatar('a@abc. om' {s: 40, d: 'https://via.placeholder.com/150'}) %>
 // https://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40&d=https%3A%2F%2Fvia.placeholder.com%2F150
 ```
 
@@ -130,7 +130,7 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- css(path, ...) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- css('style.css') %>
@@ -156,7 +156,7 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- js(path, ...) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- js('script.js') %>
@@ -174,21 +174,21 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 // <script src="/gallery.js" integrity="bar"></script>
 ```
 
-### link_to
+### _ссылка на
 
 Вставляет ссылку.
 
 ``` js
-<%- link_to(path, [text], [options]) %>
+<%- link_to(путь, [text], [options]) %>
 ```
 
-| Опция      | Описание                         | Значение по умолчанию |
-| ---------- | -------------------------------- | --------------------- |
-| `external` | Открывает ссылку в новой вкладке | false                 |
-| `class`    | Имя класса                       |                       |
-| `id`       | ID                               |                       |
+| Опция     | Описание                         | Значение по умолчанию |
+| --------- | -------------------------------- | --------------------- |
+| `внешний` | Открывает ссылку в новой вкладке | ложь                  |
+| `урок`    | Имя класса                       |                       |
+| `id`      | ID                               |                       |
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- link_to('http://www.google.com') %>
@@ -201,24 +201,24 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 // <a href="http://www.google.com" title="Google" target="_blank" rel="noopener">Google</a>
 ```
 
-### mail_to
+### почта
 
 Вставка почтовой ссылки.
 
 ``` js
-<%- mail_to(path, [text], [options]) %>
+<%- mail_to(путь, [text], [options]) %>
 ```
 
-| Опции     | Описание             |
-| --------- | -------------------- |
-| `class`   | Имя класса           |
-| `id`      | ID                   |
-| `subject` | Тема письма          |
-| `cc`      | CC                   |
-| `bcc`     | BCC                  |
-| `body`    | Содержание сообщения |
+| Опции  | Описание             |
+| ------ | -------------------- |
+| `урок` | Имя класса           |
+| `id`   | ID                   |
+| `тема` | Тема письма          |
+| `cc`   | CC                   |
+| `bcc`  | BCC                  |
+| `тело` | Содержание сообщения |
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- mail_to('a@abc.com') %>
@@ -228,21 +228,21 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 // <a href="mailto:a@abc.com" title="Email">Email</a>
 ```
 
-### image_tag
+### тег image_
 
 Вставка изображения.
 
 ``` js
-<%- image_tag(path, [options]) %>
+<%- image_tag(путь, [options]) %>
 ```
 
 | Опция    | Описание                         |
 | -------- | -------------------------------- |
 | `alt`    | Альтернативный текст изображения |
-| `class`  | Имя класса                       |
+| `урок`   | Имя класса                       |
 | `id`     | ID                               |
 | `width`  | Ширина изображения               |
-| `height` | Высота изображения               |
+| `высота` | Высота изображения               |
 
 ### favicon_tag
 
@@ -252,20 +252,20 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 <%- favicon_tag(path) %>
 ```
 
-### feed_tag
+### тэг feed_tag
 
 Вставка ссылки на канал.
 
 ``` js
-<%- feed_tag(path, [options]) %>
+<%- feed_tag(путь, [options]) %>
 ```
 
-| Опция   | Описание   | Значение по умолчанию |
-| ------- | ---------- | --------------------- |
-| `title` | Feed title | `config.title`        |
-| `type`  | Тип канала |                       |
+| Опция      | Описание        | Значение по умолчанию |
+| ---------- | --------------- | --------------------- |
+| `название` | Заголовок ленты | `config.title`        |
+| `тип`      | Тип канала      |                       |
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- feed_tag('atom.xml') %>
@@ -281,15 +281,15 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
 ## Условные теги
 
-### is_current
+### в _настоящее время
 
 Проверить, соответствует ли `path` URL-адресу текущей страницы. Используйте `strict` для обеспечения строгого соответствия.
 
 ``` js
-<%- is_current(path, [strict]) %>
+<%- is_current(путь, [strict]) %>
 ```
 
-### is_home
+### _домой
 
 Проверить, является ли текущая страница главной.
 
@@ -299,13 +299,13 @@ More info: [Gravatar](https://en.gravatar.com/site/implement/images/)
 
 ### is_home_first_page (+6.3.0)
 
-Check whether the current page is the first of home page.
+Проверьте, является ли текущая страница первой домашней страницы.
 
 ``` js
 <%- is_home_first_page() %>
 ```
 
-### is_post
+### на_пост
 
 Проверить, является ли текущая страница постом.
 
@@ -313,15 +313,15 @@ Check whether the current page is the first of home page.
 <%- is_post() %>
 ```
 
-### is_page
+### страница
 
-Check whether the current page is a page.
+Проверьте, является ли текущая страница страницей.
 
 ``` js
 <%- is_page() %>
 ```
 
-### is_archive
+### _архив
 
 Проверить, является ли текущая страница архивом.
 
@@ -329,7 +329,7 @@ Check whether the current page is a page.
 <%- is_archive() %>
 ```
 
-### is_year
+### год
 
 Проверить, является ли текущая страница годовым архивом.
 
@@ -337,7 +337,7 @@ Check whether the current page is a page.
 <%- is_year() %>
 ```
 
-### is_month
+### месяц
 
 Проверить, является ли текущая страница месячным архивом.
 
@@ -345,7 +345,7 @@ Check whether the current page is a page.
 <%- is_month() %>
 ```
 
-### is_category
+### is_категория
 
 Проверить, является ли текущая страница страницей категории. Если строка содержит параметр, проверяется, соответствует ли текущая страница заданной категории.
 
@@ -354,7 +354,7 @@ Check whether the current page is a page.
 <%- is_category('hobby') %>
 ```
 
-### is_tag
+### тег
 
 Проверить, является ли текущая страница страницей тега. Если строка содержит параметр, проверяется, соответствует ли текущая страница заданному тегу.
 
@@ -365,12 +365,12 @@ Check whether the current page is a page.
 
 ## Работа со строками
 
-### trim
+### обрезка
 
 Удаляет префиксы и конечные пробелы из строки.
 
 ``` js
-<%- trim(string) %>
+<%- trim(строка) %>
 ```
 
 ### strip_html
@@ -378,14 +378,14 @@ Check whether the current page is a page.
 Санирует(sanitizes) все HTML-теги в строку.
 
 ``` js
-<%- strip_html(string) %>
+<%- strip_html(строка) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
-<%- strip_html('It\'s not <b>important</b> anymore!') %>
-// It's not important anymore!
+<%- strip_html('It is not <b>important</b> больше!') %>
+// Это больше не важно!
 ```
 
 ### titlecase
@@ -396,11 +396,11 @@ Check whether the current page is a page.
 <%- titlecase(string) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
-<%- titlecase('this is an apple') %>
-# This is an Apple
+<%- titlecase('это яблоко') %>
+# Это яблоко
 ```
 
 ### markdown
@@ -411,14 +411,14 @@ Check whether the current page is a page.
 <%- markdown(str) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- markdown('make me **strong**') %>
 // make me <strong>strong</strong>
 ```
 
-### render
+### рендер
 
 Обрабатывает строку.
 
@@ -426,7 +426,7 @@ Check whether the current page is a page.
 <%- render(str, engine, [options]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- render('p(class="example") Test', 'pug'); %>
@@ -435,7 +435,7 @@ Check whether the current page is a page.
 
 См. [отрисовка](https://hexo.io/ru/api/rendering) для получения более подробной информации.
 
-### word_wrap
+### word_Перенос
 
 Переносит строки длиннее указанного в `length` количества символов. `length` равняется 80 по умолчанию.
 
@@ -443,43 +443,43 @@ Check whether the current page is a page.
 <%- word_wrap(str, [length]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
-<%- word_wrap('Once upon a time', 8) %>
-// Once upon\n a time
+<%- word_wrap('Один раз по времени', 8) %>
+// Один раз после\n
 ```
 
-### truncate
+### обрезать
 
 Обрезает текст после определённого в `length` количества символов. По умолчанию `length` 30 символов.
 
 ``` js
-<%- truncate(text, [options]) %>
+<%- truncate(текст, [options]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
-<%- truncate('Once upon a time in a world far far away', {length: 17}) %>
-// Once upon a ti...
+<%- truncate('Однажды в мире далеко отсюда', {length: 17}) %>
+// Однажды на них...
 
-<%- truncate('Once upon a time in a world far far away', {length: 17, separator: ' '}) %>
-// Once upon a...
+<%- truncate('Однажды в мире далеко отсюда', {length: 17, separator: ' '}) %>
+// Раз на...
 
-<%- truncate('And they found that many people were sleeping better.', {length: 25, omission: '... (continued)'}) %>
-// And they f... (continued)
+<%- truncate('И они обнаружили, что многие люди спали лучше.', {length: 25, omission: '... (продолжение)'}) %>
+// И они f... (продолжение)
 ```
 
 ### escape_html
 
-Escapes HTML entities in a string.
+Пытает HTML сущности в строке.
 
 ``` js
 <%- escape_html(str) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- escape_html('<p>Hello "world".</p>') %>
@@ -488,20 +488,20 @@ Escapes HTML entities in a string.
 
 ## Шаблоны
 
-### partial
+### частичный
 
 Загружает другие файлы шаблонов. Можно назначить локальные переменные в `locals`.
 
 ``` js
-<%- partial(layout, [locals], [options]) %>
+<%- частично(макет, [locals], [options]) %>
 ```
 
-| Опция   | Описание                                                                                   | Значение по умолчанию |
-| ------- | ------------------------------------------------------------------------------------------ | --------------------- |
-| `cache` | Кэшировать содержимое (Использовать кэш фрагментов.)                                       | `false`               |
-| `only`  | Строгие локальные переменные. Использовать только указанные в шаблоне переменные `locals`. | `false`               |
+| Опция    | Описание                                                                                   | Значение по умолчанию |
+| -------- | ------------------------------------------------------------------------------------------ | --------------------- |
+| `кэш`    | Кэшировать содержимое (Использовать кэш фрагментов.)                                       | `ложь`                |
+| `только` | Строгие локальные переменные. Использовать только указанные в шаблоне переменные `locals`. | `ложь`                |
 
-### fragment_cache
+### кэш фрагмента
 
 Кэширует содержимое фрагмента. Сохраняет содержимое внутри фрагмента в кэш и при следующем запросе берет значения из него.
 
@@ -509,7 +509,7 @@ Escapes HTML entities in a string.
 <%- fragment_cache(id, fn);
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- fragment_cache('header', function(){
@@ -519,7 +519,7 @@ Escapes HTML entities in a string.
 
 ## Дата и время
 
-### date
+### дата
 
 Вставляет отформатированную дату. `date` может быть в формате времени Unix, строки ISO, объекта date, или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен `date_format`.
 
@@ -527,14 +527,14 @@ Escapes HTML entities in a string.
 <%- date(date, [format]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- date(Date.now()) %>
 // 2013-01-01
 
 <%- date(Date.now(), 'YYYY/M/D') %>
-// Jan 1 2013
+// Янв 1 2013
 ```
 
 ### date_xml
@@ -545,22 +545,22 @@ Escapes HTML entities in a string.
 <%- date_xml(date) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- date_xml(Date.now()) %>
 // 2013-01-01T00:00:00.000Z
 ```
 
-### time
+### время
 
 Вставляет отформатированное время. `date` может быть в формате времени Unix, строки ISO, объекта date или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен  `time_format`.
 
 ``` js
-<%- time(date, [format]) %>
+<%- время(дата, [format]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- time(Date.now()) %>
@@ -570,7 +570,7 @@ Escapes HTML entities in a string.
 // 1:05:12 pm
 ```
 
-### full_date
+### полная дата
 
 Вставляет отформатированные дату и время. `date` может быть в формате времени Unix, строки ISO, объекта date или [Moment.js](https://momentjs.com/) объекта. Параметр `format` по умолчанию равен `date_format + time_format`.
 
@@ -578,23 +578,23 @@ Escapes HTML entities in a string.
 <%- full_date(date, [format]) %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- full_date(new Date()) %>
-// Jan 1, 2013 0:00:00
+// Янв 1, 2013 0:00:00
 
 <%- full_date(new Date(), 'dddd, MMMM Do YYYY, h:mm:ss a') %>
-// Tuesday, January 1st 2013, 12:00:00 am
+// Вторник, 1 января 2013, 12:00:00
 ```
 
-### moment
+### момент
 
 Библиотека [Moment.js](https://momentjs.com/).
 
 ## Списки
 
-### list_categories
+### список категорий
 
 Вставляет список всех категорий.
 
@@ -602,37 +602,37 @@ Escapes HTML entities in a string.
 <%- list_categories([options]) %>
 ```
 
-| Опция        | Описание                                                                                                                                                                                | Значение по умолчанию |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `orderby`    | Сортировать по категориям                                                                                                                                                               | name                  |
-| `order`      | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                                                                                                 | 1                     |
-| `show_count` | Отображать количество постов для каждой категории                                                                                                                                       | true                  |
-| `style`      | Стиль показа списка категорий. `list` отображает категории в неупорядоченном списке. Use `false` or any other value to disable it.                                                      | list                  |
-| `separator`  | Разделитель категорий. (Работает если только стиль `style` не задан как `list`)                                                                                                         | ,                     |
-| `depth`      | Глубина вложенных категорий для отображения. `0` отображает все категории и подкатегории; `-1` похож на `0` но отображается в плоскости; `1` отображает только разделы верхнего уровня. | 0                     |
-| `class`      | Имя класса списка категорий.                                                                                                                                                            | category              |
-| `transform`  | Функция, позволяющая изменить отображаемое имя поста.                                                                                                                                   |                       |
-| `suffix`     | Add a suffix to link.                                                                                                                                                                   | None                  |
+| Опция            | Описание                                                                                                                                                                                | Значение по умолчанию |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `заказ`          | Сортировать по категориям                                                                                                                                                               | имя                   |
+| `заказ`          | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                                                                                                 | 1                     |
+| `счет_показа`    | Отображать количество постов для каждой категории                                                                                                                                       | истина                |
+| `стиль`          | Стиль показа списка категорий. `list` отображает категории в неупорядоченном списке. Для отключения используйте `false` или любое другое значение.                                      | список                |
+| `разделитель`    | Разделитель категорий. (Работает если только стиль `style` не задан как `list`)                                                                                                         | ,                     |
+| `глубина`        | Глубина вложенных категорий для отображения. `0` отображает все категории и подкатегории; `-1` похож на `0` но отображается в плоскости; `1` отображает только разделы верхнего уровня. | 0                     |
+| `урок`           | Имя класса списка категорий.                                                                                                                                                            | категория             |
+| `преобразование` | Функция, позволяющая изменить отображаемое имя поста.                                                                                                                                   |                       |
+| `suffix`         | Добавить суффикс к ссылке.                                                                                                                                                              | Нет                   |
 
-**Examples:**
+**Примеры:**
 
 ``` js
-<%- list_categories(post.categories, {
-  class: 'post-category',
+<%- list_categories(post. Категории, {
+  класс: 'post-category',
   transform(str) {
     return titlecase(str);
   }
 }) %>
 
-<%- list_categories(post.categories, {
-  class: 'post-category',
+<%- list_categories(post. Категории, {
+  класс: 'post-category',
   transform(str) {
-    return str.toUpperCase();
+    return str. oUpperCase();
   }
 }) %>
 ```
 
-### list_tags
+### тэги
 
 Вставка списка всех тегов.
 
@@ -640,38 +640,38 @@ Escapes HTML entities in a string.
 <%- list_tags([options]) %>
 ```
 
-| Опция        | Описание                                                                                                            | Значение по умолчанию |
-| ------------ | ------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `orderby`    | Упорядочивание категорий                                                                                            | name                  |
-| `order`      | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                             | 1                     |
-| `show_count` | Отобразить количество сообщений для каждого архива                                                                  | true                  |
-| `style`      | Стиль показа списка тегов. `list` displays tags in an unordered list. Use `false` or any other value to disable it. | list                  |
-| `separator`  | Разделитель постов. (Работает если только стиль `style` не задан как `list`)                                        | ,                     |
-| `class`      | Имя класса списка тегов (string) или настройте класс каждого тега (object, см. Ниже).                               | tag                   |
-| `transform`  | The function that changes the display of tag name. See examples in [list_categories](#list-categories).             |                       |
-| `amount`     | Ограничение количества отображаемых тегов (0 = неограниченно)                                                       | 0                     |
-| `suffix`     | Добавьте суффикс к ссылке.                                                                                          | None                  |
+| Опция            | Описание                                                                                                                                    | Значение по умолчанию |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `заказ`          | Упорядочивание категорий                                                                                                                    | имя                   |
+| `заказ`          | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                                                     | 1                     |
+| `счет_показа`    | Отобразить количество сообщений для каждого архива                                                                                          | истина                |
+| `стиль`          | Стиль показа списка тегов. `список` отображает теги в неупорядоченном списке. Для отключения используйте `false` или любое другое значение. | список                |
+| `разделитель`    | Разделитель постов. (Работает если только стиль `style` не задан как `list`)                                                                | ,                     |
+| `урок`           | Имя класса списка тегов (string) или настройте класс каждого тега (object, см. Ниже).                                                       | тег                   |
+| `преобразование` | Функция, изменяющая имя тэга. Смотрите примеры в [list_categories](#list-categories).                                                       |                       |
+| `сумма`          | Ограничение количества отображаемых тегов (0 = неограниченно)                                                                               | 0                     |
+| `suffix`         | Добавьте суффикс к ссылке.                                                                                                                  | Нет                   |
 
 Расширенная настройка класса:
 
-| Опция         | Описание                                                                                                                                           | Значение по умолчанию                                       |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `class.ul`    | `<ul>` имя класса (только для стиля `list`)                                                                                                  | `tag-list` (стиль списка)                                   |
-| `class.li`    | `<li>` имя класса (только для стиля `list`)                                                                                                  | `tag-list-item` (стиль списка)                              |
-| `class.a`     | `<a>` имя класса                                                                                                                             | `tag-list-link` (list style) `tag-link` (обычный стиль)     |
-| `class.label` | имя класса `<span>`, в котором хранится метка тега (только для обычного стиля, когда задан `class.label`, метка помещается в `<span>`) | `tag-label` (обычный стиль)                                 |
-| `class.count` | имя класса `<span>`, в котором хранится счетчик тегов (только если `show_count` имеет значение `true`)                                       | `tag-list-count` (стиль списка) `tag-count` (обычный стиль) |
+| Опция          | Описание                                                                                                                                           | Значение по умолчанию                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `class.ul`     | `<ul>` имя класса (только для стиля `list`)                                                                                                  | `tag-list` (стиль списка)                                   |
+| `class.li`     | `<li>` имя класса (только для стиля `list`)                                                                                                  | `tag-list-item` (стиль списка)                              |
+| `class.a`      | `<a>` имя класса                                                                                                                             | `tag-list-link` (list style) `tag-link` (обычный стиль)     |
+| `метка класса` | имя класса `<span>`, в котором хранится метка тега (только для обычного стиля, когда задан `class.label`, метка помещается в `<span>`) | `tag-label` (обычный стиль)                                 |
+| `класс.count`  | имя класса `<span>`, в котором хранится счетчик тегов (только если `show_count` имеет значение `true`)                                       | `tag-list-count` (стиль списка) `tag-count` (обычный стиль) |
 
-Examples:
+Примеры:
 
 ```ejs
 <%- list_tags(site.tags, {class: 'classtest', style: false, separator: ' | '}) %>
-<%- list_tags(site.tags, {class: 'classtest', style: 'list'}) %>
-<%- list_tags(site.tags, {class: {ul: 'ululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: false, separator: ' | '}) %>
-<%- list_tags(site.tags, {class: {ul: 'ululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: 'list'}) %>
+<%- list_tags(site. ags, {class: 'classtest', style: 'list'}) %>
+<%- list_tags(site. ags, {class: {ul: 'ulululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: false, separator: ' | '}) %>
+<%- list_tags(site. ags, {class: {ul: 'ululul', li: 'lilili', a: 'aaa', count: 'ccc'}, style: 'list'}) %>
 ```
 
-### list_archives
+### архивы list_архивов
 
 Вставка списка архивов.
 
@@ -679,18 +679,18 @@ Examples:
 <%- list_archives([options]) %>
 ```
 
-| Опция        | Описание                                                                                                                  | Значение по умолчанию |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `type`       | Тип. Значение может быть год `yearly` или месяц `monthly`.                                                                | monthly               |
-| `order`      | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                                   | 1                     |
-| `show_count` | Функция, позволяющая изменить отображаемое имя архива.                                                                    | true                  |
-| `format`     | Формат даты                                                                                                               | MMMM YYYY             |
-| `style`      | Стиль показа списка архивов. `list` displays archives in an unordered list. Use `false` or any other value to disable it. | list                  |
-| `separator`  | Разделитель архивов. (Работает если только стиль `style` не задан как `list`)                                             | ,                     |
-| `class`      | Имя класса списка архивов.                                                                                                | archive               |
-| `transform`  | The function that changes the display of archive name. See examples in [list_categories](#list-categories).               |                       |
+| Опция            | Описание                                                                                                                                       | Значение по умолчанию |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `тип`            | Тип. Значение может быть год `yearly` или месяц `monthly`.                                                                                     | ежемесячно            |
+| `заказ`          | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убыванию                                                                        | 1                     |
+| `счет_показа`    | Функция, позволяющая изменить отображаемое имя архива.                                                                                         | истина                |
+| `формат`         | Формат даты                                                                                                                                    | ММММ ГГГГ             |
+| `стиль`          | Стиль показа списка архивов. `list` отображает архивы в несупорядоченном списке. Для отключения используйте `false` или любое другое значение. | список                |
+| `разделитель`    | Разделитель архивов. (Работает если только стиль `style` не задан как `list`)                                                                  | ,                     |
+| `урок`           | Имя класса списка архивов.                                                                                                                     | архив                 |
+| `преобразование` | Функция, которая изменяет отображение имени архива. Смотрите примеры в [list_categories](#list-categories).                                    |                       |
 
-### list_posts
+### списки_записи
 
 Список постов.
 
@@ -698,15 +698,15 @@ Examples:
 <%- list_posts([options]) %>
 ```
 
-| Опция       | Описание                                                                                                                        | Значение по умолчанию |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `orderby`   | Сортировка постов                                                                                                               | date                  |
-| `order`     | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убывантю                                                         | 1                     |
-| `style`     | Стиль показа списка постов. `list` отображает категории в неупорядоченном списке. Use `false` or any other value to disable it. | list                  |
-| `separator` | Разделитель тегов. (Работает если только стиль `style` не задан как `list`)                                                     | ,                     |
-| `class`     | Имя класса списка постов.                                                                                                       | post                  |
-| `amount`    | Ограничени количества отображаемых постов (0 = неограниченно)                                                                   | 6                     |
-| `transform` | The function that changes the display of post name. See examples in [list_categories](#list-categories).                        |                       |
+| Опция            | Описание                                                                                                                                        | Значение по умолчанию |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `заказ`          | Сортировка постов                                                                                                                               | дата                  |
+| `заказ`          | Порядок сортировки. `1`, `asc` по возрастанию; `-1`, `desc` по убывантю                                                                         | 1                     |
+| `стиль`          | Стиль показа списка постов. `list` отображает категории в неупорядоченном списке. Для отключения используйте `false` или любое другое значение. | список                |
+| `разделитель`    | Разделитель тегов. (Работает если только стиль `style` не задан как `list`)                                                                     | ,                     |
+| `урок`           | Имя класса списка постов.                                                                                                                       | пост                  |
+| `сумма`          | Ограничени количества отображаемых постов (0 = неограниченно)                                                                                   | 6                     |
+| `преобразование` | Функция, которая изменяет отображение имени записи. Смотрите примеры в [list_categories](#list-categories).                                     |                       |
 
 ### tagcloud
 
@@ -718,63 +718,63 @@ Examples:
 
 | Опции                 | Описание                                                                                                                                                                                            | Значение по умолчанию |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `min_font`            | Минимальный размер шрифта                                                                                                                                                                           | 10                    |
+| `мин_шрифт`           | Минимальный размер шрифта                                                                                                                                                                           | 10                    |
 | `max_font`            | Максимальный размер шрифта                                                                                                                                                                          | 20                    |
-| `unit`                | Единица измерения размера шрифта                                                                                                                                                                    | px                    |
-| `amount`              | Общая сумма тегов                                                                                                                                                                                   | unlimited             |
-| `orderby`             | Упорядочить по тегу                                                                                                                                                                                 | name                  |
-| `order`               | Порядок сортировки. `1`, `asc` для сортировки по возрастанию; `-1`, `desc` для сортировки по убыванию                                                                                               | 1                     |
-| `color`               | Цветное облако тегов                                                                                                                                                                                | false                 |
-| `start_color`         | Стартовый цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`. |                       |
-| `end_color`           | Конечный цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`.  |                       |
-| `class`               | Префикс имени класса тегов                                                                                                                                                                          |                       |
-| `level`               | Количество различных имен классов. Эта опция работает только тогда, когда переменная `class` установлена.                                                                                           | 10                    |
-| `show_count` (+6.3.0) | Отображать количество постов для каждого тега.                                                                                                                                                      | false                 |
-| Примеры:              | Class name of tag count                                                                                                                                                                             | count                 |
+| `единицы`             | Единица измерения размера шрифта                                                                                                                                                                    | px                    |
+| `сумма`               | Общая сумма тегов                                                                                                                                                                                   | неограниченное        |
+| `заказ`               | Упорядочить по тегу                                                                                                                                                                                 | имя                   |
+| `заказ`               | Порядок сортировки. `1`, `asc` для сортировки по возрастанию; `-1`, `desc` для сортировки по убыванию                                                                                               | 1                     |
+| `цвет`                | Цветное облако тегов                                                                                                                                                                                | ложь                  |
+| `цвет старта`         | Стартовый цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`. |                       |
+| `конец цвета`         | Конечный цвет. Можно использовать hex (`#b700ff`), rgba (`rgba(183, 0, 255, 1)`), hsla (`hsla(283, 100%, 50%, 1)`) или [имена цветов]. Эта опция работает только если `color` установлен в `true`.  |                       |
+| `урок`                | Префикс имени класса тегов                                                                                                                                                                          |                       |
+| `уровень`             | Количество различных имен классов. Эта опция работает только тогда, когда переменная `class` установлена.                                                                                           | 10                    |
+| `show_count` (+6.3.0) | Отображать количество постов для каждого тега.                                                                                                                                                      | ложь                  |
+| Примеры:              | Имя класса для количества тегов                                                                                                                                                                     | подсчет               |
 
-**Examples:**
+**Примеры:**
 
 ``` js
-// Default options
+// Опции по умолчанию
 <%- tagcloud() %>
 
-// Limit number of tags to 30
+// Ограничение количества тегов до 30
 <%- tagcloud({amount: 30}) %>
 ```
 
 ## Разное
 
-### paginator
+### пагинатор
 
-Inserts a paginator.
+Вставляет страницу.
 
 ``` js
-<%- paginator(options) %>
+<%- пагинатор(опции) %>
 ```
 
 | Опция                                                                                                                                          | Описание                                                                                 | Значение по умолчанию          |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------ |
-| `base`                                                                                                                                         | Базовый URL-адрес                                                                        | /                              |
-| `format`                                                                                                                                       | Формат URL-адреса                                                                        | page/%d/                       |
-| `total`                                                                                                                                        | Количество страниц                                                                       | 1                              |
-| `current`                                                                                                                                      | Номер текущей страницы                                                                   | 0                              |
-| `prev_text`                                                                                                                                    | Ссылка на предыдущую страницу. Работает только если `prev_next` имеет значение `true`.   | Prev                           |
-| `next_text`                                                                                                                                    | Ссылка на следующую страницу. Работает только если `prev_next` имеет значение `true`.    | Next                           |
-| `space`                                                                                                                                        | Пространство в тексте                                                                    | &hellp;                        |
-| `prev_next`                                                                                                                                    | Отображает ссылки на предыдущую и следующую страницы                                     | true                           |
-| `end_size`                                                                                                                                     | Количество страниц, отображаемых с начала и конца.                                       | 1                              |
-| `mid_size`                                                                                                                                     | Количество страниц, отображаемых от текущей страницы. Текущая страница не включена.      | 2                              |
-| `show_all`                                                                                                                                     | Отобразить все страницы. Если установлено в `true`, `end_size` и `mid_size` не работают. | false                          |
-| `escape`                                                                                                                                       | Экранирование HTML-тегов                                                                 | true                           |
+| `база`                                                                                                                                         | Базовый URL-адрес                                                                        | /                              |
+| `формат`                                                                                                                                       | Формат URL-адреса                                                                        | страница/%d/                   |
+| `всего`                                                                                                                                        | Количество страниц                                                                       | 1                              |
+| `текущий`                                                                                                                                      | Номер текущей страницы                                                                   | 0                              |
+| `пре_текст`                                                                                                                                    | Ссылка на предыдущую страницу. Работает только если `prev_next` имеет значение `true`.   | Предыдущий                     |
+| `следующий текст`                                                                                                                              | Ссылка на следующую страницу. Работает только если `prev_next` имеет значение `true`.    | Следующий                      |
+| `пробел`                                                                                                                                       | Пространство в тексте                                                                    | &hellp;                        |
+| `впереди`                                                                                                                                      | Отображает ссылки на предыдущую и следующую страницы                                     | истина                         |
+| `размер конца`                                                                                                                                 | Количество страниц, отображаемых с начала и конца.                                       | 1                              |
+| `средний размер`                                                                                                                               | Количество страниц, отображаемых от текущей страницы. Текущая страница не включена.      | 2                              |
+| `показать _все`                                                                                                                                | Отобразить все страницы. Если установлено в `true`, `end_size` и `mid_size` не работают. | ложь                           |
+| `побег`                                                                                                                                        | Экранирование HTML-тегов                                                                 | истина                         |
 | &lt;%- strip_html('It\'s not &lt;b&gt;important&lt;/b&gt; anymore!') %&gt; // It's not important anymore! | Примеры:                                                                                 | `Вставляет нумерацию страниц.` |
-| Примеры:                                                                                                                                       | Примеры:                                                                                 | `current`                      |
-| Примеры:                                                                                                                                       | Примеры:                                                                                 | `space`                        |
-| Примеры:                                                                                                                                       | Скрытая копия                                                                            | `extend prev`                  |
-| Примеры:                                                                                                                                       | Next page class name                                                                     | `extend next`                  |
-| `force_prev_next` (+6.3.0)                                                                                                                     | Force display previous and next links                                                    | false                          |
+| Примеры:                                                                                                                                       | Примеры:                                                                                 | `текущий`                      |
+| Примеры:                                                                                                                                       | Примеры:                                                                                 | `пробел`                       |
+| Примеры:                                                                                                                                       | Скрытая копия                                                                            | `расширить предыдущий`         |
+| Примеры:                                                                                                                                       | Имя следующего класса страницы                                                           | `расширить далее`              |
+| `force_prev_next` (+6.3.0)                                                                                                                     | Принудительно отображать предыдущие и последующие ссылки                                 | ложь                           |
 
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- paginator({
@@ -784,11 +784,12 @@ Inserts a paginator.
 ```
 
 ``` html
-<!-- Rendered as -->
+<! - Отображено -->
 <a href="/1/">&lt;</a>
 <a href="/1/">1</a>
 2
 <a href="/3/">3</a>
+
 <a href="/3/">&gt;</a>
 ```
 
@@ -801,7 +802,7 @@ Inserts a paginator.
 ```
 
 ``` html
-<!-- Rendered as -->
+<! - Отображается как -->
 <a href="/1/"><i class="fa fa-angle-left"></i></a>
 <a href="/1/">1</a>
 2
@@ -809,7 +810,7 @@ Inserts a paginator.
 <a href="/3/"><i class="fa fa-angle-right"></i></a>
 ```
 
-### search_form
+### поиск_форма
 
 Вставляет форму поиска Google.
 
@@ -819,11 +820,11 @@ Inserts a paginator.
 
 | Опция    | Описание                                                                                                                              | Значение по умолчанию |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `class`  | Имя класса формы                                                                                                                      | search-form           |
-| `text`   | Подсказка поиска                                                                                                                      | Search                |
-| `button` | Отображать кнопку поиска. Значение может быть логическим или строковым. Если значение — строка, тогда она подставится в текст кнопки. | false                 |
+| `урок`   | Имя класса формы                                                                                                                      | поисковая форма       |
+| `текст`  | Подсказка поиска                                                                                                                      | Искать                |
+| `кнопка` | Отображать кнопку поиска. Значение может быть логическим или строковым. Если значение — строка, тогда она подставится в текст кнопки. | ложь                  |
 
-### number_format
+### числ_формат
 
 Формат чисел.
 
@@ -831,26 +832,26 @@ Inserts a paginator.
 <%- number_format(number, [options]) %>
 ```
 
-| Опция       | Описание                                                                             | Значение по умолчанию |
-| ----------- | ------------------------------------------------------------------------------------ | --------------------- |
-| `precision` | Точность чисел. Значение можно установить в `false` или неотрицательное целое число. | false                 |
-| `delimiter` | Разделитель тысяч                                                                    | ,                     |
-| `separator` | Разделитель дробной части числа от целой.                                            | .                     |
+| Опция         | Описание                                                                             | Значение по умолчанию |
+| ------------- | ------------------------------------------------------------------------------------ | --------------------- |
+| `точность`    | Точность чисел. Значение можно установить в `false` или неотрицательное целое число. | ложь                  |
+| `разделитель` | Разделитель тысяч                                                                    | ,                     |
+| `разделитель` | Разделитель дробной части числа от целой.                                            | .                     |
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- number_format(12345.67, {precision: 1}) %>
 // 12,345.68
 
-<%- number_format(12345.67, {precision: 4}) %>
+<%- number_format(12345. 7, {precision: 4}) %>
 // 12,345.6700
 
-<%- number_format(12345.67, {precision: 0}) %>
+<%- number_format(12345. 7, {precision: 0}) %>
 // 12,345
 
 <%- number_format(12345.67, {delimiter: ''}) %>
-// 12345.67
+// 12345. 7
 
 <%- number_format(12345.67, {separator: '/'}) %>
 // 12,345/67
@@ -864,7 +865,7 @@ Inserts a paginator.
 <%- meta_generator() %>
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- meta_generator() %>
@@ -879,60 +880,61 @@ Inserts a paginator.
 <%- open_graph([options]) %>
 ```
 
-| Option         | Description                                           | Примеры:                                             |
-| -------------- | ----------------------------------------------------- | ---------------------------------------------------- |
-| `title`        | Заголовок страницы (`og:title`)                       | `page.title`                                         |
-| `type`         | Тип страницы (`og:type`)                              | blog                                                 |
-| `url`          | URL-адрес страницы (`og:url`)                         | `url`                                                |
-| `image`        | Обложка страницы (`og:image`)                         | Все изображения в материалах                         |
-| `author`       | Автор статьи (`og:article:author`)                    | `config.author`                                      |
-| `date`         | Время публикации статьи (`og:article:published_time`) | Время публикации страницы                            |
-| `updated`      | Время изменения статьи (`og:article:modified_time`)   | Время изменения страницы                             |
-| `language`     | Язык статьи (`og:locale`)                             | `page.lang || page.language || config.language`      |
-| `site_name`    | Имя сайта (`og:site_name`)                            | `config.title`                                       |
-| `description`  | Описание страницы (`og:description`)                  | Отрывок страницы или первые 200 символов содержимого |
-| `twitter_card` | Карточка Twitter (`twitter:card`)                     | Краткое изложение                                    |
-| `twitter_id`   | Twitter ID (`twitter:creator`)                        |                                                      |
-| `twitter_site` | Сайт Twitter (`twitter:site`)                         |                                                      |
-| `google_plus`  | Ссылка на профиль Google+                             |                                                      |
-| `fb_admins`    | Facebook ID администратора                            |                                                      |
-| `fb_app_id`    | Facebook ID приложения                                |                                                      |
+| Вариант         | Описание                                              | Примеры:                                             |
+| --------------- | ----------------------------------------------------- | ---------------------------------------------------- |
+| `название`      | Заголовок страницы (`og:title`)                       | `page.title`                                         |
+| `тип`           | Тип страницы (`og:type`)                              | блог                                                 |
+| `url`           | URL-адрес страницы (`og:url`)                         | `url`                                                |
+| `изображение`   | Обложка страницы (`og:image`)                         | Все изображения в материалах                         |
+| `автор`         | Автор статьи (`og:article:author`)                    | `config.автор`                                       |
+| `дата`          | Время публикации статьи (`og:article:published_time`) | Время публикации страницы                            |
+| `обновлено`     | Время изменения статьи (`og:article:modified_time`)   | Время изменения страницы                             |
+| `язык`          | Язык статьи (`og:locale`)                             | `page.lang || page.language || config.language`      |
+| `имя сайта`     | Имя сайта (`og:site_name`)                            | `config.title`                                       |
+| `описание`      | Описание страницы (`og:description`)                  | Отрывок страницы или первые 200 символов содержимого |
+| `twitter_card`  | Карточка Twitter (`twitter:card`)                     | Краткое изложение                                    |
+| `twitter_id`    | ID Twitter (`twitter:creator`)                        |                                                      |
+| `твиттер-сайт`  | Сайт Twitter (`twitter:site`)                         |                                                      |
+| `twitter_image` | Twitter Image (`twitter:image`)                       |                                                      |
+| `Google_+`      | Ссылка на профиль Google+                             |                                                      |
+| `fb_админы`     | Facebook ID администратора                            |                                                      |
+| `fb_app_id`     | Facebook ID приложения                                |                                                      |
 
-### toc
+### к
 
 Анализирует все теги заголовков (H1~н6) на странице и создаёт на их основе оглавление.
 
 ``` js
-<%- toc(str, [options]) %>
+<%- toc(ст., [options]) %>
 ```
 
-| Option                | Description                                               | Копия             |
-| --------------------- | --------------------------------------------------------- | ----------------- |
-| `class`               | Имя класса                                                | `toc`             |
-| Примеры:              | Функция, позволяющая изменить отображаемое имя категории. | `${class}-item`   |
-| `class_link` (+6.3.0) | Имя канала                                                | `${class}-link`   |
-| Примеры:              | Примеры:                                                  | `${class}-text`   |
-| Примеры:              | Примеры:                                                  | `${class}-child`  |
-| Примеры:              | Примеры:                                                  | `${class}-number` |
-| Примеры:              | Функция, позволяющая изменить отображаемое имя категории. | `${class}-level`  |
-| `list_number`         | Отображать нумерацию                                      | true              |
-| `max_depth`           | Максимальная глубина генерации заголовков toc             | 6                 |
-| `min_depth`           | Минимальная глубина генерации заголовков toc              | 1                 |
+| Вариант               | Описание                                                  | Копия               |
+| --------------------- | --------------------------------------------------------- | ------------------- |
+| `урок`                | Имя класса                                                | `к`                 |
+| Примеры:              | Функция, позволяющая изменить отображаемое имя категории. | `${class}- элемент` |
+| `class_link` (+6.3.0) | Имя канала                                                | `${class}-ссылка`   |
+| Примеры:              | Примеры:                                                  | `${class}- текст`   |
+| Примеры:              | Примеры:                                                  | `Ребенок ${class}`  |
+| Примеры:              | Примеры:                                                  | `${class}-номер`    |
+| Примеры:              | Функция, позволяющая изменить отображаемое имя категории. | `Уровень ${class}`  |
+| `_список_номер`       | Отображать нумерацию                                      | истина              |
+| `мак_глубина`         | Максимальная глубина генерации заголовков toc             | 6                   |
+| `мину_глубина`        | Минимальная глубина генерации заголовков toc              | 1                   |
 
-**Examples:**
+**Примеры:**
 
 ``` js
 <%- toc(page.content) %>
 ```
 
-#### data-toc-unnumbered (+6.1.0)
+#### непронумерованные данные (+6.1.0)
 
-Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be display).
+Заголовки с атрибутом `data-toc-unnumbered="true"` будут помечены как ненумерованные (номер списка не будет отображаться).
 
-{% note warn "Warning!" %}
-For using `data-toc-unnumbered="true"`, the renderer must have the option to add CSS classes.
+{% заметка предупреждает "Предупреждение!" %}
+Для использования `data-toc-unnumbered="true"`визуализатор должен иметь возможность добавлять классы CSS.
 
-Please see below PRs.
+Смотрите ниже PR.
 
 - https://github.com/hexojs/hexo/pull/4871
 - https://github.com/hexojs/hexo-util/pull/269

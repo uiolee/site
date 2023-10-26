@@ -50,7 +50,7 @@ hexo.route.set('index.html', {
 // hexo.route.isModified('index.html') => false
 ```
 
-## Remove a Path
+## Удалить путь
 
 ``` js
 hexo.route.remove('index.html');

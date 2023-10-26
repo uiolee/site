@@ -1,8 +1,8 @@
 ---
-layout: index
+layout: индекс
 description: Hexo — это быстрый, простой и мощный фреймворк для блога на основе Node.js.
 subtitle: Быстрый, мощный и простой фреймворк для блога
-comments: false
+comments: ложь
 ---
 
 <ul id="intro-feature-list">
