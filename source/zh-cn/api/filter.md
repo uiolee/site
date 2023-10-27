@@ -12,12 +12,6 @@ hexo.extend.filter.register(type, function() {
   const { config } = this;
   if (config.external_link.enable) // do something...
 
-  // Theme configuration
-  const { config: themeCfg } = this.theme;
-  if (themeCfg.fancybox) // do something...
-
-}, priority);
-
   // 主题配置
   const { config: themeCfg } = 这个主题；
   if (athemeCfg.fancybox) // 做一些事情...
@@ -69,7 +63,7 @@ hexo.execFilterSync(类型、数据、选项)；
 ## 移除过滤器
 
 ``` js
-hexo.extend.filter.unregister(类型，过滤)；
+hexo.extend.filter.unregister(type, filter);
 ```
 
 **示例**

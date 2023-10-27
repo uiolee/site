@@ -1,5 +1,5 @@
 ---
-layout: 索引
+layout: index
 description: Hexo 是一个由Node.js驱动的快速、简单的 & 强大的博客框架。
 subtitle: 快速、简洁且高效的博客框架
 comments: false
