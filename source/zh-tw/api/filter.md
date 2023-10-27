@@ -17,12 +17,6 @@ hexo.extend.filter.register(type, function() {
   if (themeCfg.fancybox) // do something...
 
 }, priority);
-
-  // Theme configuration
-  const { config: themeCfg } = this.theme;
-  if (themeCfg.fancybox) // do something...
-
-}, priority);
 ```
 
 You can define the `priority`. Lower `priority` means that it will be executed first. 您可指定過濾器的優先度 `priority`，`priority` 值越低的過濾器會越先執行，預設的 `priority` 是 10。 We recommend using user-configurable priority value that user can specify in the config, e.g. `hexo.config.your_plugin.priority`.
