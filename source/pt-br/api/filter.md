@@ -8,9 +8,9 @@ Um `filter` (filtro) pode ser utilizado para modificar alguns dados. O Hexo pass
 
 ``` js
 hexo.extend.filter.register(type, function() {
-  // Configuração do usuário
+  // User configuration
   const { config } = this;
-  if (config.external_link.enable) // fazer algo...
+  if (config.external_link.enable) // do something...
 
   // Configuração do tema
   const { config: themeCfg } = this.theme;
@@ -36,20 +36,20 @@ hexo.extend.filter.execSync(type, data, opções);
 O primeiro argumento passado para cada filtro é `data`. O próximo filtro da sequência pode receber o argumento `data` modificado ao se retornar um novo valor. Se nada for retornado, `data` continua intacto. Você ainda pode utilizar `args` para especificar outros argumentos dentro dos filtros. Por exemplo:
 
 ``` js
-filtro hexo.extend.filter. egister('teste', função(dado, arg1, arg2){
-  // dados === 'alguns dados'
+hexo.extend.filter.register('test', function(data, arg1, arg2){
+  // data === 'some data'
   // arg1 === 'foo'
   // arg2 === 'bar'
 
-  return 'algo';
+  return 'something';
 });
 
-hexo. xtend.filter.register('test', function(data, arg1, arg2){
-  // dados === 'algo'
+hexo.extend.filter.register('test', function(data, arg1, arg2){
+  // data === 'something'
 });
 
-hexo. xtend.filter.exec('test', 'alguns dados', {
-  arges: ['foo', 'bar']
+hexo.extend.filter.exec('test', 'some data', {
+  args: ['foo', 'bar']
 });
 ```
 

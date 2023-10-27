@@ -18,7 +18,7 @@ _标签插件不应该被包裹在 Markdown 语法中，例如： `[]({% post_pa
 
 ```
 {% blockquote [author[, source]] [link] [source_link_title] %}
-内容
+content
 {% endblockquote %}
 ```
 
@@ -71,7 +71,7 @@ Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 ```
 
-{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcoming to-island-marketing.html Welcome to Island Marketing %}
+{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
 每次互动都是宝贵的，也是欣喜的机会。
 {% endblockquote %}
 
