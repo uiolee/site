@@ -36,19 +36,19 @@ hexo.extend.filter.execSync(тип, данные, параметры);
 Первый аргумент, передаваемый в каждый фильтр, это `data`. Данные `data`, передаваемые в следующий фильтр, могут быть изменены путем возврата нового значения. Если же ничего не возвращается, данные остаются без изменений. Вы даже можете использовать аргументы, чтобы указать другие аргументы в фильтрах. Например:
 
 ``` js
-hexo.extend.filter. egister('test', функция(данные, arg1, arg2){
-  // данные === 'some data'
+hexo.extend.filter.register('test', function(data, arg1, arg2){
+  // data === 'some data'
   // arg1 === 'foo'
   // arg2 === 'bar'
 
   return 'something';
 });
 
-шестнадцатерично. xtend.filter.register('test', function(data, arg1, arg2){
+hexo.extend.filter.register('test', function(data, arg1, arg2){
   // data === 'something'
 });
 
-hexo. xtend.filter.exec('test', 'some data', {
+hexo.extend.filter.exec('test', 'some data', {
   args: ['foo', 'bar']
 });
 ```
