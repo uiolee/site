@@ -139,6 +139,14 @@ $ 十六进制版本
 
 显示版本信息。
 
+## config
+
+```bash
+$ hexo config [key] [value]
+```
+
+列出网站的配置（`_config.yml`）。如果指定了 `key`，则只展示配置中对应 `key` 的值；如果同时指定了 `key` 和 `value`，则将配置中对应的 `key` 的值修改为 `value`。
+
 ## 选项
 
 ### 安全模式
