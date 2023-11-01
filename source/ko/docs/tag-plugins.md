@@ -381,6 +381,79 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
+## URL
+
+### url_for (7.0.0+)
+
+Returns a url with the root path prefixed. Output is encoded automatically.
+
+```
+{% url_for text path [relative] %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+root: /blog/ # example
+```
+
+``` 
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="/blog/index.html">blog</a>
+```
+
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
+
+``` yml
+_config.yml
+relative_link: true
+```
+
+```
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="../../index.html">blog</a>
+```
+
+You could also disable it to output a non-relative link, even when `relative_link` is enabled and vice versa.
+
+```
+{% url_for blog index.html false %}
+```
+
+``` html
+<a href="/index.html">blog</a>
+```
+
+### full_url_for (7.0.0+)
+
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
+
+```
+{% full_url_for text path %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+url: https://example.com/blog # example
+```
+
+```
+{% full_url_for index /a/path %}
+```
+
+``` html
+<a href="https://example.com/blog/a/path">index</a>
+```
+
 ## Raw
 
 특정 컨텐츠가 당신의 포스트 내에서 문제를 일으킨다면, `raw` 태그를 사용하여 감싸주세요. 그러면 렌더링 에러를 피할 수 있습니다.
