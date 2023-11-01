@@ -409,8 +409,7 @@ root: /blog/ # example
 <a href="/blog/index.html">blog</a>
 ```
 
-Relative link, follows `relative_link` option by default
-e.g. post/page path is '/foo/bar/index.html'
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
 
 ``` yml
 _config.yml

@@ -391,7 +391,7 @@ Returns a url with the root path prefixed. Output is encoded automatically.
 {% url_for text path [relative] %}
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` yml
 _config.yml
@@ -406,8 +406,7 @@ root: /blog/ # example
 <a href="/blog/index.html">blog</a>
 ```
 
-Relative link, follows `relative_link` option by default
-e.g. post/page path is '/foo/bar/index.html'
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
 
 ``` yml
 _config.yml
@@ -455,7 +454,7 @@ url: https://example.com/blog # example
 <a href="https://example.com/blog/a/path">index</a>
 ```
 
-## Сырцы
+## Сырье
 
 Если определённый контент вызывает ошибки обработки в ваших постах, оберните его тегом `raw`, чтобы избежать ошибок обработки.
 
@@ -469,7 +468,7 @@ content
 
 Используйте текст до тега `<!-- more -->` в качестве отрывка поста. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
-**Примеры:**
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
