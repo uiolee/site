@@ -139,6 +139,14 @@ Versão de $ hexo
 
 Exibe informações de versão.
 
+## config
+
+```bash
+$ hexo config [key] [value]
+```
+
+Lists the configuration (`_config.yml`). If `key` is specified, only the value of the corresponding `key` in the configuration is shown; if both `key` and `value` are specified, the value of the corresponding `key` in the configuration is changed to `value`.
+
 ## Opções
 
 ### Modo safe

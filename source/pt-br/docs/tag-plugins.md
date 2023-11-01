@@ -378,6 +378,79 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
+## URL
+
+### url_for (7.0.0+)
+
+Returns a url with the root path prefixed. Output is encoded automatically.
+
+```
+{% url_for text path [relative] %}
+```
+
+**Exemplo:**
+
+``` yml
+_config.yml
+root: /blog/ # example
+```
+
+``` 
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="/blog/index.html">blog</a>
+```
+
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
+
+``` yml
+_config.yml
+relative_link: true
+```
+
+```
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="../../index.html">blog</a>
+```
+
+You could also disable it to output a non-relative link, even when `relative_link` is enabled and vice versa.
+
+```
+{% url_for blog index.html false %}
+```
+
+``` html
+<a href="/index.html">blog</a>
+```
+
+### full_url_for (7.0.0+)
+
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
+
+```
+{% full_url_for text path %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+url: https://example.com/blog # example
+```
+
+```
+{% full_url_for index /a/path %}
+```
+
+``` html
+<a href="https://example.com/blog/a/path">index</a>
+```
+
 ## RAW
 
 Se determinado conteúdo estiver causando problemas de processamento em suas postagens, envolva-o com a tag `raw` para evitar erros de renderização.
@@ -392,7 +465,7 @@ conteúdo
 
 Use o texto colocado antes da marcação `<!-- more -->` como um trecho da publicação. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
-**Exemplo:**
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
