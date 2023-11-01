@@ -145,7 +145,7 @@ $ 十六进制版本
 $ hexo config [key] [value]
 ```
 
-列出网站的配置（`_config.yml`）。如果指定了 `key`，则只展示配置中对应 `key` 的值；如果同时指定了 `key` 和 `value`，则将配置中对应的 `key` 的值修改为 `value`。
+Lists the configuration (`_config.yml`). If `key` is specified, only the value of the corresponding `key` in the configuration is shown; if both `key` and `value` are specified, the value of the corresponding `key` in the configuration is changed to `value`.
 
 ## 选项
 
