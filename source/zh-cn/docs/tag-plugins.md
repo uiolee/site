@@ -388,13 +388,13 @@ _hexo-renderer-marked 3.1.0+ 可以（可选）自动解析图片的文章路径
 
 ### url_for (7.0.0+)
 
-返回一个带有根路径前缀的URL。输出将会自动编码。
+Returns a url with the root path prefixed. Output is encoded automatically.
 
 ```
 {% url_for text path [relative] %}
 ```
 
-**示例：**
+**例如：**
 
 ``` yml
 _config.yml
@@ -409,8 +409,7 @@ root: /blog/ # example
 <a href="/blog/index.html">blog</a>
 ```
 
-是否输出相对链接，默认遵循配置文件中 `relative_link` 的值
-例如， post/page 的路径值可能是 `/foo/bar/index.html`
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
 
 ``` yml
 _config.yml
@@ -425,7 +424,7 @@ relative_link: true
 <a href="../../index.html">blog</a>
 ```
 
-即使配置文件中启用了 `relative_link`，你也可以使用 `relative` 参数禁用相对链接输出，反之亦然
+You could also disable it to output a non-relative link, even when `relative_link` is enabled and vice versa.
 
 ```
 {% url_for blog index.html false %}
@@ -437,13 +436,13 @@ relative_link: true
 
 ### full_url_for (7.0.0+)
 
-返回一个以 `config.url` 为前缀的URL。输出将会自动编码。
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
 
 ```
 {% full_url_for text path %}
 ```
 
-**示例：**
+**Examples:**
 
 ``` yml
 _config.yml
@@ -458,7 +457,7 @@ url: https://example.com/blog # example
 <a href="https://example.com/blog/a/path">index</a>
 ```
 
-## Raw
+## 原始文件
 
 如果某些内容在您的帖子中造成处理问题，用 `原始` 标签打包，以避免渲染错误。
 
@@ -472,7 +471,7 @@ url: https://example.com/blog # example
 
 在文章中使用 `<!-- more -->`，那么 `<!-- more -->` 之前的文字将会被视为摘要。 `摘录： <a href="/docs/front-matter#Settings-amp-Their-Default-Values">前事项</a>中的` 值，如果指定，将成为先例。
 
-**例如：**
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
