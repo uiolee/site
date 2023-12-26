@@ -13,7 +13,7 @@ Emitted after deployment finishes.
 
 ### exit
 
-Emitted before Hexo exits.
+Emitted before Hexo .
 
 ### generateBefore
 
