@@ -25,6 +25,8 @@ code snippet
 > 提示：Hexo 支持用任何格式书写文章，只需安装相应渲染插件即可。 它可以是Markdown, ejs, swig, nunjucks, pug, asciidoc，等等。 无论使用何种格式，这三个代码块语法将永远可用。
 ## 配置
 
+v7.0.0以下：
+
 ```yaml
 # _config. ml
 highlight:
@@ -45,9 +47,32 @@ prismjs:
   tab_replace: ''
 ```
 
+v7.0.0及以上：
+
+```yaml
+# _config.yml
+syntax_highlighter: highlight.js
+highlight:
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+  exclude_languages:
+    - example
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+```
+
 以上为 Hexo 的默认配置。
 
 ## 禁用
+
+v7.0.0及以下：
 
 ```yaml
 # _config.yml
@@ -57,7 +82,14 @@ prismjs:
   已启用：false
 ```
 
-当 `highlight.enable` 和 `prismjs.enable` 均为 `false` 时，代码块输出的 HTML 由相应的渲染器控制。 举个例子：[`marked.js`](https://github.com/markedjs/marked)（Hexo 的默认 Markdown 渲染器 [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked) 由此驱动）会把语言加入 `<code>` 标签的 `class` 中：
+v7.0.0及以上：
+
+```yaml
+# _config.yml
+syntax_highlighter:  # empty
+```
+
+当 `highlight.enable` 和 `prismjs.enable` 均为 `false` （v7.0.0以下）或 `syntax_highlighter` 为空（v7.0.0及以上）时，代码块输出的 HTML 由相应的渲染器控制。举个例子：[`marked.js`](https://github.com/markedjs/marked)（Hexo 的默认 Markdown 渲染器 [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked) 由此驱动）会把语言加入 `<code>` 标签的 `class` 中：
 
 ````markdown
 ```yaml
@@ -75,6 +107,8 @@ prismjs:
 
 ## 突出显示js
 
+v7.0.0以下：
+
 ```yaml
 # _config. ml
 highlight:
@@ -91,7 +125,23 @@ prismjs:
   enable: false
 ```
 
-`highlight.js` 默认开启，用作 Hexo 的服务端高亮组件。 如果你需要在浏览器端运行 `highlight.js`，请把它关闭。
+v7.0.0及以上：
+
+```yaml
+# _config.yml
+syntax_highlighter: highlight.js
+highlight:
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: '  '
+  exclude_languages:
+    - example
+  wrap: true
+  hljs: false
+```
+
+`highlight.js` 默认开启，用作 Hexo 的服务端高亮组件。如果你需要在浏览器端运行 `highlight.js`，请把它关闭。
 
 > 「服务端高亮」指语法高亮在 `hexo generate` 或 `hexo server` 时完成。
 
@@ -174,6 +224,8 @@ Because `line_number` feature relies on `wrap`, you can't disable `wrap` with `l
 
 ## PrismJS
 
+v7.0.0以下：
+
 ```yaml
 # _config.yml
 highlight:
@@ -186,7 +238,19 @@ prismjs:
   tab_replus: ''
 ```
 
-PrismJS 默认禁用。 启用 PrismJS 前应设置 `highlight.enable` 为 `false`。
+v7.0.0及以上：
+
+```yaml
+# _config.yml
+syntax_highlighter: prismjs
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+```
+
+PrismJS 默认禁用。启用 PrismJS 前应设置 `highlight.enable` 为 `false`（v7.0.0以下）或设置 `syntax_highlighter` 为 `prismjs`（v7.0.0及以上）。
 
 ### 预处理
 
@@ -227,5 +291,5 @@ Hexo 语法高亮部分的源码可参见：
 
 - [Highlight.js 工具函数](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
 - [PrismJS 工具函数](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
-- [代码块标签插件](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.js)
-- [反引号代码块标签插件](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.js)
+- [代码块标签插件](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.ts)
+- [反引号代码块标签插件](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.ts)

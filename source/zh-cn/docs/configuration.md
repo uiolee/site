@@ -87,7 +87,23 @@ skip_render: "_posts/test-post.md"
 | `高亮显示`           | 代码块的设置, 请参考 [PrismJS](/zh-cn/docs/syntax-highlight#PrismJS) 进行设置           |             |
 | `prismjs`        | 代码块的设置, 请参考 [Highlight.js](/zh-cn/docs/syntax-highlight#Highlight-js) 进行设置 |             |
 
-### 主页设置
+参数 | 描述 | 默认值
+--- | --- | ---
+`new_post_name` | 新文章的文件名称 | `:title.md`
+`default_layout` | 预设布局 | `post`
+`auto_spacing` | 在中文和英文之间加入空格 | `false`
+`titlecase` | 把标题转换为 title case | `false`
+`external_link` | 在新标签中打开链接 | `true`
+`external_link.enable` | 在新标签中打开链接 | `true`
+`external_link.field` | 对整个网站（`site`）生效或仅对文章（`post`）生效 | `site`
+`external_link.exclude` | 需要排除的域名。主域名和子域名如 `www` 需分别配置 | `[]`
+`filename_case` | 把文件名称转换为 (1) 小写或 (2) 大写 | `0`
+`render_drafts` | 显示草稿 | `false`
+`post_asset_folder` | 启用 [资源文件夹](asset-folders.html) | `false`
+`relative_link` | 把链接改为与根目录的相对位址 | `false`
+`future` | 显示未来的文章 | `true`
+`highlight` | 代码块的设置, 请参考 [Highlight.js](/zh-cn/docs/syntax-highlight#Highlight-js) 进行设置 |
+`prismjs` | 代码块的设置, 请参考 [PrismJS](/zh-cn/docs/syntax-highlight#PrismJS) 进行设置 |
 
 | 设置                               | 描述                                                                                                              | 默认值   |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----- |
@@ -130,7 +146,7 @@ Hexo 使用 [Moment.js](http://momentjs.com/) 来解析和显示时间。
 - `date`: 使用 `date` 作为 `updated` 的值。 可被用于 Git 工作流之中，因为使用 Git 管理站点时，文件的最后修改日期常常会发生改变
 - `empty`: 直接删除 `updated`。 使用这一选项可能会导致大部分主题和插件无法正常工作。
 
-`use_date_for_updated` 选项已经被废弃，将会在下个重大版本发布时去除。 请改为使用 `updated_option: 'date'`。
+`use_date_for_updated` 选项已经在 v7.0.0+ 中被移除。请改为使用 `updated_option: 'date'`。
 {% endnote %}
 
 ### 分页

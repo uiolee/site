@@ -41,5 +41,5 @@ pages:
 
 ## Полезные ссылки
 
-- [Страницы GitLab](https://docs.gitlab.com/ee/user/project/pages/)
+- [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/index.html)
 - [Документация GitLab CI](https://docs.gitlab.com/ee/ci/yaml/)

@@ -166,7 +166,11 @@ content
 {% endpullquote %}
 ```
 
-## jsFiddle
+## jsFiddle (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 Размещает фрагмент с jsFiddle:
 
@@ -174,7 +178,11 @@ content
 {% jsfiddle shorttag [tabs] [skin] [width] [height]%}
 ```
 
-## Жизнь
+## Gist (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 Размещает фрагмент с Gist:
 
@@ -246,7 +254,11 @@ content
 {% include_code lang:javascript to:8 test.js %}
 ```
 
-## YouTube
+## YouTube (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 Вставка видео с YouTube.
 
@@ -277,7 +289,11 @@ content
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' false %}
 ```
 
-## Vimeo
+## Vimeo (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 Вставляет видео отзывчивого или заданного размера.
 
@@ -381,7 +397,81 @@ _hexo-renderer-marked 3.1.0+ can (необязательно) resolves the post 
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
 ```
 
-## Сырье
+## URL
+
+### url_for (7.0.0+)
+
+Returns a url with the root path prefixed. Output is encoded automatically.
+
+```
+{% url_for text path [relative] %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+root: /blog/ # example
+```
+
+``` 
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="/blog/index.html">blog</a>
+```
+
+Relative link, follows `relative_link` option by default
+e.g. post/page path is '/foo/bar/index.html'
+
+``` yml
+_config.yml
+relative_link: true
+```
+
+```
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="../../index.html">blog</a>
+```
+
+You could also disable it to output a non-relative link, even when `relative_link` is enabled and vice versa.
+
+```
+{% url_for blog index.html false %}
+```
+
+``` html
+<a href="/index.html">blog</a>
+```
+
+### full_url_for (7.0.0+)
+
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
+
+```
+{% full_url_for text path %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+url: https://example.com/blog # example
+```
+
+```
+{% full_url_for index /a/path %}
+```
+
+``` html
+<a href="https://example.com/blog/a/path">index</a>
+```
+
+## Сырцы
 
 Если определённый контент вызывает ошибки обработки в ваших постах, оберните его тегом `raw`, чтобы избежать ошибок обработки.
 

@@ -227,7 +227,7 @@ Prismjs предназначен для использования в брауз
 
 Исходные коды подсветки синтаксиса Hexo доступны в:
 
-- [Подсветка функций утилиты js](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
-- [Функции утилиты PrismJS](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
-- [Модуль Tag - Кодовый блок](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.js)
-- [Плагин тегов - Блок Backtick Code](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.js)
+- [Highlight.js Utility Functions](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
+- [PrismJS Utility Functions](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
+- [Tag Plugin - Code Block](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.ts)
+- [Tag Plugin - Backtick Code Block](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.ts)
