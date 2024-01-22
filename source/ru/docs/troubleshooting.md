@@ -179,7 +179,7 @@ When you can't get any command except `help`, `init` and `version` to work and y
 
 ## Сокращение содержимого
 
-Hexo использует [Nunjucks][] для отображения сообщения ([Swig][] использовался в предыдущей версии, он использует похожий синтаксис). Содержимое, обёрнутое, в `{{ }}` или `{% %}`, поможет вам разобраться, какая часть вызвала проблемы. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. В качестве альтернативы, теги Nunjucks могут быть отключены через опцию визуализации (если поддерживается), [API](/api/renderer#Disable-Nunjucks-tags) или [front-matter](/docs/front-matter).
+Hexo использует [Nunjucks][] для отображения сообщения ([Swig][] использовался в предыдущей версии, он использует похожий синтаксис). Содержимое, обёрнутое, в `{{ }}` или `{% %}`, поможет вам разобраться, какая часть вызвала проблемы. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, a single backtick `` `{{ }}` `` or a triple backtick. В качестве альтернативы, теги Nunjucks могут быть отключены через опцию визуализации (если поддерживается), [API](/api/renderer#Disable-Nunjucks-tags) или [front-matter](/docs/front-matter).
 
 ```
 {% raw %}

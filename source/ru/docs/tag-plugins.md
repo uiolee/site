@@ -166,10 +166,10 @@ content
 {% endpullquote %}
 ```
 
-## jsFiddle (deleted in `v7.0.0`)
+## jsFiddle
 
 {% note warn %}
-Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+The tag was removed in Hexo 7.0.0. We have provided a plugin [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) for backward compatibility with your existing posts.
 {% endnote %}
 
 Размещает фрагмент с jsFiddle:
@@ -178,7 +178,7 @@ Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if
 {% jsfiddle shorttag [tabs] [skin] [width] [height]%}
 ```
 
-## Gist (deleted in `v7.0.0`)
+## Жизнь
 
 {% note warn %}
 Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
@@ -254,7 +254,7 @@ Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if
 {% include_code lang:javascript to:8 test.js %}
 ```
 
-## YouTube (deleted in `v7.0.0`)
+## YouTube
 
 {% note warn %}
 Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
@@ -289,7 +289,7 @@ Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' false %}
 ```
 
-## Vimeo (deleted in `v7.0.0`)
+## Vimeo
 
 {% note warn %}
 Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
@@ -407,7 +407,7 @@ Returns a url with the root path prefixed. Output is encoded automatically.
 {% url_for text path [relative] %}
 ```
 
-**Examples:**
+**Примеры:**
 
 ``` yml
 _config.yml
@@ -422,8 +422,7 @@ root: /blog/ # example
 <a href="/blog/index.html">blog</a>
 ```
 
-Relative link, follows `relative_link` option by default
-e.g. post/page path is '/foo/bar/index.html'
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
 
 ``` yml
 _config.yml
@@ -471,7 +470,7 @@ url: https://example.com/blog # example
 <a href="https://example.com/blog/a/path">index</a>
 ```
 
-## Сырцы
+## Сырье
 
 Если определённый контент вызывает ошибки обработки в ваших постах, оберните его тегом `raw`, чтобы избежать ошибок обработки.
 
@@ -485,7 +484,7 @@ content
 
 Используйте текст до тега `<!-- more -->` в качестве отрывка поста. `excerpt:` value in the [front-matter](/docs/front-matter#Settings-amp-Their-Default-Values), if specified, will take precedent.
 
-**Примеры:**
+**Examples:**
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

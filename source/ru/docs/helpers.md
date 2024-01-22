@@ -70,7 +70,7 @@ relative_link: true
 
 ### полный url_за
 
-Returns a url with the `config.url` prefixed. Вывод кодируется автоматически.
+Returns a URL with the `config.url` prefixed. Вывод кодируется автоматически.
 
 ``` js
 <%- full_url_for(path) %>
