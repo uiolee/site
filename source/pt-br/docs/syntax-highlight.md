@@ -24,6 +24,7 @@ code snippet
 A terceira sintaxe é a sintaxe de um bloco de código de Markdown e o Hexo a estende para suportar mais recursos. Confira a [Documentação do Plugin Tag](tag-plugins#Code-Block) para descobrir as opções disponíveis.
 > Dica: as postagens de suporte ao Hexo escritas em qualquer formato, por isso a extensão de renderização correspondente está instalada. It can be in markdown, ejs, swig, nunjucks, pug, asciidoc, etc. Regardless of the format used, those three code block syntax will always be available. Independentemente do formato usado, aquela sintaxe de três blocos de código estará sempre disponível.
 ## Configuração
+below v7.0.0:
 
 ```yaml
 # _configuração. ml
@@ -45,9 +46,32 @@ prismjs:
   tab_replace: ''
 ```
 
+v7.0.0+:
+
+```yaml
+# _config.yml
+syntax_highlighter: highlight.js
+highlight:
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+  exclude_languages:
+    - example
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+```
+
 O YAML acima é a configuração padrão do Hexo.
 
 ## Desabilitado
+
+below v7.0.0:
 
 ```yaml
 # _config.yml
@@ -57,7 +81,14 @@ prismjs:
   enable: false
 ```
 
-Quando ambos `highlight.enable` e `prismjs.` nable are `false`, o HTML de saída do bloco de código é controlado pelo renderizador correspondente. Por exemplo, [`marcada. s`](https://github.com/markedjs/marked) (usado por [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked), o renderizador padrão de markdown do Hexo) irá adicionar o código de idioma para a classe `` de `<code>`:
+`auto_detect` é um recurso `highlight.js` que detecta automaticamente o idioma do bloco de código.
+
+```yaml
+# _config.yml
+syntax_highlighter:  # empty
+```
+
+When both `highlight.enable` and `prismjs.enable` are `false` (below v7.0.0) or `syntax_highlighter` is empty (v7.0.0+), the output HTML of the code block is controlled by the corresponding renderer. Por exemplo, [`marcada. s`](https://github.com/markedjs/marked) (usado por [`hexo-renderer-marked`](https://github.com/hexojs/hexo-renderer-marked), o renderizador padrão de markdown do Hexo) irá adicionar o código de idioma para a classe `` de `<code>`:
 
 ````markdown
 ```yaml
@@ -71,9 +102,11 @@ olá: hexo
 </pre>
 ```
 
-Quando nenhum destaque de sintaxe embutido estiver ativado, você pode instalar um plugin de realce de sintaxe de terceiros, ou usar um hileter de sintaxe do lado do navegador (e. . `highlight.js` e `prism.js` ambos suportam rodando no navegador).
+When no built-in syntax highlight is enabled, you can either install third-party syntax-highlight plugin, or use a browser-side syntax highlighter (e.g. `highlight.js` and `prism.js` both support running in browser).
 
 ## Highlight.js
+
+below v7.0.0:
 
 ```yaml
 # _configuração. ml
@@ -91,13 +124,29 @@ prismjs:
   enable: false false
 ```
 
+v7.0.0+:
+
+```yaml
+# _config.yml
+syntax_highlighter: highlight.js
+highlight:
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: '  '
+  exclude_languages:
+    - example
+  wrap: true
+  hljs: false
+```
+
 `destaque. s` é habilitado por padrão e usado como realce no lado do servidor em Hexo; precisa ser desativado se você prefere destacar `. s` no lado do navegador.
 
 > Server-side means the syntax highlight is generated during `hexo generate` or `hexo server`.
 
 ### Detectar_automaticamente
 
-`auto_detect` é um recurso `highlight.js` que detecta automaticamente o idioma do bloco de código.
+`auto_detect` is a `highlight.js` feature that detects language of the code block automatically.
 
 > Dica: Quando você quiser usar "destaque da sublinguagem", habilite `auto_detect` e não marque a linguagem ao escrever um bloco de código.
 
@@ -142,7 +191,7 @@ Substituir guias dentro de bloco de código por uma string determinada. Por padr
 
 ### excluir_linguagens (+6.1.0)
 
-Somente embrulha com `<pre><code class="lang"></code></pre>` e não irá renderizar todas as tags(`span`, e `br`) no conteúdo se são idiomas iguais a esta opção.
+Only wrap with `<pre><code class="lang"></code></pre>` and will not render all tags(`span`, and `br`) in content if are languages match this option.
 
 ### embrulhar
 
@@ -174,6 +223,8 @@ Quando `hljs` estiver definido como `verdadeiro`, toda a saída HTML terá `clas
 
 ## PrismJS
 
+below v7.0.0:
+
 ```yaml
 # _config.yml
 highlight:
@@ -186,7 +237,19 @@ prismjs:
   tab_replace: ''
 ```
 
-Prismjs está desativado por padrão. Você deve definir `highlight.enable` para `false` antes de habilitar o prismjs.
+v7.0.0+:
+
+```yaml
+# _config.yml
+syntax_highlighter: prismjs
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
+```
+
+Prismjs está desativado por padrão. You should set `highlight.enable` to `false` (below v7.0.0) or set `syntax_highlighter` to `prismjs` (v7.0.0+) before enabling prismjs.
 
 ### pré-processamento
 
@@ -227,5 +290,5 @@ Os códigos de origem por trás do destaque de sintaxe do Hexo estão disponíve
 
 - [Funções de Utilitário Highlight.js](https://github.com/hexojs/hexo-util/blob/master/lib/highlight.ts)
 - [Funções Utilitárias PrismJS](https://github.com/hexojs/hexo-util/blob/master/lib/prism.ts)
-- [Plugin de Tag - Bloco de código](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.js)
-- [Plugin de Tag - Bloco de Código Backtick](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.js)
+- [Plugin de Tag - Bloco de código](https://github.com/hexojs/hexo/blob/master/lib/plugins/tag/code.ts)
+- [Plugin de Tag - Bloco de Código Backtick](https://github.com/hexojs/hexo/blob/master/lib/plugins/filter/before_post_render/backtick_code_block.ts)

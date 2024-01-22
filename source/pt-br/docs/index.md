@@ -79,15 +79,32 @@ $ npm install hexo
 
 Uma vez instalado, você pode executar o Hexo de duas maneiras:
 
-Hexo version | Minimum (Node.js version) | Less than (Node.js version)
---- | --- | ---
-7.0+ | 14.0.0 | latest
-6.2+ | 12.13.0 | latest
-6.0+ | 12.13.0 | 18.5.0
-5.0+ | 10.13.0 | 12.0.0
-4.1 - 4.2 | 8.10 | 10.0.0
-4.0 | 8.6 | 8.10.0
-3.3 - 3.9 | 6.9 | 8.0.0
-3.2 - 3.3 | 0.12 | unknown
-3.0 - 3.1 | 0.10 or iojs | unknown
-0.0.1 - 2.8 | 0.10 | unknown
+1. `npx hexo <command>`
+2. Usuários de Linux podem definir o caminho relativo da pasta `node_modules/`:
+
+  ``` bash
+  echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
+  ```
+
+  então execute o Hexo usando `hexo <command>`
+
+### Versão necessária do Node.js
+
+Se você estiver preso com o Node.js mais antigo, você pode considerar instalar uma versão anterior do Hexo.
+
+Por favor, note que não fornecemos correções de bugs para versões anteriores do Hexo.
+
+Recomendamos sempre instalar a versão [mais recente](https://www.npmjs.com/package/hexo?activeTab=versions) do Hexo e a versão [recomendada](#Requirements) do Node.js, sempre que possível.
+
+| Versão do Hexo | Mínimo (versão do Node.js) | Menos de (versão do Node.js) |
+| -------------- | -------------------------- | ---------------------------- |
+| 7.0+           | 14.0.0                     | último                       |
+| 6.2+           | 12.13.0                    | latest                       |
+| 6.0+           | 12.13.0                    | 18.5.0                       |
+| 5.0+           | 10.13.0                    | 12.0.0                       |
+| 4.1 - 4.2      | 8.10                       | 10.0.0                       |
+| 4.0            | 8.6                        | 8.10.0                       |
+| 3.3 - 3.9      | 6.9                        | 8.0.0                        |
+| 3.2 - 3.3      | 0.12                       | desconhecido                 |
+| 3.0 - 3.1      | 0.10 ou iojs               | desconhecido                 |
+| 0.0.1 - 2.8    | 0.10                       | desconhecido                 |
