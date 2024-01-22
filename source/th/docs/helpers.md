@@ -12,7 +12,7 @@ helper จะถูกใช้ใน template เพื่อช่วยเส
 
 ### url_for
 
-Returns a url with the root path prefixed. Output is encoded automatically.
+Returns a URL with the root path prefixed. Output is encoded automatically.
 
 ``` js
 <%- url_for(path) %>
@@ -70,7 +70,7 @@ relative_link: true
 
 ### full_url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Returns a URL with the `config.url` prefixed. Output is encoded automatically.
 
 ``` js
 <%- full_url_for(path) %>
@@ -90,9 +90,9 @@ url: https://example.com/blog # example
 
 ### gravatar
 
-Returns the gravatar image url from an email.
+Returns the gravatar image URL from an email.
 
-If you didn't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
+If you don't specify the [options] parameter, the default options will apply. Otherwise, you can set it to a number which will then be passed on as the size parameter to Gravatar. Finally, if you set it to an object, it will be converted into a query string of parameters for Gravatar.
 
 ``` js
 <%- gravatar(email, [options]) %>
@@ -928,12 +928,12 @@ parse แท็ก heading (h1~h6) ในโพสต์และเสียบ
 
 #### data-toc-unnumbered (+6.1.0)
 
-Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be display).
+Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be displayed).
 
 {% note warn "Warning!" %}
 For using `data-toc-unnumbered="true"`, the renderer must have the option to add CSS classes.
 
-Please see below PRs.
+Please see the below PRs.
 
 - https://github.com/hexojs/hexo/pull/4871
 - https://github.com/hexojs/hexo-util/pull/269

@@ -99,7 +99,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 
 ### Error: ENOENT: no such file or directory
 
-ถ้าคุณพบข้อผิดพลาดท่ีว่า `Error: ENOENT: no such file or directory` เหตุผลส่วนใหญ่จะเป็นการเขียนผิดอักษรตัวใหญ่กับตัวเล็กในแท็ก ประเภทหรือชื่อไฟล์ของคุณ git ไม่สามารถ merge การเปลี่ยนแปลงนี้ได้โดยอัตโนมัติ จึงทำให้การบวนการ automatic branching ถูกหยุดไป Git cannot automatically merge this change so it breaks the automatic branching.
+ถ้าคุณพบข้อผิดพลาดท่ีว่า `Error: ENOENT: no such file or directory` เหตุผลส่วนใหญ่จะเป็นการเขียนผิดอักษรตัวใหญ่กับตัวเล็กในแท็ก ประเภทหรือชื่อไฟล์ของคุณ git ไม่สามารถ merge การเปลี่ยนแปลงนี้ได้โดยอัตโนมัติ จึงทำให้การบวนการ automatic branching ถูกหยุดไป Git cannot automatically merge this change, so it breaks the automatic branching.
 
 เพื่อแก้ไขข้อผิดพลาดนี้ ลองทำตามขั้นตอนต่อไปได้:
 
@@ -179,7 +179,7 @@ $ hexo clean
 
 ## Escape Contents
 
-Hexo uses [Nunjucks][] to render posts ([Swig][] was used in older version, which share a similar syntax). Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
+Hexo uses [Nunjucks][] to render posts ([Swig][] was used in older version, which share a similar syntax). Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, a single backtick `` `{{ }}` `` or a triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
 
 ```
 {% raw %}

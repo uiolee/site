@@ -4,8 +4,8 @@ title: GitHub Pages
 
 In this tutorial, we use [Travis CI](https://travis-ci.com/) to deploy Github Pages. It is free for open source repository, meaning your repository's `master` branch has to be public. Please skip to the [Private repository](#Private-repository) section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
 
-1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.
-2. Push the files of your Hexo folder to the repository. The default branch is usually **main**, older repository may use **master** branch.
+1. Create a repo named <b>*username*.github.io</b>, where username is your username on GitHub. If you have already uploaded to another repo, rename the repo instead.
+2. Push the files of your Hexo folder to the repository. The default branch is usually **main**, older repositories may use **master** branch.
   - To push `main` branch to GitHub:
 
     ```
