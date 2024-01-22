@@ -123,11 +123,11 @@ Hexo는 날짜 처리 시 [Moment.js](http://momentjs.com/)를 사용합니다.
 {% note info updated_option %}
 `updated_option` controls the `updated` value when not provided in the front-matter:
 
-- `mtime`: Use file modification date as `updated`. It is the default behavior of Hexo since 3.0.0
+- `mtime`: Use file modification date as `updated`. It has been the default behaviour of Hexo since 3.0.0
 - `date`: Use `date` as `updated`. Typically used with Git workflow when file modification date could be different.
 - `empty`: Simply drop `updated` when not provided. May not be compatible with most themes and plugins.
 
-`use_date_for_updated` is deprecated and will be removed in next major version. Please use `updated_option: 'date'` instead.
+`use_date_for_updated` is removed in v7.0.0+. Please use `updated_option: 'date'` instead.
 {% endnote %}
 
 ### Pagination
@@ -162,11 +162,11 @@ Use the following options to explicitly process or ignore certain files/folders.
 
 `include` and `exclude` options only apply to the `source/` folder, whereas `ignore` option applies to all folders.
 
-| Setting   | Description                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------ |
-| `include` | Include hidden files (including files/folders with a name that start with an underscore, with an exception*) |
-| `exclude` | Exclude files/folders                                                                                        |
-| `ignore`  | Ignore files/folders                                                                                         |
+| Setting   | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| `include` | Include hidden files (including files/folders with a name that starts with an underscore, with an exception*) |
+| `exclude` | Exclude files/folders                                                                                         |
+| `ignore`  | Ignore files/folders                                                                                          |
 
 Examples:
 

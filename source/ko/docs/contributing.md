@@ -97,7 +97,7 @@ $ hexo server
 Hexo를 사용하다가 문제를 발견하면, [Troubleshooting](troubleshooting.html), [GitHub](https://github.com/hexojs/hexo/issues), [Google Group](https://groups.google.com/group/hexo)에서 이슈에 대해 답을 찾아보세요. 만약 답이 없다면 Github에 문제를 보고해 주세요.
 
 1. 문제 재현은 [debug mode](commands.html#Debug_mode)에서 해주세요.
-2. Follow the steps from issue template to provide debug message and version when submitting a new issue at GitHub.
+2. Follow the steps from the issue template to provide a debug message and version when submitting a new issue at GitHub.
 
 [hexojs/hexo]: https://github.com/hexojs/hexo
 [hexojs/site]: https://github.com/hexojs/site

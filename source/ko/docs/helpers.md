@@ -70,7 +70,7 @@ relative_link: true
 
 ### full_url_for
 
-Returns a url with the `config.url` prefixed. Output is encoded automatically.
+Returns a URL with the `config.url` prefixed. Output is encoded automatically.
 
 ``` js
 <%- full_url_for(path) %>
@@ -928,12 +928,12 @@ Inserts [generator tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 
 #### data-toc-unnumbered (+6.1.0)
 
-Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be display).
+Headings with attribute `data-toc-unnumbered="true"` will be marked as unnumbered (list number will not be displayed).
 
 {% note warn "Warning!" %}
 For using `data-toc-unnumbered="true"`, the renderer must have the option to add CSS classes.
 
-Please see below PRs.
+Please see the below PRs.
 
 - https://github.com/hexojs/hexo/pull/4871
 - https://github.com/hexojs/hexo-util/pull/269

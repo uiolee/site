@@ -4,7 +4,7 @@ title: Tag Plugins
 
 태그 플러그인은 포스트의 태그와는 다릅니다. Octopress로부터 가져온 것으로 특별한 컨텐츠를 당신의 포스트에 빠르게 추가할 수 있도록 도와주는 유용한 방법입니다.
 
-Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+Although you can write your posts in any format, the tag plugins will always be available and syntax remains the same.
 
 {% youtube I07XMi7MHd4 %}
 
@@ -86,14 +86,14 @@ code snippet
 
 Specify additional options in `option:value` format, e.g. `line_number:false first_line:5`.
 
-| Extra Options    | 설명                                                                                                                                                                     | 기본 값   |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `line_number`    | Show line number                                                                                                                                                       | `true` |
-| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                        | `0`    |
-| `highlight`      | Enable code highlighting                                                                                                                                               | `true` |
-| `first_line`     | Specify the first line number                                                                                                                                          | `1`    |
-| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: `mark:1,4-7,10` will mark line 1, 4 to 7 and 10. |        |
-| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                              | `true` |
+| Extra Options    | 설명                                                                                                                                                                          | 기본 값   |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| `line_number`    | Show line number                                                                                                                                                            | `true` |
+| `line_threshold` | Only show line numbers as long as the numbers of lines of the code block exceed such threshold.                                                                             | `0`    |
+| `highlight`      | Enable code highlighting                                                                                                                                                    | `true` |
+| `first_line`     | Specify the first line number                                                                                                                                               | `1`    |
+| `mark`           | Line highlight specific line(s), each value separated by a comma. Specify the number range using a dash<br>Example: `mark:1,4-7,10` will mark lines 1, 4 to 7 and 10. |        |
+| `wrap`           | Wrap the code block in [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)                                                                   | `true` |
 
 ### Examples
 
@@ -166,7 +166,11 @@ content
 {% endpullquote %}
 ```
 
-## jsFiddle
+## jsFiddle (deleted in `v7.0.0`)
+
+{% note warn %}
+The tag was removed in Hexo 7.0.0. We have provided a plugin [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) for backward compatibility with your existing posts.
+{% endnote %}
 
 To embed a jsFiddle snippet:
 
@@ -174,7 +178,11 @@ To embed a jsFiddle snippet:
 {% jsfiddle shorttag [tabs] [skin] [width] [height] %}
 ```
 
-## Gist
+## Gist (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 To embed a Gist snippet:
 
@@ -246,7 +254,11 @@ iframe을 포함시킬 수 있습니다.
 {% include_code lang:javascript to:8 test.js %}
 ```
 
-## YouTube
+## YouTube (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 YouTube video를 포함시킬 수 있습니다.
 
@@ -277,7 +289,11 @@ YouTube's cookie is not used in this mode.
 {% youtube PL9hW1uS6HUfscJ9DHkOSoOX45MjXduUxo 'playlist' false %}
 ```
 
-## Vimeo
+## Vimeo (deleted in `v7.0.0`)
+
+{% note warn %}
+Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+{% endnote %}
 
 Inserts a responsive or specified size Vimeo video.
 
@@ -379,6 +395,79 @@ _hexo-renderer-marked 3.1.0+ can (optionally) resolves the post's path of an ima
 
 ``` html
 <img src="/2020/01/02/hello/foo.jpg" title="lorem ipsum" alt="dolor">
+```
+
+## URL
+
+### url_for (7.0.0+)
+
+Returns a url with the root path prefixed. Output is encoded automatically.
+
+```
+{% url_for text path [relative] %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+root: /blog/ # example
+```
+
+``` 
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="/blog/index.html">blog</a>
+```
+
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
+
+``` yml
+_config.yml
+relative_link: true
+```
+
+```
+{% url_for blog index.html %}
+```
+
+``` html
+<a href="../../index.html">blog</a>
+```
+
+You could also disable it to output a non-relative link, even when `relative_link` is enabled and vice versa.
+
+```
+{% url_for blog index.html false %}
+```
+
+``` html
+<a href="/index.html">blog</a>
+```
+
+### full_url_for (7.0.0+)
+
+Returns a url with the `config.url` prefixed. Output is encoded automatically.
+
+```
+{% full_url_for text path %}
+```
+
+**Examples:**
+
+``` yml
+_config.yml
+url: https://example.com/blog # example
+```
+
+```
+{% full_url_for index /a/path %}
+```
+
+``` html
+<a href="https://example.com/blog/a/path">index</a>
 ```
 
 ## Raw

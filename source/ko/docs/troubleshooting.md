@@ -99,7 +99,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 
 ### Error: ENOENT: no such file or directory
 
-If you get an error like `Error: ENOENT: no such file or directory` it's probably due to to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change so it breaks the automatic branching.
+If you get an error like `Error: ENOENT: no such file or directory` it's probably due to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change, so it breaks the automatic branching.
 
 To fix this, try
 
@@ -179,7 +179,7 @@ When you can't get any command except `help`, `init` and `version` to work and y
 
 ## Escape Contents
 
-Hexo는 포스트를 렌더링하는데 [Nunjucks][]를 사용합니다([Swig][]은 이전 버전에서 사용했었습니다. `{{ }}` 또는 `{% %}`로 감싼 컨텐츠는 파싱된 후에 문제를 발생시킵니다. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
+Hexo는 포스트를 렌더링하는데 [Nunjucks][]를 사용합니다([Swig][]은 이전 버전에서 사용했었습니다. `{{ }}` 또는 `{% %}`로 감싼 컨텐츠는 파싱된 후에 문제를 발생시킵니다. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, a single backtick `` `{{ }}` `` or a triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
 
 ```
 {% raw %}
