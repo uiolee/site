@@ -179,7 +179,7 @@ Hexo 使用 [Warehouse][] 存储资料，它不是一般数组所以必须先进
 
 ## 转义内容
 
-Hexo 使用 [Nunjucks][] 来解析文章（旧版本使用 [Swig][]，两者语法类似），内容若包含 `{{ }}` 或 `{% %}` 可能导致解析错误，您可以用 [`raw`](/zh-cn/docs/tag-plugins#Raw) 标签包裹，单反引号 `` `{{ }}` `` 或 三反引号 来避免潜在问题发生。 内容包裹为 `{{ }}` 或 `{% %}` 将被解析并可能引起问题。 You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. 此外，Nunjucks 标签也可以通过渲染器的选项（如果支持的话）、[API](/zh-cn/api/renderer#禁用-Nunjucks-标签) 或 [front-matter](/zh-cn/docs/front-matter) 来禁用。
+Hexo 使用 [Nunjucks][] 来解析文章（旧版本使用 [Swig][]，两者语法类似），内容若包含 `{{ }}` 或 `{% %}` 可能导致解析错误，您可以用 [`raw`](/zh-cn/docs/tag-plugins#Raw) 标签包裹，单反引号 `` `{{ }}` `` 或 三反引号 来避免潜在问题发生。 内容包裹为 `{{ }}` 或 `{% %}` 将被解析并可能引起问题。 You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, a single backtick `` `{{ }}` `` or a triple backtick. 此外，Nunjucks 标签也可以通过渲染器的选项（如果支持的话）、[API](/zh-cn/api/renderer#禁用-Nunjucks-标签) 或 [front-matter](/zh-cn/docs/front-matter) 来禁用。
 
 ```
 {% raw %}
