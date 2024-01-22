@@ -123,11 +123,11 @@ Hexo 使用 [Moment.js](http://momentjs.com/) 來解析和顯示時間。
 {% note info updated_option %}
 `updated_option` controls the `updated` value when not provided in the front-matter:
 
-- `mtime`: Use file modification date as `updated`. It is the default behavior of Hexo since 3.0.0 It is the default behavior of Hexo since 3.0.0
+- `mtime`: Use file modification date as `updated`. It is the default behavior of Hexo since 3.0.0 It has been the default behaviour of Hexo since 3.0.0
 - `date`: Use `date` as `updated`. `date`: Use `date` as `updated`. Typically used with Git workflow when file modification date could be different.
 - `empty`: Simply drop `updated` when not provided. May not be compatible with most themes and plugins. May not be compatible with most themes and plugins.
 
-`use_date_for_updated` is removed in v7.0.0+. Please use `updated_option: 'date'` instead.
+`use_date_for_updated` is deprecated and will be removed in next major version. Please use `updated_option: 'date'` instead. Please use `updated_option: 'date'` instead.
 {% endnote %}
 
 ### 分頁
@@ -162,11 +162,11 @@ Use the following options to explicitly process or ignore certain files/folders.
 
 `include` and `exclude` options only apply to the `source/` folder, whereas `ignore` option applies to all folders.
 
-| 預設值       | Description                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------ |
-| `include` | Include hidden files (including files/folders with a name that start with an underscore, with an exception*) |
-| `exclude` | 原始檔案資料夾，這個資料夾用於存放您的內容                                                                                        |
-| `ignore`  | Ignore files/folders                                                                                         |
+| 預設值       | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| `include` | Include hidden files (including files/folders with a name that starts with an underscore, with an exception*) |
+| `exclude` | 原始檔案資料夾，這個資料夾用於存放您的內容                                                                                         |
+| `ignore`  | Ignore files/folders                                                                                          |
 
 auto_spacing
 
@@ -326,5 +326,5 @@ Resulting in theme configuration:
 ```
 
 {% note %}
-We strongly recommend you to store your theme configuration in one place. We strongly recommends you to store your theme configuration in one place. But in case you have to store your theme configuration separately, those information is quite important: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file, while the `_config.yml` file under the theme directory has the lowest priority. The `_config.yml` file under the theme directory has the lowest priority.
+We strongly recommend that you store your theme configuration in one place. We strongly recommends you to store your theme configuration in one place. But in case you have to store your theme configuration separately, those information is quite important: The `theme_config` inside site's primary configuration file has the highest priority during merging, then the dedicated theme configuration file, while the `_config.yml` file under the theme directory has the lowest priority. The `_config.yml` file under the theme directory has the lowest priority.
 {% endnote %}

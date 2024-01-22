@@ -97,7 +97,7 @@ fatal: 'username.github.io' does not appear to be a git repository
 
 ### Error: ENOENT: no such file or directory
 
-If you get an error like `Error: ENOENT: no such file or directory` it's probably due to to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change so it breaks the automatic branching.
+If you get an error like `Error: ENOENT: no such file or directory` it's probably due to mixing uppercase and lowercase letters in your tags, categories, or filenames. Git cannot automatically merge this change, so it breaks the automatic branching.
 
 To fix this, try
 
@@ -179,7 +179,7 @@ When you can't get any command except `help`, `init` and `version` to work and y
 
 ## Escape Contents
 
-Hexo 使用 [Nunjucks][] 來解析文章（舊版本使用 [Swig][]，兩者語法類似），內容若包含 `{{ }}` 或 `{% %}` 可能導致解析錯誤，您可以用 [`raw`](/docs/tag-plugins#Raw) 標籤包裹，single backtick `` `{{ }}` `` 或 triple backtick 來避免潛在問題發生。 Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, single backtick `` `{{ }}` `` or triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
+Hexo 使用 [Nunjucks][] 來解析文章（舊版本使用 [Swig][]，兩者語法類似），內容若包含 `{{ }}` 或 `{% %}` 可能導致解析錯誤，您可以用 [`raw`](/docs/tag-plugins#Raw) 標籤包裹，single backtick `` `{{ }}` `` 或 triple backtick 來避免潛在問題發生。 Content wrapped with `{{ }}` or `{% %}` will get parsed and may cause problems. You can skip the parsing by wrapping it with the [`raw`](/docs/tag-plugins#Raw) tag plugin, a single backtick `` `{{ }}` `` or a triple backtick. Alternatively, Nunjucks tags can be disabled through the renderer's option (if supported), [API](/api/renderer#Disable-Nunjucks-tags) or [front-matter](/docs/front-matter).
 
 ```
 {% raw %}

@@ -78,7 +78,7 @@ tags:
      - one_column
    ```
 
-5. 在 `source/themes/screenshots` 新增同名的截圖檔案，圖片必須為 800x500 的 PNG 檔案。 It must be a 800\*500px PNG.
+5. 在 `source/themes/screenshots` 新增同名的截圖檔案，圖片必須為 800x500 的 PNG 檔案。 It must be a 800*500px PNG.
 6. 推送（push）分支。
 7. Create a pull request and describe the change.
 

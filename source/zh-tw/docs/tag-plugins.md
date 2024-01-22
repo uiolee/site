@@ -4,7 +4,7 @@ title: 標籤外掛（Tag Plugins）
 
 Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
 
-Although you can write your posts in any formats, but the tag plugins will always be available and syntax remains the same.
+Although you can write your posts in any format, the tag plugins will always be available and syntax remains the same.
 
 {% youtube I07XMi7MHd4 %}
 
@@ -77,7 +77,7 @@ Every interaction is both precious and an opportunity to delight.
 
 ## Code Block
 
-Useful feature for adding code snippets to your post.
+A useful feature for adding code snippets to your post.
 
 **捷徑：** code
 
@@ -172,7 +172,7 @@ content
 ## jsFiddle (deleted in `v7.0.0`)
 
 {% note warn %}
-Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
+The tag was removed in Hexo 7.0.0. We have provided a plugin [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) for backward compatibility with your existing posts.
 {% endnote %}
 
 在文章中嵌入 jsFiddle。
@@ -225,7 +225,39 @@ To embed a Gist snippet:
 {% include_code [title] [lang:language] path/to/file %}
 ```
 
-## Youtube (deleted in `v7.0.0`)
+### Examples
+
+**Embed the whole content of test.js**
+
+```
+{% include_code lang:javascript test.js %}
+```
+
+**Embed line 3 only**
+
+```
+{% include_code lang:javascript from:3 to:3 test.js %}
+```
+
+**Embed line 5 to 8**
+
+```
+{% include_code lang:javascript from:5 to:8 test.js %}
+```
+
+**Embed line 5 to the end of file**
+
+```
+{% include_code lang:javascript from:5 test.js %}
+```
+
+**Embed line 1 to 8**
+
+```
+{% include_code lang:javascript to:8 test.js %}
+```
+
+## Youtube
 
 {% note warn %}
 Please use [hexo-tag-embed](https://github.com/hexojs/hexo-tag-embed) instead if you use `v7.0.0+`.
@@ -393,8 +425,7 @@ root: /blog/ # example
 <a href="/blog/index.html">blog</a>
 ```
 
-Relative link, follows `relative_link` option by default
-e.g. post/page path is '/foo/bar/index.html'
+Relative link, follows `relative_link` option by default e.g. post/page path is '/foo/bar/index.html'
 
 ``` yml
 _config.yml
