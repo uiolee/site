@@ -1,6 +1,7 @@
 ---
 title: Themes
 ---
+
 `hexo.theme`는 [Box](box.html)를 상속하며, 템플릿을 저장합니다.
 
 ## View 얻어오기
