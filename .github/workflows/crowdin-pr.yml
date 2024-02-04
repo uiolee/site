@@ -12,8 +12,8 @@ on:
     - cron: "0 0 * * *" # Every day 0 o'clock
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
@@ -31,7 +31,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: crowdin/github-action@v1
+      - name: Get BOT token
+        id: get_bot_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: "site"
+
+      - name: Download Translations && Create PR
+        uses: crowdin/github-action@v1
         with:
           upload_sources: false
           push_sources: false
@@ -55,6 +65,6 @@ jobs:
           crowdin_branch_name: ${{ github.ref_name }}
           config: "crowdin.yml"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get_bot_token.outputs.token }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
