@@ -1,6 +1,7 @@
 ---
 title: Фильтры
 ---
+
 Фильтры используются для изменения указанных данных. Hexo передает данные для фильтров в определенной последовательности и фильтров изменения данных один за другим. Эта концепция была заимствована из [WordPress](http://codex.wordpress.org/Plugin_API#Filters)
 
 ## Краткий обзор
@@ -27,10 +28,10 @@ hexo.extend.filter.exec(type, data, options);
 hexo.extend.filter.execSync(type, data, options);
 ```
 
-Опция | Описание
---- | ---
-`context` | Контекст
-`args` | Аргументы. Должны быть в виде массива.
+| Опция     | Описание                               |
+| --------- | -------------------------------------- |
+| `context` | Контекст                               |
+| `args`    | Аргументы. Должны быть в виде массива. |
 
 Первый аргумент, передаваемый в каждый фильтр, это `data`. Данные `data`, передаваемые в следующий фильтр, могут быть изменены путем возврата нового значения. Если же ничего не возвращается, данные остаются без изменений. Вы даже можете использовать аргументы, чтобы указать другие аргументы в фильтрах. Например:
 
@@ -172,7 +173,7 @@ hexo.extend.filter.register('after_init', function(){
 
 ### new_post_path
 
-Используется при создании поста для определения пути постоянной ссылки.
+Выполняется при создании поста для определения пути постоянной ссылки.
 
 ``` js
 hexo.extend.filter.register('new_post_path', function(data, replace){
@@ -182,7 +183,7 @@ hexo.extend.filter.register('new_post_path', function(data, replace){
 
 ### post_permalink
 
-Выполняется при создании поста для определения пути постоянной ссылки.
+Используется при создании поста для определения пути постоянной ссылки.
 
 ``` js
 hexo.extend.filter.register('post_permalink', function(data){
@@ -194,9 +195,19 @@ hexo.extend.filter.register('post_permalink', function(data){
 
 Выполнится после завершения обработки. См. [рендеринг](rendering.html#after_render_Filters) для подробностей.
 
+### after_clean
+
+Executed after generated files and cache are removed with `hexo clean` command.
+
+``` js
+hexo.extend.filter.register('after_clean', function(){
+  // remove some other temporary files
+});
+```
+
 ### server_middleware
 
-Добавляет промежуточные задачи для сервера. `app` является экземпляром [Connect].
+Добавляет промежуточные задачи для сервера. `app` является экземпляром [Connect][].
 
 Например, чтобы добавить `X-Powered-By: Hexo` в заголовке ответа:
 
