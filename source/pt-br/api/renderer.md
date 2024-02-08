@@ -12,18 +12,19 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-Argumento | Descrição
---- | ---
-`name` | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial)
-`output` | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)
-`sync` | Modo de sincronização
+| Argumento | Descrição                                                       |
+| --------- | --------------------------------------------------------------- |
+| `name`    | Extensão do arquivo de entrada (caixa baixa, sem o `.` inicial) |
+| `output`  | Extensão do arquivo de saída (caixa baixa, sem o `.` inicial)   |
+| `sync`    | Modo de sincronização                                           |
 
 Dois argumentos devem ser passados para a função renderer:
 
-Argumento | Descrição
---- | ---
-`data` | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista.
-`option` | Opções
+| Argumento  | Descrição                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `data`     | Inclui dois atributos: Caminho do arquivo (`path`) e o conteúdo do arquivo (`text`). Não é necessário que `path` exista. |
+| `option`   | Opções                                                                                                                   |
+| `callback` | Callback function of two parameters `err`, `value`.                                                                      |
 
 ## Exemplo
 
