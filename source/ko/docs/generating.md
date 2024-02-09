@@ -1,11 +1,14 @@
 ---
 title: Generating
 ---
+
 Hexo를 사용하여 매우 쉽고 빠르게 정적인 파일을 생성할 수 있습니다.
 
 ``` bash
 $ hexo generate
 ```
+
+{% youtube viEJQPVCoLU %}
 
 ### 파일 변경을 감시(watch)하기
 
