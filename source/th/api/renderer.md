@@ -1,6 +1,7 @@
 ---
 title: Renderer
 ---
+
 renderer ใช้มา render เนื้อหา
 
 ## Synopsis
@@ -11,18 +12,19 @@ hexo.extend.renderer.register(name, output, function(data, options){
 }, sync);
 ```
 
-Argument | Description
---- | ---
-`name` | Input filename extension (lower case, without leading `.`)
-`output` | Output filename extension (lower case, without leading `.`)
-`sync` | Sync mode
+| Argument | Description                                                 |
+| -------- | ----------------------------------------------------------- |
+| `name`   | Input filename extension (lower case, without leading `.`)  |
+| `output` | Output filename extension (lower case, without leading `.`) |
+| `sync`   | Sync mode                                                   |
 
 argument สองตัวนั้นจะส่งเข้า render function:
 
-Argument | Description
---- | ---
-`data` | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist.
-`option` | Options
+| Argument   | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `data`     | Include two attributes: file path `path` and file content `text`. `path` won't necessarily exist. |
+| `option`   | Options                                                                                           |
+| `callback` | Callback function of two parameters `err`, `value`.                                               |
 
 ## ตัวอย่าง
 
