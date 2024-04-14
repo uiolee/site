@@ -2,13 +2,14 @@ name: Cleaner
 
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 permissions:
   contents: write
+  pull-requests: write
 jobs:
   cleanup:
     runs-on: ubuntu-latest
