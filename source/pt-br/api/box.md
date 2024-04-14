@@ -27,7 +27,7 @@ posts/:id => posts/89
 posts/*path => posts/2015/title
 ```
 
-Veja [util.Pattern] para mais informações.
+Veja [util. Pattern][] para mais informações.
 
 ## Processors
 
@@ -41,22 +41,22 @@ box.addProcessor('posts/:id', function(file){
 
 O Box passa o conteúdo dos arquivos correspondentes aos processadores. Esta informação pode então ser lida diretamente do argumento `file` no retorno do callback:
 
-Atributo | Descrição
---- | ---
-`source` | Caminho completo do arquivo.
-`path` | Caminho relativo para o Box do arquivo.
-`type` | Tipo de arquivo. O valor pode ser `create`, `update`, `skip` ou `delete`.
-`params` | A informação do caminho correspondente.
+| Atributo | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| `source` | Caminho completo do arquivo.                                              |
+| `path`   | Caminho relativo para o Box do arquivo.                                   |
+| `type`   | Tipo de arquivo. O valor pode ser `create`, `update`, `skip` ou `delete`. |
+| `params` | A informação do caminho correspondente.                                   |
 
 O Box também fornece alguns métodos para que você não precise fazer o IO (entrada e saída) de arquivo por conta própria.
 
-Método | Descrição
---- | ---
-`read` | Ler um arquivo.
-`readSync` | Ler um arquivo de forma síncrona.
-`stat` | Ler o status de um arquivo.
-`statSync` | Ler o status de um arquivo de forma síncrona.
-`render` | Renderizar um arquivo.
-`renderSync` | Renderizar um arquivo de forma síncrona.
+| Método       | Descrição                                     |
+| ------------ | --------------------------------------------- |
+| `read`       | Ler um arquivo.                               |
+| `readSync`   | Ler um arquivo de forma síncrona.             |
+| `stat`       | Ler o status de um arquivo.                   |
+| `statSync`   | Ler o status de um arquivo de forma síncrona. |
+| `render`     | Renderizar um arquivo.                        |
+| `renderSync` | Renderizar um arquivo de forma síncrona.      |
 
-[util.Pattern]: https://github.com/hexojs/hexo-util#patternrule
+[util. Pattern]: https://github.com/hexojs/hexo-util#patternrule
