@@ -31,7 +31,7 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 
 ### Page Variables
 
-**บทความ (`page`)**
+**Article (`page`)**
 
 | Variable           | Description                                                                            | Type                 |
 | ------------------ | -------------------------------------------------------------------------------------- | -------------------- |
@@ -46,14 +46,14 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 | `page.source`      | The path of the source file                                                            | `string`             |
 | `page.full_source` | Full path of the source file                                                           | `string`             |
 | `page.path`        | The URL of the article without root URL. We usually use `url_for(page.path)` in theme. | `string`             |
-| `page.permalink`   | Full URL of the article                                                                | `string`             |
+| `page.permalink`   | Full (encoded) URL of the article                                                      | `string`             |
 | `page.prev`        | The previous post, `null` if the post is the first post                                | ???                  |
 | `page.next`        | The next post, `null` if the post is the last post                                     | ???                  |
 | `page.raw`         | The raw data of the article                                                            | ???                  |
 | `page.photos`      | The photos of the article (Used in gallery posts)                                      | array of ???         |
 | `page.link`        | The external link of the article (Used in link posts)                                  | `string`             |
 
-**โพสต์ (`post`):** เหมือนกับ layout `page` แต่เพิ่ม variable ต่อไป
+**Post (`post`):** Same as `page` layout but add the following variables.
 
 | Variable          | Description                     | Type           |
 | ----------------- | ------------------------------- | -------------- |
@@ -61,7 +61,7 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 | `page.categories` | All categories of the post      | `array` of ??? |
 | `page.tags`       | All tags of the post            | `array` of ??? |
 
-**หน้าหลัก (`index`)**
+**Home (`index`)**
 
 | Variable           | Description                                                                             | Type     |
 | ------------------ | --------------------------------------------------------------------------------------- | -------- |
@@ -76,7 +76,7 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 | `page.next_link`   | The URL of next page. `''` if the current page is the last.                             | `string` |
 | `page.path`        | The URL of current page without root URL. We usually use `url_for(page.path)` in theme. | `string` |
 
-**อาไครฟ (`archive`):** เหมือนกับ layout `index` แต่เพิ่ม variable ต่อไป
+**Archive (`archive`):** Same as `index` layout but add the following variables.
 
 | Variable       | Description                                   | Type      |
 | -------------- | --------------------------------------------- | --------- |
@@ -84,13 +84,13 @@ Lodash has been removed from global variables since Hexo 5.0.0. [You-Dont-Need-L
 | `page.year`    | Archive year (4-digit)                        | `number`  |
 | `page.month`   | Archive month (2-digit without leading zeros) | `number`  |
 
-**ประเภท (`category`):** เหมือนกับ layout `index` แต่เพิ่ม variable ต่อไป
+**Category (`category`):** Same as `index` layout but add the following variables.
 
 | Variable        | Description   | Type     |
 | --------------- | ------------- | -------- |
 | `page.category` | Category name | `string` |
 
-**แท็ก (`tag`):** เหมือนกับ layout `index` แต่เพิ่ม variable ต่อไป
+**Tag (`tag`):** Same as `index` layout but add the following variables.
 
 | Variable   | Description | Type     |
 | ---------- | ----------- | -------- |
