@@ -3,21 +3,28 @@ en:
 zh-tw:
   name: 正體中文
   disqus_lang: zh_TW
+  translationProgress: 48
 zh-cn:
   name: 简体中文
   disqus_lang: zh
+  translationProgress: 99
 ru:
   name: Русский
   disqus_lang: ru
+  translationProgress: 74
 ko:
   name: 한국어
   disqus_lang: ko
+  translationProgress: 57
 pt-br:
   name: Português (Brasil)
   disqus_lang: pt-br
+  translationProgress: 63
 th:
   name: ภาษาไทย
   disqus_lang: th
+  translationProgress: 32
 ja:
   name: 日本語
   disqus_lang: ja
+  translationProgress: 99
